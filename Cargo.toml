@@ -1,11 +1,11 @@
 [package]
 description = "Peripheral access API for nrf52840 microcontrollers"
-documentation = "https://docs.rs/nrf52"
+documentation = "https://docs.rs/nrf52840"
 keywords = ["no-std", "arm", "cortex-m", "nrf52840"]
 license = "MIT"
 name = "nrf52840"
 repository = "https://github.com/jscarrott/nrf52840"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["jscarrott <johnps@outlook.com>"]
 
 [dependencies]
