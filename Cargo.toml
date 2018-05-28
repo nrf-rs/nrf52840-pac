@@ -5,7 +5,7 @@ keywords = ["no-std", "arm", "cortex-m", "nrf52840"]
 license = "MIT"
 name = "nrf52840"
 repository = "https://github.com/jscarrott/nrf52840"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["jscarrott <johnps@outlook.com>"]
 
 [dependencies]
@@ -20,5 +20,5 @@ version = "0.5.1"
 optional = true
 
 [features]
-rt = ["cortex-m-rt"]
+rt = ["cortex-m-rt/device"]
 
