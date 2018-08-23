@@ -9,15 +9,15 @@ pub struct RegisterBlock {
     pub tasks_sense: TASKS_SENSE,
     #[doc = "0x0c - Start transmission of an outgoing frame, change state to transmit"]
     pub tasks_starttx: TASKS_STARTTX,
-    _reserved0: [u8; 12usize],
+    _reserved4: [u8; 12usize],
     #[doc = "0x1c - Initializes the EasyDMA for receive."]
     pub tasks_enablerxdata: TASKS_ENABLERXDATA,
-    _reserved1: [u8; 4usize],
+    _reserved5: [u8; 4usize],
     #[doc = "0x24 - Force state machine to IDLE state"]
     pub tasks_goidle: TASKS_GOIDLE,
     #[doc = "0x28 - Force state machine to SLEEP_A state"]
     pub tasks_gosleep: TASKS_GOSLEEP,
-    _reserved2: [u8; 212usize],
+    _reserved7: [u8; 212usize],
     #[doc = "0x100 - The NFCT peripheral is ready to receive and send frames"]
     pub events_ready: EVENTS_READY,
     #[doc = "0x104 - Remote NFC field detected"]
@@ -34,45 +34,48 @@ pub struct RegisterBlock {
     pub events_rxframeend: EVENTS_RXFRAMEEND,
     #[doc = "0x11c - NFC error reported. The ERRORSTATUS register contains details on the source of the error."]
     pub events_error: EVENTS_ERROR,
-    _reserved3: [u8; 8usize],
+    _reserved15: [u8; 8usize],
     #[doc = "0x128 - NFC RX frame error reported. The FRAMESTATUS.RX register contains details on the source of the error."]
     pub events_rxerror: EVENTS_RXERROR,
     #[doc = "0x12c - RX buffer (as defined by PACKETPTR and MAXLEN) in Data RAM full."]
     pub events_endrx: EVENTS_ENDRX,
     #[doc = "0x130 - Transmission of data in RAM has ended, and EasyDMA has ended accessing the TX buffer"]
     pub events_endtx: EVENTS_ENDTX,
-    _reserved4: [u8; 4usize],
+    _reserved18: [u8; 4usize],
     #[doc = "0x138 - Auto collision resolution process has started"]
     pub events_autocolresstarted: EVENTS_AUTOCOLRESSTARTED,
-    _reserved5: [u8; 12usize],
+    _reserved19: [u8; 12usize],
     #[doc = "0x148 - NFC auto collision resolution error reported."]
     pub events_collision: EVENTS_COLLISION,
     #[doc = "0x14c - NFC auto collision resolution successfully completed"]
     pub events_selected: EVENTS_SELECTED,
     #[doc = "0x150 - EasyDMA is ready to receive or send frames."]
     pub events_started: EVENTS_STARTED,
-    _reserved6: [u8; 172usize],
+    _reserved22: [u8; 172usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
-    _reserved7: [u8; 252usize],
+    _reserved23: [u8; 252usize],
     #[doc = "0x300 - Enable or disable interrupt"]
     pub inten: INTEN,
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved8: [u8; 248usize],
+    _reserved26: [u8; 248usize],
     #[doc = "0x404 - NFC Error Status register"]
     pub errorstatus: ERRORSTATUS,
-    _reserved9: [u8; 4usize],
+    _reserved27: [u8; 4usize],
     #[doc = "0x40c - Unspecified"]
     pub framestatus: FRAMESTATUS,
     #[doc = "0x410 - NfcTag state register"]
     pub nfctagstate: NFCTAGSTATE,
-    _reserved10: [u8; 40usize],
+    _reserved29: [u8; 12usize],
+    #[doc = "0x420 - Sleep state during automatic collision resolution"]
+    pub sleepstate: SLEEPSTATE,
+    _reserved30: [u8; 24usize],
     #[doc = "0x43c - Indicates the presence or not of a valid field"]
     pub fieldpresent: FIELDPRESENT,
-    _reserved11: [u8; 196usize],
+    _reserved31: [u8; 196usize],
     #[doc = "0x504 - Minimum frame delay"]
     pub framedelaymin: FRAMEDELAYMIN,
     #[doc = "0x508 - Maximum frame delay"]
@@ -87,7 +90,7 @@ pub struct RegisterBlock {
     pub txd: TXD,
     #[doc = "0x520 - Unspecified"]
     pub rxd: RXD,
-    _reserved12: [u8; 104usize],
+    _reserved38: [u8; 104usize],
     #[doc = "0x590 - Last NFCID1 part (4, 7 or 10 bytes ID)"]
     pub nfcid1_last: NFCID1_LAST,
     #[doc = "0x594 - Second last NFCID1 part (7 or 10 bytes ID)"]
@@ -300,6 +303,12 @@ pub struct NFCTAGSTATE {
 }
 #[doc = "NfcTag state register"]
 pub mod nfctagstate;
+#[doc = "Sleep state during automatic collision resolution"]
+pub struct SLEEPSTATE {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Sleep state during automatic collision resolution"]
+pub mod sleepstate;
 #[doc = "Indicates the presence or not of a valid field"]
 pub struct FIELDPRESENT {
     register: ::vcell::VolatileCell<u32>,

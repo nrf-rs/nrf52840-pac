@@ -533,7 +533,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for SAMPLERDY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for SAMPLERDY event"]
     #[inline]
     pub fn samplerdy(&self) -> SAMPLERDYR {
         SAMPLERDYR::_from({
@@ -542,7 +542,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for REPORTRDY event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for REPORTRDY event"]
     #[inline]
     pub fn reportrdy(&self) -> REPORTRDYR {
         REPORTRDYR::_from({
@@ -551,7 +551,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for ACCOF event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for ACCOF event"]
     #[inline]
     pub fn accof(&self) -> ACCOFR {
         ACCOFR::_from({
@@ -560,7 +560,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for DBLRDY event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for DBLRDY event"]
     #[inline]
     pub fn dblrdy(&self) -> DBLRDYR {
         DBLRDYR::_from({
@@ -569,7 +569,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for STOPPED event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&self) -> STOPPEDR {
         STOPPEDR::_from({
@@ -591,27 +591,27 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for SAMPLERDY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for SAMPLERDY event"]
     #[inline]
     pub fn samplerdy(&mut self) -> _SAMPLERDYW {
         _SAMPLERDYW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for REPORTRDY event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for REPORTRDY event"]
     #[inline]
     pub fn reportrdy(&mut self) -> _REPORTRDYW {
         _REPORTRDYW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for ACCOF event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for ACCOF event"]
     #[inline]
     pub fn accof(&mut self) -> _ACCOFW {
         _ACCOFW { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for DBLRDY event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for DBLRDY event"]
     #[inline]
     pub fn dblrdy(&mut self) -> _DBLRDYW {
         _DBLRDYW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for STOPPED event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&mut self) -> _STOPPEDW {
         _STOPPEDW { w: self }

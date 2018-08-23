@@ -61,7 +61,7 @@ impl<'a> _MAXCNTW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 1023;
+        const MASK: u16 = 65535;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -74,11 +74,11 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:9 - Maximum number of bytes in transmit buffer"]
+    #[doc = "Bits 0:15 - Maximum number of bytes in transmit buffer"]
     #[inline]
     pub fn maxcnt(&self) -> MAXCNTR {
         let bits = {
-            const MASK: u16 = 1023;
+            const MASK: u16 = 65535;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u16
         };
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:9 - Maximum number of bytes in transmit buffer"]
+    #[doc = "Bits 0:15 - Maximum number of bytes in transmit buffer"]
     #[inline]
     pub fn maxcnt(&mut self) -> _MAXCNTW {
         _MAXCNTW { w: self }

@@ -67,7 +67,7 @@ impl REFSELR {
             REFSELR::INT1V8 => 1,
             REFSELR::INT2V4 => 2,
             REFSELR::VDD => 4,
-            REFSELR::AREF => 7,
+            REFSELR::AREF => 5,
             REFSELR::_Reserved(bits) => bits,
         }
     }
@@ -80,7 +80,7 @@ impl REFSELR {
             1 => REFSELR::INT1V8,
             2 => REFSELR::INT2V4,
             4 => REFSELR::VDD,
-            7 => REFSELR::AREF,
+            5 => REFSELR::AREF,
             i => REFSELR::_Reserved(i),
         }
     }
@@ -133,7 +133,7 @@ impl REFSELW {
             REFSELW::INT1V8 => 1,
             REFSELW::INT2V4 => 2,
             REFSELW::VDD => 4,
-            REFSELW::AREF => 7,
+            REFSELW::AREF => 5,
         }
     }
 }

@@ -1626,82 +1626,82 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Keep RAM section S0 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 0 - Keep RAM section S0 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s0power(&mut self) -> _S0POWERW {
         _S0POWERW { w: self }
     }
-    #[doc = "Bit 1 - Keep RAM section S1 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 1 - Keep RAM section S1 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s1power(&mut self) -> _S1POWERW {
         _S1POWERW { w: self }
     }
-    #[doc = "Bit 2 - Keep RAM section S2 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 2 - Keep RAM section S2 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s2power(&mut self) -> _S2POWERW {
         _S2POWERW { w: self }
     }
-    #[doc = "Bit 3 - Keep RAM section S3 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 3 - Keep RAM section S3 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s3power(&mut self) -> _S3POWERW {
         _S3POWERW { w: self }
     }
-    #[doc = "Bit 4 - Keep RAM section S4 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 4 - Keep RAM section S4 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s4power(&mut self) -> _S4POWERW {
         _S4POWERW { w: self }
     }
-    #[doc = "Bit 5 - Keep RAM section S5 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 5 - Keep RAM section S5 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s5power(&mut self) -> _S5POWERW {
         _S5POWERW { w: self }
     }
-    #[doc = "Bit 6 - Keep RAM section S6 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 6 - Keep RAM section S6 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s6power(&mut self) -> _S6POWERW {
         _S6POWERW { w: self }
     }
-    #[doc = "Bit 7 - Keep RAM section S7 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 7 - Keep RAM section S7 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s7power(&mut self) -> _S7POWERW {
         _S7POWERW { w: self }
     }
-    #[doc = "Bit 8 - Keep RAM section S8 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 8 - Keep RAM section S8 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s8power(&mut self) -> _S8POWERW {
         _S8POWERW { w: self }
     }
-    #[doc = "Bit 9 - Keep RAM section S9 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 9 - Keep RAM section S9 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s9power(&mut self) -> _S9POWERW {
         _S9POWERW { w: self }
     }
-    #[doc = "Bit 10 - Keep RAM section S10 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 10 - Keep RAM section S10 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s10power(&mut self) -> _S10POWERW {
         _S10POWERW { w: self }
     }
-    #[doc = "Bit 11 - Keep RAM section S11 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 11 - Keep RAM section S11 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s11power(&mut self) -> _S11POWERW {
         _S11POWERW { w: self }
     }
-    #[doc = "Bit 12 - Keep RAM section S12 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 12 - Keep RAM section S12 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s12power(&mut self) -> _S12POWERW {
         _S12POWERW { w: self }
     }
-    #[doc = "Bit 13 - Keep RAM section S13 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 13 - Keep RAM section S13 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s13power(&mut self) -> _S13POWERW {
         _S13POWERW { w: self }
     }
-    #[doc = "Bit 14 - Keep RAM section S14 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 14 - Keep RAM section S14 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s14power(&mut self) -> _S14POWERW {
         _S14POWERW { w: self }
     }
-    #[doc = "Bit 15 - Keep RAM section S15 of RAM0 on or off in System ON mode"]
+    #[doc = "Bit 15 - Keep RAM section S15 of RAMn on or off in System ON mode"]
     #[inline]
     pub fn s15power(&mut self) -> _S15POWERW {
         _S15POWERW { w: self }

@@ -14,11 +14,11 @@ impl super::LFCLKSTAT {
 #[doc = "Possible values of the field `SRC`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRCR {
-    #[doc = "32.768 kHz RC oscillator"]
+    #[doc = "32.768 kHz RC oscillator (LFRC)"]
     RC,
-    #[doc = "32.768 kHz crystal oscillator"]
+    #[doc = "32.768 kHz crystal oscillator (LFXO)"]
     XTAL,
-    #[doc = "32.768 kHz synthesized from HFCLK"]
+    #[doc = "32.768 kHz synthesized from HFCLK (LFSYNT)"]
     SYNTH,
     #[doc = r" Reserved"]
     _Reserved(u8),

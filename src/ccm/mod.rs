@@ -9,25 +9,25 @@ pub struct RegisterBlock {
     pub tasks_stop: TASKS_STOP,
     #[doc = "0x0c - Override DATARATE setting in MODE register with the contents of the RATEOVERRIDE register for any ongoing encryption/decryption"]
     pub tasks_rateoverride: TASKS_RATEOVERRIDE,
-    _reserved0: [u8; 240usize],
+    _reserved4: [u8; 240usize],
     #[doc = "0x100 - Key-stream generation complete"]
     pub events_endksgen: EVENTS_ENDKSGEN,
     #[doc = "0x104 - Encrypt/decrypt complete"]
     pub events_endcrypt: EVENTS_ENDCRYPT,
     #[doc = "0x108 - Deprecated register - CCM error event"]
     pub events_error: EVENTS_ERROR,
-    _reserved1: [u8; 244usize],
+    _reserved7: [u8; 244usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
-    _reserved2: [u8; 256usize],
+    _reserved8: [u8; 256usize],
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved3: [u8; 244usize],
+    _reserved10: [u8; 244usize],
     #[doc = "0x400 - MIC check result"]
     pub micstatus: MICSTATUS,
-    _reserved4: [u8; 252usize],
+    _reserved11: [u8; 252usize],
     #[doc = "0x500 - Enable"]
     pub enable: ENABLE,
     #[doc = "0x504 - Operation mode"]

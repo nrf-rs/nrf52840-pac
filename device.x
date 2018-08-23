@@ -39,6 +39,6 @@ PROVIDE(USBD = DefaultHandler);
 PROVIDE(UARTE1 = DefaultHandler);
 PROVIDE(QSPI = DefaultHandler);
 PROVIDE(CRYPTOCELL = DefaultHandler);
-PROVIDE(SPIM3 = DefaultHandler);
 PROVIDE(PWM3 = DefaultHandler);
+PROVIDE(SPIM3 = DefaultHandler);
 

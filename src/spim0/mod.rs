@@ -6,57 +6,63 @@ pub struct RegisterBlock {
     pub tasks_start: TASKS_START,
     #[doc = "0x14 - Stop SPI transaction"]
     pub tasks_stop: TASKS_STOP,
-    _reserved1: [u8; 4usize],
+    _reserved2: [u8; 4usize],
     #[doc = "0x1c - Suspend SPI transaction"]
     pub tasks_suspend: TASKS_SUSPEND,
     #[doc = "0x20 - Resume SPI transaction"]
     pub tasks_resume: TASKS_RESUME,
-    _reserved2: [u8; 224usize],
+    _reserved4: [u8; 224usize],
     #[doc = "0x104 - SPI transaction has stopped"]
     pub events_stopped: EVENTS_STOPPED,
-    _reserved3: [u8; 8usize],
+    _reserved5: [u8; 8usize],
     #[doc = "0x110 - End of RXD buffer reached"]
     pub events_endrx: EVENTS_ENDRX,
-    _reserved4: [u8; 4usize],
+    _reserved6: [u8; 4usize],
     #[doc = "0x118 - End of RXD buffer and TXD buffer reached"]
     pub events_end: EVENTS_END,
-    _reserved5: [u8; 4usize],
+    _reserved7: [u8; 4usize],
     #[doc = "0x120 - End of TXD buffer reached"]
     pub events_endtx: EVENTS_ENDTX,
-    _reserved6: [u8; 40usize],
+    _reserved8: [u8; 40usize],
     #[doc = "0x14c - Transaction started"]
     pub events_started: EVENTS_STARTED,
-    _reserved7: [u8; 176usize],
+    _reserved9: [u8; 176usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
-    _reserved8: [u8; 256usize],
+    _reserved10: [u8; 256usize],
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved9: [u8; 244usize],
+    _reserved12: [u8; 244usize],
     #[doc = "0x400 - Stall status for EasyDMA RAM accesses. The fields in this register is set to STALL by hardware whenever a stall occurres and can be cleared (set to NOSTALL) by the CPU."]
     pub stallstat: STALLSTAT,
-    _reserved10: [u8; 252usize],
+    _reserved13: [u8; 252usize],
     #[doc = "0x500 - Enable SPIM"]
     pub enable: ENABLE,
-    _reserved11: [u8; 4usize],
+    _reserved14: [u8; 4usize],
     #[doc = "0x508 - Unspecified"]
     pub psel: PSEL,
-    _reserved12: [u8; 12usize],
+    _reserved15: [u8; 12usize],
     #[doc = "0x524 - SPI frequency. Accuracy depends on the HFCLK source selected."]
     pub frequency: FREQUENCY,
-    _reserved13: [u8; 12usize],
+    _reserved16: [u8; 12usize],
     #[doc = "0x534 - RXD EasyDMA channel"]
     pub rxd: RXD,
     #[doc = "0x544 - TXD EasyDMA channel"]
     pub txd: TXD,
     #[doc = "0x554 - Configuration register"]
     pub config: CONFIG,
-    _reserved14: [u8; 8usize],
+    _reserved19: [u8; 8usize],
     #[doc = "0x560 - Unspecified"]
     pub iftiming: IFTIMING,
-    _reserved15: [u8; 88usize],
+    #[doc = "0x568 - Polarity of CSN output"]
+    pub csnpol: CSNPOL,
+    #[doc = "0x56c - Pin select for DCX signal"]
+    pub pseldcx: PSELDCX,
+    #[doc = "0x570 - DCX configuration"]
+    pub dcxcnt: DCXCNT,
+    _reserved23: [u8; 76usize],
     #[doc = "0x5c0 - Byte transmitted after TXD.MAXCNT bytes have been transmitted in the case when RXD.MAXCNT is greater than TXD.MAXCNT"]
     pub orc: ORC,
 }
@@ -212,6 +218,24 @@ pub struct CONFIG {
 }
 #[doc = "Configuration register"]
 pub mod config;
+#[doc = "Polarity of CSN output"]
+pub struct CSNPOL {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Polarity of CSN output"]
+pub mod csnpol;
+#[doc = "Pin select for DCX signal"]
+pub struct PSELDCX {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Pin select for DCX signal"]
+pub mod pseldcx;
+#[doc = "DCX configuration"]
+pub struct DCXCNT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "DCX configuration"]
+pub mod dcxcnt;
 #[doc = "Byte transmitted after TXD.MAXCNT bytes have been transmitted in the case when RXD.MAXCNT is greater than TXD.MAXCNT"]
 pub struct ORC {
     register: ::vcell::VolatileCell<u32>,

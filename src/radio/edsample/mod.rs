@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - IEEE 802.15.4 Energy Detect Level"]
+    #[doc = "Bits 0:7 - IEEE 802.15.4 energy detect level"]
     #[inline]
     pub fn edlvl(&self) -> EDLVLR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - IEEE 802.15.4 Energy Detect Level"]
+    #[doc = "Bits 0:7 - IEEE 802.15.4 energy detect level"]
     #[inline]
     pub fn edlvl(&mut self) -> _EDLVLW {
         _EDLVLW { w: self }

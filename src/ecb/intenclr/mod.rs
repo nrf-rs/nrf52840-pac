@@ -242,7 +242,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for ENDECB event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for ENDECB event"]
     #[inline]
     pub fn endecb(&self) -> ENDECBR {
         ENDECBR::_from({
@@ -251,7 +251,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for ERRORECB event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for ERRORECB event"]
     #[inline]
     pub fn errorecb(&self) -> ERRORECBR {
         ERRORECBR::_from({
@@ -273,12 +273,12 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for ENDECB event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for ENDECB event"]
     #[inline]
     pub fn endecb(&mut self) -> _ENDECBW {
         _ENDECBW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for ERRORECB event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for ERRORECB event"]
     #[inline]
     pub fn errorecb(&mut self) -> _ERRORECBW {
         _ERRORECBW { w: self }

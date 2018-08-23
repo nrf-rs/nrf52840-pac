@@ -1115,7 +1115,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for CTS event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for CTS event"]
     #[inline]
     pub fn cts(&self) -> CTSR {
         CTSR::_from({
@@ -1124,7 +1124,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for NCTS event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for NCTS event"]
     #[inline]
     pub fn ncts(&self) -> NCTSR {
         NCTSR::_from({
@@ -1133,7 +1133,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for RXDRDY event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for RXDRDY event"]
     #[inline]
     pub fn rxdrdy(&self) -> RXDRDYR {
         RXDRDYR::_from({
@@ -1142,7 +1142,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for ENDRX event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&self) -> ENDRXR {
         ENDRXR::_from({
@@ -1151,7 +1151,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for TXDRDY event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for TXDRDY event"]
     #[inline]
     pub fn txdrdy(&self) -> TXDRDYR {
         TXDRDYR::_from({
@@ -1160,7 +1160,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Write '1' to Disable interrupt for ENDTX event"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for ENDTX event"]
     #[inline]
     pub fn endtx(&self) -> ENDTXR {
         ENDTXR::_from({
@@ -1169,7 +1169,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Write '1' to Disable interrupt for ERROR event"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for ERROR event"]
     #[inline]
     pub fn error(&self) -> ERRORR {
         ERRORR::_from({
@@ -1178,7 +1178,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 17 - Write '1' to Disable interrupt for RXTO event"]
+    #[doc = "Bit 17 - Write '1' to disable interrupt for RXTO event"]
     #[inline]
     pub fn rxto(&self) -> RXTOR {
         RXTOR::_from({
@@ -1187,7 +1187,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Write '1' to Disable interrupt for RXSTARTED event"]
+    #[doc = "Bit 19 - Write '1' to disable interrupt for RXSTARTED event"]
     #[inline]
     pub fn rxstarted(&self) -> RXSTARTEDR {
         RXSTARTEDR::_from({
@@ -1196,7 +1196,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Write '1' to Disable interrupt for TXSTARTED event"]
+    #[doc = "Bit 20 - Write '1' to disable interrupt for TXSTARTED event"]
     #[inline]
     pub fn txstarted(&self) -> TXSTARTEDR {
         TXSTARTEDR::_from({
@@ -1205,7 +1205,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 22 - Write '1' to Disable interrupt for TXSTOPPED event"]
+    #[doc = "Bit 22 - Write '1' to disable interrupt for TXSTOPPED event"]
     #[inline]
     pub fn txstopped(&self) -> TXSTOPPEDR {
         TXSTOPPEDR::_from({
@@ -1227,57 +1227,57 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for CTS event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for CTS event"]
     #[inline]
     pub fn cts(&mut self) -> _CTSW {
         _CTSW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for NCTS event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for NCTS event"]
     #[inline]
     pub fn ncts(&mut self) -> _NCTSW {
         _NCTSW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for RXDRDY event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for RXDRDY event"]
     #[inline]
     pub fn rxdrdy(&mut self) -> _RXDRDYW {
         _RXDRDYW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for ENDRX event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&mut self) -> _ENDRXW {
         _ENDRXW { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for TXDRDY event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for TXDRDY event"]
     #[inline]
     pub fn txdrdy(&mut self) -> _TXDRDYW {
         _TXDRDYW { w: self }
     }
-    #[doc = "Bit 8 - Write '1' to Disable interrupt for ENDTX event"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for ENDTX event"]
     #[inline]
     pub fn endtx(&mut self) -> _ENDTXW {
         _ENDTXW { w: self }
     }
-    #[doc = "Bit 9 - Write '1' to Disable interrupt for ERROR event"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for ERROR event"]
     #[inline]
     pub fn error(&mut self) -> _ERRORW {
         _ERRORW { w: self }
     }
-    #[doc = "Bit 17 - Write '1' to Disable interrupt for RXTO event"]
+    #[doc = "Bit 17 - Write '1' to disable interrupt for RXTO event"]
     #[inline]
     pub fn rxto(&mut self) -> _RXTOW {
         _RXTOW { w: self }
     }
-    #[doc = "Bit 19 - Write '1' to Disable interrupt for RXSTARTED event"]
+    #[doc = "Bit 19 - Write '1' to disable interrupt for RXSTARTED event"]
     #[inline]
     pub fn rxstarted(&mut self) -> _RXSTARTEDW {
         _RXSTARTEDW { w: self }
     }
-    #[doc = "Bit 20 - Write '1' to Disable interrupt for TXSTARTED event"]
+    #[doc = "Bit 20 - Write '1' to disable interrupt for TXSTARTED event"]
     #[inline]
     pub fn txstarted(&mut self) -> _TXSTARTEDW {
         _TXSTARTEDW { w: self }
     }
-    #[doc = "Bit 22 - Write '1' to Disable interrupt for TXSTOPPED event"]
+    #[doc = "Bit 22 - Write '1' to disable interrupt for TXSTOPPED event"]
     #[inline]
     pub fn txstopped(&mut self) -> _TXSTOPPEDW {
         _TXSTOPPEDW { w: self }

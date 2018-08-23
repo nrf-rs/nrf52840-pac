@@ -3408,7 +3408,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Keep RAM section S0 ON or OFF in System ON mode."]
+    #[doc = "Bit 0 - Keep RAM section S0 on or off in System ON mode."]
     #[inline]
     pub fn s0power(&self) -> S0POWERR {
         S0POWERR::_from({
@@ -3417,7 +3417,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Keep RAM section S1 ON or OFF in System ON mode."]
+    #[doc = "Bit 1 - Keep RAM section S1 on or off in System ON mode."]
     #[inline]
     pub fn s1power(&self) -> S1POWERR {
         S1POWERR::_from({
@@ -3426,7 +3426,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Keep RAM section S2 ON or OFF in System ON mode."]
+    #[doc = "Bit 2 - Keep RAM section S2 on or off in System ON mode."]
     #[inline]
     pub fn s2power(&self) -> S2POWERR {
         S2POWERR::_from({
@@ -3435,7 +3435,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Keep RAM section S3 ON or OFF in System ON mode."]
+    #[doc = "Bit 3 - Keep RAM section S3 on or off in System ON mode."]
     #[inline]
     pub fn s3power(&self) -> S3POWERR {
         S3POWERR::_from({
@@ -3444,7 +3444,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Keep RAM section S4 ON or OFF in System ON mode."]
+    #[doc = "Bit 4 - Keep RAM section S4 on or off in System ON mode."]
     #[inline]
     pub fn s4power(&self) -> S4POWERR {
         S4POWERR::_from({
@@ -3453,7 +3453,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Keep RAM section S5 ON or OFF in System ON mode."]
+    #[doc = "Bit 5 - Keep RAM section S5 on or off in System ON mode."]
     #[inline]
     pub fn s5power(&self) -> S5POWERR {
         S5POWERR::_from({
@@ -3462,7 +3462,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Keep RAM section S6 ON or OFF in System ON mode."]
+    #[doc = "Bit 6 - Keep RAM section S6 on or off in System ON mode."]
     #[inline]
     pub fn s6power(&self) -> S6POWERR {
         S6POWERR::_from({
@@ -3471,7 +3471,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Keep RAM section S7 ON or OFF in System ON mode."]
+    #[doc = "Bit 7 - Keep RAM section S7 on or off in System ON mode."]
     #[inline]
     pub fn s7power(&self) -> S7POWERR {
         S7POWERR::_from({
@@ -3480,7 +3480,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Keep RAM section S8 ON or OFF in System ON mode."]
+    #[doc = "Bit 8 - Keep RAM section S8 on or off in System ON mode."]
     #[inline]
     pub fn s8power(&self) -> S8POWERR {
         S8POWERR::_from({
@@ -3489,7 +3489,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Keep RAM section S9 ON or OFF in System ON mode."]
+    #[doc = "Bit 9 - Keep RAM section S9 on or off in System ON mode."]
     #[inline]
     pub fn s9power(&self) -> S9POWERR {
         S9POWERR::_from({
@@ -3498,7 +3498,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Keep RAM section S10 ON or OFF in System ON mode."]
+    #[doc = "Bit 10 - Keep RAM section S10 on or off in System ON mode."]
     #[inline]
     pub fn s10power(&self) -> S10POWERR {
         S10POWERR::_from({
@@ -3507,7 +3507,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 11 - Keep RAM section S11 ON or OFF in System ON mode."]
+    #[doc = "Bit 11 - Keep RAM section S11 on or off in System ON mode."]
     #[inline]
     pub fn s11power(&self) -> S11POWERR {
         S11POWERR::_from({
@@ -3516,7 +3516,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Keep RAM section S12 ON or OFF in System ON mode."]
+    #[doc = "Bit 12 - Keep RAM section S12 on or off in System ON mode."]
     #[inline]
     pub fn s12power(&self) -> S12POWERR {
         S12POWERR::_from({
@@ -3525,7 +3525,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 13 - Keep RAM section S13 ON or OFF in System ON mode."]
+    #[doc = "Bit 13 - Keep RAM section S13 on or off in System ON mode."]
     #[inline]
     pub fn s13power(&self) -> S13POWERR {
         S13POWERR::_from({
@@ -3534,7 +3534,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Keep RAM section S14 ON or OFF in System ON mode."]
+    #[doc = "Bit 14 - Keep RAM section S14 on or off in System ON mode."]
     #[inline]
     pub fn s14power(&self) -> S14POWERR {
         S14POWERR::_from({
@@ -3543,7 +3543,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 15 - Keep RAM section S15 ON or OFF in System ON mode."]
+    #[doc = "Bit 15 - Keep RAM section S15 on or off in System ON mode."]
     #[inline]
     pub fn s15power(&self) -> S15POWERR {
         S15POWERR::_from({
@@ -3552,7 +3552,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 16 - Keep retention on RAM section S0 when RAM section is in OFF"]
+    #[doc = "Bit 16 - Keep retention on RAM section S0 when RAM section is off"]
     #[inline]
     pub fn s0retention(&self) -> S0RETENTIONR {
         S0RETENTIONR::_from({
@@ -3561,7 +3561,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 17 - Keep retention on RAM section S1 when RAM section is in OFF"]
+    #[doc = "Bit 17 - Keep retention on RAM section S1 when RAM section is off"]
     #[inline]
     pub fn s1retention(&self) -> S1RETENTIONR {
         S1RETENTIONR::_from({
@@ -3570,7 +3570,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Keep retention on RAM section S2 when RAM section is in OFF"]
+    #[doc = "Bit 18 - Keep retention on RAM section S2 when RAM section is off"]
     #[inline]
     pub fn s2retention(&self) -> S2RETENTIONR {
         S2RETENTIONR::_from({
@@ -3579,7 +3579,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Keep retention on RAM section S3 when RAM section is in OFF"]
+    #[doc = "Bit 19 - Keep retention on RAM section S3 when RAM section is off"]
     #[inline]
     pub fn s3retention(&self) -> S3RETENTIONR {
         S3RETENTIONR::_from({
@@ -3588,7 +3588,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Keep retention on RAM section S4 when RAM section is in OFF"]
+    #[doc = "Bit 20 - Keep retention on RAM section S4 when RAM section is off"]
     #[inline]
     pub fn s4retention(&self) -> S4RETENTIONR {
         S4RETENTIONR::_from({
@@ -3597,7 +3597,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 21 - Keep retention on RAM section S5 when RAM section is in OFF"]
+    #[doc = "Bit 21 - Keep retention on RAM section S5 when RAM section is off"]
     #[inline]
     pub fn s5retention(&self) -> S5RETENTIONR {
         S5RETENTIONR::_from({
@@ -3606,7 +3606,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 22 - Keep retention on RAM section S6 when RAM section is in OFF"]
+    #[doc = "Bit 22 - Keep retention on RAM section S6 when RAM section is off"]
     #[inline]
     pub fn s6retention(&self) -> S6RETENTIONR {
         S6RETENTIONR::_from({
@@ -3615,7 +3615,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 23 - Keep retention on RAM section S7 when RAM section is in OFF"]
+    #[doc = "Bit 23 - Keep retention on RAM section S7 when RAM section is off"]
     #[inline]
     pub fn s7retention(&self) -> S7RETENTIONR {
         S7RETENTIONR::_from({
@@ -3624,7 +3624,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 24 - Keep retention on RAM section S8 when RAM section is in OFF"]
+    #[doc = "Bit 24 - Keep retention on RAM section S8 when RAM section is off"]
     #[inline]
     pub fn s8retention(&self) -> S8RETENTIONR {
         S8RETENTIONR::_from({
@@ -3633,7 +3633,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 25 - Keep retention on RAM section S9 when RAM section is in OFF"]
+    #[doc = "Bit 25 - Keep retention on RAM section S9 when RAM section is off"]
     #[inline]
     pub fn s9retention(&self) -> S9RETENTIONR {
         S9RETENTIONR::_from({
@@ -3642,7 +3642,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 26 - Keep retention on RAM section S10 when RAM section is in OFF"]
+    #[doc = "Bit 26 - Keep retention on RAM section S10 when RAM section is off"]
     #[inline]
     pub fn s10retention(&self) -> S10RETENTIONR {
         S10RETENTIONR::_from({
@@ -3651,7 +3651,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 27 - Keep retention on RAM section S11 when RAM section is in OFF"]
+    #[doc = "Bit 27 - Keep retention on RAM section S11 when RAM section is off"]
     #[inline]
     pub fn s11retention(&self) -> S11RETENTIONR {
         S11RETENTIONR::_from({
@@ -3660,7 +3660,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 28 - Keep retention on RAM section S12 when RAM section is in OFF"]
+    #[doc = "Bit 28 - Keep retention on RAM section S12 when RAM section is off"]
     #[inline]
     pub fn s12retention(&self) -> S12RETENTIONR {
         S12RETENTIONR::_from({
@@ -3669,7 +3669,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 29 - Keep retention on RAM section S13 when RAM section is in OFF"]
+    #[doc = "Bit 29 - Keep retention on RAM section S13 when RAM section is off"]
     #[inline]
     pub fn s13retention(&self) -> S13RETENTIONR {
         S13RETENTIONR::_from({
@@ -3678,7 +3678,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 30 - Keep retention on RAM section S14 when RAM section is in OFF"]
+    #[doc = "Bit 30 - Keep retention on RAM section S14 when RAM section is off"]
     #[inline]
     pub fn s14retention(&self) -> S14RETENTIONR {
         S14RETENTIONR::_from({
@@ -3687,7 +3687,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 31 - Keep retention on RAM section S15 when RAM section is in OFF"]
+    #[doc = "Bit 31 - Keep retention on RAM section S15 when RAM section is off"]
     #[inline]
     pub fn s15retention(&self) -> S15RETENTIONR {
         S15RETENTIONR::_from({
@@ -3709,162 +3709,162 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Keep RAM section S0 ON or OFF in System ON mode."]
+    #[doc = "Bit 0 - Keep RAM section S0 on or off in System ON mode."]
     #[inline]
     pub fn s0power(&mut self) -> _S0POWERW {
         _S0POWERW { w: self }
     }
-    #[doc = "Bit 1 - Keep RAM section S1 ON or OFF in System ON mode."]
+    #[doc = "Bit 1 - Keep RAM section S1 on or off in System ON mode."]
     #[inline]
     pub fn s1power(&mut self) -> _S1POWERW {
         _S1POWERW { w: self }
     }
-    #[doc = "Bit 2 - Keep RAM section S2 ON or OFF in System ON mode."]
+    #[doc = "Bit 2 - Keep RAM section S2 on or off in System ON mode."]
     #[inline]
     pub fn s2power(&mut self) -> _S2POWERW {
         _S2POWERW { w: self }
     }
-    #[doc = "Bit 3 - Keep RAM section S3 ON or OFF in System ON mode."]
+    #[doc = "Bit 3 - Keep RAM section S3 on or off in System ON mode."]
     #[inline]
     pub fn s3power(&mut self) -> _S3POWERW {
         _S3POWERW { w: self }
     }
-    #[doc = "Bit 4 - Keep RAM section S4 ON or OFF in System ON mode."]
+    #[doc = "Bit 4 - Keep RAM section S4 on or off in System ON mode."]
     #[inline]
     pub fn s4power(&mut self) -> _S4POWERW {
         _S4POWERW { w: self }
     }
-    #[doc = "Bit 5 - Keep RAM section S5 ON or OFF in System ON mode."]
+    #[doc = "Bit 5 - Keep RAM section S5 on or off in System ON mode."]
     #[inline]
     pub fn s5power(&mut self) -> _S5POWERW {
         _S5POWERW { w: self }
     }
-    #[doc = "Bit 6 - Keep RAM section S6 ON or OFF in System ON mode."]
+    #[doc = "Bit 6 - Keep RAM section S6 on or off in System ON mode."]
     #[inline]
     pub fn s6power(&mut self) -> _S6POWERW {
         _S6POWERW { w: self }
     }
-    #[doc = "Bit 7 - Keep RAM section S7 ON or OFF in System ON mode."]
+    #[doc = "Bit 7 - Keep RAM section S7 on or off in System ON mode."]
     #[inline]
     pub fn s7power(&mut self) -> _S7POWERW {
         _S7POWERW { w: self }
     }
-    #[doc = "Bit 8 - Keep RAM section S8 ON or OFF in System ON mode."]
+    #[doc = "Bit 8 - Keep RAM section S8 on or off in System ON mode."]
     #[inline]
     pub fn s8power(&mut self) -> _S8POWERW {
         _S8POWERW { w: self }
     }
-    #[doc = "Bit 9 - Keep RAM section S9 ON or OFF in System ON mode."]
+    #[doc = "Bit 9 - Keep RAM section S9 on or off in System ON mode."]
     #[inline]
     pub fn s9power(&mut self) -> _S9POWERW {
         _S9POWERW { w: self }
     }
-    #[doc = "Bit 10 - Keep RAM section S10 ON or OFF in System ON mode."]
+    #[doc = "Bit 10 - Keep RAM section S10 on or off in System ON mode."]
     #[inline]
     pub fn s10power(&mut self) -> _S10POWERW {
         _S10POWERW { w: self }
     }
-    #[doc = "Bit 11 - Keep RAM section S11 ON or OFF in System ON mode."]
+    #[doc = "Bit 11 - Keep RAM section S11 on or off in System ON mode."]
     #[inline]
     pub fn s11power(&mut self) -> _S11POWERW {
         _S11POWERW { w: self }
     }
-    #[doc = "Bit 12 - Keep RAM section S12 ON or OFF in System ON mode."]
+    #[doc = "Bit 12 - Keep RAM section S12 on or off in System ON mode."]
     #[inline]
     pub fn s12power(&mut self) -> _S12POWERW {
         _S12POWERW { w: self }
     }
-    #[doc = "Bit 13 - Keep RAM section S13 ON or OFF in System ON mode."]
+    #[doc = "Bit 13 - Keep RAM section S13 on or off in System ON mode."]
     #[inline]
     pub fn s13power(&mut self) -> _S13POWERW {
         _S13POWERW { w: self }
     }
-    #[doc = "Bit 14 - Keep RAM section S14 ON or OFF in System ON mode."]
+    #[doc = "Bit 14 - Keep RAM section S14 on or off in System ON mode."]
     #[inline]
     pub fn s14power(&mut self) -> _S14POWERW {
         _S14POWERW { w: self }
     }
-    #[doc = "Bit 15 - Keep RAM section S15 ON or OFF in System ON mode."]
+    #[doc = "Bit 15 - Keep RAM section S15 on or off in System ON mode."]
     #[inline]
     pub fn s15power(&mut self) -> _S15POWERW {
         _S15POWERW { w: self }
     }
-    #[doc = "Bit 16 - Keep retention on RAM section S0 when RAM section is in OFF"]
+    #[doc = "Bit 16 - Keep retention on RAM section S0 when RAM section is off"]
     #[inline]
     pub fn s0retention(&mut self) -> _S0RETENTIONW {
         _S0RETENTIONW { w: self }
     }
-    #[doc = "Bit 17 - Keep retention on RAM section S1 when RAM section is in OFF"]
+    #[doc = "Bit 17 - Keep retention on RAM section S1 when RAM section is off"]
     #[inline]
     pub fn s1retention(&mut self) -> _S1RETENTIONW {
         _S1RETENTIONW { w: self }
     }
-    #[doc = "Bit 18 - Keep retention on RAM section S2 when RAM section is in OFF"]
+    #[doc = "Bit 18 - Keep retention on RAM section S2 when RAM section is off"]
     #[inline]
     pub fn s2retention(&mut self) -> _S2RETENTIONW {
         _S2RETENTIONW { w: self }
     }
-    #[doc = "Bit 19 - Keep retention on RAM section S3 when RAM section is in OFF"]
+    #[doc = "Bit 19 - Keep retention on RAM section S3 when RAM section is off"]
     #[inline]
     pub fn s3retention(&mut self) -> _S3RETENTIONW {
         _S3RETENTIONW { w: self }
     }
-    #[doc = "Bit 20 - Keep retention on RAM section S4 when RAM section is in OFF"]
+    #[doc = "Bit 20 - Keep retention on RAM section S4 when RAM section is off"]
     #[inline]
     pub fn s4retention(&mut self) -> _S4RETENTIONW {
         _S4RETENTIONW { w: self }
     }
-    #[doc = "Bit 21 - Keep retention on RAM section S5 when RAM section is in OFF"]
+    #[doc = "Bit 21 - Keep retention on RAM section S5 when RAM section is off"]
     #[inline]
     pub fn s5retention(&mut self) -> _S5RETENTIONW {
         _S5RETENTIONW { w: self }
     }
-    #[doc = "Bit 22 - Keep retention on RAM section S6 when RAM section is in OFF"]
+    #[doc = "Bit 22 - Keep retention on RAM section S6 when RAM section is off"]
     #[inline]
     pub fn s6retention(&mut self) -> _S6RETENTIONW {
         _S6RETENTIONW { w: self }
     }
-    #[doc = "Bit 23 - Keep retention on RAM section S7 when RAM section is in OFF"]
+    #[doc = "Bit 23 - Keep retention on RAM section S7 when RAM section is off"]
     #[inline]
     pub fn s7retention(&mut self) -> _S7RETENTIONW {
         _S7RETENTIONW { w: self }
     }
-    #[doc = "Bit 24 - Keep retention on RAM section S8 when RAM section is in OFF"]
+    #[doc = "Bit 24 - Keep retention on RAM section S8 when RAM section is off"]
     #[inline]
     pub fn s8retention(&mut self) -> _S8RETENTIONW {
         _S8RETENTIONW { w: self }
     }
-    #[doc = "Bit 25 - Keep retention on RAM section S9 when RAM section is in OFF"]
+    #[doc = "Bit 25 - Keep retention on RAM section S9 when RAM section is off"]
     #[inline]
     pub fn s9retention(&mut self) -> _S9RETENTIONW {
         _S9RETENTIONW { w: self }
     }
-    #[doc = "Bit 26 - Keep retention on RAM section S10 when RAM section is in OFF"]
+    #[doc = "Bit 26 - Keep retention on RAM section S10 when RAM section is off"]
     #[inline]
     pub fn s10retention(&mut self) -> _S10RETENTIONW {
         _S10RETENTIONW { w: self }
     }
-    #[doc = "Bit 27 - Keep retention on RAM section S11 when RAM section is in OFF"]
+    #[doc = "Bit 27 - Keep retention on RAM section S11 when RAM section is off"]
     #[inline]
     pub fn s11retention(&mut self) -> _S11RETENTIONW {
         _S11RETENTIONW { w: self }
     }
-    #[doc = "Bit 28 - Keep retention on RAM section S12 when RAM section is in OFF"]
+    #[doc = "Bit 28 - Keep retention on RAM section S12 when RAM section is off"]
     #[inline]
     pub fn s12retention(&mut self) -> _S12RETENTIONW {
         _S12RETENTIONW { w: self }
     }
-    #[doc = "Bit 29 - Keep retention on RAM section S13 when RAM section is in OFF"]
+    #[doc = "Bit 29 - Keep retention on RAM section S13 when RAM section is off"]
     #[inline]
     pub fn s13retention(&mut self) -> _S13RETENTIONW {
         _S13RETENTIONW { w: self }
     }
-    #[doc = "Bit 30 - Keep retention on RAM section S14 when RAM section is in OFF"]
+    #[doc = "Bit 30 - Keep retention on RAM section S14 when RAM section is off"]
     #[inline]
     pub fn s14retention(&mut self) -> _S14RETENTIONW {
         _S14RETENTIONW { w: self }
     }
-    #[doc = "Bit 31 - Keep retention on RAM section S15 when RAM section is in OFF"]
+    #[doc = "Bit 31 - Keep retention on RAM section S15 when RAM section is off"]
     #[inline]
     pub fn s15retention(&mut self) -> _S15RETENTIONW {
         _S15RETENTIONW { w: self }

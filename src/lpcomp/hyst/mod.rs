@@ -46,9 +46,9 @@ impl super::HYST {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HYSTR {
     #[doc = "Comparator hysteresis disabled"]
-    NOHYST,
-    #[doc = "Comparator hysteresis disabled (typ. 50 mV)"]
-    HYST50MV,
+    DISABLED,
+    #[doc = "Comparator hysteresis enabled"]
+    ENABLED,
 }
 impl HYSTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
@@ -65,8 +65,8 @@ impl HYSTR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            HYSTR::NOHYST => false,
-            HYSTR::HYST50MV => true,
+            HYSTR::DISABLED => false,
+            HYSTR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
@@ -74,27 +74,27 @@ impl HYSTR {
     #[inline]
     pub fn _from(value: bool) -> HYSTR {
         match value {
-            false => HYSTR::NOHYST,
-            true => HYSTR::HYST50MV,
+            false => HYSTR::DISABLED,
+            true => HYSTR::ENABLED,
         }
     }
-    #[doc = "Checks if the value of the field is `NOHYST`"]
+    #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
-    pub fn is_no_hyst(&self) -> bool {
-        *self == HYSTR::NOHYST
+    pub fn is_disabled(&self) -> bool {
+        *self == HYSTR::DISABLED
     }
-    #[doc = "Checks if the value of the field is `HYST50MV`"]
+    #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
-    pub fn is_hyst50m_v(&self) -> bool {
-        *self == HYSTR::HYST50MV
+    pub fn is_enabled(&self) -> bool {
+        *self == HYSTR::ENABLED
     }
 }
 #[doc = "Values that can be written to the field `HYST`"]
 pub enum HYSTW {
     #[doc = "Comparator hysteresis disabled"]
-    NOHYST,
-    #[doc = "Comparator hysteresis disabled (typ. 50 mV)"]
-    HYST50MV,
+    DISABLED,
+    #[doc = "Comparator hysteresis enabled"]
+    ENABLED,
 }
 impl HYSTW {
     #[allow(missing_docs)]
@@ -102,8 +102,8 @@ impl HYSTW {
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            HYSTW::NOHYST => false,
-            HYSTW::HYST50MV => true,
+            HYSTW::DISABLED => false,
+            HYSTW::ENABLED => true,
         }
     }
 }
@@ -121,13 +121,13 @@ impl<'a> _HYSTW<'a> {
     }
     #[doc = "Comparator hysteresis disabled"]
     #[inline]
-    pub fn no_hyst(self) -> &'a mut W {
-        self.variant(HYSTW::NOHYST)
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(HYSTW::DISABLED)
     }
-    #[doc = "Comparator hysteresis disabled (typ. 50 mV)"]
+    #[doc = "Comparator hysteresis enabled"]
     #[inline]
-    pub fn hyst50m_v(self) -> &'a mut W {
-        self.variant(HYSTW::HYST50MV)
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(HYSTW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {

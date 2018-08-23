@@ -120,7 +120,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:14 - Amount of values (duty cycles) in this sequence"]
+    #[doc = "Bits 0:14 - Number of values (duty cycles) in this sequence"]
     #[inline]
     pub fn cnt(&self) -> CNTR {
         CNTR::_from({
@@ -142,7 +142,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:14 - Amount of values (duty cycles) in this sequence"]
+    #[doc = "Bits 0:14 - Number of values (duty cycles) in this sequence"]
     #[inline]
     pub fn cnt(&mut self) -> _CNTW {
         _CNTW { w: self }

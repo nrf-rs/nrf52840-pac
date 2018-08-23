@@ -293,6 +293,95 @@ impl WRENR {
         *self == WRENR::ENABLE
     }
 }
+#[doc = "Possible values of the field `LFEN`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LFENR {
+    #[doc = "Long frame mode disabled"]
+    DISABLE,
+    #[doc = "Long frame mode enabled"]
+    ENABLE,
+}
+impl LFENR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            LFENR::DISABLE => false,
+            LFENR::ENABLE => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> LFENR {
+        match value {
+            false => LFENR::DISABLE,
+            true => LFENR::ENABLE,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[inline]
+    pub fn is_disable(&self) -> bool {
+        *self == LFENR::DISABLE
+    }
+    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[inline]
+    pub fn is_enable(&self) -> bool {
+        *self == LFENR::ENABLE
+    }
+}
+#[doc = "Possible values of the field `LFSTOP`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LFSTOPR {
+    #[doc = "Stop"]
+    STOP,
+    #[doc = r" Reserved"]
+    _Reserved(bool),
+}
+impl LFSTOPR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            LFSTOPR::STOP => true,
+            LFSTOPR::_Reserved(bits) => bits,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> LFSTOPR {
+        match value {
+            true => LFSTOPR::STOP,
+            i => LFSTOPR::_Reserved(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `STOP`"]
+    #[inline]
+    pub fn is_stop(&self) -> bool {
+        *self == LFSTOPR::STOP
+    }
+}
 #[doc = r" Proxy"]
 pub struct _OPCODEW<'a> {
     w: &'a mut W,
@@ -574,6 +663,114 @@ impl<'a> _WRENW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `LFEN`"]
+pub enum LFENW {
+    #[doc = "Long frame mode disabled"]
+    DISABLE,
+    #[doc = "Long frame mode enabled"]
+    ENABLE,
+}
+impl LFENW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            LFENW::DISABLE => false,
+            LFENW::ENABLE => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _LFENW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _LFENW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: LFENW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Long frame mode disabled"]
+    #[inline]
+    pub fn disable(self) -> &'a mut W {
+        self.variant(LFENW::DISABLE)
+    }
+    #[doc = "Long frame mode enabled"]
+    #[inline]
+    pub fn enable(self) -> &'a mut W {
+        self.variant(LFENW::ENABLE)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 16;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
+#[doc = "Values that can be written to the field `LFSTOP`"]
+pub enum LFSTOPW {
+    #[doc = "Stop"]
+    STOP,
+}
+impl LFSTOPW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            LFSTOPW::STOP => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _LFSTOPW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _LFSTOPW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: LFSTOPW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Stop"]
+    #[inline]
+    pub fn stop(self) -> &'a mut W {
+        self.variant(LFSTOPW::STOP)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 17;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -637,6 +834,24 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
+    #[doc = "Bit 16 - Enable long frame mode. When enabled, a custom instruction transaction has to be ended by writing the LFSTOP field."]
+    #[inline]
+    pub fn lfen(&self) -> LFENR {
+        LFENR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 16;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 17 - Stop (finalize) long frame transaction"]
+    #[inline]
+    pub fn lfstop(&self) -> LFSTOPR {
+        LFSTOPR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 17;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -679,5 +894,15 @@ impl W {
     #[inline]
     pub fn wren(&mut self) -> _WRENW {
         _WRENW { w: self }
+    }
+    #[doc = "Bit 16 - Enable long frame mode. When enabled, a custom instruction transaction has to be ended by writing the LFSTOP field."]
+    #[inline]
+    pub fn lfen(&mut self) -> _LFENW {
+        _LFENW { w: self }
+    }
+    #[doc = "Bit 17 - Stop (finalize) long frame transaction"]
+    #[inline]
+    pub fn lfstop(&mut self) -> _LFSTOPW {
+        _LFSTOPW { w: self }
     }
 }

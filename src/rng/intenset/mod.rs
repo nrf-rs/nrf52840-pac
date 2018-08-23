@@ -145,7 +145,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for VALRDY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for VALRDY event"]
     #[inline]
     pub fn valrdy(&self) -> VALRDYR {
         VALRDYR::_from({
@@ -167,7 +167,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for VALRDY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for VALRDY event"]
     #[inline]
     pub fn valrdy(&mut self) -> _VALRDYW {
         _VALRDYW { w: self }

@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:9 - Inter Frame Spacing in us"]
+    #[doc = "Bits 0:9 - Interframe spacing in us"]
     #[inline]
     pub fn tifs(&self) -> TIFSR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:9 - Inter Frame Spacing in us"]
+    #[doc = "Bits 0:9 - Interframe spacing in us"]
     #[inline]
     pub fn tifs(&mut self) -> _TIFSW {
         _TIFSW { w: self }

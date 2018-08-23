@@ -1065,7 +1065,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Reset due to wake up from System OFF mode by Vbus rising into valid range"]
+    #[doc = "Bit 20 - Reset due to wake up from System OFF mode by VBUS rising into valid range"]
     #[inline]
     pub fn vbus(&self) -> VBUSR {
         VBUSR::_from({
@@ -1127,7 +1127,7 @@ impl W {
     pub fn nfc(&mut self) -> _NFCW {
         _NFCW { w: self }
     }
-    #[doc = "Bit 20 - Reset due to wake up from System OFF mode by Vbus rising into valid range"]
+    #[doc = "Bit 20 - Reset due to wake up from System OFF mode by VBUS rising into valid range"]
     #[inline]
     pub fn vbus(&mut self) -> _VBUSW {
         _VBUSW { w: self }

@@ -45,9 +45,9 @@ impl super::PERM {
 #[doc = "Possible values of the field `WRITE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WRITER {
-    #[doc = "Allow write and erase instructions to region 0"]
+    #[doc = "Allow write and erase instructions to region n"]
     ENABLE,
-    #[doc = "Block write and erase instructions to region 0"]
+    #[doc = "Block write and erase instructions to region n"]
     DISABLE,
 }
 impl WRITER {
@@ -92,9 +92,9 @@ impl WRITER {
 #[doc = "Possible values of the field `READ`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READR {
-    #[doc = "Allow read instructions to region 0"]
+    #[doc = "Allow read instructions to region n"]
     ENABLE,
-    #[doc = "Block read instructions to region 0"]
+    #[doc = "Block read instructions to region n"]
     DISABLE,
 }
 impl READR {
@@ -138,9 +138,9 @@ impl READR {
 }
 #[doc = "Values that can be written to the field `WRITE`"]
 pub enum WRITEW {
-    #[doc = "Allow write and erase instructions to region 0"]
+    #[doc = "Allow write and erase instructions to region n"]
     ENABLE,
-    #[doc = "Block write and erase instructions to region 0"]
+    #[doc = "Block write and erase instructions to region n"]
     DISABLE,
 }
 impl WRITEW {
@@ -166,12 +166,12 @@ impl<'a> _WRITEW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Allow write and erase instructions to region 0"]
+    #[doc = "Allow write and erase instructions to region n"]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(WRITEW::ENABLE)
     }
-    #[doc = "Block write and erase instructions to region 0"]
+    #[doc = "Block write and erase instructions to region n"]
     #[inline]
     pub fn disable(self) -> &'a mut W {
         self.variant(WRITEW::DISABLE)
@@ -196,9 +196,9 @@ impl<'a> _WRITEW<'a> {
 }
 #[doc = "Values that can be written to the field `READ`"]
 pub enum READW {
-    #[doc = "Allow read instructions to region 0"]
+    #[doc = "Allow read instructions to region n"]
     ENABLE,
-    #[doc = "Block read instructions to region 0"]
+    #[doc = "Block read instructions to region n"]
     DISABLE,
 }
 impl READW {
@@ -224,12 +224,12 @@ impl<'a> _READW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Allow read instructions to region 0"]
+    #[doc = "Allow read instructions to region n"]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(READW::ENABLE)
     }
-    #[doc = "Block read instructions to region 0"]
+    #[doc = "Block read instructions to region n"]
     #[inline]
     pub fn disable(self) -> &'a mut W {
         self.variant(READW::DISABLE)
@@ -258,7 +258,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Configure write and erase permissions for region 0. Write '0' has no effect."]
+    #[doc = "Bit 1 - Configure write and erase permissions for region n. Write '0' has no effect."]
     #[inline]
     pub fn write(&self) -> WRITER {
         WRITER::_from({
@@ -267,7 +267,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Configure read permissions for region 0. Write '0' has no effect."]
+    #[doc = "Bit 2 - Configure read permissions for region n. Write '0' has no effect."]
     #[inline]
     pub fn read(&self) -> READR {
         READR::_from({
@@ -289,12 +289,12 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 1 - Configure write and erase permissions for region 0. Write '0' has no effect."]
+    #[doc = "Bit 1 - Configure write and erase permissions for region n. Write '0' has no effect."]
     #[inline]
     pub fn write(&mut self) -> _WRITEW {
         _WRITEW { w: self }
     }
-    #[doc = "Bit 2 - Configure read permissions for region 0. Write '0' has no effect."]
+    #[doc = "Bit 2 - Configure read permissions for region n. Write '0' has no effect."]
     #[inline]
     pub fn read(&mut self) -> _READW {
         _READW { w: self }

@@ -6,7 +6,7 @@ pub struct R {
 pub struct W {
     bits: u32,
 }
-impl super::DISABLEINDEBUG {
+impl super::CSNPOL {
     #[doc = r" Modifies the contents of the register"]
     #[inline]
     pub fn modify<F>(&self, f: F)
@@ -42,15 +42,15 @@ impl super::DISABLEINDEBUG {
         self.write(|w| w)
     }
 }
-#[doc = "Possible values of the field `DISABLEINDEBUG`"]
+#[doc = "Possible values of the field `CSNPOL`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DISABLEINDEBUGR {
-    #[doc = "ACL is disabled in debug mode"]
-    DISABLED,
-    #[doc = "ACL is enabled in debug mode"]
-    ENABLED,
+pub enum CSNPOLR {
+    #[doc = "Active low (idle state high)"]
+    LOW,
+    #[doc = "Active high (idle state low)"]
+    HIGH,
 }
-impl DISABLEINDEBUGR {
+impl CSNPOLR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -65,69 +65,69 @@ impl DISABLEINDEBUGR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            DISABLEINDEBUGR::DISABLED => true,
-            DISABLEINDEBUGR::ENABLED => false,
+            CSNPOLR::LOW => false,
+            CSNPOLR::HIGH => true,
         }
     }
     #[allow(missing_docs)]
     #[doc(hidden)]
     #[inline]
-    pub fn _from(value: bool) -> DISABLEINDEBUGR {
+    pub fn _from(value: bool) -> CSNPOLR {
         match value {
-            true => DISABLEINDEBUGR::DISABLED,
-            false => DISABLEINDEBUGR::ENABLED,
+            false => CSNPOLR::LOW,
+            true => CSNPOLR::HIGH,
         }
     }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[doc = "Checks if the value of the field is `LOW`"]
     #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == DISABLEINDEBUGR::DISABLED
+    pub fn is_low(&self) -> bool {
+        *self == CSNPOLR::LOW
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Checks if the value of the field is `HIGH`"]
     #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == DISABLEINDEBUGR::ENABLED
+    pub fn is_high(&self) -> bool {
+        *self == CSNPOLR::HIGH
     }
 }
-#[doc = "Values that can be written to the field `DISABLEINDEBUG`"]
-pub enum DISABLEINDEBUGW {
-    #[doc = "ACL is disabled in debug mode"]
-    DISABLED,
-    #[doc = "ACL is enabled in debug mode"]
-    ENABLED,
+#[doc = "Values that can be written to the field `CSNPOL`"]
+pub enum CSNPOLW {
+    #[doc = "Active low (idle state high)"]
+    LOW,
+    #[doc = "Active high (idle state low)"]
+    HIGH,
 }
-impl DISABLEINDEBUGW {
+impl CSNPOLW {
     #[allow(missing_docs)]
     #[doc(hidden)]
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            DISABLEINDEBUGW::DISABLED => true,
-            DISABLEINDEBUGW::ENABLED => false,
+            CSNPOLW::LOW => false,
+            CSNPOLW::HIGH => true,
         }
     }
 }
 #[doc = r" Proxy"]
-pub struct _DISABLEINDEBUGW<'a> {
+pub struct _CSNPOLW<'a> {
     w: &'a mut W,
 }
-impl<'a> _DISABLEINDEBUGW<'a> {
+impl<'a> _CSNPOLW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
-    pub fn variant(self, variant: DISABLEINDEBUGW) -> &'a mut W {
+    pub fn variant(self, variant: CSNPOLW) -> &'a mut W {
         {
             self.bit(variant._bits())
         }
     }
-    #[doc = "ACL is disabled in debug mode"]
+    #[doc = "Active low (idle state high)"]
     #[inline]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(DISABLEINDEBUGW::DISABLED)
+    pub fn low(self) -> &'a mut W {
+        self.variant(CSNPOLW::LOW)
     }
-    #[doc = "ACL is enabled in debug mode"]
+    #[doc = "Active high (idle state low)"]
     #[inline]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(DISABLEINDEBUGW::ENABLED)
+    pub fn high(self) -> &'a mut W {
+        self.variant(CSNPOLW::HIGH)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -153,10 +153,10 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Disable the protection mechanism for regions while in debug mode."]
+    #[doc = "Bit 0 - Polarity of CSN output"]
     #[inline]
-    pub fn disableindebug(&self) -> DISABLEINDEBUGR {
-        DISABLEINDEBUGR::_from({
+    pub fn csnpol(&self) -> CSNPOLR {
+        CSNPOLR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) != 0
@@ -167,7 +167,7 @@ impl W {
     #[doc = r" Reset value of the register"]
     #[inline]
     pub fn reset_value() -> W {
-        W { bits: 1 }
+        W { bits: 0 }
     }
     #[doc = r" Writes raw bits to the register"]
     #[inline]
@@ -175,9 +175,9 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Disable the protection mechanism for regions while in debug mode."]
+    #[doc = "Bit 0 - Polarity of CSN output"]
     #[inline]
-    pub fn disableindebug(&mut self) -> _DISABLEINDEBUGW {
-        _DISABLEINDEBUGW { w: self }
+    pub fn csnpol(&mut self) -> _CSNPOLW {
+        _CSNPOLW { w: self }
     }
 }

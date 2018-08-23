@@ -47,7 +47,7 @@ impl super::GAINL {
 pub enum GAINLR {
     #[doc = "-20dB gain adjustment (minimum)"]
     MINGAIN,
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     DEFAULTGAIN,
     #[doc = "+20dB gain adjustment (maximum)"]
     MAXGAIN,
@@ -96,7 +96,7 @@ impl GAINLR {
 pub enum GAINLW {
     #[doc = "-20dB gain adjustment (minimum)"]
     MINGAIN,
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     DEFAULTGAIN,
     #[doc = "+20dB gain adjustment (maximum)"]
     MAXGAIN,
@@ -128,7 +128,7 @@ impl<'a> _GAINLW<'a> {
     pub fn min_gain(self) -> &'a mut W {
         self.variant(GAINLW::MINGAIN)
     }
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     #[inline]
     pub fn default_gain(self) -> &'a mut W {
         self.variant(GAINLW::DEFAULTGAIN)

@@ -6,7 +6,7 @@ pub struct R {
 pub struct W {
     bits: u32,
 }
-impl super::EXTSUPPLY {
+impl super::HOST_IOT_KPRTL_LOCK {
     #[doc = r" Modifies the contents of the register"]
     #[inline]
     pub fn modify<F>(&self, f: F)
@@ -42,15 +42,15 @@ impl super::EXTSUPPLY {
         self.write(|w| w)
     }
 }
-#[doc = "Possible values of the field `EXTSUPPLY`"]
+#[doc = "Possible values of the field `HOST_IOT_KPRTL_LOCK`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EXTSUPPLYR {
-    #[doc = "No current can be drawn from the VDD pin"]
+pub enum HOST_IOT_KPRTL_LOCKR {
+    #[doc = "K_PRTL can be selected for use from register HOST_CRYPTOKEY_SEL"]
     DISABLED,
-    #[doc = "It is allowed to supply external circuitry from the VDD pin"]
+    #[doc = "K_PRTL has been locked until next power-on reset (POR). If K_PRTL is selected anyway, a zeroed key will be used instead."]
     ENABLED,
 }
-impl EXTSUPPLYR {
+impl HOST_IOT_KPRTL_LOCKR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -65,69 +65,69 @@ impl EXTSUPPLYR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            EXTSUPPLYR::DISABLED => false,
-            EXTSUPPLYR::ENABLED => true,
+            HOST_IOT_KPRTL_LOCKR::DISABLED => false,
+            HOST_IOT_KPRTL_LOCKR::ENABLED => true,
         }
     }
     #[allow(missing_docs)]
     #[doc(hidden)]
     #[inline]
-    pub fn _from(value: bool) -> EXTSUPPLYR {
+    pub fn _from(value: bool) -> HOST_IOT_KPRTL_LOCKR {
         match value {
-            false => EXTSUPPLYR::DISABLED,
-            true => EXTSUPPLYR::ENABLED,
+            false => HOST_IOT_KPRTL_LOCKR::DISABLED,
+            true => HOST_IOT_KPRTL_LOCKR::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
     #[inline]
     pub fn is_disabled(&self) -> bool {
-        *self == EXTSUPPLYR::DISABLED
+        *self == HOST_IOT_KPRTL_LOCKR::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
     #[inline]
     pub fn is_enabled(&self) -> bool {
-        *self == EXTSUPPLYR::ENABLED
+        *self == HOST_IOT_KPRTL_LOCKR::ENABLED
     }
 }
-#[doc = "Values that can be written to the field `EXTSUPPLY`"]
-pub enum EXTSUPPLYW {
-    #[doc = "No current can be drawn from the VDD pin"]
+#[doc = "Values that can be written to the field `HOST_IOT_KPRTL_LOCK`"]
+pub enum HOST_IOT_KPRTL_LOCKW {
+    #[doc = "K_PRTL can be selected for use from register HOST_CRYPTOKEY_SEL"]
     DISABLED,
-    #[doc = "It is allowed to supply external circuitry from the VDD pin"]
+    #[doc = "K_PRTL has been locked until next power-on reset (POR). If K_PRTL is selected anyway, a zeroed key will be used instead."]
     ENABLED,
 }
-impl EXTSUPPLYW {
+impl HOST_IOT_KPRTL_LOCKW {
     #[allow(missing_docs)]
     #[doc(hidden)]
     #[inline]
     pub fn _bits(&self) -> bool {
         match *self {
-            EXTSUPPLYW::DISABLED => false,
-            EXTSUPPLYW::ENABLED => true,
+            HOST_IOT_KPRTL_LOCKW::DISABLED => false,
+            HOST_IOT_KPRTL_LOCKW::ENABLED => true,
         }
     }
 }
 #[doc = r" Proxy"]
-pub struct _EXTSUPPLYW<'a> {
+pub struct _HOST_IOT_KPRTL_LOCKW<'a> {
     w: &'a mut W,
 }
-impl<'a> _EXTSUPPLYW<'a> {
+impl<'a> _HOST_IOT_KPRTL_LOCKW<'a> {
     #[doc = r" Writes `variant` to the field"]
     #[inline]
-    pub fn variant(self, variant: EXTSUPPLYW) -> &'a mut W {
+    pub fn variant(self, variant: HOST_IOT_KPRTL_LOCKW) -> &'a mut W {
         {
             self.bit(variant._bits())
         }
     }
-    #[doc = "No current can be drawn from the VDD pin"]
+    #[doc = "K_PRTL can be selected for use from register HOST_CRYPTOKEY_SEL"]
     #[inline]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(EXTSUPPLYW::DISABLED)
+        self.variant(HOST_IOT_KPRTL_LOCKW::DISABLED)
     }
-    #[doc = "It is allowed to supply external circuitry from the VDD pin"]
+    #[doc = "K_PRTL has been locked until next power-on reset (POR). If K_PRTL is selected anyway, a zeroed key will be used instead."]
     #[inline]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(EXTSUPPLYW::ENABLED)
+        self.variant(HOST_IOT_KPRTL_LOCKW::ENABLED)
     }
     #[doc = r" Sets the field bit"]
     pub fn set_bit(self) -> &'a mut W {
@@ -153,10 +153,10 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Enable external circuitry to be supplied from VDD pin (output of REG0 stage)"]
+    #[doc = "Bit 0 - This register is the K_PRTL lock register. When this register is set, K_PRTL can not be used and a zeroed key will be used instead. The value of this register is saved in the CRYPTOCELL AO power domain."]
     #[inline]
-    pub fn extsupply(&self) -> EXTSUPPLYR {
-        EXTSUPPLYR::_from({
+    pub fn host_iot_kprtl_lock(&self) -> HOST_IOT_KPRTL_LOCKR {
+        HOST_IOT_KPRTL_LOCKR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) != 0
@@ -167,7 +167,7 @@ impl W {
     #[doc = r" Reset value of the register"]
     #[inline]
     pub fn reset_value() -> W {
-        W { bits: 4294967295 }
+        W { bits: 0 }
     }
     #[doc = r" Writes raw bits to the register"]
     #[inline]
@@ -175,9 +175,9 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Enable external circuitry to be supplied from VDD pin (output of REG0 stage)"]
+    #[doc = "Bit 0 - This register is the K_PRTL lock register. When this register is set, K_PRTL can not be used and a zeroed key will be used instead. The value of this register is saved in the CRYPTOCELL AO power domain."]
     #[inline]
-    pub fn extsupply(&mut self) -> _EXTSUPPLYW {
-        _EXTSUPPLYW { w: self }
+    pub fn host_iot_kprtl_lock(&mut self) -> _HOST_IOT_KPRTL_LOCKW {
+        _HOST_IOT_KPRTL_LOCKW { w: self }
     }
 }

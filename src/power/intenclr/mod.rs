@@ -630,7 +630,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for POFWARN event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for POFWARN event"]
     #[inline]
     pub fn pofwarn(&self) -> POFWARNR {
         POFWARNR::_from({
@@ -639,7 +639,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to Disable interrupt for SLEEPENTER event"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for SLEEPENTER event"]
     #[inline]
     pub fn sleepenter(&self) -> SLEEPENTERR {
         SLEEPENTERR::_from({
@@ -648,7 +648,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Write '1' to Disable interrupt for SLEEPEXIT event"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for SLEEPEXIT event"]
     #[inline]
     pub fn sleepexit(&self) -> SLEEPEXITR {
         SLEEPEXITR::_from({
@@ -657,7 +657,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for USBDETECTED event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for USBDETECTED event"]
     #[inline]
     pub fn usbdetected(&self) -> USBDETECTEDR {
         USBDETECTEDR::_from({
@@ -666,7 +666,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Write '1' to Disable interrupt for USBREMOVED event"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for USBREMOVED event"]
     #[inline]
     pub fn usbremoved(&self) -> USBREMOVEDR {
         USBREMOVEDR::_from({
@@ -675,7 +675,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Write '1' to Disable interrupt for USBPWRRDY event"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for USBPWRRDY event"]
     #[inline]
     pub fn usbpwrrdy(&self) -> USBPWRRDYR {
         USBPWRRDYR::_from({
@@ -697,32 +697,32 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for POFWARN event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for POFWARN event"]
     #[inline]
     pub fn pofwarn(&mut self) -> _POFWARNW {
         _POFWARNW { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to Disable interrupt for SLEEPENTER event"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for SLEEPENTER event"]
     #[inline]
     pub fn sleepenter(&mut self) -> _SLEEPENTERW {
         _SLEEPENTERW { w: self }
     }
-    #[doc = "Bit 6 - Write '1' to Disable interrupt for SLEEPEXIT event"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for SLEEPEXIT event"]
     #[inline]
     pub fn sleepexit(&mut self) -> _SLEEPEXITW {
         _SLEEPEXITW { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for USBDETECTED event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for USBDETECTED event"]
     #[inline]
     pub fn usbdetected(&mut self) -> _USBDETECTEDW {
         _USBDETECTEDW { w: self }
     }
-    #[doc = "Bit 8 - Write '1' to Disable interrupt for USBREMOVED event"]
+    #[doc = "Bit 8 - Write '1' to disable interrupt for USBREMOVED event"]
     #[inline]
     pub fn usbremoved(&mut self) -> _USBREMOVEDW {
         _USBREMOVEDW { w: self }
     }
-    #[doc = "Bit 9 - Write '1' to Disable interrupt for USBPWRRDY event"]
+    #[doc = "Bit 9 - Write '1' to disable interrupt for USBPWRRDY event"]
     #[inline]
     pub fn usbpwrrdy(&mut self) -> _USBPWRRDYW {
         _USBPWRRDYW { w: self }

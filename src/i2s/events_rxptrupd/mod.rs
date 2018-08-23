@@ -42,11 +42,65 @@ impl super::EVENTS_RXPTRUPD {
         self.write(|w| w)
     }
 }
+#[doc = r" Value of the field"]
+pub struct EVENTS_RXPTRUPDR {
+    bits: bool,
+}
+impl EVENTS_RXPTRUPDR {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Proxy"]
+pub struct _EVENTS_RXPTRUPDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _EVENTS_RXPTRUPDW<'a> {
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 0;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
+    }
+    #[doc = "Bit 0"]
+    #[inline]
+    pub fn events_rxptrupd(&self) -> EVENTS_RXPTRUPDR {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 0;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        EVENTS_RXPTRUPDR { bits }
     }
 }
 impl W {
@@ -60,5 +114,10 @@ impl W {
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.bits = bits;
         self
+    }
+    #[doc = "Bit 0"]
+    #[inline]
+    pub fn events_rxptrupd(&mut self) -> _EVENTS_RXPTRUPDW {
+        _EVENTS_RXPTRUPDW { w: self }
     }
 }

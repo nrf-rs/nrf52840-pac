@@ -14,6 +14,29 @@ impl super::TASKS_STARTISOOUT {
         self.register.set(w.bits);
     }
 }
+#[doc = r" Proxy"]
+pub struct _TASKS_STARTISOOUTW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _TASKS_STARTISOOUTW<'a> {
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 0;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl W {
     #[doc = r" Reset value of the register"]
     #[inline]
@@ -25,5 +48,10 @@ impl W {
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.bits = bits;
         self
+    }
+    #[doc = "Bit 0"]
+    #[inline]
+    pub fn tasks_startisoout(&mut self) -> _TASKS_STARTISOOUTW {
+        _TASKS_STARTISOOUTW { w: self }
     }
 }

@@ -373,7 +373,7 @@ impl TACQR {
 #[doc = "Possible values of the field `MODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODER {
-    #[doc = "Single ended, PSELN will be ignored, negative input to ADC shorted to GND"]
+    #[doc = "Single-ended, PSELN will be ignored, negative input to SAADC shorted to GND"]
     SE,
     #[doc = "Differential"]
     DIFF,
@@ -834,7 +834,7 @@ impl<'a> _TACQW<'a> {
 }
 #[doc = "Values that can be written to the field `MODE`"]
 pub enum MODEW {
-    #[doc = "Single ended, PSELN will be ignored, negative input to ADC shorted to GND"]
+    #[doc = "Single-ended, PSELN will be ignored, negative input to SAADC shorted to GND"]
     SE,
     #[doc = "Differential"]
     DIFF,
@@ -862,7 +862,7 @@ impl<'a> _MODEW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Single ended, PSELN will be ignored, negative input to ADC shorted to GND"]
+    #[doc = "Single-ended, PSELN will be ignored, negative input to SAADC shorted to GND"]
     #[inline]
     pub fn se(self) -> &'a mut W {
         self.variant(MODEW::SE)
@@ -990,7 +990,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bits 16:18 - Acquisition time, the time the ADC uses to sample the input voltage"]
+    #[doc = "Bits 16:18 - Acquisition time, the time the SAADC uses to sample the input voltage"]
     #[inline]
     pub fn tacq(&self) -> TACQR {
         TACQR::_from({
@@ -1050,7 +1050,7 @@ impl W {
     pub fn refsel(&mut self) -> _REFSELW {
         _REFSELW { w: self }
     }
-    #[doc = "Bits 16:18 - Acquisition time, the time the ADC uses to sample the input voltage"]
+    #[doc = "Bits 16:18 - Acquisition time, the time the SAADC uses to sample the input voltage"]
     #[inline]
     pub fn tacq(&mut self) -> _TACQW {
         _TACQW { w: self }

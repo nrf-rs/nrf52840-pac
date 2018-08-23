@@ -1,6 +1,6 @@
-#[doc = "Description collection[0]: Output pin select for PWM channel 0"]
+#[doc = "Description collection[n]: Output pin select for PWM channel n"]
 pub struct OUT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Output pin select for PWM channel 0"]
+#[doc = "Description collection[n]: Output pin select for PWM channel n"]
 pub mod out;

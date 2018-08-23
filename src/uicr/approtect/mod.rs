@@ -137,7 +137,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - Enable or disable Access Port protection."]
+    #[doc = "Bits 0:7 - Enable or disable access port protection."]
     #[inline]
     pub fn pall(&self) -> PALLR {
         PALLR::_from({
@@ -159,7 +159,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - Enable or disable Access Port protection."]
+    #[doc = "Bits 0:7 - Enable or disable access port protection."]
     #[inline]
     pub fn pall(&mut self) -> _PALLW {
         _PALLW { w: self }

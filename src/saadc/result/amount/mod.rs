@@ -28,7 +28,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:14 - Number of buffer words transferred since last START. This register can be read after an END or STOPPED event."]
+    #[doc = "Bits 0:14 - Number of 16-bit samples written to output RAM buffer since the previous START task. This register can be read after an END or STOPPED event."]
     #[inline]
     pub fn amount(&self) -> AMOUNTR {
         let bits = {

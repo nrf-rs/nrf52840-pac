@@ -152,7 +152,7 @@ pub enum PLENR {
     _16BIT,
     #[doc = "32-bit zero preamble - used for IEEE 802.15.4"]
     _32BITZERO,
-    #[doc = "Preamble - used for BTLE Long Range"]
+    #[doc = "Preamble - used for BLE long range"]
     LONGRANGE,
 }
 impl PLENR {
@@ -391,7 +391,7 @@ pub enum PLENW {
     _16BIT,
     #[doc = "32-bit zero preamble - used for IEEE 802.15.4"]
     _32BITZERO,
-    #[doc = "Preamble - used for BTLE Long Range"]
+    #[doc = "Preamble - used for BLE long range"]
     LONGRANGE,
 }
 impl PLENW {
@@ -434,7 +434,7 @@ impl<'a> _PLENW<'a> {
     pub fn _32bit_zero(self) -> &'a mut W {
         self.variant(PLENW::_32BITZERO)
     }
-    #[doc = "Preamble - used for BTLE Long Range"]
+    #[doc = "Preamble - used for BLE long range"]
     #[inline]
     pub fn long_range(self) -> &'a mut W {
         self.variant(PLENW::LONGRANGE)
@@ -567,7 +567,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bits 22:23 - Length of Code Indicator - Long Range"]
+    #[doc = "Bits 22:23 - Length of code indicator - long range"]
     #[inline]
     pub fn cilen(&self) -> CILENR {
         let bits = {
@@ -638,7 +638,7 @@ impl W {
     pub fn s1incl(&mut self) -> _S1INCLW {
         _S1INCLW { w: self }
     }
-    #[doc = "Bits 22:23 - Length of Code Indicator - Long Range"]
+    #[doc = "Bits 22:23 - Length of code indicator - long range"]
     #[inline]
     pub fn cilen(&mut self) -> _CILENW {
         _CILENW { w: self }

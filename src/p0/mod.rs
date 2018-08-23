@@ -20,8 +20,8 @@ pub struct RegisterBlock {
     pub latch: LATCH,
     #[doc = "0x524 - Select between default DETECT signal behaviour and LDETECT mode"]
     pub detectmode: DETECTMODE,
-    _reserved1: [u8; 472usize],
-    #[doc = "0x700 - Description collection[0]: Configuration of GPIO pins"]
+    _reserved9: [u8; 472usize],
+    #[doc = "0x700 - Description collection[n]: Configuration of GPIO pins"]
     pub pin_cnf: [PIN_CNF; 32],
 }
 #[doc = "Write GPIO port"]
@@ -78,9 +78,9 @@ pub struct DETECTMODE {
 }
 #[doc = "Select between default DETECT signal behaviour and LDETECT mode"]
 pub mod detectmode;
-#[doc = "Description collection[0]: Configuration of GPIO pins"]
+#[doc = "Description collection[n]: Configuration of GPIO pins"]
 pub struct PIN_CNF {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Configuration of GPIO pins"]
+#[doc = "Description collection[n]: Configuration of GPIO pins"]
 pub mod pin_cnf;

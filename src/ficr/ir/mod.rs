@@ -28,7 +28,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Identity Root, word 0"]
+    #[doc = "Bits 0:31 - Identity Root, word n"]
     #[inline]
     pub fn ir(&self) -> IRR {
         let bits = {

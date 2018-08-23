@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:14 - Maximum number of buffer words to transfer"]
+    #[doc = "Bits 0:14 - Maximum number of 16-bit samples to be written to output RAM buffer"]
     #[inline]
     pub fn maxcnt(&self) -> MAXCNTR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:14 - Maximum number of buffer words to transfer"]
+    #[doc = "Bits 0:14 - Maximum number of 16-bit samples to be written to output RAM buffer"]
     #[inline]
     pub fn maxcnt(&mut self) -> _MAXCNTW {
         _MAXCNTW { w: self }

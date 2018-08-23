@@ -1029,6 +1029,53 @@ impl MHRMATCHR {
         *self == MHRMATCHR::ENABLED
     }
 }
+#[doc = "Possible values of the field `PHYEND`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PHYENDR {
+    #[doc = "Read: Disabled"]
+    DISABLED,
+    #[doc = "Read: Enabled"]
+    ENABLED,
+}
+impl PHYENDR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            PHYENDR::DISABLED => false,
+            PHYENDR::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> PHYENDR {
+        match value {
+            false => PHYENDR::DISABLED,
+            true => PHYENDR::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == PHYENDR::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == PHYENDR::ENABLED
+    }
+}
 #[doc = "Values that can be written to the field `READY`"]
 pub enum READYW {
     #[doc = "Disable"]
@@ -2079,13 +2126,63 @@ impl<'a> _MHRMATCHW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `PHYEND`"]
+pub enum PHYENDW {
+    #[doc = "Disable"]
+    CLEAR,
+}
+impl PHYENDW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            PHYENDW::CLEAR => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _PHYENDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _PHYENDW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: PHYENDW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable"]
+    #[inline]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(PHYENDW::CLEAR)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 27;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for READY event"]
     #[inline]
     pub fn ready(&self) -> READYR {
         READYR::_from({
@@ -2094,7 +2191,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for ADDRESS event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for ADDRESS event"]
     #[inline]
     pub fn address(&self) -> ADDRESSR {
         ADDRESSR::_from({
@@ -2103,7 +2200,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for PAYLOAD event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for PAYLOAD event"]
     #[inline]
     pub fn payload(&self) -> PAYLOADR {
         PAYLOADR::_from({
@@ -2112,7 +2209,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&self) -> ENDR {
         ENDR::_from({
@@ -2121,7 +2218,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for DISABLED event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for DISABLED event"]
     #[inline]
     pub fn disabled(&self) -> DISABLEDR {
         DISABLEDR::_from({
@@ -2130,7 +2227,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to Disable interrupt for DEVMATCH event"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for DEVMATCH event"]
     #[inline]
     pub fn devmatch(&self) -> DEVMATCHR {
         DEVMATCHR::_from({
@@ -2139,7 +2236,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Write '1' to Disable interrupt for DEVMISS event"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for DEVMISS event"]
     #[inline]
     pub fn devmiss(&self) -> DEVMISSR {
         DEVMISSR::_from({
@@ -2148,7 +2245,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for RSSIEND event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for RSSIEND event"]
     #[inline]
     pub fn rssiend(&self) -> RSSIENDR {
         RSSIENDR::_from({
@@ -2157,7 +2254,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Write '1' to Disable interrupt for BCMATCH event"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for BCMATCH event"]
     #[inline]
     pub fn bcmatch(&self) -> BCMATCHR {
         BCMATCHR::_from({
@@ -2166,7 +2263,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Write '1' to Disable interrupt for CRCOK event"]
+    #[doc = "Bit 12 - Write '1' to disable interrupt for CRCOK event"]
     #[inline]
     pub fn crcok(&self) -> CRCOKR {
         CRCOKR::_from({
@@ -2175,7 +2272,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 13 - Write '1' to Disable interrupt for CRCERROR event"]
+    #[doc = "Bit 13 - Write '1' to disable interrupt for CRCERROR event"]
     #[inline]
     pub fn crcerror(&self) -> CRCERRORR {
         CRCERRORR::_from({
@@ -2184,7 +2281,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Write '1' to Disable interrupt for FRAMESTART event"]
+    #[doc = "Bit 14 - Write '1' to disable interrupt for FRAMESTART event"]
     #[inline]
     pub fn framestart(&self) -> FRAMESTARTR {
         FRAMESTARTR::_from({
@@ -2193,7 +2290,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 15 - Write '1' to Disable interrupt for EDEND event"]
+    #[doc = "Bit 15 - Write '1' to disable interrupt for EDEND event"]
     #[inline]
     pub fn edend(&self) -> EDENDR {
         EDENDR::_from({
@@ -2202,7 +2299,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 16 - Write '1' to Disable interrupt for EDSTOPPED event"]
+    #[doc = "Bit 16 - Write '1' to disable interrupt for EDSTOPPED event"]
     #[inline]
     pub fn edstopped(&self) -> EDSTOPPEDR {
         EDSTOPPEDR::_from({
@@ -2211,7 +2308,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 17 - Write '1' to Disable interrupt for CCAIDLE event"]
+    #[doc = "Bit 17 - Write '1' to disable interrupt for CCAIDLE event"]
     #[inline]
     pub fn ccaidle(&self) -> CCAIDLER {
         CCAIDLER::_from({
@@ -2220,7 +2317,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Write '1' to Disable interrupt for CCABUSY event"]
+    #[doc = "Bit 18 - Write '1' to disable interrupt for CCABUSY event"]
     #[inline]
     pub fn ccabusy(&self) -> CCABUSYR {
         CCABUSYR::_from({
@@ -2229,7 +2326,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Write '1' to Disable interrupt for CCASTOPPED event"]
+    #[doc = "Bit 19 - Write '1' to disable interrupt for CCASTOPPED event"]
     #[inline]
     pub fn ccastopped(&self) -> CCASTOPPEDR {
         CCASTOPPEDR::_from({
@@ -2238,7 +2335,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Write '1' to Disable interrupt for RATEBOOST event"]
+    #[doc = "Bit 20 - Write '1' to disable interrupt for RATEBOOST event"]
     #[inline]
     pub fn rateboost(&self) -> RATEBOOSTR {
         RATEBOOSTR::_from({
@@ -2247,7 +2344,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 21 - Write '1' to Disable interrupt for TXREADY event"]
+    #[doc = "Bit 21 - Write '1' to disable interrupt for TXREADY event"]
     #[inline]
     pub fn txready(&self) -> TXREADYR {
         TXREADYR::_from({
@@ -2256,7 +2353,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 22 - Write '1' to Disable interrupt for RXREADY event"]
+    #[doc = "Bit 22 - Write '1' to disable interrupt for RXREADY event"]
     #[inline]
     pub fn rxready(&self) -> RXREADYR {
         RXREADYR::_from({
@@ -2265,12 +2362,21 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 23 - Write '1' to Disable interrupt for MHRMATCH event"]
+    #[doc = "Bit 23 - Write '1' to disable interrupt for MHRMATCH event"]
     #[inline]
     pub fn mhrmatch(&self) -> MHRMATCHR {
         MHRMATCHR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 23;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 27 - Write '1' to disable interrupt for PHYEND event"]
+    #[inline]
+    pub fn phyend(&self) -> PHYENDR {
+        PHYENDR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 27;
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
@@ -2287,109 +2393,114 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for READY event"]
     #[inline]
     pub fn ready(&mut self) -> _READYW {
         _READYW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for ADDRESS event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for ADDRESS event"]
     #[inline]
     pub fn address(&mut self) -> _ADDRESSW {
         _ADDRESSW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for PAYLOAD event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for PAYLOAD event"]
     #[inline]
     pub fn payload(&mut self) -> _PAYLOADW {
         _PAYLOADW { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&mut self) -> _ENDW {
         _ENDW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for DISABLED event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for DISABLED event"]
     #[inline]
     pub fn disabled(&mut self) -> _DISABLEDW {
         _DISABLEDW { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to Disable interrupt for DEVMATCH event"]
+    #[doc = "Bit 5 - Write '1' to disable interrupt for DEVMATCH event"]
     #[inline]
     pub fn devmatch(&mut self) -> _DEVMATCHW {
         _DEVMATCHW { w: self }
     }
-    #[doc = "Bit 6 - Write '1' to Disable interrupt for DEVMISS event"]
+    #[doc = "Bit 6 - Write '1' to disable interrupt for DEVMISS event"]
     #[inline]
     pub fn devmiss(&mut self) -> _DEVMISSW {
         _DEVMISSW { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to Disable interrupt for RSSIEND event"]
+    #[doc = "Bit 7 - Write '1' to disable interrupt for RSSIEND event"]
     #[inline]
     pub fn rssiend(&mut self) -> _RSSIENDW {
         _RSSIENDW { w: self }
     }
-    #[doc = "Bit 10 - Write '1' to Disable interrupt for BCMATCH event"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for BCMATCH event"]
     #[inline]
     pub fn bcmatch(&mut self) -> _BCMATCHW {
         _BCMATCHW { w: self }
     }
-    #[doc = "Bit 12 - Write '1' to Disable interrupt for CRCOK event"]
+    #[doc = "Bit 12 - Write '1' to disable interrupt for CRCOK event"]
     #[inline]
     pub fn crcok(&mut self) -> _CRCOKW {
         _CRCOKW { w: self }
     }
-    #[doc = "Bit 13 - Write '1' to Disable interrupt for CRCERROR event"]
+    #[doc = "Bit 13 - Write '1' to disable interrupt for CRCERROR event"]
     #[inline]
     pub fn crcerror(&mut self) -> _CRCERRORW {
         _CRCERRORW { w: self }
     }
-    #[doc = "Bit 14 - Write '1' to Disable interrupt for FRAMESTART event"]
+    #[doc = "Bit 14 - Write '1' to disable interrupt for FRAMESTART event"]
     #[inline]
     pub fn framestart(&mut self) -> _FRAMESTARTW {
         _FRAMESTARTW { w: self }
     }
-    #[doc = "Bit 15 - Write '1' to Disable interrupt for EDEND event"]
+    #[doc = "Bit 15 - Write '1' to disable interrupt for EDEND event"]
     #[inline]
     pub fn edend(&mut self) -> _EDENDW {
         _EDENDW { w: self }
     }
-    #[doc = "Bit 16 - Write '1' to Disable interrupt for EDSTOPPED event"]
+    #[doc = "Bit 16 - Write '1' to disable interrupt for EDSTOPPED event"]
     #[inline]
     pub fn edstopped(&mut self) -> _EDSTOPPEDW {
         _EDSTOPPEDW { w: self }
     }
-    #[doc = "Bit 17 - Write '1' to Disable interrupt for CCAIDLE event"]
+    #[doc = "Bit 17 - Write '1' to disable interrupt for CCAIDLE event"]
     #[inline]
     pub fn ccaidle(&mut self) -> _CCAIDLEW {
         _CCAIDLEW { w: self }
     }
-    #[doc = "Bit 18 - Write '1' to Disable interrupt for CCABUSY event"]
+    #[doc = "Bit 18 - Write '1' to disable interrupt for CCABUSY event"]
     #[inline]
     pub fn ccabusy(&mut self) -> _CCABUSYW {
         _CCABUSYW { w: self }
     }
-    #[doc = "Bit 19 - Write '1' to Disable interrupt for CCASTOPPED event"]
+    #[doc = "Bit 19 - Write '1' to disable interrupt for CCASTOPPED event"]
     #[inline]
     pub fn ccastopped(&mut self) -> _CCASTOPPEDW {
         _CCASTOPPEDW { w: self }
     }
-    #[doc = "Bit 20 - Write '1' to Disable interrupt for RATEBOOST event"]
+    #[doc = "Bit 20 - Write '1' to disable interrupt for RATEBOOST event"]
     #[inline]
     pub fn rateboost(&mut self) -> _RATEBOOSTW {
         _RATEBOOSTW { w: self }
     }
-    #[doc = "Bit 21 - Write '1' to Disable interrupt for TXREADY event"]
+    #[doc = "Bit 21 - Write '1' to disable interrupt for TXREADY event"]
     #[inline]
     pub fn txready(&mut self) -> _TXREADYW {
         _TXREADYW { w: self }
     }
-    #[doc = "Bit 22 - Write '1' to Disable interrupt for RXREADY event"]
+    #[doc = "Bit 22 - Write '1' to disable interrupt for RXREADY event"]
     #[inline]
     pub fn rxready(&mut self) -> _RXREADYW {
         _RXREADYW { w: self }
     }
-    #[doc = "Bit 23 - Write '1' to Disable interrupt for MHRMATCH event"]
+    #[doc = "Bit 23 - Write '1' to disable interrupt for MHRMATCH event"]
     #[inline]
     pub fn mhrmatch(&mut self) -> _MHRMATCHW {
         _MHRMATCHW { w: self }
+    }
+    #[doc = "Bit 27 - Write '1' to disable interrupt for PHYEND event"]
+    #[inline]
+    pub fn phyend(&mut self) -> _PHYENDW {
+        _PHYENDW { w: self }
     }
 }

@@ -42,11 +42,65 @@ impl super::EVENTS_PWMPERIODEND {
         self.write(|w| w)
     }
 }
+#[doc = r" Value of the field"]
+pub struct EVENTS_PWMPERIODENDR {
+    bits: bool,
+}
+impl EVENTS_PWMPERIODENDR {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Proxy"]
+pub struct _EVENTS_PWMPERIODENDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _EVENTS_PWMPERIODENDW<'a> {
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 0;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
+    }
+    #[doc = "Bit 0"]
+    #[inline]
+    pub fn events_pwmperiodend(&self) -> EVENTS_PWMPERIODENDR {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 0;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        EVENTS_PWMPERIODENDR { bits }
     }
 }
 impl W {
@@ -60,5 +114,10 @@ impl W {
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.bits = bits;
         self
+    }
+    #[doc = "Bit 0"]
+    #[inline]
+    pub fn events_pwmperiodend(&mut self) -> _EVENTS_PWMPERIODENDW {
+        _EVENTS_PWMPERIODENDW { w: self }
     }
 }

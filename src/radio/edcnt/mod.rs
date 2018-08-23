@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:20 - IEEE 802.15.4 Energy Detect Loop Count"]
+    #[doc = "Bits 0:20 - IEEE 802.15.4 energy detect loop count"]
     #[inline]
     pub fn edcnt(&self) -> EDCNTR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:20 - IEEE 802.15.4 Energy Detect Loop Count"]
+    #[doc = "Bits 0:20 - IEEE 802.15.4 energy detect loop count"]
     #[inline]
     pub fn edcnt(&mut self) -> _EDCNTW {
         _EDCNTW { w: self }

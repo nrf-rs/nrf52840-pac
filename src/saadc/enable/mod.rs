@@ -45,9 +45,9 @@ impl super::ENABLE {
 #[doc = "Possible values of the field `ENABLE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENABLER {
-    #[doc = "Disable ADC"]
+    #[doc = "Disable SAADC"]
     DISABLED,
-    #[doc = "Enable ADC"]
+    #[doc = "Enable SAADC"]
     ENABLED,
 }
 impl ENABLER {
@@ -91,9 +91,9 @@ impl ENABLER {
 }
 #[doc = "Values that can be written to the field `ENABLE`"]
 pub enum ENABLEW {
-    #[doc = "Disable ADC"]
+    #[doc = "Disable SAADC"]
     DISABLED,
-    #[doc = "Enable ADC"]
+    #[doc = "Enable SAADC"]
     ENABLED,
 }
 impl ENABLEW {
@@ -119,12 +119,12 @@ impl<'a> _ENABLEW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Disable ADC"]
+    #[doc = "Disable SAADC"]
     #[inline]
     pub fn disabled(self) -> &'a mut W {
         self.variant(ENABLEW::DISABLED)
     }
-    #[doc = "Enable ADC"]
+    #[doc = "Enable SAADC"]
     #[inline]
     pub fn enabled(self) -> &'a mut W {
         self.variant(ENABLEW::ENABLED)
@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Enable or disable ADC"]
+    #[doc = "Bit 0 - Enable or disable SAADC"]
     #[inline]
     pub fn enable(&self) -> ENABLER {
         ENABLER::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Enable or disable ADC"]
+    #[doc = "Bit 0 - Enable or disable SAADC"]
     #[inline]
     pub fn enable(&mut self) -> _ENABLEW {
         _ENABLEW { w: self }

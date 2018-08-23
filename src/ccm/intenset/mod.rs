@@ -339,7 +339,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for ENDKSGEN event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for ENDKSGEN event"]
     #[inline]
     pub fn endksgen(&self) -> ENDKSGENR {
         ENDKSGENR::_from({
@@ -348,7 +348,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for ENDCRYPT event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for ENDCRYPT event"]
     #[inline]
     pub fn endcrypt(&self) -> ENDCRYPTR {
         ENDCRYPTR::_from({
@@ -357,7 +357,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&self) -> ERRORR {
         ERRORR::_from({
@@ -379,17 +379,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for ENDKSGEN event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for ENDKSGEN event"]
     #[inline]
     pub fn endksgen(&mut self) -> _ENDKSGENW {
         _ENDKSGENW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for ENDCRYPT event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for ENDCRYPT event"]
     #[inline]
     pub fn endcrypt(&mut self) -> _ENDCRYPTW {
         _ENDCRYPTW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&mut self) -> _ERRORW {
         _ERRORW { w: self }

@@ -28,11 +28,11 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:9 - Number of bytes transferred in the last transaction"]
+    #[doc = "Bits 0:15 - Number of bytes transferred in the last transaction"]
     #[inline]
     pub fn amount(&self) -> AMOUNTR {
         let bits = {
-            const MASK: u16 = 1023;
+            const MASK: u16 = 65535;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u16
         };

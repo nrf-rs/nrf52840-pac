@@ -6,34 +6,40 @@ pub struct RegisterBlock {
     pub codepagesize: CODEPAGESIZE,
     #[doc = "0x14 - Code memory size"]
     pub codesize: CODESIZE,
-    _reserved1: [u8; 72usize],
-    #[doc = "0x60 - Description collection[0]: Device identifier"]
+    _reserved2: [u8; 72usize],
+    #[doc = "0x60 - Description collection[n]: Device identifier"]
     pub deviceid: [DEVICEID; 2],
-    _reserved2: [u8; 24usize],
-    #[doc = "0x80 - Description collection[0]: Encryption root, word 0"]
+    _reserved3: [u8; 24usize],
+    #[doc = "0x80 - Description collection[n]: Encryption root, word n"]
     pub er: [ER; 4],
-    #[doc = "0x90 - Description collection[0]: Identity Root, word 0"]
+    #[doc = "0x90 - Description collection[n]: Identity Root, word n"]
     pub ir: [IR; 4],
     #[doc = "0xa0 - Device address type"]
     pub deviceaddrtype: DEVICEADDRTYPE,
-    #[doc = "0xa4 - Description collection[0]: Device address 0"]
+    #[doc = "0xa4 - Description collection[n]: Device address n"]
     pub deviceaddr: [DEVICEADDR; 2],
-    _reserved3: [u8; 84usize],
+    _reserved7: [u8; 84usize],
     #[doc = "0x100 - Device info"]
     pub info: INFO,
-    _reserved4: [u8; 740usize],
+    _reserved8: [u8; 560usize],
+    #[doc = "0x350 - Description collection[n]: Production test signature n"]
+    pub prodtest: [PRODTEST; 3],
+    _reserved9: [u8; 168usize],
     #[doc = "0x404 - Registers storing factory TEMP module linearization coefficients"]
     pub temp: TEMP,
-    _reserved5: [u8; 8usize],
+    _reserved10: [u8; 8usize],
     #[doc = "0x450 - Unspecified"]
     pub nfc: NFC,
+    _reserved11: [u8; 1952usize],
+    #[doc = "0xc00 - NIST800-90B RNG calibration data"]
+    pub trng90b: TRNG90B,
 }
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct INFO {
     #[doc = "0x00 - Part code"]
     pub part: self::info::PART,
-    #[doc = "0x04 - Part variant (hardware version and production configuration)"]
+    #[doc = "0x04 - Build code (hardware version and production configuration)"]
     pub variant: self::info::VARIANT,
     #[doc = "0x08 - Package option"]
     pub package: self::info::PACKAGE,
@@ -41,8 +47,8 @@ pub struct INFO {
     pub ram: self::info::RAM,
     #[doc = "0x10 - Flash variant"]
     pub flash: self::info::FLASH,
-    #[doc = "0x14 - Description collection[0]: Unspecified"]
-    pub unused0: [self::info::UNUSED0; 3],
+    #[doc = "0x14 - Unspecified"]
+    pub unused8: [self::info::UNUSED8; 3],
 }
 #[doc = r" Register block"]
 #[doc = "Device info"]
@@ -103,6 +109,29 @@ pub struct NFC {
 #[doc = r" Register block"]
 #[doc = "Unspecified"]
 pub mod nfc;
+#[doc = r" Register block"]
+#[repr(C)]
+pub struct TRNG90B {
+    #[doc = "0x00 - Amount of bytes for the required entropy bits"]
+    pub bytes: self::trng90b::BYTES,
+    #[doc = "0x04 - Repetition counter cutoff"]
+    pub rccutoff: self::trng90b::RCCUTOFF,
+    #[doc = "0x08 - Adaptive proportion cutoff"]
+    pub apcutoff: self::trng90b::APCUTOFF,
+    #[doc = "0x0c - Amount of bytes for the startup tests"]
+    pub startup: self::trng90b::STARTUP,
+    #[doc = "0x10 - Sample count for ring oscillator 1"]
+    pub rosc1: self::trng90b::ROSC1,
+    #[doc = "0x14 - Sample count for ring oscillator 2"]
+    pub rosc2: self::trng90b::ROSC2,
+    #[doc = "0x18 - Sample count for ring oscillator 3"]
+    pub rosc3: self::trng90b::ROSC3,
+    #[doc = "0x1c - Sample count for ring oscillator 4"]
+    pub rosc4: self::trng90b::ROSC4,
+}
+#[doc = r" Register block"]
+#[doc = "NIST800-90B RNG calibration data"]
+pub mod trng90b;
 #[doc = "Code memory page size"]
 pub struct CODEPAGESIZE {
     register: ::vcell::VolatileCell<u32>,
@@ -115,23 +144,23 @@ pub struct CODESIZE {
 }
 #[doc = "Code memory size"]
 pub mod codesize;
-#[doc = "Description collection[0]: Device identifier"]
+#[doc = "Description collection[n]: Device identifier"]
 pub struct DEVICEID {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Device identifier"]
+#[doc = "Description collection[n]: Device identifier"]
 pub mod deviceid;
-#[doc = "Description collection[0]: Encryption root, word 0"]
+#[doc = "Description collection[n]: Encryption root, word n"]
 pub struct ER {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Encryption root, word 0"]
+#[doc = "Description collection[n]: Encryption root, word n"]
 pub mod er;
-#[doc = "Description collection[0]: Identity Root, word 0"]
+#[doc = "Description collection[n]: Identity Root, word n"]
 pub struct IR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Identity Root, word 0"]
+#[doc = "Description collection[n]: Identity Root, word n"]
 pub mod ir;
 #[doc = "Device address type"]
 pub struct DEVICEADDRTYPE {
@@ -139,9 +168,15 @@ pub struct DEVICEADDRTYPE {
 }
 #[doc = "Device address type"]
 pub mod deviceaddrtype;
-#[doc = "Description collection[0]: Device address 0"]
+#[doc = "Description collection[n]: Device address n"]
 pub struct DEVICEADDR {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Device address 0"]
+#[doc = "Description collection[n]: Device address n"]
 pub mod deviceaddr;
+#[doc = "Description collection[n]: Production test signature n"]
+pub struct PRODTEST {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Description collection[n]: Production test signature n"]
+pub mod prodtest;

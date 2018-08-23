@@ -727,7 +727,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&self) -> STOPPEDR {
         STOPPEDR::_from({
@@ -736,7 +736,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 9 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&self) -> ERRORR {
         ERRORR::_from({
@@ -745,7 +745,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Write '1' to Enable interrupt for SUSPENDED event"]
+    #[doc = "Bit 18 - Write '1' to enable interrupt for SUSPENDED event"]
     #[inline]
     pub fn suspended(&self) -> SUSPENDEDR {
         SUSPENDEDR::_from({
@@ -754,7 +754,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Write '1' to Enable interrupt for RXSTARTED event"]
+    #[doc = "Bit 19 - Write '1' to enable interrupt for RXSTARTED event"]
     #[inline]
     pub fn rxstarted(&self) -> RXSTARTEDR {
         RXSTARTEDR::_from({
@@ -763,7 +763,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Write '1' to Enable interrupt for TXSTARTED event"]
+    #[doc = "Bit 20 - Write '1' to enable interrupt for TXSTARTED event"]
     #[inline]
     pub fn txstarted(&self) -> TXSTARTEDR {
         TXSTARTEDR::_from({
@@ -772,7 +772,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 23 - Write '1' to Enable interrupt for LASTRX event"]
+    #[doc = "Bit 23 - Write '1' to enable interrupt for LASTRX event"]
     #[inline]
     pub fn lastrx(&self) -> LASTRXR {
         LASTRXR::_from({
@@ -781,7 +781,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 24 - Write '1' to Enable interrupt for LASTTX event"]
+    #[doc = "Bit 24 - Write '1' to enable interrupt for LASTTX event"]
     #[inline]
     pub fn lasttx(&self) -> LASTTXR {
         LASTTXR::_from({
@@ -803,37 +803,37 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&mut self) -> _STOPPEDW {
         _STOPPEDW { w: self }
     }
-    #[doc = "Bit 9 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 9 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&mut self) -> _ERRORW {
         _ERRORW { w: self }
     }
-    #[doc = "Bit 18 - Write '1' to Enable interrupt for SUSPENDED event"]
+    #[doc = "Bit 18 - Write '1' to enable interrupt for SUSPENDED event"]
     #[inline]
     pub fn suspended(&mut self) -> _SUSPENDEDW {
         _SUSPENDEDW { w: self }
     }
-    #[doc = "Bit 19 - Write '1' to Enable interrupt for RXSTARTED event"]
+    #[doc = "Bit 19 - Write '1' to enable interrupt for RXSTARTED event"]
     #[inline]
     pub fn rxstarted(&mut self) -> _RXSTARTEDW {
         _RXSTARTEDW { w: self }
     }
-    #[doc = "Bit 20 - Write '1' to Enable interrupt for TXSTARTED event"]
+    #[doc = "Bit 20 - Write '1' to enable interrupt for TXSTARTED event"]
     #[inline]
     pub fn txstarted(&mut self) -> _TXSTARTEDW {
         _TXSTARTEDW { w: self }
     }
-    #[doc = "Bit 23 - Write '1' to Enable interrupt for LASTRX event"]
+    #[doc = "Bit 23 - Write '1' to enable interrupt for LASTRX event"]
     #[inline]
     pub fn lastrx(&mut self) -> _LASTRXW {
         _LASTRXW { w: self }
     }
-    #[doc = "Bit 24 - Write '1' to Enable interrupt for LASTTX event"]
+    #[doc = "Bit 24 - Write '1' to enable interrupt for LASTTX event"]
     #[inline]
     pub fn lasttx(&mut self) -> _LASTTXW {
         _LASTTXW { w: self }

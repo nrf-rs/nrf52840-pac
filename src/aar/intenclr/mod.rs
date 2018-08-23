@@ -339,7 +339,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&self) -> ENDR {
         ENDR::_from({
@@ -348,7 +348,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for RESOLVED event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for RESOLVED event"]
     #[inline]
     pub fn resolved(&self) -> RESOLVEDR {
         RESOLVEDR::_from({
@@ -357,7 +357,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for NOTRESOLVED event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for NOTRESOLVED event"]
     #[inline]
     pub fn notresolved(&self) -> NOTRESOLVEDR {
         NOTRESOLVEDR::_from({
@@ -379,17 +379,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&mut self) -> _ENDW {
         _ENDW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for RESOLVED event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for RESOLVED event"]
     #[inline]
     pub fn resolved(&mut self) -> _RESOLVEDW {
         _RESOLVEDW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for NOTRESOLVED event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for NOTRESOLVED event"]
     #[inline]
     pub fn notresolved(&mut self) -> _NOTRESOLVEDW {
         _NOTRESOLVEDW { w: self }

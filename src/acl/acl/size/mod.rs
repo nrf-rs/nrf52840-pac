@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Size of flash region 0 in bytes. Must be a multiple of the flash page size."]
+    #[doc = "Bits 0:31 - Size of flash region n in bytes. Must be a multiple of the flash page size, and the maximum region size is limited to 512kB."]
     #[inline]
     pub fn size(&self) -> SIZER {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:31 - Size of flash region 0 in bytes. Must be a multiple of the flash page size."]
+    #[doc = "Bits 0:31 - Size of flash region n in bytes. Must be a multiple of the flash page size, and the maximum region size is limited to 512kB."]
     #[inline]
     pub fn size(&mut self) -> _SIZEW {
         _SIZEW { w: self }

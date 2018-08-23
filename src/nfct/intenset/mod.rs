@@ -1503,7 +1503,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for READY event"]
     #[inline]
     pub fn ready(&self) -> READYR {
         READYR::_from({
@@ -1512,7 +1512,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for FIELDDETECTED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for FIELDDETECTED event"]
     #[inline]
     pub fn fielddetected(&self) -> FIELDDETECTEDR {
         FIELDDETECTEDR::_from({
@@ -1521,7 +1521,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for FIELDLOST event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for FIELDLOST event"]
     #[inline]
     pub fn fieldlost(&self) -> FIELDLOSTR {
         FIELDLOSTR::_from({
@@ -1530,7 +1530,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Enable interrupt for TXFRAMESTART event"]
+    #[doc = "Bit 3 - Write '1' to enable interrupt for TXFRAMESTART event"]
     #[inline]
     pub fn txframestart(&self) -> TXFRAMESTARTR {
         TXFRAMESTARTR::_from({
@@ -1539,7 +1539,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Enable interrupt for TXFRAMEEND event"]
+    #[doc = "Bit 4 - Write '1' to enable interrupt for TXFRAMEEND event"]
     #[inline]
     pub fn txframeend(&self) -> TXFRAMEENDR {
         TXFRAMEENDR::_from({
@@ -1548,7 +1548,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for RXFRAMESTART event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for RXFRAMESTART event"]
     #[inline]
     pub fn rxframestart(&self) -> RXFRAMESTARTR {
         RXFRAMESTARTR::_from({
@@ -1557,7 +1557,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Write '1' to Enable interrupt for RXFRAMEEND event"]
+    #[doc = "Bit 6 - Write '1' to enable interrupt for RXFRAMEEND event"]
     #[inline]
     pub fn rxframeend(&self) -> RXFRAMEENDR {
         RXFRAMEENDR::_from({
@@ -1566,7 +1566,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 7 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&self) -> ERRORR {
         ERRORR::_from({
@@ -1575,7 +1575,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Write '1' to Enable interrupt for RXERROR event"]
+    #[doc = "Bit 10 - Write '1' to enable interrupt for RXERROR event"]
     #[inline]
     pub fn rxerror(&self) -> RXERRORR {
         RXERRORR::_from({
@@ -1584,7 +1584,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 11 - Write '1' to Enable interrupt for ENDRX event"]
+    #[doc = "Bit 11 - Write '1' to enable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&self) -> ENDRXR {
         ENDRXR::_from({
@@ -1593,7 +1593,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Write '1' to Enable interrupt for ENDTX event"]
+    #[doc = "Bit 12 - Write '1' to enable interrupt for ENDTX event"]
     #[inline]
     pub fn endtx(&self) -> ENDTXR {
         ENDTXR::_from({
@@ -1602,7 +1602,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Write '1' to Enable interrupt for AUTOCOLRESSTARTED event"]
+    #[doc = "Bit 14 - Write '1' to enable interrupt for AUTOCOLRESSTARTED event"]
     #[inline]
     pub fn autocolresstarted(&self) -> AUTOCOLRESSTARTEDR {
         AUTOCOLRESSTARTEDR::_from({
@@ -1611,7 +1611,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Write '1' to Enable interrupt for COLLISION event"]
+    #[doc = "Bit 18 - Write '1' to enable interrupt for COLLISION event"]
     #[inline]
     pub fn collision(&self) -> COLLISIONR {
         COLLISIONR::_from({
@@ -1620,7 +1620,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Write '1' to Enable interrupt for SELECTED event"]
+    #[doc = "Bit 19 - Write '1' to enable interrupt for SELECTED event"]
     #[inline]
     pub fn selected(&self) -> SELECTEDR {
         SELECTEDR::_from({
@@ -1629,7 +1629,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Write '1' to Enable interrupt for STARTED event"]
+    #[doc = "Bit 20 - Write '1' to enable interrupt for STARTED event"]
     #[inline]
     pub fn started(&self) -> STARTEDR {
         STARTEDR::_from({
@@ -1651,77 +1651,77 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for READY event"]
     #[inline]
     pub fn ready(&mut self) -> _READYW {
         _READYW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for FIELDDETECTED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for FIELDDETECTED event"]
     #[inline]
     pub fn fielddetected(&mut self) -> _FIELDDETECTEDW {
         _FIELDDETECTEDW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for FIELDLOST event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for FIELDLOST event"]
     #[inline]
     pub fn fieldlost(&mut self) -> _FIELDLOSTW {
         _FIELDLOSTW { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Enable interrupt for TXFRAMESTART event"]
+    #[doc = "Bit 3 - Write '1' to enable interrupt for TXFRAMESTART event"]
     #[inline]
     pub fn txframestart(&mut self) -> _TXFRAMESTARTW {
         _TXFRAMESTARTW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Enable interrupt for TXFRAMEEND event"]
+    #[doc = "Bit 4 - Write '1' to enable interrupt for TXFRAMEEND event"]
     #[inline]
     pub fn txframeend(&mut self) -> _TXFRAMEENDW {
         _TXFRAMEENDW { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for RXFRAMESTART event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for RXFRAMESTART event"]
     #[inline]
     pub fn rxframestart(&mut self) -> _RXFRAMESTARTW {
         _RXFRAMESTARTW { w: self }
     }
-    #[doc = "Bit 6 - Write '1' to Enable interrupt for RXFRAMEEND event"]
+    #[doc = "Bit 6 - Write '1' to enable interrupt for RXFRAMEEND event"]
     #[inline]
     pub fn rxframeend(&mut self) -> _RXFRAMEENDW {
         _RXFRAMEENDW { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to Enable interrupt for ERROR event"]
+    #[doc = "Bit 7 - Write '1' to enable interrupt for ERROR event"]
     #[inline]
     pub fn error(&mut self) -> _ERRORW {
         _ERRORW { w: self }
     }
-    #[doc = "Bit 10 - Write '1' to Enable interrupt for RXERROR event"]
+    #[doc = "Bit 10 - Write '1' to enable interrupt for RXERROR event"]
     #[inline]
     pub fn rxerror(&mut self) -> _RXERRORW {
         _RXERRORW { w: self }
     }
-    #[doc = "Bit 11 - Write '1' to Enable interrupt for ENDRX event"]
+    #[doc = "Bit 11 - Write '1' to enable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&mut self) -> _ENDRXW {
         _ENDRXW { w: self }
     }
-    #[doc = "Bit 12 - Write '1' to Enable interrupt for ENDTX event"]
+    #[doc = "Bit 12 - Write '1' to enable interrupt for ENDTX event"]
     #[inline]
     pub fn endtx(&mut self) -> _ENDTXW {
         _ENDTXW { w: self }
     }
-    #[doc = "Bit 14 - Write '1' to Enable interrupt for AUTOCOLRESSTARTED event"]
+    #[doc = "Bit 14 - Write '1' to enable interrupt for AUTOCOLRESSTARTED event"]
     #[inline]
     pub fn autocolresstarted(&mut self) -> _AUTOCOLRESSTARTEDW {
         _AUTOCOLRESSTARTEDW { w: self }
     }
-    #[doc = "Bit 18 - Write '1' to Enable interrupt for COLLISION event"]
+    #[doc = "Bit 18 - Write '1' to enable interrupt for COLLISION event"]
     #[inline]
     pub fn collision(&mut self) -> _COLLISIONW {
         _COLLISIONW { w: self }
     }
-    #[doc = "Bit 19 - Write '1' to Enable interrupt for SELECTED event"]
+    #[doc = "Bit 19 - Write '1' to enable interrupt for SELECTED event"]
     #[inline]
     pub fn selected(&mut self) -> _SELECTEDW {
         _SELECTEDW { w: self }
     }
-    #[doc = "Bit 20 - Write '1' to Enable interrupt for STARTED event"]
+    #[doc = "Bit 20 - Write '1' to enable interrupt for STARTED event"]
     #[inline]
     pub fn started(&mut self) -> _STARTEDW {
         _STARTEDW { w: self }

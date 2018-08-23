@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Device address base segment 0"]
+    #[doc = "Bits 0:31 - Device address base segment n"]
     #[inline]
     pub fn dab(&self) -> DABR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:31 - Device address base segment 0"]
+    #[doc = "Bits 0:31 - Device address base segment n"]
     #[inline]
     pub fn dab(&mut self) -> _DABW {
         _DABW { w: self }

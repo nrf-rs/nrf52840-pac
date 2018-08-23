@@ -7,25 +7,25 @@ pub struct RegisterBlock {
     pub unused1: UNUSED1,
     #[doc = "0x08 - Unspecified"]
     pub unused2: UNUSED2,
-    _reserved0: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x10 - Unspecified"]
     pub unused3: UNUSED3,
-    #[doc = "0x14 - Description collection[0]: Reserved for Nordic firmware design"]
+    #[doc = "0x14 - Description collection[n]: Reserved for Nordic firmware design"]
     pub nrffw: [NRFFW; 15],
-    #[doc = "0x50 - Description collection[0]: Reserved for Nordic hardware design"]
+    #[doc = "0x50 - Description collection[n]: Reserved for Nordic hardware design"]
     pub nrfhw: [NRFHW; 12],
-    #[doc = "0x80 - Description collection[0]: Reserved for customer"]
+    #[doc = "0x80 - Description collection[n]: Reserved for customer"]
     pub customer: [CUSTOMER; 32],
-    _reserved1: [u8; 256usize],
-    #[doc = "0x200 - Description collection[0]: Mapping of the nRESET function"]
+    _reserved7: [u8; 256usize],
+    #[doc = "0x200 - Description collection[n]: Mapping of the nRESET function"]
     pub pselreset: [PSELRESET; 2],
     #[doc = "0x208 - Access port protection"]
     pub approtect: APPROTECT,
     #[doc = "0x20c - Setting of pins dedicated to NFC functionality: NFC antenna or GPIO"]
     pub nfcpins: NFCPINS,
-    _reserved2: [u8; 240usize],
-    #[doc = "0x300 - Enable external circuitry to be supplied from VDD pin. Applicable in high voltage mode only."]
-    pub extsupply: EXTSUPPLY,
+    #[doc = "0x210 - Processor debug control"]
+    pub debugctrl: DEBUGCTRL,
+    _reserved11: [u8; 240usize],
     #[doc = "0x304 - GPIO reference voltage / external output supply voltage in high voltage mode"]
     pub regout0: REGOUT0,
 }
@@ -53,29 +53,29 @@ pub struct UNUSED3 {
 }
 #[doc = "Unspecified"]
 pub mod unused3;
-#[doc = "Description collection[0]: Reserved for Nordic firmware design"]
+#[doc = "Description collection[n]: Reserved for Nordic firmware design"]
 pub struct NRFFW {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Reserved for Nordic firmware design"]
+#[doc = "Description collection[n]: Reserved for Nordic firmware design"]
 pub mod nrffw;
-#[doc = "Description collection[0]: Reserved for Nordic hardware design"]
+#[doc = "Description collection[n]: Reserved for Nordic hardware design"]
 pub struct NRFHW {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Reserved for Nordic hardware design"]
+#[doc = "Description collection[n]: Reserved for Nordic hardware design"]
 pub mod nrfhw;
-#[doc = "Description collection[0]: Reserved for customer"]
+#[doc = "Description collection[n]: Reserved for customer"]
 pub struct CUSTOMER {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Reserved for customer"]
+#[doc = "Description collection[n]: Reserved for customer"]
 pub mod customer;
-#[doc = "Description collection[0]: Mapping of the nRESET function"]
+#[doc = "Description collection[n]: Mapping of the nRESET function"]
 pub struct PSELRESET {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Mapping of the nRESET function"]
+#[doc = "Description collection[n]: Mapping of the nRESET function"]
 pub mod pselreset;
 #[doc = "Access port protection"]
 pub struct APPROTECT {
@@ -89,12 +89,12 @@ pub struct NFCPINS {
 }
 #[doc = "Setting of pins dedicated to NFC functionality: NFC antenna or GPIO"]
 pub mod nfcpins;
-#[doc = "Enable external circuitry to be supplied from VDD pin. Applicable in high voltage mode only."]
-pub struct EXTSUPPLY {
+#[doc = "Processor debug control"]
+pub struct DEBUGCTRL {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Enable external circuitry to be supplied from VDD pin. Applicable in high voltage mode only."]
-pub mod extsupply;
+#[doc = "Processor debug control"]
+pub mod debugctrl;
 #[doc = "GPIO reference voltage / external output supply voltage in high voltage mode"]
 pub struct REGOUT0 {
     register: ::vcell::VolatileCell<u32>,

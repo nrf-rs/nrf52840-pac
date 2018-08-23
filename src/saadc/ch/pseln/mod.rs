@@ -85,7 +85,7 @@ impl PSELNR {
             PSELNR::ANALOGINPUT6 => 7,
             PSELNR::ANALOGINPUT7 => 8,
             PSELNR::VDD => 9,
-            PSELNR::VDDHDIV5 => 17,
+            PSELNR::VDDHDIV5 => 13,
             PSELNR::_Reserved(bits) => bits,
         }
     }
@@ -104,7 +104,7 @@ impl PSELNR {
             7 => PSELNR::ANALOGINPUT6,
             8 => PSELNR::ANALOGINPUT7,
             9 => PSELNR::VDD,
-            17 => PSELNR::VDDHDIV5,
+            13 => PSELNR::VDDHDIV5,
             i => PSELNR::_Reserved(i),
         }
     }
@@ -205,7 +205,7 @@ impl PSELNW {
             PSELNW::ANALOGINPUT6 => 7,
             PSELNW::ANALOGINPUT7 => 8,
             PSELNW::VDD => 9,
-            PSELNW::VDDHDIV5 => 17,
+            PSELNW::VDDHDIV5 => 13,
         }
     }
 }
