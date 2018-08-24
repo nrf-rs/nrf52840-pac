@@ -183,6 +183,53 @@ impl RESUMER {
         *self == RESUMER::DETECTED
     }
 }
+#[doc = "Possible values of the field `USBWUALLOWED`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum USBWUALLOWEDR {
+    #[doc = "Wake up not allowed"]
+    NOTALLOWED,
+    #[doc = "Wake up allowed"]
+    ALLOWED,
+}
+impl USBWUALLOWEDR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            USBWUALLOWEDR::NOTALLOWED => false,
+            USBWUALLOWEDR::ALLOWED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> USBWUALLOWEDR {
+        match value {
+            false => USBWUALLOWEDR::NOTALLOWED,
+            true => USBWUALLOWEDR::ALLOWED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTALLOWED`"]
+    #[inline]
+    pub fn is_not_allowed(&self) -> bool {
+        *self == USBWUALLOWEDR::NOTALLOWED
+    }
+    #[doc = "Checks if the value of the field is `ALLOWED`"]
+    #[inline]
+    pub fn is_allowed(&self) -> bool {
+        *self == USBWUALLOWEDR::ALLOWED
+    }
+}
 #[doc = "Possible values of the field `READY`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READYR {
@@ -404,6 +451,64 @@ impl<'a> _RESUMEW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `USBWUALLOWED`"]
+pub enum USBWUALLOWEDW {
+    #[doc = "Wake up not allowed"]
+    NOTALLOWED,
+    #[doc = "Wake up allowed"]
+    ALLOWED,
+}
+impl USBWUALLOWEDW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            USBWUALLOWEDW::NOTALLOWED => false,
+            USBWUALLOWEDW::ALLOWED => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _USBWUALLOWEDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _USBWUALLOWEDW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: USBWUALLOWEDW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Wake up not allowed"]
+    #[inline]
+    pub fn not_allowed(self) -> &'a mut W {
+        self.variant(USBWUALLOWEDW::NOTALLOWED)
+    }
+    #[doc = "Wake up allowed"]
+    #[inline]
+    pub fn allowed(self) -> &'a mut W {
+        self.variant(USBWUALLOWEDW::ALLOWED)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 10;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 #[doc = "Values that can be written to the field `READY`"]
 pub enum READYW {
     #[doc = "USBEVENT was not issued due to USBD peripheral ready"]
@@ -477,7 +582,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Signals that the USB lines have been seen idle long enough for the device to enter suspend. Write '1' to clear."]
+    #[doc = "Bit 8 - Signals that USB lines have been idle long enough for the device to enter suspend. Write '1' to clear."]
     #[inline]
     pub fn suspend(&self) -> SUSPENDR {
         SUSPENDR::_from({
@@ -486,7 +591,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Signals that a RESUME condition (K state or activity restart) has been detected on the USB lines. Write '1' to clear."]
+    #[doc = "Bit 9 - Signals that a RESUME condition (K state or activity restart) has been detected on USB lines. Write '1' to clear."]
     #[inline]
     pub fn resume(&self) -> RESUMER {
         RESUMER::_from({
@@ -495,7 +600,16 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 11 - Wrapper has re-initialized SFRs to the proper values. MAC is ready for normal operation. Write '1' to clear."]
+    #[doc = "Bit 10 - USB MAC has been woken up and operational. Write '1' to clear."]
+    #[inline]
+    pub fn usbwuallowed(&self) -> USBWUALLOWEDR {
+        USBWUALLOWEDR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 10;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 11 - USB device is ready for normal operation. Write '1' to clear."]
     #[inline]
     pub fn ready(&self) -> READYR {
         READYR::_from({
@@ -522,17 +636,22 @@ impl W {
     pub fn isooutcrc(&mut self) -> _ISOOUTCRCW {
         _ISOOUTCRCW { w: self }
     }
-    #[doc = "Bit 8 - Signals that the USB lines have been seen idle long enough for the device to enter suspend. Write '1' to clear."]
+    #[doc = "Bit 8 - Signals that USB lines have been idle long enough for the device to enter suspend. Write '1' to clear."]
     #[inline]
     pub fn suspend(&mut self) -> _SUSPENDW {
         _SUSPENDW { w: self }
     }
-    #[doc = "Bit 9 - Signals that a RESUME condition (K state or activity restart) has been detected on the USB lines. Write '1' to clear."]
+    #[doc = "Bit 9 - Signals that a RESUME condition (K state or activity restart) has been detected on USB lines. Write '1' to clear."]
     #[inline]
     pub fn resume(&mut self) -> _RESUMEW {
         _RESUMEW { w: self }
     }
-    #[doc = "Bit 11 - Wrapper has re-initialized SFRs to the proper values. MAC is ready for normal operation. Write '1' to clear."]
+    #[doc = "Bit 10 - USB MAC has been woken up and operational. Write '1' to clear."]
+    #[inline]
+    pub fn usbwuallowed(&mut self) -> _USBWUALLOWEDW {
+        _USBWUALLOWEDW { w: self }
+    }
+    #[doc = "Bit 11 - USB device is ready for normal operation. Write '1' to clear."]
     #[inline]
     pub fn ready(&mut self) -> _READYW {
         _READYW { w: self }

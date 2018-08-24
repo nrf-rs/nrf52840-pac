@@ -727,7 +727,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&self) -> STOPPEDR {
         STOPPEDR::_from({
@@ -736,7 +736,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for SEQSTARTED[0] event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for SEQSTARTED[0] event"]
     #[inline]
     pub fn seqstarted0(&self) -> SEQSTARTED0R {
         SEQSTARTED0R::_from({
@@ -745,7 +745,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Enable interrupt for SEQSTARTED[1] event"]
+    #[doc = "Bit 3 - Write '1' to enable interrupt for SEQSTARTED[1] event"]
     #[inline]
     pub fn seqstarted1(&self) -> SEQSTARTED1R {
         SEQSTARTED1R::_from({
@@ -754,7 +754,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Enable interrupt for SEQEND[0] event"]
+    #[doc = "Bit 4 - Write '1' to enable interrupt for SEQEND[0] event"]
     #[inline]
     pub fn seqend0(&self) -> SEQEND0R {
         SEQEND0R::_from({
@@ -763,7 +763,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for SEQEND[1] event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for SEQEND[1] event"]
     #[inline]
     pub fn seqend1(&self) -> SEQEND1R {
         SEQEND1R::_from({
@@ -772,7 +772,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Write '1' to Enable interrupt for PWMPERIODEND event"]
+    #[doc = "Bit 6 - Write '1' to enable interrupt for PWMPERIODEND event"]
     #[inline]
     pub fn pwmperiodend(&self) -> PWMPERIODENDR {
         PWMPERIODENDR::_from({
@@ -781,7 +781,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Write '1' to Enable interrupt for LOOPSDONE event"]
+    #[doc = "Bit 7 - Write '1' to enable interrupt for LOOPSDONE event"]
     #[inline]
     pub fn loopsdone(&self) -> LOOPSDONER {
         LOOPSDONER::_from({
@@ -803,37 +803,37 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&mut self) -> _STOPPEDW {
         _STOPPEDW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for SEQSTARTED[0] event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for SEQSTARTED[0] event"]
     #[inline]
     pub fn seqstarted0(&mut self) -> _SEQSTARTED0W {
         _SEQSTARTED0W { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Enable interrupt for SEQSTARTED[1] event"]
+    #[doc = "Bit 3 - Write '1' to enable interrupt for SEQSTARTED[1] event"]
     #[inline]
     pub fn seqstarted1(&mut self) -> _SEQSTARTED1W {
         _SEQSTARTED1W { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Enable interrupt for SEQEND[0] event"]
+    #[doc = "Bit 4 - Write '1' to enable interrupt for SEQEND[0] event"]
     #[inline]
     pub fn seqend0(&mut self) -> _SEQEND0W {
         _SEQEND0W { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for SEQEND[1] event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for SEQEND[1] event"]
     #[inline]
     pub fn seqend1(&mut self) -> _SEQEND1W {
         _SEQEND1W { w: self }
     }
-    #[doc = "Bit 6 - Write '1' to Enable interrupt for PWMPERIODEND event"]
+    #[doc = "Bit 6 - Write '1' to enable interrupt for PWMPERIODEND event"]
     #[inline]
     pub fn pwmperiodend(&mut self) -> _PWMPERIODENDW {
         _PWMPERIODENDW { w: self }
     }
-    #[doc = "Bit 7 - Write '1' to Enable interrupt for LOOPSDONE event"]
+    #[doc = "Bit 7 - Write '1' to enable interrupt for LOOPSDONE event"]
     #[inline]
     pub fn loopsdone(&mut self) -> _LOOPSDONEW {
         _LOOPSDONEW { w: self }

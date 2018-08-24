@@ -45,8 +45,6 @@ impl super::TXPOWER {
 #[doc = "Possible values of the field `TXPOWER`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TXPOWERR {
-    #[doc = "+9 dBm"]
-    POS9DBM,
     #[doc = "+8 dBm"]
     POS8DBM,
     #[doc = "+7 dBm"]
@@ -73,6 +71,8 @@ pub enum TXPOWERR {
     NEG16DBM,
     #[doc = "-20 dBm"]
     NEG20DBM,
+    #[doc = "Deprecated enumerator -  -40 dBm"]
+    NEG30DBM,
     #[doc = "-40 dBm"]
     NEG40DBM,
     #[doc = r" Reserved"]
@@ -83,7 +83,6 @@ impl TXPOWERR {
     #[inline]
     pub fn bits(&self) -> u8 {
         match *self {
-            TXPOWERR::POS9DBM => 9,
             TXPOWERR::POS8DBM => 8,
             TXPOWERR::POS7DBM => 7,
             TXPOWERR::POS6DBM => 6,
@@ -97,6 +96,7 @@ impl TXPOWERR {
             TXPOWERR::NEG12DBM => 244,
             TXPOWERR::NEG16DBM => 240,
             TXPOWERR::NEG20DBM => 236,
+            TXPOWERR::NEG30DBM => 255,
             TXPOWERR::NEG40DBM => 216,
             TXPOWERR::_Reserved(bits) => bits,
         }
@@ -106,7 +106,6 @@ impl TXPOWERR {
     #[inline]
     pub fn _from(value: u8) -> TXPOWERR {
         match value {
-            9 => TXPOWERR::POS9DBM,
             8 => TXPOWERR::POS8DBM,
             7 => TXPOWERR::POS7DBM,
             6 => TXPOWERR::POS6DBM,
@@ -120,14 +119,10 @@ impl TXPOWERR {
             244 => TXPOWERR::NEG12DBM,
             240 => TXPOWERR::NEG16DBM,
             236 => TXPOWERR::NEG20DBM,
+            255 => TXPOWERR::NEG30DBM,
             216 => TXPOWERR::NEG40DBM,
             i => TXPOWERR::_Reserved(i),
         }
-    }
-    #[doc = "Checks if the value of the field is `POS9DBM`"]
-    #[inline]
-    pub fn is_pos9d_bm(&self) -> bool {
-        *self == TXPOWERR::POS9DBM
     }
     #[doc = "Checks if the value of the field is `POS8DBM`"]
     #[inline]
@@ -194,6 +189,11 @@ impl TXPOWERR {
     pub fn is_neg20d_bm(&self) -> bool {
         *self == TXPOWERR::NEG20DBM
     }
+    #[doc = "Checks if the value of the field is `NEG30DBM`"]
+    #[inline]
+    pub fn is_neg30d_bm(&self) -> bool {
+        *self == TXPOWERR::NEG30DBM
+    }
     #[doc = "Checks if the value of the field is `NEG40DBM`"]
     #[inline]
     pub fn is_neg40d_bm(&self) -> bool {
@@ -202,8 +202,6 @@ impl TXPOWERR {
 }
 #[doc = "Values that can be written to the field `TXPOWER`"]
 pub enum TXPOWERW {
-    #[doc = "+9 dBm"]
-    POS9DBM,
     #[doc = "+8 dBm"]
     POS8DBM,
     #[doc = "+7 dBm"]
@@ -230,6 +228,8 @@ pub enum TXPOWERW {
     NEG16DBM,
     #[doc = "-20 dBm"]
     NEG20DBM,
+    #[doc = "Deprecated enumerator -  -40 dBm"]
+    NEG30DBM,
     #[doc = "-40 dBm"]
     NEG40DBM,
 }
@@ -239,7 +239,6 @@ impl TXPOWERW {
     #[inline]
     pub fn _bits(&self) -> u8 {
         match *self {
-            TXPOWERW::POS9DBM => 9,
             TXPOWERW::POS8DBM => 8,
             TXPOWERW::POS7DBM => 7,
             TXPOWERW::POS6DBM => 6,
@@ -253,6 +252,7 @@ impl TXPOWERW {
             TXPOWERW::NEG12DBM => 244,
             TXPOWERW::NEG16DBM => 240,
             TXPOWERW::NEG20DBM => 236,
+            TXPOWERW::NEG30DBM => 255,
             TXPOWERW::NEG40DBM => 216,
         }
     }
@@ -266,11 +266,6 @@ impl<'a> _TXPOWERW<'a> {
     #[inline]
     pub fn variant(self, variant: TXPOWERW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
-    }
-    #[doc = "+9 dBm"]
-    #[inline]
-    pub fn pos9d_bm(self) -> &'a mut W {
-        self.variant(TXPOWERW::POS9DBM)
     }
     #[doc = "+8 dBm"]
     #[inline]
@@ -337,6 +332,11 @@ impl<'a> _TXPOWERW<'a> {
     pub fn neg20d_bm(self) -> &'a mut W {
         self.variant(TXPOWERW::NEG20DBM)
     }
+    #[doc = "Deprecated enumerator - -40 dBm"]
+    #[inline]
+    pub fn neg30d_bm(self) -> &'a mut W {
+        self.variant(TXPOWERW::NEG30DBM)
+    }
     #[doc = "-40 dBm"]
     #[inline]
     pub fn neg40d_bm(self) -> &'a mut W {
@@ -358,7 +358,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - RADIO output power."]
+    #[doc = "Bits 0:7 - RADIO output power"]
     #[inline]
     pub fn txpower(&self) -> TXPOWERR {
         TXPOWERR::_from({
@@ -380,7 +380,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - RADIO output power."]
+    #[doc = "Bits 0:7 - RADIO output power"]
     #[inline]
     pub fn txpower(&mut self) -> _TXPOWERW {
         _TXPOWERW { w: self }

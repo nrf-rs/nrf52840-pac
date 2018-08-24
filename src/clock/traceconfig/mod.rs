@@ -45,13 +45,13 @@ impl super::TRACECONFIG {
 #[doc = "Possible values of the field `TRACEPORTSPEED`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRACEPORTSPEEDR {
-    #[doc = "32 MHz Trace Port clock (TRACECLK = 16 MHz)"]
+    #[doc = "32 MHz trace port clock (TRACECLK = 16 MHz)"]
     _32MHZ,
-    #[doc = "16 MHz Trace Port clock (TRACECLK = 8 MHz)"]
+    #[doc = "16 MHz trace port clock (TRACECLK = 8 MHz)"]
     _16MHZ,
-    #[doc = "8 MHz Trace Port clock (TRACECLK = 4 MHz)"]
+    #[doc = "8 MHz trace port clock (TRACECLK = 4 MHz)"]
     _8MHZ,
-    #[doc = "4 MHz Trace Port clock (TRACECLK = 2 MHz)"]
+    #[doc = "4 MHz trace port clock (TRACECLK = 2 MHz)"]
     _4MHZ,
 }
 impl TRACEPORTSPEEDR {
@@ -101,11 +101,11 @@ impl TRACEPORTSPEEDR {
 #[doc = "Possible values of the field `TRACEMUX`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TRACEMUXR {
-    #[doc = "GPIOs multiplexed onto all trace-pins"]
+    #[doc = "No trace signals routed to pins. All pins can be used as regular GPIOs."]
     GPIO,
-    #[doc = "SWO multiplexed onto P0.18, GPIO multiplexed onto other trace pins"]
+    #[doc = "SWO trace signal routed to pin. Remaining pins can be used as regular GPIOs."]
     SERIAL,
-    #[doc = "TRACECLK and TRACEDATA multiplexed onto P0.20, P0.18, P0.16, P0.15 and P0.14."]
+    #[doc = "All trace signals (TRACECLK and TRACEDATA[n]) routed to pins."]
     PARALLEL,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -150,13 +150,13 @@ impl TRACEMUXR {
 }
 #[doc = "Values that can be written to the field `TRACEPORTSPEED`"]
 pub enum TRACEPORTSPEEDW {
-    #[doc = "32 MHz Trace Port clock (TRACECLK = 16 MHz)"]
+    #[doc = "32 MHz trace port clock (TRACECLK = 16 MHz)"]
     _32MHZ,
-    #[doc = "16 MHz Trace Port clock (TRACECLK = 8 MHz)"]
+    #[doc = "16 MHz trace port clock (TRACECLK = 8 MHz)"]
     _16MHZ,
-    #[doc = "8 MHz Trace Port clock (TRACECLK = 4 MHz)"]
+    #[doc = "8 MHz trace port clock (TRACECLK = 4 MHz)"]
     _8MHZ,
-    #[doc = "4 MHz Trace Port clock (TRACECLK = 2 MHz)"]
+    #[doc = "4 MHz trace port clock (TRACECLK = 2 MHz)"]
     _4MHZ,
 }
 impl TRACEPORTSPEEDW {
@@ -184,22 +184,22 @@ impl<'a> _TRACEPORTSPEEDW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "32 MHz Trace Port clock (TRACECLK = 16 MHz)"]
+    #[doc = "32 MHz trace port clock (TRACECLK = 16 MHz)"]
     #[inline]
     pub fn _32mhz(self) -> &'a mut W {
         self.variant(TRACEPORTSPEEDW::_32MHZ)
     }
-    #[doc = "16 MHz Trace Port clock (TRACECLK = 8 MHz)"]
+    #[doc = "16 MHz trace port clock (TRACECLK = 8 MHz)"]
     #[inline]
     pub fn _16mhz(self) -> &'a mut W {
         self.variant(TRACEPORTSPEEDW::_16MHZ)
     }
-    #[doc = "8 MHz Trace Port clock (TRACECLK = 4 MHz)"]
+    #[doc = "8 MHz trace port clock (TRACECLK = 4 MHz)"]
     #[inline]
     pub fn _8mhz(self) -> &'a mut W {
         self.variant(TRACEPORTSPEEDW::_8MHZ)
     }
-    #[doc = "4 MHz Trace Port clock (TRACECLK = 2 MHz)"]
+    #[doc = "4 MHz trace port clock (TRACECLK = 2 MHz)"]
     #[inline]
     pub fn _4mhz(self) -> &'a mut W {
         self.variant(TRACEPORTSPEEDW::_4MHZ)
@@ -216,11 +216,11 @@ impl<'a> _TRACEPORTSPEEDW<'a> {
 }
 #[doc = "Values that can be written to the field `TRACEMUX`"]
 pub enum TRACEMUXW {
-    #[doc = "GPIOs multiplexed onto all trace-pins"]
+    #[doc = "No trace signals routed to pins. All pins can be used as regular GPIOs."]
     GPIO,
-    #[doc = "SWO multiplexed onto P0.18, GPIO multiplexed onto other trace pins"]
+    #[doc = "SWO trace signal routed to pin. Remaining pins can be used as regular GPIOs."]
     SERIAL,
-    #[doc = "TRACECLK and TRACEDATA multiplexed onto P0.20, P0.18, P0.16, P0.15 and P0.14."]
+    #[doc = "All trace signals (TRACECLK and TRACEDATA[n]) routed to pins."]
     PARALLEL,
 }
 impl TRACEMUXW {
@@ -245,17 +245,17 @@ impl<'a> _TRACEMUXW<'a> {
     pub fn variant(self, variant: TRACEMUXW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "GPIOs multiplexed onto all trace-pins"]
+    #[doc = "No trace signals routed to pins. All pins can be used as regular GPIOs."]
     #[inline]
     pub fn gpio(self) -> &'a mut W {
         self.variant(TRACEMUXW::GPIO)
     }
-    #[doc = "SWO multiplexed onto P0.18, GPIO multiplexed onto other trace pins"]
+    #[doc = "SWO trace signal routed to pin. Remaining pins can be used as regular GPIOs."]
     #[inline]
     pub fn serial(self) -> &'a mut W {
         self.variant(TRACEMUXW::SERIAL)
     }
-    #[doc = "TRACECLK and TRACEDATA multiplexed onto P0.20, P0.18, P0.16, P0.15 and P0.14."]
+    #[doc = "All trace signals (TRACECLK and TRACEDATA[n]) routed to pins."]
     #[inline]
     pub fn parallel(self) -> &'a mut W {
         self.variant(TRACEMUXW::PARALLEL)
@@ -276,7 +276,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:1 - Speed of Trace Port clock. Note that the TRACECLK pin will output this clock divided by two."]
+    #[doc = "Bits 0:1 - Speed of trace port clock. Note that the TRACECLK pin will output this clock divided by two."]
     #[inline]
     pub fn traceportspeed(&self) -> TRACEPORTSPEEDR {
         TRACEPORTSPEEDR::_from({
@@ -285,7 +285,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 16:17 - Pin multiplexing of trace signals."]
+    #[doc = "Bits 16:17 - Pin multiplexing of trace signals. See pin assignment chapter for more details."]
     #[inline]
     pub fn tracemux(&self) -> TRACEMUXR {
         TRACEMUXR::_from({
@@ -307,12 +307,12 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:1 - Speed of Trace Port clock. Note that the TRACECLK pin will output this clock divided by two."]
+    #[doc = "Bits 0:1 - Speed of trace port clock. Note that the TRACECLK pin will output this clock divided by two."]
     #[inline]
     pub fn traceportspeed(&mut self) -> _TRACEPORTSPEEDW {
         _TRACEPORTSPEEDW { w: self }
     }
-    #[doc = "Bits 16:17 - Pin multiplexing of trace signals."]
+    #[doc = "Bits 16:17 - Pin multiplexing of trace signals. See pin assignment chapter for more details."]
     #[inline]
     pub fn tracemux(&mut self) -> _TRACEMUXW {
         _TRACEMUXW { w: self }

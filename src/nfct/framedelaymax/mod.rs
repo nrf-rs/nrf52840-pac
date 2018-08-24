@@ -44,12 +44,12 @@ impl super::FRAMEDELAYMAX {
 }
 #[doc = r" Value of the field"]
 pub struct FRAMEDELAYMAXR {
-    bits: u16,
+    bits: u32,
 }
 impl FRAMEDELAYMAXR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u16 {
+    pub fn bits(&self) -> u32 {
         self.bits
     }
 }
@@ -60,8 +60,8 @@ pub struct _FRAMEDELAYMAXW<'a> {
 impl<'a> _FRAMEDELAYMAXW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
+    pub unsafe fn bits(self, value: u32) -> &'a mut W {
+        const MASK: u32 = 1048575;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -74,13 +74,13 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:15 - Maximum frame delay in number of 13.56 MHz clocks"]
+    #[doc = "Bits 0:19 - Maximum frame delay in number of 13.56 MHz clocks"]
     #[inline]
     pub fn framedelaymax(&self) -> FRAMEDELAYMAXR {
         let bits = {
-            const MASK: u16 = 65535;
+            const MASK: u32 = 1048575;
             const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
+            ((self.bits >> OFFSET) & MASK as u32) as u32
         };
         FRAMEDELAYMAXR { bits }
     }
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:15 - Maximum frame delay in number of 13.56 MHz clocks"]
+    #[doc = "Bits 0:19 - Maximum frame delay in number of 13.56 MHz clocks"]
     #[inline]
     pub fn framedelaymax(&mut self) -> _FRAMEDELAYMAXW {
         _FRAMEDELAYMAXW { w: self }

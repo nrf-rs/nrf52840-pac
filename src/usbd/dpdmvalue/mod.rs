@@ -45,7 +45,7 @@ impl super::DPDMVALUE {
 #[doc = "Possible values of the field `STATE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATER {
-    #[doc = "D+ forced low, D- forced high (K state) for a timing pre-set in hardware (50 us or 5 ms, depending on bus state)"]
+    #[doc = "D+ forced low, D- forced high (K state) for a timing preset in hardware (50 us or 5 ms, depending on bus state)"]
     RESUME,
     #[doc = "D+ forced high, D- forced low (J state)"]
     J,
@@ -94,7 +94,7 @@ impl STATER {
 }
 #[doc = "Values that can be written to the field `STATE`"]
 pub enum STATEW {
-    #[doc = "D+ forced low, D- forced high (K state) for a timing pre-set in hardware (50 us or 5 ms, depending on bus state)"]
+    #[doc = "D+ forced low, D- forced high (K state) for a timing preset in hardware (50 us or 5 ms, depending on bus state)"]
     RESUME,
     #[doc = "D+ forced high, D- forced low (J state)"]
     J,
@@ -123,7 +123,7 @@ impl<'a> _STATEW<'a> {
     pub fn variant(self, variant: STATEW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "D+ forced low, D- forced high (K state) for a timing pre-set in hardware (50 us or 5 ms, depending on bus state)"]
+    #[doc = "D+ forced low, D- forced high (K state) for a timing preset in hardware (50 us or 5 ms, depending on bus state)"]
     #[inline]
     pub fn resume(self) -> &'a mut W {
         self.variant(STATEW::RESUME)
@@ -154,7 +154,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:4 - State at which the DPDMDRIVE task will force D+ and D-"]
+    #[doc = "Bits 0:4 - State D+ and D- lines will be forced into by the DPDMDRIVE task"]
     #[inline]
     pub fn state(&self) -> STATER {
         STATER::_from({
@@ -176,7 +176,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:4 - State at which the DPDMDRIVE task will force D+ and D-"]
+    #[doc = "Bits 0:4 - State D+ and D- lines will be forced into by the DPDMDRIVE task"]
     #[inline]
     pub fn state(&mut self) -> _STATEW {
         _STATEW { w: self }

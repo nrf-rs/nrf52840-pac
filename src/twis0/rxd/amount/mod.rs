@@ -13,12 +13,12 @@ impl super::AMOUNT {
 }
 #[doc = r" Value of the field"]
 pub struct AMOUNTR {
-    bits: u8,
+    bits: u16,
 }
 impl AMOUNTR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bits(&self) -> u16 {
         self.bits
     }
 }
@@ -28,13 +28,13 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - Number of bytes transferred in the last RXD transaction"]
+    #[doc = "Bits 0:15 - Number of bytes transferred in the last RXD transaction"]
     #[inline]
     pub fn amount(&self) -> AMOUNTR {
         let bits = {
-            const MASK: u8 = 255;
+            const MASK: u16 = 65535;
             const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) as u16
         };
         AMOUNTR { bits }
     }

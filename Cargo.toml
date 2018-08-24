@@ -1,24 +1,24 @@
 [package]
+version = "0.2.0"
+authors = [
+  "jscarrott <johnps@outlook.com>",
+  "Wez Furlong <wez@wezfurlong.org>", 
+]
 description = "Peripheral access API for nrf52840 microcontrollers"
 documentation = "https://docs.rs/nrf52840"
-keywords = ["no-std", "arm", "cortex-m", "nrf52840"]
-license = "MIT"
+keywords = ["no-std", "arm", "cortex-m", "nrf52", "nrf52840"]
+license = "MIT OR Apache-2.0"
 name = "nrf52840"
-repository = "https://github.com/jscarrott/nrf52840"
-version = "0.1.3"
-authors = ["jscarrott <johnps@outlook.com>"]
+repository = "https://github.com/jscarrot/nrf52840"
 
 [dependencies]
-bare-metal = "0.1.0"
-vcell = "0.1.0"
-
-[dependencies.cortex-m]
-version = "0.5.2"
+bare-metal = "~0.2"
+vcell = "~0.1"
+cortex-m = "~0.5"
 
 [dependencies.cortex-m-rt]
-version = "0.5.1"
 optional = true
+version = "~0.5"
 
 [features]
 rt = ["cortex-m-rt/device"]
-

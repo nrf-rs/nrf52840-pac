@@ -47,7 +47,7 @@ impl super::GAINR {
 pub enum GAINRR {
     #[doc = "-20dB gain adjustment (minimum)"]
     MINGAIN,
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     DEFAULTGAIN,
     #[doc = "+20dB gain adjustment (maximum)"]
     MAXGAIN,
@@ -96,7 +96,7 @@ impl GAINRR {
 pub enum GAINRW {
     #[doc = "-20dB gain adjustment (minimum)"]
     MINGAIN,
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     DEFAULTGAIN,
     #[doc = "+20dB gain adjustment (maximum)"]
     MAXGAIN,
@@ -128,7 +128,7 @@ impl<'a> _GAINRW<'a> {
     pub fn min_gain(self) -> &'a mut W {
         self.variant(GAINRW::MINGAIN)
     }
-    #[doc = "0dB gain adjustment ('2500 RMS' requirement)"]
+    #[doc = "0dB gain adjustment"]
     #[inline]
     pub fn default_gain(self) -> &'a mut W {
         self.variant(GAINRW::DEFAULTGAIN)
@@ -141,7 +141,7 @@ impl<'a> _GAINRW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
+        const MASK: u8 = 127;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -154,11 +154,11 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - Right output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters)"]
+    #[doc = "Bits 0:6 - Right output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters)"]
     #[inline]
     pub fn gainr(&self) -> GAINRR {
         GAINRR::_from({
-            const MASK: u8 = 255;
+            const MASK: u8 = 127;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
@@ -176,7 +176,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - Right output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters)"]
+    #[doc = "Bits 0:6 - Right output gain adjustment, in 0.5 dB steps, around the default module gain (see electrical parameters)"]
     #[inline]
     pub fn gainr(&mut self) -> _GAINRW {
         _GAINRW { w: self }

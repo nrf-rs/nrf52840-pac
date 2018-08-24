@@ -3408,7 +3408,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Subregion 0 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 0 - Subregion 0 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr0(&self) -> SR0R {
         SR0R::_from({
@@ -3417,7 +3417,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Subregion 1 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 1 - Subregion 1 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr1(&self) -> SR1R {
         SR1R::_from({
@@ -3426,7 +3426,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Subregion 2 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 2 - Subregion 2 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr2(&self) -> SR2R {
         SR2R::_from({
@@ -3435,7 +3435,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Subregion 3 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 3 - Subregion 3 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr3(&self) -> SR3R {
         SR3R::_from({
@@ -3444,7 +3444,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Subregion 4 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 4 - Subregion 4 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr4(&self) -> SR4R {
         SR4R::_from({
@@ -3453,7 +3453,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Subregion 5 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 5 - Subregion 5 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr5(&self) -> SR5R {
         SR5R::_from({
@@ -3462,7 +3462,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Subregion 6 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 6 - Subregion 6 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr6(&self) -> SR6R {
         SR6R::_from({
@@ -3471,7 +3471,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Subregion 7 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 7 - Subregion 7 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr7(&self) -> SR7R {
         SR7R::_from({
@@ -3480,7 +3480,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Subregion 8 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 8 - Subregion 8 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr8(&self) -> SR8R {
         SR8R::_from({
@@ -3489,7 +3489,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Subregion 9 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 9 - Subregion 9 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr9(&self) -> SR9R {
         SR9R::_from({
@@ -3498,7 +3498,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Subregion 10 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 10 - Subregion 10 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr10(&self) -> SR10R {
         SR10R::_from({
@@ -3507,7 +3507,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 11 - Subregion 11 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 11 - Subregion 11 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr11(&self) -> SR11R {
         SR11R::_from({
@@ -3516,7 +3516,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Subregion 12 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 12 - Subregion 12 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr12(&self) -> SR12R {
         SR12R::_from({
@@ -3525,7 +3525,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 13 - Subregion 13 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 13 - Subregion 13 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr13(&self) -> SR13R {
         SR13R::_from({
@@ -3534,7 +3534,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Subregion 14 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 14 - Subregion 14 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr14(&self) -> SR14R {
         SR14R::_from({
@@ -3543,7 +3543,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 15 - Subregion 15 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 15 - Subregion 15 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr15(&self) -> SR15R {
         SR15R::_from({
@@ -3552,7 +3552,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 16 - Subregion 16 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 16 - Subregion 16 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr16(&self) -> SR16R {
         SR16R::_from({
@@ -3561,7 +3561,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 17 - Subregion 17 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 17 - Subregion 17 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr17(&self) -> SR17R {
         SR17R::_from({
@@ -3570,7 +3570,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Subregion 18 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 18 - Subregion 18 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr18(&self) -> SR18R {
         SR18R::_from({
@@ -3579,7 +3579,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Subregion 19 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 19 - Subregion 19 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr19(&self) -> SR19R {
         SR19R::_from({
@@ -3588,7 +3588,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 20 - Subregion 20 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 20 - Subregion 20 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr20(&self) -> SR20R {
         SR20R::_from({
@@ -3597,7 +3597,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 21 - Subregion 21 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 21 - Subregion 21 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr21(&self) -> SR21R {
         SR21R::_from({
@@ -3606,7 +3606,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 22 - Subregion 22 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 22 - Subregion 22 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr22(&self) -> SR22R {
         SR22R::_from({
@@ -3615,7 +3615,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 23 - Subregion 23 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 23 - Subregion 23 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr23(&self) -> SR23R {
         SR23R::_from({
@@ -3624,7 +3624,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 24 - Subregion 24 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 24 - Subregion 24 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr24(&self) -> SR24R {
         SR24R::_from({
@@ -3633,7 +3633,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 25 - Subregion 25 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 25 - Subregion 25 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr25(&self) -> SR25R {
         SR25R::_from({
@@ -3642,7 +3642,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 26 - Subregion 26 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 26 - Subregion 26 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr26(&self) -> SR26R {
         SR26R::_from({
@@ -3651,7 +3651,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 27 - Subregion 27 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 27 - Subregion 27 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr27(&self) -> SR27R {
         SR27R::_from({
@@ -3660,7 +3660,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 28 - Subregion 28 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 28 - Subregion 28 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr28(&self) -> SR28R {
         SR28R::_from({
@@ -3669,7 +3669,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 29 - Subregion 29 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 29 - Subregion 29 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr29(&self) -> SR29R {
         SR29R::_from({
@@ -3678,7 +3678,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 30 - Subregion 30 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 30 - Subregion 30 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr30(&self) -> SR30R {
         SR30R::_from({
@@ -3687,7 +3687,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 31 - Subregion 31 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 31 - Subregion 31 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr31(&self) -> SR31R {
         SR31R::_from({
@@ -3709,162 +3709,162 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Subregion 0 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 0 - Subregion 0 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr0(&mut self) -> _SR0W {
         _SR0W { w: self }
     }
-    #[doc = "Bit 1 - Subregion 1 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 1 - Subregion 1 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr1(&mut self) -> _SR1W {
         _SR1W { w: self }
     }
-    #[doc = "Bit 2 - Subregion 2 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 2 - Subregion 2 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr2(&mut self) -> _SR2W {
         _SR2W { w: self }
     }
-    #[doc = "Bit 3 - Subregion 3 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 3 - Subregion 3 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr3(&mut self) -> _SR3W {
         _SR3W { w: self }
     }
-    #[doc = "Bit 4 - Subregion 4 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 4 - Subregion 4 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr4(&mut self) -> _SR4W {
         _SR4W { w: self }
     }
-    #[doc = "Bit 5 - Subregion 5 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 5 - Subregion 5 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr5(&mut self) -> _SR5W {
         _SR5W { w: self }
     }
-    #[doc = "Bit 6 - Subregion 6 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 6 - Subregion 6 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr6(&mut self) -> _SR6W {
         _SR6W { w: self }
     }
-    #[doc = "Bit 7 - Subregion 7 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 7 - Subregion 7 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr7(&mut self) -> _SR7W {
         _SR7W { w: self }
     }
-    #[doc = "Bit 8 - Subregion 8 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 8 - Subregion 8 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr8(&mut self) -> _SR8W {
         _SR8W { w: self }
     }
-    #[doc = "Bit 9 - Subregion 9 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 9 - Subregion 9 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr9(&mut self) -> _SR9W {
         _SR9W { w: self }
     }
-    #[doc = "Bit 10 - Subregion 10 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 10 - Subregion 10 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr10(&mut self) -> _SR10W {
         _SR10W { w: self }
     }
-    #[doc = "Bit 11 - Subregion 11 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 11 - Subregion 11 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr11(&mut self) -> _SR11W {
         _SR11W { w: self }
     }
-    #[doc = "Bit 12 - Subregion 12 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 12 - Subregion 12 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr12(&mut self) -> _SR12W {
         _SR12W { w: self }
     }
-    #[doc = "Bit 13 - Subregion 13 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 13 - Subregion 13 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr13(&mut self) -> _SR13W {
         _SR13W { w: self }
     }
-    #[doc = "Bit 14 - Subregion 14 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 14 - Subregion 14 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr14(&mut self) -> _SR14W {
         _SR14W { w: self }
     }
-    #[doc = "Bit 15 - Subregion 15 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 15 - Subregion 15 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr15(&mut self) -> _SR15W {
         _SR15W { w: self }
     }
-    #[doc = "Bit 16 - Subregion 16 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 16 - Subregion 16 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr16(&mut self) -> _SR16W {
         _SR16W { w: self }
     }
-    #[doc = "Bit 17 - Subregion 17 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 17 - Subregion 17 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr17(&mut self) -> _SR17W {
         _SR17W { w: self }
     }
-    #[doc = "Bit 18 - Subregion 18 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 18 - Subregion 18 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr18(&mut self) -> _SR18W {
         _SR18W { w: self }
     }
-    #[doc = "Bit 19 - Subregion 19 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 19 - Subregion 19 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr19(&mut self) -> _SR19W {
         _SR19W { w: self }
     }
-    #[doc = "Bit 20 - Subregion 20 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 20 - Subregion 20 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr20(&mut self) -> _SR20W {
         _SR20W { w: self }
     }
-    #[doc = "Bit 21 - Subregion 21 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 21 - Subregion 21 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr21(&mut self) -> _SR21W {
         _SR21W { w: self }
     }
-    #[doc = "Bit 22 - Subregion 22 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 22 - Subregion 22 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr22(&mut self) -> _SR22W {
         _SR22W { w: self }
     }
-    #[doc = "Bit 23 - Subregion 23 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 23 - Subregion 23 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr23(&mut self) -> _SR23W {
         _SR23W { w: self }
     }
-    #[doc = "Bit 24 - Subregion 24 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 24 - Subregion 24 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr24(&mut self) -> _SR24W {
         _SR24W { w: self }
     }
-    #[doc = "Bit 25 - Subregion 25 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 25 - Subregion 25 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr25(&mut self) -> _SR25W {
         _SR25W { w: self }
     }
-    #[doc = "Bit 26 - Subregion 26 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 26 - Subregion 26 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr26(&mut self) -> _SR26W {
         _SR26W { w: self }
     }
-    #[doc = "Bit 27 - Subregion 27 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 27 - Subregion 27 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr27(&mut self) -> _SR27W {
         _SR27W { w: self }
     }
-    #[doc = "Bit 28 - Subregion 28 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 28 - Subregion 28 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr28(&mut self) -> _SR28W {
         _SR28W { w: self }
     }
-    #[doc = "Bit 29 - Subregion 29 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 29 - Subregion 29 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr29(&mut self) -> _SR29W {
         _SR29W { w: self }
     }
-    #[doc = "Bit 30 - Subregion 30 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 30 - Subregion 30 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr30(&mut self) -> _SR30W {
         _SR30W { w: self }
     }
-    #[doc = "Bit 31 - Subregion 31 in region 0 (write '1' to clear)"]
+    #[doc = "Bit 31 - Subregion 31 in region n (write '1' to clear)"]
     #[inline]
     pub fn sr31(&mut self) -> _SR31W {
         _SR31W { w: self }

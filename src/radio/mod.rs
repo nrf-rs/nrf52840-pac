@@ -11,7 +11,7 @@ pub struct RegisterBlock {
     pub tasks_stop: TASKS_STOP,
     #[doc = "0x10 - Disable RADIO"]
     pub tasks_disable: TASKS_DISABLE,
-    #[doc = "0x14 - Start the RSSI and take one single sample of the receive signal strength."]
+    #[doc = "0x14 - Start the RSSI and take one single sample of the receive signal strength"]
     pub tasks_rssistart: TASKS_RSSISTART,
     #[doc = "0x18 - Stop the RSSI measurement"]
     pub tasks_rssistop: TASKS_RSSISTOP,
@@ -19,15 +19,15 @@ pub struct RegisterBlock {
     pub tasks_bcstart: TASKS_BCSTART,
     #[doc = "0x20 - Stop the bit counter"]
     pub tasks_bcstop: TASKS_BCSTOP,
-    #[doc = "0x24 - Start the Energy Detect measurement used in IEEE 802.15.4 mode"]
+    #[doc = "0x24 - Start the energy detect measurement used in IEEE 802.15.4 mode"]
     pub tasks_edstart: TASKS_EDSTART,
-    #[doc = "0x28 - Stop the Energy Detect measurement"]
+    #[doc = "0x28 - Stop the energy detect measurement"]
     pub tasks_edstop: TASKS_EDSTOP,
-    #[doc = "0x2c - Start the Clear Channel Assessment used in IEEE 802.15.4 mode"]
+    #[doc = "0x2c - Start the clear channel assessment used in IEEE 802.15.4 mode"]
     pub tasks_ccastart: TASKS_CCASTART,
-    #[doc = "0x30 - Stop the Clear Channel Assessment"]
+    #[doc = "0x30 - Stop the clear channel assessment"]
     pub tasks_ccastop: TASKS_CCASTOP,
-    _reserved0: [u8; 204usize],
+    _reserved13: [u8; 204usize],
     #[doc = "0x100 - RADIO has ramped up and is ready to be started"]
     pub events_ready: EVENTS_READY,
     #[doc = "0x104 - Address sent or received"]
@@ -42,21 +42,21 @@ pub struct RegisterBlock {
     pub events_devmatch: EVENTS_DEVMATCH,
     #[doc = "0x118 - No device address match occurred on the last received packet"]
     pub events_devmiss: EVENTS_DEVMISS,
-    #[doc = "0x11c - Sampling of receive signal strength complete."]
+    #[doc = "0x11c - Sampling of receive signal strength complete"]
     pub events_rssiend: EVENTS_RSSIEND,
-    _reserved1: [u8; 8usize],
-    #[doc = "0x128 - Bit counter reached bit count value."]
+    _reserved21: [u8; 8usize],
+    #[doc = "0x128 - Bit counter reached bit count value"]
     pub events_bcmatch: EVENTS_BCMATCH,
-    _reserved2: [u8; 4usize],
+    _reserved22: [u8; 4usize],
     #[doc = "0x130 - Packet received with CRC ok"]
     pub events_crcok: EVENTS_CRCOK,
     #[doc = "0x134 - Packet received with CRC error"]
     pub events_crcerror: EVENTS_CRCERROR,
     #[doc = "0x138 - IEEE 802.15.4 length field received"]
     pub events_framestart: EVENTS_FRAMESTART,
-    #[doc = "0x13c - Sampling of Energy Detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register"]
+    #[doc = "0x13c - Sampling of energy detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register."]
     pub events_edend: EVENTS_EDEND,
-    #[doc = "0x140 - The sampling of Energy Detection has stopped"]
+    #[doc = "0x140 - The sampling of energy detection has stopped"]
     pub events_edstopped: EVENTS_EDSTOPPED,
     #[doc = "0x144 - Wireless medium in idle - clear to send"]
     pub events_ccaidle: EVENTS_CCAIDLE,
@@ -70,27 +70,32 @@ pub struct RegisterBlock {
     pub events_txready: EVENTS_TXREADY,
     #[doc = "0x158 - RADIO has ramped up and is ready to be started RX path"]
     pub events_rxready: EVENTS_RXREADY,
-    #[doc = "0x15c - MAC Header match found."]
+    #[doc = "0x15c - MAC header match found"]
     pub events_mhrmatch: EVENTS_MHRMATCH,
-    _reserved3: [u8; 160usize],
+    _reserved34: [u8; 12usize],
+    #[doc = "0x16c - Generated in Ble_LR125Kbit, Ble_LR500Kbit and BleIeee802154_250Kbit modes when last bit is sent on air."]
+    pub events_phyend: EVENTS_PHYEND,
+    _reserved35: [u8; 144usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
-    _reserved4: [u8; 256usize],
+    _reserved36: [u8; 256usize],
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved5: [u8; 244usize],
+    _reserved38: [u8; 244usize],
     #[doc = "0x400 - CRC status"]
     pub crcstatus: CRCSTATUS,
-    _reserved6: [u8; 4usize],
+    _reserved39: [u8; 4usize],
     #[doc = "0x408 - Received address"]
     pub rxmatch: RXMATCH,
     #[doc = "0x40c - CRC field of previously received packet"]
     pub rxcrc: RXCRC,
     #[doc = "0x410 - Device address match index"]
     pub dai: DAI,
-    _reserved7: [u8; 240usize],
+    #[doc = "0x414 - Payload status"]
+    pub pdustat: PDUSTAT,
+    _reserved43: [u8; 236usize],
     #[doc = "0x504 - Packet pointer"]
     pub packetptr: PACKETPTR,
     #[doc = "0x508 - Frequency"]
@@ -121,43 +126,43 @@ pub struct RegisterBlock {
     pub crcpoly: CRCPOLY,
     #[doc = "0x53c - CRC initial value"]
     pub crcinit: CRCINIT,
-    _reserved8: [u8; 4usize],
-    #[doc = "0x544 - Inter Frame Spacing in us"]
+    _reserved58: [u8; 4usize],
+    #[doc = "0x544 - Interframe spacing in us"]
     pub tifs: TIFS,
     #[doc = "0x548 - RSSI sample"]
     pub rssisample: RSSISAMPLE,
-    _reserved9: [u8; 4usize],
+    _reserved60: [u8; 4usize],
     #[doc = "0x550 - Current radio state"]
     pub state: STATE,
     #[doc = "0x554 - Data whitening initial value"]
     pub datawhiteiv: DATAWHITEIV,
-    _reserved10: [u8; 8usize],
+    _reserved62: [u8; 8usize],
     #[doc = "0x560 - Bit counter compare"]
     pub bcc: BCC,
-    _reserved11: [u8; 156usize],
-    #[doc = "0x600 - Description collection[0]: Device address base segment 0"]
+    _reserved63: [u8; 156usize],
+    #[doc = "0x600 - Description collection[n]: Device address base segment n"]
     pub dab: [DAB; 8],
-    #[doc = "0x620 - Description collection[0]: Device address prefix 0"]
+    #[doc = "0x620 - Description collection[n]: Device address prefix n"]
     pub dap: [DAP; 8],
     #[doc = "0x640 - Device address match configuration"]
     pub dacnf: DACNF,
-    #[doc = "0x644 - Search Pattern Configuration"]
+    #[doc = "0x644 - Search pattern configuration"]
     pub mhrmatchconf: MHRMATCHCONF,
     #[doc = "0x648 - Pattern mask"]
     pub mhrmatchmas: MHRMATCHMAS,
-    _reserved12: [u8; 4usize],
+    _reserved68: [u8; 4usize],
     #[doc = "0x650 - Radio mode configuration register 0"]
     pub modecnf0: MODECNF0,
-    _reserved13: [u8; 12usize],
-    #[doc = "0x660 - IEEE 802.15.4 Start of Frame Delimiter"]
+    _reserved69: [u8; 12usize],
+    #[doc = "0x660 - IEEE 802.15.4 start of frame delimiter"]
     pub sfd: SFD,
-    #[doc = "0x664 - IEEE 802.15.4 Energy Detect Loop Count"]
+    #[doc = "0x664 - IEEE 802.15.4 energy detect loop count"]
     pub edcnt: EDCNT,
-    #[doc = "0x668 - IEEE 802.15.4 Energy Detect Level"]
+    #[doc = "0x668 - IEEE 802.15.4 energy detect level"]
     pub edsample: EDSAMPLE,
-    #[doc = "0x66c - IEEE 802.15.4 Clear Channel Assessment Control"]
+    #[doc = "0x66c - IEEE 802.15.4 clear channel assessment control"]
     pub ccactrl: CCACTRL,
-    _reserved14: [u8; 2444usize],
+    _reserved73: [u8; 2444usize],
     #[doc = "0xffc - Peripheral power control"]
     pub power: POWER,
 }
@@ -191,11 +196,11 @@ pub struct TASKS_DISABLE {
 }
 #[doc = "Disable RADIO"]
 pub mod tasks_disable;
-#[doc = "Start the RSSI and take one single sample of the receive signal strength."]
+#[doc = "Start the RSSI and take one single sample of the receive signal strength"]
 pub struct TASKS_RSSISTART {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Start the RSSI and take one single sample of the receive signal strength."]
+#[doc = "Start the RSSI and take one single sample of the receive signal strength"]
 pub mod tasks_rssistart;
 #[doc = "Stop the RSSI measurement"]
 pub struct TASKS_RSSISTOP {
@@ -215,29 +220,29 @@ pub struct TASKS_BCSTOP {
 }
 #[doc = "Stop the bit counter"]
 pub mod tasks_bcstop;
-#[doc = "Start the Energy Detect measurement used in IEEE 802.15.4 mode"]
+#[doc = "Start the energy detect measurement used in IEEE 802.15.4 mode"]
 pub struct TASKS_EDSTART {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Start the Energy Detect measurement used in IEEE 802.15.4 mode"]
+#[doc = "Start the energy detect measurement used in IEEE 802.15.4 mode"]
 pub mod tasks_edstart;
-#[doc = "Stop the Energy Detect measurement"]
+#[doc = "Stop the energy detect measurement"]
 pub struct TASKS_EDSTOP {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Stop the Energy Detect measurement"]
+#[doc = "Stop the energy detect measurement"]
 pub mod tasks_edstop;
-#[doc = "Start the Clear Channel Assessment used in IEEE 802.15.4 mode"]
+#[doc = "Start the clear channel assessment used in IEEE 802.15.4 mode"]
 pub struct TASKS_CCASTART {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Start the Clear Channel Assessment used in IEEE 802.15.4 mode"]
+#[doc = "Start the clear channel assessment used in IEEE 802.15.4 mode"]
 pub mod tasks_ccastart;
-#[doc = "Stop the Clear Channel Assessment"]
+#[doc = "Stop the clear channel assessment"]
 pub struct TASKS_CCASTOP {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Stop the Clear Channel Assessment"]
+#[doc = "Stop the clear channel assessment"]
 pub mod tasks_ccastop;
 #[doc = "RADIO has ramped up and is ready to be started"]
 pub struct EVENTS_READY {
@@ -281,17 +286,17 @@ pub struct EVENTS_DEVMISS {
 }
 #[doc = "No device address match occurred on the last received packet"]
 pub mod events_devmiss;
-#[doc = "Sampling of receive signal strength complete."]
+#[doc = "Sampling of receive signal strength complete"]
 pub struct EVENTS_RSSIEND {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Sampling of receive signal strength complete."]
+#[doc = "Sampling of receive signal strength complete"]
 pub mod events_rssiend;
-#[doc = "Bit counter reached bit count value."]
+#[doc = "Bit counter reached bit count value"]
 pub struct EVENTS_BCMATCH {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Bit counter reached bit count value."]
+#[doc = "Bit counter reached bit count value"]
 pub mod events_bcmatch;
 #[doc = "Packet received with CRC ok"]
 pub struct EVENTS_CRCOK {
@@ -311,17 +316,17 @@ pub struct EVENTS_FRAMESTART {
 }
 #[doc = "IEEE 802.15.4 length field received"]
 pub mod events_framestart;
-#[doc = "Sampling of Energy Detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register"]
+#[doc = "Sampling of energy detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register."]
 pub struct EVENTS_EDEND {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Sampling of Energy Detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register"]
+#[doc = "Sampling of energy detection complete. A new ED sample is ready for readout from the RADIO.EDSAMPLE register."]
 pub mod events_edend;
-#[doc = "The sampling of Energy Detection has stopped"]
+#[doc = "The sampling of energy detection has stopped"]
 pub struct EVENTS_EDSTOPPED {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "The sampling of Energy Detection has stopped"]
+#[doc = "The sampling of energy detection has stopped"]
 pub mod events_edstopped;
 #[doc = "Wireless medium in idle - clear to send"]
 pub struct EVENTS_CCAIDLE {
@@ -359,12 +364,18 @@ pub struct EVENTS_RXREADY {
 }
 #[doc = "RADIO has ramped up and is ready to be started RX path"]
 pub mod events_rxready;
-#[doc = "MAC Header match found."]
+#[doc = "MAC header match found"]
 pub struct EVENTS_MHRMATCH {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "MAC Header match found."]
+#[doc = "MAC header match found"]
 pub mod events_mhrmatch;
+#[doc = "Generated in Ble_LR125Kbit, Ble_LR500Kbit and BleIeee802154_250Kbit modes when last bit is sent on air."]
+pub struct EVENTS_PHYEND {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Generated in Ble_LR125Kbit, Ble_LR500Kbit and BleIeee802154_250Kbit modes when last bit is sent on air."]
+pub mod events_phyend;
 #[doc = "Shortcut register"]
 pub struct SHORTS {
     register: ::vcell::VolatileCell<u32>,
@@ -407,6 +418,12 @@ pub struct DAI {
 }
 #[doc = "Device address match index"]
 pub mod dai;
+#[doc = "Payload status"]
+pub struct PDUSTAT {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Payload status"]
+pub mod pdustat;
 #[doc = "Packet pointer"]
 pub struct PACKETPTR {
     register: ::vcell::VolatileCell<u32>,
@@ -497,11 +514,11 @@ pub struct CRCINIT {
 }
 #[doc = "CRC initial value"]
 pub mod crcinit;
-#[doc = "Inter Frame Spacing in us"]
+#[doc = "Interframe spacing in us"]
 pub struct TIFS {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Inter Frame Spacing in us"]
+#[doc = "Interframe spacing in us"]
 pub mod tifs;
 #[doc = "RSSI sample"]
 pub struct RSSISAMPLE {
@@ -527,17 +544,17 @@ pub struct BCC {
 }
 #[doc = "Bit counter compare"]
 pub mod bcc;
-#[doc = "Description collection[0]: Device address base segment 0"]
+#[doc = "Description collection[n]: Device address base segment n"]
 pub struct DAB {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Device address base segment 0"]
+#[doc = "Description collection[n]: Device address base segment n"]
 pub mod dab;
-#[doc = "Description collection[0]: Device address prefix 0"]
+#[doc = "Description collection[n]: Device address prefix n"]
 pub struct DAP {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Device address prefix 0"]
+#[doc = "Description collection[n]: Device address prefix n"]
 pub mod dap;
 #[doc = "Device address match configuration"]
 pub struct DACNF {
@@ -545,11 +562,11 @@ pub struct DACNF {
 }
 #[doc = "Device address match configuration"]
 pub mod dacnf;
-#[doc = "Search Pattern Configuration"]
+#[doc = "Search pattern configuration"]
 pub struct MHRMATCHCONF {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Search Pattern Configuration"]
+#[doc = "Search pattern configuration"]
 pub mod mhrmatchconf;
 #[doc = "Pattern mask"]
 pub struct MHRMATCHMAS {
@@ -563,29 +580,29 @@ pub struct MODECNF0 {
 }
 #[doc = "Radio mode configuration register 0"]
 pub mod modecnf0;
-#[doc = "IEEE 802.15.4 Start of Frame Delimiter"]
+#[doc = "IEEE 802.15.4 start of frame delimiter"]
 pub struct SFD {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "IEEE 802.15.4 Start of Frame Delimiter"]
+#[doc = "IEEE 802.15.4 start of frame delimiter"]
 pub mod sfd;
-#[doc = "IEEE 802.15.4 Energy Detect Loop Count"]
+#[doc = "IEEE 802.15.4 energy detect loop count"]
 pub struct EDCNT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "IEEE 802.15.4 Energy Detect Loop Count"]
+#[doc = "IEEE 802.15.4 energy detect loop count"]
 pub mod edcnt;
-#[doc = "IEEE 802.15.4 Energy Detect Level"]
+#[doc = "IEEE 802.15.4 energy detect level"]
 pub struct EDSAMPLE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "IEEE 802.15.4 Energy Detect Level"]
+#[doc = "IEEE 802.15.4 energy detect level"]
 pub mod edsample;
-#[doc = "IEEE 802.15.4 Clear Channel Assessment Control"]
+#[doc = "IEEE 802.15.4 clear channel assessment control"]
 pub struct CCACTRL {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "IEEE 802.15.4 Clear Channel Assessment Control"]
+#[doc = "IEEE 802.15.4 clear channel assessment control"]
 pub mod ccactrl;
 #[doc = "Peripheral power control"]
 pub struct POWER {

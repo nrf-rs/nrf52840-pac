@@ -339,7 +339,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&self) -> ENDR {
         ENDR::_from({
@@ -348,7 +348,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for ENDRX event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&self) -> ENDRXR {
         ENDRXR::_from({
@@ -357,7 +357,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 10 - Write '1' to Disable interrupt for ACQUIRED event"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for ACQUIRED event"]
     #[inline]
     pub fn acquired(&self) -> ACQUIREDR {
         ACQUIREDR::_from({
@@ -379,17 +379,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for END event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for END event"]
     #[inline]
     pub fn end(&mut self) -> _ENDW {
         _ENDW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for ENDRX event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for ENDRX event"]
     #[inline]
     pub fn endrx(&mut self) -> _ENDRXW {
         _ENDRXW { w: self }
     }
-    #[doc = "Bit 10 - Write '1' to Disable interrupt for ACQUIRED event"]
+    #[doc = "Bit 10 - Write '1' to disable interrupt for ACQUIRED event"]
     #[inline]
     pub fn acquired(&mut self) -> _ACQUIREDW {
         _ACQUIREDW { w: self }

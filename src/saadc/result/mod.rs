@@ -4,15 +4,15 @@ pub struct PTR {
 }
 #[doc = "Data pointer"]
 pub mod ptr;
-#[doc = "Maximum number of buffer words to transfer"]
+#[doc = "Maximum number of 16-bit samples to be written to output RAM buffer"]
 pub struct MAXCNT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Maximum number of buffer words to transfer"]
+#[doc = "Maximum number of 16-bit samples to be written to output RAM buffer"]
 pub mod maxcnt;
-#[doc = "Number of buffer words transferred since last START"]
+#[doc = "Number of 16-bit samples written to output RAM buffer since the previous START task"]
 pub struct AMOUNT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Number of buffer words transferred since last START"]
+#[doc = "Number of 16-bit samples written to output RAM buffer since the previous START task"]
 pub mod amount;

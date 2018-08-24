@@ -263,6 +263,53 @@ impl DPMENABLER {
         *self == DPMENABLER::ENABLE
     }
 }
+#[doc = "Possible values of the field `PPSIZE`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PPSIZER {
+    #[doc = "256 bytes."]
+    _256BYTES,
+    #[doc = "512 bytes."]
+    _512BYTES,
+}
+impl PPSIZER {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            PPSIZER::_256BYTES => false,
+            PPSIZER::_512BYTES => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> PPSIZER {
+        match value {
+            false => PPSIZER::_256BYTES,
+            true => PPSIZER::_512BYTES,
+        }
+    }
+    #[doc = "Checks if the value of the field is `_256BYTES`"]
+    #[inline]
+    pub fn is_256bytes(&self) -> bool {
+        *self == PPSIZER::_256BYTES
+    }
+    #[doc = "Checks if the value of the field is `_512BYTES`"]
+    #[inline]
+    pub fn is_512bytes(&self) -> bool {
+        *self == PPSIZER::_512BYTES
+    }
+}
 #[doc = "Values that can be written to the field `READOC`"]
 pub enum READOCW {
     #[doc = "Single data line SPI. FAST_READ (opcode 0x0B)."]
@@ -515,6 +562,64 @@ impl<'a> _DPMENABLEW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `PPSIZE`"]
+pub enum PPSIZEW {
+    #[doc = "256 bytes."]
+    _256BYTES,
+    #[doc = "512 bytes."]
+    _512BYTES,
+}
+impl PPSIZEW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            PPSIZEW::_256BYTES => false,
+            PPSIZEW::_512BYTES => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _PPSIZEW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _PPSIZEW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: PPSIZEW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "256 bytes."]
+    #[inline]
+    pub fn _256bytes(self) -> &'a mut W {
+        self.variant(PPSIZEW::_256BYTES)
+    }
+    #[doc = "512 bytes."]
+    #[inline]
+    pub fn _512bytes(self) -> &'a mut W {
+        self.variant(PPSIZEW::_512BYTES)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 12;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -557,6 +662,15 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
+    #[doc = "Bit 12 - Page size for commands PP, PP2O, PP4O and PP4IO."]
+    #[inline]
+    pub fn ppsize(&self) -> PPSIZER {
+        PPSIZER::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 12;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -589,5 +703,10 @@ impl W {
     #[inline]
     pub fn dpmenable(&mut self) -> _DPMENABLEW {
         _DPMENABLEW { w: self }
+    }
+    #[doc = "Bit 12 - Page size for commands PP, PP2O, PP4O and PP4IO."]
+    #[inline]
+    pub fn ppsize(&mut self) -> _PPSIZEW {
+        _PPSIZEW { w: self }
     }
 }

@@ -145,7 +145,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for TIMEOUT event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for TIMEOUT event"]
     #[inline]
     pub fn timeout(&self) -> TIMEOUTR {
         TIMEOUTR::_from({
@@ -167,7 +167,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for TIMEOUT event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for TIMEOUT event"]
     #[inline]
     pub fn timeout(&mut self) -> _TIMEOUTW {
         _TIMEOUTW { w: self }

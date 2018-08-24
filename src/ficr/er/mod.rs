@@ -28,7 +28,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Encryption root, word 0"]
+    #[doc = "Bits 0:31 - Encryption root, word n"]
     #[inline]
     pub fn er(&self) -> ERR {
         let bits = {

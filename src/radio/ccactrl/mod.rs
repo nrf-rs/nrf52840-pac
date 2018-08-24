@@ -45,15 +45,15 @@ impl super::CCACTRL {
 #[doc = "Possible values of the field `CCAMODE`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CCAMODER {
-    #[doc = "Energy Above Threshold"]
+    #[doc = "Energy above threshold"]
     EDMODE,
-    #[doc = "Carrier Seen"]
+    #[doc = "Carrier seen"]
     CARRIERMODE,
-    #[doc = "Energy Above Threshold AND Carrier Seen"]
+    #[doc = "Energy above threshold AND carrier seen"]
     CARRIERANDEDMODE,
-    #[doc = "Energy Above Threshold OR Carrier Seen"]
+    #[doc = "Energy above threshold OR carrier seen"]
     CARRIEROREDMODE,
-    #[doc = "Energy Above Threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
+    #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
     EDMODETEST1,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -145,15 +145,15 @@ impl CCACORRCNTR {
 }
 #[doc = "Values that can be written to the field `CCAMODE`"]
 pub enum CCAMODEW {
-    #[doc = "Energy Above Threshold"]
+    #[doc = "Energy above threshold"]
     EDMODE,
-    #[doc = "Carrier Seen"]
+    #[doc = "Carrier seen"]
     CARRIERMODE,
-    #[doc = "Energy Above Threshold AND Carrier Seen"]
+    #[doc = "Energy above threshold AND carrier seen"]
     CARRIERANDEDMODE,
-    #[doc = "Energy Above Threshold OR Carrier Seen"]
+    #[doc = "Energy above threshold OR carrier seen"]
     CARRIEROREDMODE,
-    #[doc = "Energy Above Threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
+    #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
     EDMODETEST1,
 }
 impl CCAMODEW {
@@ -180,27 +180,27 @@ impl<'a> _CCAMODEW<'a> {
     pub fn variant(self, variant: CCAMODEW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "Energy Above Threshold"]
+    #[doc = "Energy above threshold"]
     #[inline]
     pub fn ed_mode(self) -> &'a mut W {
         self.variant(CCAMODEW::EDMODE)
     }
-    #[doc = "Carrier Seen"]
+    #[doc = "Carrier seen"]
     #[inline]
     pub fn carrier_mode(self) -> &'a mut W {
         self.variant(CCAMODEW::CARRIERMODE)
     }
-    #[doc = "Energy Above Threshold AND Carrier Seen"]
+    #[doc = "Energy above threshold AND carrier seen"]
     #[inline]
     pub fn carrier_and_ed_mode(self) -> &'a mut W {
         self.variant(CCAMODEW::CARRIERANDEDMODE)
     }
-    #[doc = "Energy Above Threshold OR Carrier Seen"]
+    #[doc = "Energy above threshold OR carrier seen"]
     #[inline]
     pub fn carrier_or_ed_mode(self) -> &'a mut W {
         self.variant(CCAMODEW::CARRIEROREDMODE)
     }
-    #[doc = "Energy Above Threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
+    #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
     #[inline]
     pub fn ed_mode_test1(self) -> &'a mut W {
         self.variant(CCAMODEW::EDMODETEST1)
@@ -266,7 +266,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:2 - CCA Mode Of Operation"]
+    #[doc = "Bits 0:2 - CCA mode of operation"]
     #[inline]
     pub fn ccamode(&self) -> CCAMODER {
         CCAMODER::_from({
@@ -275,7 +275,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 8:15 - CCA Energy Busy Threshold. Used in all the CCA modes except CarrierMode."]
+    #[doc = "Bits 8:15 - CCA energy busy threshold. Used in all the CCA modes except CarrierMode."]
     #[inline]
     pub fn ccaedthres(&self) -> CCAEDTHRESR {
         let bits = {
@@ -285,7 +285,7 @@ impl R {
         };
         CCAEDTHRESR { bits }
     }
-    #[doc = "Bits 16:23 - CCA Correlator Busy Threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
+    #[doc = "Bits 16:23 - CCA correlator busy threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
     #[inline]
     pub fn ccacorrthres(&self) -> CCACORRTHRESR {
         let bits = {
@@ -318,17 +318,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:2 - CCA Mode Of Operation"]
+    #[doc = "Bits 0:2 - CCA mode of operation"]
     #[inline]
     pub fn ccamode(&mut self) -> _CCAMODEW {
         _CCAMODEW { w: self }
     }
-    #[doc = "Bits 8:15 - CCA Energy Busy Threshold. Used in all the CCA modes except CarrierMode."]
+    #[doc = "Bits 8:15 - CCA energy busy threshold. Used in all the CCA modes except CarrierMode."]
     #[inline]
     pub fn ccaedthres(&mut self) -> _CCAEDTHRESW {
         _CCAEDTHRESW { w: self }
     }
-    #[doc = "Bits 16:23 - CCA Correlator Busy Threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
+    #[doc = "Bits 16:23 - CCA correlator busy threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
     #[inline]
     pub fn ccacorrthres(&mut self) -> _CCACORRTHRESW {
         _CCACORRTHRESW { w: self }

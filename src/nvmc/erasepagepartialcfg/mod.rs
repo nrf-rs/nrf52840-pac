@@ -6,7 +6,7 @@ pub struct R {
 pub struct W {
     bits: u32,
 }
-impl super::UNUSED0 {
+impl super::ERASEPAGEPARTIALCFG {
     #[doc = r" Modifies the contents of the register"]
     #[inline]
     pub fn modify<F>(&self, f: F)
@@ -42,23 +42,64 @@ impl super::UNUSED0 {
         self.write(|w| w)
     }
 }
+#[doc = r" Value of the field"]
+pub struct DURATIONR {
+    bits: u8,
+}
+impl DURATIONR {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bits(&self) -> u8 {
+        self.bits
+    }
+}
+#[doc = r" Proxy"]
+pub struct _DURATIONW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _DURATIONW<'a> {
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+        const MASK: u8 = 127;
+        const OFFSET: u8 = 0;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
     }
+    #[doc = "Bits 0:6 - Duration of the partial erase in milliseconds"]
+    #[inline]
+    pub fn duration(&self) -> DURATIONR {
+        let bits = {
+            const MASK: u8 = 127;
+            const OFFSET: u8 = 0;
+            ((self.bits >> OFFSET) & MASK as u32) as u8
+        };
+        DURATIONR { bits }
+    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
     #[inline]
     pub fn reset_value() -> W {
-        W { bits: 0 }
+        W { bits: 10 }
     }
     #[doc = r" Writes raw bits to the register"]
     #[inline]
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.bits = bits;
         self
+    }
+    #[doc = "Bits 0:6 - Duration of the partial erase in milliseconds"]
+    #[inline]
+    pub fn duration(&mut self) -> _DURATIONW {
+        _DURATIONW { w: self }
     }
 }

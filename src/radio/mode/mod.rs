@@ -49,15 +49,13 @@ pub enum MODER {
     NRF_1MBIT,
     #[doc = "2 Mbit/s Nordic proprietary radio mode"]
     NRF_2MBIT,
-    #[doc = "Deprecated enumerator -  250 kbit/s Nordic proprietary radio mode"]
-    NRF_250KBIT,
-    #[doc = "1 Mbit/s Bluetooth Low Energy"]
+    #[doc = "1 Mbit/s BLE"]
     BLE_1MBIT,
-    #[doc = "2 Mbit/s Bluetooth Low Energy"]
+    #[doc = "2 Mbit/s BLE"]
     BLE_2MBIT,
-    #[doc = "Long range 125 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 125 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     BLE_LR125KBIT,
-    #[doc = "Long range 500 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 500 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     BLE_LR500KBIT,
     #[doc = "IEEE 802.15.4-2006 250 kbit/s"]
     IEEE802154_250KBIT,
@@ -71,7 +69,6 @@ impl MODER {
         match *self {
             MODER::NRF_1MBIT => 0,
             MODER::NRF_2MBIT => 1,
-            MODER::NRF_250KBIT => 2,
             MODER::BLE_1MBIT => 3,
             MODER::BLE_2MBIT => 4,
             MODER::BLE_LR125KBIT => 5,
@@ -87,7 +84,6 @@ impl MODER {
         match value {
             0 => MODER::NRF_1MBIT,
             1 => MODER::NRF_2MBIT,
-            2 => MODER::NRF_250KBIT,
             3 => MODER::BLE_1MBIT,
             4 => MODER::BLE_2MBIT,
             5 => MODER::BLE_LR125KBIT,
@@ -105,11 +101,6 @@ impl MODER {
     #[inline]
     pub fn is_nrf_2mbit(&self) -> bool {
         *self == MODER::NRF_2MBIT
-    }
-    #[doc = "Checks if the value of the field is `NRF_250KBIT`"]
-    #[inline]
-    pub fn is_nrf_250kbit(&self) -> bool {
-        *self == MODER::NRF_250KBIT
     }
     #[doc = "Checks if the value of the field is `BLE_1MBIT`"]
     #[inline]
@@ -143,15 +134,13 @@ pub enum MODEW {
     NRF_1MBIT,
     #[doc = "2 Mbit/s Nordic proprietary radio mode"]
     NRF_2MBIT,
-    #[doc = "Deprecated enumerator -  250 kbit/s Nordic proprietary radio mode"]
-    NRF_250KBIT,
-    #[doc = "1 Mbit/s Bluetooth Low Energy"]
+    #[doc = "1 Mbit/s BLE"]
     BLE_1MBIT,
-    #[doc = "2 Mbit/s Bluetooth Low Energy"]
+    #[doc = "2 Mbit/s BLE"]
     BLE_2MBIT,
-    #[doc = "Long range 125 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 125 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     BLE_LR125KBIT,
-    #[doc = "Long range 500 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 500 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     BLE_LR500KBIT,
     #[doc = "IEEE 802.15.4-2006 250 kbit/s"]
     IEEE802154_250KBIT,
@@ -164,7 +153,6 @@ impl MODEW {
         match *self {
             MODEW::NRF_1MBIT => 0,
             MODEW::NRF_2MBIT => 1,
-            MODEW::NRF_250KBIT => 2,
             MODEW::BLE_1MBIT => 3,
             MODEW::BLE_2MBIT => 4,
             MODEW::BLE_LR125KBIT => 5,
@@ -193,27 +181,22 @@ impl<'a> _MODEW<'a> {
     pub fn nrf_2mbit(self) -> &'a mut W {
         self.variant(MODEW::NRF_2MBIT)
     }
-    #[doc = "Deprecated enumerator - 250 kbit/s Nordic proprietary radio mode"]
-    #[inline]
-    pub fn nrf_250kbit(self) -> &'a mut W {
-        self.variant(MODEW::NRF_250KBIT)
-    }
-    #[doc = "1 Mbit/s Bluetooth Low Energy"]
+    #[doc = "1 Mbit/s BLE"]
     #[inline]
     pub fn ble_1mbit(self) -> &'a mut W {
         self.variant(MODEW::BLE_1MBIT)
     }
-    #[doc = "2 Mbit/s Bluetooth Low Energy"]
+    #[doc = "2 Mbit/s BLE"]
     #[inline]
     pub fn ble_2mbit(self) -> &'a mut W {
         self.variant(MODEW::BLE_2MBIT)
     }
-    #[doc = "Long range 125 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 125 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     #[inline]
     pub fn ble_lr125kbit(self) -> &'a mut W {
         self.variant(MODEW::BLE_LR125KBIT)
     }
-    #[doc = "Long range 500 kbit/s (TX Only - RX supports both)"]
+    #[doc = "Long range 500 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
     #[inline]
     pub fn ble_lr500kbit(self) -> &'a mut W {
         self.variant(MODEW::BLE_LR500KBIT)
@@ -239,7 +222,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:3 - Radio data rate and modulation setting. The radio supports Frequency-shift Keying (FSK) modulation."]
+    #[doc = "Bits 0:3 - Radio data rate and modulation setting. The radio supports frequency-shift keying (FSK) modulation."]
     #[inline]
     pub fn mode(&self) -> MODER {
         MODER::_from({
@@ -261,7 +244,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:3 - Radio data rate and modulation setting. The radio supports Frequency-shift Keying (FSK) modulation."]
+    #[doc = "Bits 0:3 - Radio data rate and modulation setting. The radio supports frequency-shift keying (FSK) modulation."]
     #[inline]
     pub fn mode(&mut self) -> _MODEW {
         _MODEW { w: self }

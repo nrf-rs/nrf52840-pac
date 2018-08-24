@@ -139,7 +139,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - SETUP data, byte 1, bRequest. Values provides for standard requests only, user must implement Class and Vendor values."]
+    #[doc = "Bits 0:7 - SETUP data, byte 1, bRequest. Values provided for standard requests only, user must implement class and vendor values."]
     #[inline]
     pub fn brequest(&self) -> BREQUESTR {
         BREQUESTR::_from({

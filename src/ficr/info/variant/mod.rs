@@ -16,16 +16,18 @@ impl super::VARIANT {
 pub enum VARIANTR {
     #[doc = "AAAA"]
     AAAA,
-    #[doc = "AAAB"]
-    AAAB,
+    #[doc = "BAAA"]
+    BAAA,
+    #[doc = "CAAA"]
+    CAAA,
     #[doc = "AABA"]
     AABA,
     #[doc = "AABB"]
     AABB,
-    #[doc = "AAB0"]
-    AAB0,
-    #[doc = "ABBA"]
-    ABBA,
+    #[doc = "AACA"]
+    AACA,
+    #[doc = "AAAB"]
+    AAAB,
     #[doc = "Unspecified"]
     UNSPECIFIED,
     #[doc = r" Reserved"]
@@ -37,11 +39,12 @@ impl VARIANTR {
     pub fn bits(&self) -> u32 {
         match *self {
             VARIANTR::AAAA => 1094795585,
-            VARIANTR::AAAB => 1094795586,
+            VARIANTR::BAAA => 1111572801,
+            VARIANTR::CAAA => 1128350017,
             VARIANTR::AABA => 1094795841,
             VARIANTR::AABB => 1094795842,
-            VARIANTR::AAB0 => 1094795824,
-            VARIANTR::ABBA => 1094861377,
+            VARIANTR::AACA => 1094796097,
+            VARIANTR::AAAB => 1094795586,
             VARIANTR::UNSPECIFIED => 4294967295,
             VARIANTR::_Reserved(bits) => bits,
         }
@@ -52,11 +55,12 @@ impl VARIANTR {
     pub fn _from(value: u32) -> VARIANTR {
         match value {
             1094795585 => VARIANTR::AAAA,
-            1094795586 => VARIANTR::AAAB,
+            1111572801 => VARIANTR::BAAA,
+            1128350017 => VARIANTR::CAAA,
             1094795841 => VARIANTR::AABA,
             1094795842 => VARIANTR::AABB,
-            1094795824 => VARIANTR::AAB0,
-            1094861377 => VARIANTR::ABBA,
+            1094796097 => VARIANTR::AACA,
+            1094795586 => VARIANTR::AAAB,
             4294967295 => VARIANTR::UNSPECIFIED,
             i => VARIANTR::_Reserved(i),
         }
@@ -66,10 +70,15 @@ impl VARIANTR {
     pub fn is_aaaa(&self) -> bool {
         *self == VARIANTR::AAAA
     }
-    #[doc = "Checks if the value of the field is `AAAB`"]
+    #[doc = "Checks if the value of the field is `BAAA`"]
     #[inline]
-    pub fn is_aaab(&self) -> bool {
-        *self == VARIANTR::AAAB
+    pub fn is_baaa(&self) -> bool {
+        *self == VARIANTR::BAAA
+    }
+    #[doc = "Checks if the value of the field is `CAAA`"]
+    #[inline]
+    pub fn is_caaa(&self) -> bool {
+        *self == VARIANTR::CAAA
     }
     #[doc = "Checks if the value of the field is `AABA`"]
     #[inline]
@@ -81,15 +90,15 @@ impl VARIANTR {
     pub fn is_aabb(&self) -> bool {
         *self == VARIANTR::AABB
     }
-    #[doc = "Checks if the value of the field is `AAB0`"]
+    #[doc = "Checks if the value of the field is `AACA`"]
     #[inline]
-    pub fn is_aab0(&self) -> bool {
-        *self == VARIANTR::AAB0
+    pub fn is_aaca(&self) -> bool {
+        *self == VARIANTR::AACA
     }
-    #[doc = "Checks if the value of the field is `ABBA`"]
+    #[doc = "Checks if the value of the field is `AAAB`"]
     #[inline]
-    pub fn is_abba(&self) -> bool {
-        *self == VARIANTR::ABBA
+    pub fn is_aaab(&self) -> bool {
+        *self == VARIANTR::AAAB
     }
     #[doc = "Checks if the value of the field is `UNSPECIFIED`"]
     #[inline]
@@ -103,7 +112,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Part variant (hardware version and production configuration). Encoded as ASCII."]
+    #[doc = "Bits 0:31 - Build code (hardware version and production configuration). Encoded as ASCII."]
     #[inline]
     pub fn variant(&self) -> VARIANTR {
         VARIANTR::_from({

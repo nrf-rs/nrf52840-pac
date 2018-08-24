@@ -14,9 +14,9 @@ impl super::STATUS {
 #[doc = "Possible values of the field `STATUS`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATUSR {
-    #[doc = "ADC is ready. No on-going conversion."]
+    #[doc = "SAADC is ready. No on-going conversions."]
     READY,
-    #[doc = "ADC is busy. Conversion in progress."]
+    #[doc = "SAADC is busy. Conversion in progress."]
     BUSY,
 }
 impl STATUSR {

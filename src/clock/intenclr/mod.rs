@@ -230,6 +230,100 @@ impl CTTOR {
         *self == CTTOR::ENABLED
     }
 }
+#[doc = "Possible values of the field `CTSTARTED`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CTSTARTEDR {
+    #[doc = "Read: Disabled"]
+    DISABLED,
+    #[doc = "Read: Enabled"]
+    ENABLED,
+}
+impl CTSTARTEDR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            CTSTARTEDR::DISABLED => false,
+            CTSTARTEDR::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> CTSTARTEDR {
+        match value {
+            false => CTSTARTEDR::DISABLED,
+            true => CTSTARTEDR::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == CTSTARTEDR::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == CTSTARTEDR::ENABLED
+    }
+}
+#[doc = "Possible values of the field `CTSTOPPED`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CTSTOPPEDR {
+    #[doc = "Read: Disabled"]
+    DISABLED,
+    #[doc = "Read: Enabled"]
+    ENABLED,
+}
+impl CTSTOPPEDR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            CTSTOPPEDR::DISABLED => false,
+            CTSTOPPEDR::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> CTSTOPPEDR {
+        match value {
+            false => CTSTOPPEDR::DISABLED,
+            true => CTSTOPPEDR::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == CTSTOPPEDR::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == CTSTOPPEDR::ENABLED
+    }
+}
 #[doc = "Values that can be written to the field `HFCLKSTARTED`"]
 pub enum HFCLKSTARTEDW {
     #[doc = "Disable"]
@@ -430,13 +524,113 @@ impl<'a> _CTTOW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `CTSTARTED`"]
+pub enum CTSTARTEDW {
+    #[doc = "Disable"]
+    CLEAR,
+}
+impl CTSTARTEDW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            CTSTARTEDW::CLEAR => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _CTSTARTEDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _CTSTARTEDW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: CTSTARTEDW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable"]
+    #[inline]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(CTSTARTEDW::CLEAR)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 10;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
+#[doc = "Values that can be written to the field `CTSTOPPED`"]
+pub enum CTSTOPPEDW {
+    #[doc = "Disable"]
+    CLEAR,
+}
+impl CTSTOPPEDW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            CTSTOPPEDW::CLEAR => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _CTSTOPPEDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _CTSTOPPEDW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: CTSTOPPEDW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable"]
+    #[inline]
+    pub fn clear(self) -> &'a mut W {
+        self.variant(CTSTOPPEDW::CLEAR)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 11;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for HFCLKSTARTED event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for HFCLKSTARTED event"]
     #[inline]
     pub fn hfclkstarted(&self) -> HFCLKSTARTEDR {
         HFCLKSTARTEDR::_from({
@@ -445,7 +639,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for LFCLKSTARTED event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for LFCLKSTARTED event"]
     #[inline]
     pub fn lfclkstarted(&self) -> LFCLKSTARTEDR {
         LFCLKSTARTEDR::_from({
@@ -454,7 +648,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for DONE event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for DONE event"]
     #[inline]
     pub fn done(&self) -> DONER {
         DONER::_from({
@@ -463,12 +657,30 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for CTTO event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for CTTO event"]
     #[inline]
     pub fn ctto(&self) -> CTTOR {
         CTTOR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 4;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 10 - Write '1' to disable interrupt for CTSTARTED event"]
+    #[inline]
+    pub fn ctstarted(&self) -> CTSTARTEDR {
+        CTSTARTEDR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 10;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 11 - Write '1' to disable interrupt for CTSTOPPED event"]
+    #[inline]
+    pub fn ctstopped(&self) -> CTSTOPPEDR {
+        CTSTOPPEDR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 11;
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
@@ -485,24 +697,34 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for HFCLKSTARTED event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for HFCLKSTARTED event"]
     #[inline]
     pub fn hfclkstarted(&mut self) -> _HFCLKSTARTEDW {
         _HFCLKSTARTEDW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for LFCLKSTARTED event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for LFCLKSTARTED event"]
     #[inline]
     pub fn lfclkstarted(&mut self) -> _LFCLKSTARTEDW {
         _LFCLKSTARTEDW { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for DONE event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for DONE event"]
     #[inline]
     pub fn done(&mut self) -> _DONEW {
         _DONEW { w: self }
     }
-    #[doc = "Bit 4 - Write '1' to Disable interrupt for CTTO event"]
+    #[doc = "Bit 4 - Write '1' to disable interrupt for CTTO event"]
     #[inline]
     pub fn ctto(&mut self) -> _CTTOW {
         _CTTOW { w: self }
+    }
+    #[doc = "Bit 10 - Write '1' to disable interrupt for CTSTARTED event"]
+    #[inline]
+    pub fn ctstarted(&mut self) -> _CTSTARTEDW {
+        _CTSTARTEDW { w: self }
+    }
+    #[doc = "Bit 11 - Write '1' to disable interrupt for CTSTOPPED event"]
+    #[inline]
+    pub fn ctstopped(&mut self) -> _CTSTOPPEDW {
+        _CTSTOPPEDW { w: self }
     }
 }

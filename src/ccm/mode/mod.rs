@@ -148,9 +148,9 @@ impl DATARATER {
 #[doc = "Possible values of the field `LENGTH`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LENGTHR {
-    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packets up to 27 bytes will be generated."]
+    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packet payloads up to 27 bytes will be generated."]
     DEFAULT,
-    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packets up to MAXPACKETSIZE bytes will be generated."]
+    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packet payloads up to MAXPACKETSIZE bytes will be generated."]
     EXTENDED,
 }
 impl LENGTHR {
@@ -318,9 +318,9 @@ impl<'a> _DATARATEW<'a> {
 }
 #[doc = "Values that can be written to the field `LENGTH`"]
 pub enum LENGTHW {
-    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packets up to 27 bytes will be generated."]
+    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packet payloads up to 27 bytes will be generated."]
     DEFAULT,
-    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packets up to MAXPACKETSIZE bytes will be generated."]
+    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packet payloads up to MAXPACKETSIZE bytes will be generated."]
     EXTENDED,
 }
 impl LENGTHW {
@@ -346,12 +346,12 @@ impl<'a> _LENGTHW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packets up to 27 bytes will be generated."]
+    #[doc = "Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packet payloads up to 27 bytes will be generated."]
     #[inline]
     pub fn default(self) -> &'a mut W {
         self.variant(LENGTHW::DEFAULT)
     }
-    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packets up to MAXPACKETSIZE bytes will be generated."]
+    #[doc = "Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packet payloads up to MAXPACKETSIZE bytes will be generated."]
     #[inline]
     pub fn extended(self) -> &'a mut W {
         self.variant(LENGTHW::EXTENDED)

@@ -145,7 +145,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for READY event"]
     #[inline]
     pub fn ready(&self) -> READYR {
         READYR::_from({
@@ -167,7 +167,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for READY event"]
     #[inline]
     pub fn ready(&mut self) -> _READYW {
         _READYW { w: self }

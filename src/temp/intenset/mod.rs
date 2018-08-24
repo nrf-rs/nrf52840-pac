@@ -145,7 +145,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for DATARDY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for DATARDY event"]
     #[inline]
     pub fn datardy(&self) -> DATARDYR {
         DATARDYR::_from({
@@ -167,7 +167,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Enable interrupt for DATARDY event"]
+    #[doc = "Bit 0 - Write '1' to enable interrupt for DATARDY event"]
     #[inline]
     pub fn datardy(&mut self) -> _DATARDYW {
         _DATARDYW { w: self }

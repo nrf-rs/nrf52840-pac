@@ -9,17 +9,19 @@ pub struct RegisterBlock {
     pub tasks_writestart: TASKS_WRITESTART,
     #[doc = "0x0c - Start external flash memory erase operation"]
     pub tasks_erasestart: TASKS_ERASESTART,
-    _reserved0: [u8; 240usize],
+    #[doc = "0x10 - Deactivate QSPI interface"]
+    pub tasks_deactivate: TASKS_DEACTIVATE,
+    _reserved5: [u8; 236usize],
     #[doc = "0x100 - QSPI peripheral is ready. This event will be generated as a response to any QSPI task."]
     pub events_ready: EVENTS_READY,
-    _reserved1: [u8; 508usize],
+    _reserved6: [u8; 508usize],
     #[doc = "0x300 - Enable or disable interrupt"]
     pub inten: INTEN,
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved2: [u8; 500usize],
+    _reserved9: [u8; 500usize],
     #[doc = "0x500 - Enable QSPI peripheral and acquire the pins selected in PSELn registers"]
     pub enable: ENABLE,
     #[doc = "0x504 - Unspecified"]
@@ -34,18 +36,18 @@ pub struct RegisterBlock {
     pub xipoffset: XIPOFFSET,
     #[doc = "0x544 - Interface configuration."]
     pub ifconfig0: IFCONFIG0,
-    _reserved3: [u8; 184usize],
+    _reserved16: [u8; 184usize],
     #[doc = "0x600 - Interface configuration."]
     pub ifconfig1: IFCONFIG1,
     #[doc = "0x604 - Status register."]
     pub status: STATUS,
-    _reserved4: [u8; 12usize],
+    _reserved18: [u8; 12usize],
     #[doc = "0x614 - Set the duration required to enter/exit deep power-down mode (DPM)."]
     pub dpmdur: DPMDUR,
-    _reserved5: [u8; 12usize],
+    _reserved19: [u8; 12usize],
     #[doc = "0x624 - Extended address configuration."]
     pub addrconf: ADDRCONF,
-    _reserved6: [u8; 12usize],
+    _reserved20: [u8; 12usize],
     #[doc = "0x634 - Custom instruction configuration register."]
     pub cinstrconf: CINSTRCONF,
     #[doc = "0x638 - Custom instruction data register 0."]
@@ -99,7 +101,7 @@ pub struct PSEL {
     pub sck: self::psel::SCK,
     #[doc = "0x04 - Pin select for chip select signal CSN."]
     pub csn: self::psel::CSN,
-    _reserved0: [u8; 4usize],
+    _reserved2: [u8; 4usize],
     #[doc = "0x0c - Pin select for serial data MOSI/IO0."]
     pub io0: self::psel::IO0,
     #[doc = "0x10 - Pin select for serial data MISO/IO1."]
@@ -136,6 +138,12 @@ pub struct TASKS_ERASESTART {
 }
 #[doc = "Start external flash memory erase operation"]
 pub mod tasks_erasestart;
+#[doc = "Deactivate QSPI interface"]
+pub struct TASKS_DEACTIVATE {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Deactivate QSPI interface"]
+pub mod tasks_deactivate;
 #[doc = "QSPI peripheral is ready. This event will be generated as a response to any QSPI task."]
 pub struct EVENTS_READY {
     register: ::vcell::VolatileCell<u32>,

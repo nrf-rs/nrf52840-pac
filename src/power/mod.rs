@@ -6,10 +6,10 @@ pub struct RegisterBlock {
     pub tasks_constlat: TASKS_CONSTLAT,
     #[doc = "0x7c - Enable low power mode (variable latency)"]
     pub tasks_lowpwr: TASKS_LOWPWR,
-    _reserved1: [u8; 136usize],
+    _reserved2: [u8; 136usize],
     #[doc = "0x108 - Power failure warning"]
     pub events_pofwarn: EVENTS_POFWARN,
-    _reserved2: [u8; 8usize],
+    _reserved3: [u8; 8usize],
     #[doc = "0x114 - CPU entered WFI/WFE sleep"]
     pub events_sleepenter: EVENTS_SLEEPENTER,
     #[doc = "0x118 - CPU exited WFI/WFE sleep"]
@@ -20,76 +20,76 @@ pub struct RegisterBlock {
     pub events_usbremoved: EVENTS_USBREMOVED,
     #[doc = "0x124 - USB 3.3 V supply ready"]
     pub events_usbpwrrdy: EVENTS_USBPWRRDY,
-    _reserved3: [u8; 476usize],
+    _reserved8: [u8; 476usize],
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved4: [u8; 244usize],
+    _reserved10: [u8; 244usize],
     #[doc = "0x400 - Reset reason"]
     pub resetreas: RESETREAS,
-    _reserved5: [u8; 36usize],
+    _reserved11: [u8; 36usize],
     #[doc = "0x428 - Deprecated register - RAM status register"]
     pub ramstatus: RAMSTATUS,
-    _reserved6: [u8; 12usize],
+    _reserved12: [u8; 12usize],
     #[doc = "0x438 - USB supply status"]
     pub usbregstatus: USBREGSTATUS,
-    _reserved7: [u8; 196usize],
+    _reserved13: [u8; 196usize],
     #[doc = "0x500 - System OFF register"]
     pub systemoff: SYSTEMOFF,
-    _reserved8: [u8; 12usize],
-    #[doc = "0x510 - Power failure comparator configuration"]
+    _reserved14: [u8; 12usize],
+    #[doc = "0x510 - Power-fail comparator configuration"]
     pub pofcon: POFCON,
-    _reserved9: [u8; 8usize],
+    _reserved15: [u8; 8usize],
     #[doc = "0x51c - General purpose retention register"]
     pub gpregret: GPREGRET,
     #[doc = "0x520 - General purpose retention register"]
     pub gpregret2: GPREGRET2,
-    _reserved10: [u8; 84usize],
+    _reserved17: [u8; 84usize],
     #[doc = "0x578 - Enable DC/DC converter for REG1 stage."]
     pub dcdcen: DCDCEN,
-    _reserved11: [u8; 4usize],
+    _reserved18: [u8; 4usize],
     #[doc = "0x580 - Enable DC/DC converter for REG0 stage."]
     pub dcdcen0: DCDCEN0,
-    _reserved12: [u8; 188usize],
+    _reserved19: [u8; 188usize],
     #[doc = "0x640 - Main supply status"]
     pub mainregstatus: MAINREGSTATUS,
-    _reserved13: [u8; 700usize],
+    _reserved20: [u8; 700usize],
     #[doc = "0x900 - Unspecified"]
     pub ram0: RAM,
-    _reserved14: [u8; 4usize],
+    _reserved21: [u8; 4usize],
     #[doc = "0x910 - Unspecified"]
     pub ram1: RAM,
-    _reserved15: [u8; 4usize],
+    _reserved22: [u8; 4usize],
     #[doc = "0x920 - Unspecified"]
     pub ram2: RAM,
-    _reserved16: [u8; 4usize],
+    _reserved23: [u8; 4usize],
     #[doc = "0x930 - Unspecified"]
     pub ram3: RAM,
-    _reserved17: [u8; 4usize],
+    _reserved24: [u8; 4usize],
     #[doc = "0x940 - Unspecified"]
     pub ram4: RAM,
-    _reserved18: [u8; 4usize],
+    _reserved25: [u8; 4usize],
     #[doc = "0x950 - Unspecified"]
     pub ram5: RAM,
-    _reserved19: [u8; 4usize],
+    _reserved26: [u8; 4usize],
     #[doc = "0x960 - Unspecified"]
     pub ram6: RAM,
-    _reserved20: [u8; 4usize],
+    _reserved27: [u8; 4usize],
     #[doc = "0x970 - Unspecified"]
     pub ram7: RAM,
-    _reserved21: [u8; 4usize],
+    _reserved28: [u8; 4usize],
     #[doc = "0x980 - Unspecified"]
     pub ram8: RAM,
 }
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct RAM {
-    #[doc = "0x00 - Description cluster[0]: RAM0 power control register"]
+    #[doc = "0x00 - Description cluster[n]: RAMn power control register"]
     pub power: self::ram::POWER,
-    #[doc = "0x04 - Description cluster[0]: RAM0 power control set register"]
+    #[doc = "0x04 - Description cluster[n]: RAMn power control set register"]
     pub powerset: self::ram::POWERSET,
-    #[doc = "0x08 - Description cluster[0]: RAM0 power control clear register"]
+    #[doc = "0x08 - Description cluster[n]: RAMn power control clear register"]
     pub powerclr: self::ram::POWERCLR,
 }
 #[doc = r" Register block"]
@@ -179,11 +179,11 @@ pub struct SYSTEMOFF {
 }
 #[doc = "System OFF register"]
 pub mod systemoff;
-#[doc = "Power failure comparator configuration"]
+#[doc = "Power-fail comparator configuration"]
 pub struct POFCON {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Power failure comparator configuration"]
+#[doc = "Power-fail comparator configuration"]
 pub mod pofcon;
 #[doc = "General purpose retention register"]
 pub struct GPREGRET {

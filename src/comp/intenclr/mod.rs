@@ -436,7 +436,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for READY event"]
     #[inline]
     pub fn ready(&self) -> READYR {
         READYR::_from({
@@ -445,7 +445,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for DOWN event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for DOWN event"]
     #[inline]
     pub fn down(&self) -> DOWNR {
         DOWNR::_from({
@@ -454,7 +454,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for UP event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for UP event"]
     #[inline]
     pub fn up(&self) -> UPR {
         UPR::_from({
@@ -463,7 +463,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for CROSS event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for CROSS event"]
     #[inline]
     pub fn cross(&self) -> CROSSR {
         CROSSR::_from({
@@ -485,22 +485,22 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Write '1' to Disable interrupt for READY event"]
+    #[doc = "Bit 0 - Write '1' to disable interrupt for READY event"]
     #[inline]
     pub fn ready(&mut self) -> _READYW {
         _READYW { w: self }
     }
-    #[doc = "Bit 1 - Write '1' to Disable interrupt for DOWN event"]
+    #[doc = "Bit 1 - Write '1' to disable interrupt for DOWN event"]
     #[inline]
     pub fn down(&mut self) -> _DOWNW {
         _DOWNW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Disable interrupt for UP event"]
+    #[doc = "Bit 2 - Write '1' to disable interrupt for UP event"]
     #[inline]
     pub fn up(&mut self) -> _UPW {
         _UPW { w: self }
     }
-    #[doc = "Bit 3 - Write '1' to Disable interrupt for CROSS event"]
+    #[doc = "Bit 3 - Write '1' to disable interrupt for CROSS event"]
     #[inline]
     pub fn cross(&mut self) -> _CROSSW {
         _CROSSW { w: self }

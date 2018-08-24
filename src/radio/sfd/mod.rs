@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - IEEE 802.15.4 Start of Frame Delimiter"]
+    #[doc = "Bits 0:7 - IEEE 802.15.4 start of frame delimiter"]
     #[inline]
     pub fn sfd(&self) -> SFDR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - IEEE 802.15.4 Start of Frame Delimiter"]
+    #[doc = "Bits 0:7 - IEEE 802.15.4 start of frame delimiter"]
     #[inline]
     pub fn sfd(&mut self) -> _SFDW {
         _SFDW { w: self }

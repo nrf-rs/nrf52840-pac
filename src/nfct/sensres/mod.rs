@@ -407,7 +407,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:4 - Bit frame SDD as defined by the b5:b1 of byte 1 in SENS_RES response in the <i>NFC Forum, NFC Digital Protocol Technical Specification</i>"]
+    #[doc = "Bits 0:4 - Bit frame SDD as defined by the b5:b1 of byte 1 in SENS_RES response in the NFC Forum, NFC Digital Protocol Technical Specification"]
     #[inline]
     pub fn bitframesdd(&self) -> BITFRAMESDDR {
         BITFRAMESDDR::_from({
@@ -468,7 +468,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:4 - Bit frame SDD as defined by the b5:b1 of byte 1 in SENS_RES response in the <i>NFC Forum, NFC Digital Protocol Technical Specification</i>"]
+    #[doc = "Bits 0:4 - Bit frame SDD as defined by the b5:b1 of byte 1 in SENS_RES response in the NFC Forum, NFC Digital Protocol Technical Specification"]
     #[inline]
     pub fn bitframesdd(&mut self) -> _BITFRAMESDDW {
         _BITFRAMESDDW { w: self }

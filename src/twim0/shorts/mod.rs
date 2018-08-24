@@ -230,6 +230,53 @@ impl LASTRX_STARTTXR {
         *self == LASTRX_STARTTXR::ENABLED
     }
 }
+#[doc = "Possible values of the field `LASTRX_SUSPEND`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum LASTRX_SUSPENDR {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl LASTRX_SUSPENDR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            LASTRX_SUSPENDR::DISABLED => false,
+            LASTRX_SUSPENDR::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> LASTRX_SUSPENDR {
+        match value {
+            false => LASTRX_SUSPENDR::DISABLED,
+            true => LASTRX_SUSPENDR::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == LASTRX_SUSPENDR::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == LASTRX_SUSPENDR::ENABLED
+    }
+}
 #[doc = "Possible values of the field `LASTRX_STOP`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LASTRX_STOPR {
@@ -509,6 +556,64 @@ impl<'a> _LASTRX_STARTTXW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `LASTRX_SUSPEND`"]
+pub enum LASTRX_SUSPENDW {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl LASTRX_SUSPENDW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            LASTRX_SUSPENDW::DISABLED => false,
+            LASTRX_SUSPENDW::ENABLED => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _LASTRX_SUSPENDW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _LASTRX_SUSPENDW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: LASTRX_SUSPENDW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable shortcut"]
+    #[inline]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(LASTRX_SUSPENDW::DISABLED)
+    }
+    #[doc = "Enable shortcut"]
+    #[inline]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(LASTRX_SUSPENDW::ENABLED)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 11;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 #[doc = "Values that can be written to the field `LASTRX_STOP`"]
 pub enum LASTRX_STOPW {
     #[doc = "Disable shortcut"]
@@ -609,6 +714,15 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
+    #[doc = "Bit 11 - Shortcut between LASTRX event and SUSPEND task"]
+    #[inline]
+    pub fn lastrx_suspend(&self) -> LASTRX_SUSPENDR {
+        LASTRX_SUSPENDR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 11;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
     #[doc = "Bit 12 - Shortcut between LASTRX event and STOP task"]
     #[inline]
     pub fn lastrx_stop(&self) -> LASTRX_STOPR {
@@ -650,6 +764,11 @@ impl W {
     #[inline]
     pub fn lastrx_starttx(&mut self) -> _LASTRX_STARTTXW {
         _LASTRX_STARTTXW { w: self }
+    }
+    #[doc = "Bit 11 - Shortcut between LASTRX event and SUSPEND task"]
+    #[inline]
+    pub fn lastrx_suspend(&mut self) -> _LASTRX_SUSPENDW {
+        _LASTRX_SUSPENDW { w: self }
     }
     #[doc = "Bit 12 - Shortcut between LASTRX event and STOP task"]
     #[inline]

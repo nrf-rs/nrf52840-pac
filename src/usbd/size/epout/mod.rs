@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:6 - Amount of bytes received last in the data stage of this OUT endpoint"]
+    #[doc = "Bits 0:6 - Number of bytes received last in the data stage of this OUT endpoint"]
     #[inline]
     pub fn size(&self) -> SIZER {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:6 - Amount of bytes received last in the data stage of this OUT endpoint"]
+    #[doc = "Bits 0:6 - Number of bytes received last in the data stage of this OUT endpoint"]
     #[inline]
     pub fn size(&mut self) -> _SIZEW {
         _SIZEW { w: self }

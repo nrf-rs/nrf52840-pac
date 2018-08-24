@@ -45,9 +45,9 @@ impl super::MODE {
 #[doc = "Possible values of the field `UPDOWN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum UPDOWNR {
-    #[doc = "Up counter - edge aligned PWM duty-cycle"]
+    #[doc = "Up counter, edge-aligned PWM duty cycle"]
     UP,
-    #[doc = "Up and down counter - center aligned PWM duty cycle"]
+    #[doc = "Up and down counter, center-aligned PWM duty cycle"]
     UPANDDOWN,
 }
 impl UPDOWNR {
@@ -91,9 +91,9 @@ impl UPDOWNR {
 }
 #[doc = "Values that can be written to the field `UPDOWN`"]
 pub enum UPDOWNW {
-    #[doc = "Up counter - edge aligned PWM duty-cycle"]
+    #[doc = "Up counter, edge-aligned PWM duty cycle"]
     UP,
-    #[doc = "Up and down counter - center aligned PWM duty cycle"]
+    #[doc = "Up and down counter, center-aligned PWM duty cycle"]
     UPANDDOWN,
 }
 impl UPDOWNW {
@@ -119,12 +119,12 @@ impl<'a> _UPDOWNW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Up counter - edge aligned PWM duty-cycle"]
+    #[doc = "Up counter, edge-aligned PWM duty cycle"]
     #[inline]
     pub fn up(self) -> &'a mut W {
         self.variant(UPDOWNW::UP)
     }
-    #[doc = "Up and down counter - center aligned PWM duty cycle"]
+    #[doc = "Up and down counter, center-aligned PWM duty cycle"]
     #[inline]
     pub fn up_and_down(self) -> &'a mut W {
         self.variant(UPDOWNW::UPANDDOWN)
@@ -153,7 +153,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Selects up or up and down as wave counter mode"]
+    #[doc = "Bit 0 - Selects up mode or up-and-down mode for the counter"]
     #[inline]
     pub fn updown(&self) -> UPDOWNR {
         UPDOWNR::_from({
@@ -175,7 +175,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Selects up or up and down as wave counter mode"]
+    #[doc = "Bit 0 - Selects up mode or up-and-down mode for the counter"]
     #[inline]
     pub fn updown(&mut self) -> _UPDOWNW {
         _UPDOWNW { w: self }

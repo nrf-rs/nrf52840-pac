@@ -738,7 +738,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Enable or disable power failure comparator"]
+    #[doc = "Bit 0 - Enable or disable power failure warning"]
     #[inline]
     pub fn pof(&self) -> POFR {
         POFR::_from({
@@ -747,7 +747,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bits 1:4 - Power failure comparator threshold setting"]
+    #[doc = "Bits 1:4 - Power-fail comparator threshold setting. This setting applies both for normal voltage mode (supply connected to both VDD and VDDH) and high voltage mode (supply connected to VDDH only). Values 0-3 set threshold below 1.7 V and should not be used as brown out detection will be activated before power failure warning on such low voltages."]
     #[inline]
     pub fn threshold(&self) -> THRESHOLDR {
         THRESHOLDR::_from({
@@ -756,7 +756,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 8:11 - Power failure comparator threshold setting for voltage supply on VDDH"]
+    #[doc = "Bits 8:11 - Power-fail comparator threshold setting for high voltage mode (supply connected to VDDH only). This setting does not apply for normal voltage mode (supply connected to both VDD and VDDH)."]
     #[inline]
     pub fn thresholdvddh(&self) -> THRESHOLDVDDHR {
         THRESHOLDVDDHR::_from({
@@ -778,17 +778,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 0 - Enable or disable power failure comparator"]
+    #[doc = "Bit 0 - Enable or disable power failure warning"]
     #[inline]
     pub fn pof(&mut self) -> _POFW {
         _POFW { w: self }
     }
-    #[doc = "Bits 1:4 - Power failure comparator threshold setting"]
+    #[doc = "Bits 1:4 - Power-fail comparator threshold setting. This setting applies both for normal voltage mode (supply connected to both VDD and VDDH) and high voltage mode (supply connected to VDDH only). Values 0-3 set threshold below 1.7 V and should not be used as brown out detection will be activated before power failure warning on such low voltages."]
     #[inline]
     pub fn threshold(&mut self) -> _THRESHOLDW {
         _THRESHOLDW { w: self }
     }
-    #[doc = "Bits 8:11 - Power failure comparator threshold setting for voltage supply on VDDH"]
+    #[doc = "Bits 8:11 - Power-fail comparator threshold setting for high voltage mode (supply connected to VDDH only). This setting does not apply for normal voltage mode (supply connected to both VDD and VDDH)."]
     #[inline]
     pub fn thresholdvddh(&mut self) -> _THRESHOLDVDDHW {
         _THRESHOLDVDDHW { w: self }

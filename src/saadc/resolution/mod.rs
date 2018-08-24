@@ -45,13 +45,13 @@ impl super::RESOLUTION {
 #[doc = "Possible values of the field `VAL`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VALR {
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     _8BIT,
-    #[doc = "10 bit"]
+    #[doc = "10 bits"]
     _10BIT,
-    #[doc = "12 bit"]
+    #[doc = "12 bits"]
     _12BIT,
-    #[doc = "14 bit"]
+    #[doc = "14 bits"]
     _14BIT,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -103,13 +103,13 @@ impl VALR {
 }
 #[doc = "Values that can be written to the field `VAL`"]
 pub enum VALW {
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     _8BIT,
-    #[doc = "10 bit"]
+    #[doc = "10 bits"]
     _10BIT,
-    #[doc = "12 bit"]
+    #[doc = "12 bits"]
     _12BIT,
-    #[doc = "14 bit"]
+    #[doc = "14 bits"]
     _14BIT,
 }
 impl VALW {
@@ -135,22 +135,22 @@ impl<'a> _VALW<'a> {
     pub fn variant(self, variant: VALW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "8 bit"]
+    #[doc = "8 bits"]
     #[inline]
     pub fn _8bit(self) -> &'a mut W {
         self.variant(VALW::_8BIT)
     }
-    #[doc = "10 bit"]
+    #[doc = "10 bits"]
     #[inline]
     pub fn _10bit(self) -> &'a mut W {
         self.variant(VALW::_10BIT)
     }
-    #[doc = "12 bit"]
+    #[doc = "12 bits"]
     #[inline]
     pub fn _12bit(self) -> &'a mut W {
         self.variant(VALW::_12BIT)
     }
-    #[doc = "14 bit"]
+    #[doc = "14 bits"]
     #[inline]
     pub fn _14bit(self) -> &'a mut W {
         self.variant(VALW::_14BIT)

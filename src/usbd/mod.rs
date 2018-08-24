@@ -2,75 +2,71 @@
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 4usize],
-    #[doc = "0x04 - Description collection[0]: Captures the EPIN[0].PTR, EPIN[0].MAXCNT and EPIN[0].CONFIG registers values, and enables endpoint IN 0 to respond to traffic from host"]
+    #[doc = "0x04 - Description collection[n]: Captures the EPIN[n].PTR and EPIN[n].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host"]
     pub tasks_startepin: [TASKS_STARTEPIN; 8],
-    #[doc = "0x24 - Captures the ISOIN.PTR, ISOIN.MAXCNT and ISOIN.CONFIG registers values, and enables sending data on iso endpoint"]
+    #[doc = "0x24 - Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint"]
     pub tasks_startisoin: TASKS_STARTISOIN,
-    #[doc = "0x28 - Description collection[0]: Captures the EPOUT[0].PTR, EPOUT[0].MAXCNT and EPOUT[0].CONFIG registers values, and enables endpoint 0 to respond to traffic from host"]
+    #[doc = "0x28 - Description collection[n]: Captures the EPOUT[n].PTR and EPOUT[n].MAXCNT registers values, and enables endpoint n to respond to traffic from host"]
     pub tasks_startepout: [TASKS_STARTEPOUT; 8],
-    #[doc = "0x48 - Captures the ISOOUT.PTR, ISOOUT.MAXCNT and ISOOUT.CONFIG registers values, and enables receiving of data on iso endpoint"]
+    #[doc = "0x48 - Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint"]
     pub tasks_startisoout: TASKS_STARTISOOUT,
     #[doc = "0x4c - Allows OUT data stage on control endpoint 0"]
     pub tasks_ep0rcvout: TASKS_EP0RCVOUT,
     #[doc = "0x50 - Allows status stage on control endpoint 0"]
     pub tasks_ep0status: TASKS_EP0STATUS,
-    #[doc = "0x54 - STALLs data and status stage on control endpoint 0"]
+    #[doc = "0x54 - Stalls data and status stage on control endpoint 0"]
     pub tasks_ep0stall: TASKS_EP0STALL,
-    #[doc = "0x58 - Forces D+ and D-lines to the state defined in the DPDMVALUE register"]
+    #[doc = "0x58 - Forces D+ and D- lines into the state defined in the DPDMVALUE register"]
     pub tasks_dpdmdrive: TASKS_DPDMDRIVE,
-    #[doc = "0x5c - Stops forcing D+ and D- lines to any state (USB engine takes control)"]
+    #[doc = "0x5c - Stops forcing D+ and D- lines into any state (USB engine takes control)"]
     pub tasks_dpdmnodrive: TASKS_DPDMNODRIVE,
-    _reserved1: [u8; 160usize],
-    #[doc = "0x100 - Signals that a USB reset condition has been detected on the USB lines"]
+    _reserved9: [u8; 160usize],
+    #[doc = "0x100 - Signals that a USB reset condition has been detected on USB lines"]
     pub events_usbreset: EVENTS_USBRESET,
-    #[doc = "0x104 - Confirms that the EPIN[n].PTR, EPIN[n].MAXCNT, EPIN[n].CONFIG, or EPOUT[n].PTR, EPOUT[n].MAXCNT and EPOUT[n].CONFIG registers have been captured on all endpoints reported in the EPSTATUS register"]
+    #[doc = "0x104 - Confirms that the EPIN[n].PTR and EPIN[n].MAXCNT, or EPOUT[n].PTR and EPOUT[n].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register"]
     pub events_started: EVENTS_STARTED,
-    #[doc = "0x108 - Description collection[0]: The whole EPIN[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+    #[doc = "0x108 - Description collection[n]: The whole EPIN[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endepin: [EVENTS_ENDEPIN; 8],
     #[doc = "0x128 - An acknowledged data transfer has taken place on the control endpoint"]
     pub events_ep0datadone: EVENTS_EP0DATADONE,
     #[doc = "0x12c - The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endisoin: EVENTS_ENDISOIN,
-    #[doc = "0x130 - Description collection[0]: The whole EPOUT[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+    #[doc = "0x130 - Description collection[n]: The whole EPOUT[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endepout: [EVENTS_ENDEPOUT; 8],
     #[doc = "0x150 - The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endisoout: EVENTS_ENDISOOUT,
-    #[doc = "0x154 - Signals that a SOF (start of frame) condition has been detected on the USB lines"]
+    #[doc = "0x154 - Signals that a SOF (start of frame) condition has been detected on USB lines"]
     pub events_sof: EVENTS_SOF,
-    #[doc = "0x158 - An event or an error not covered by specific events has occurred, check EVENTCAUSE register to find the cause"]
+    #[doc = "0x158 - An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause."]
     pub events_usbevent: EVENTS_USBEVENT,
     #[doc = "0x15c - A valid SETUP token has been received (and acknowledged) on the control endpoint"]
     pub events_ep0setup: EVENTS_EP0SETUP,
     #[doc = "0x160 - A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register"]
     pub events_epdata: EVENTS_EPDATA,
-    #[doc = "0x164 - Access to an unavailable USB register has been attempted (software or EasyDMA). This event can get fired even when USBD is not ENABLEd."]
-    pub events_accessfault: EVENTS_ACCESSFAULT,
-    _reserved2: [u8; 152usize],
+    _reserved20: [u8; 156usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
-    _reserved3: [u8; 252usize],
+    _reserved21: [u8; 252usize],
     #[doc = "0x300 - Enable or disable interrupt"]
     pub inten: INTEN,
     #[doc = "0x304 - Enable interrupt"]
     pub intenset: INTENSET,
     #[doc = "0x308 - Disable interrupt"]
     pub intenclr: INTENCLR,
-    _reserved4: [u8; 244usize],
-    #[doc = "0x400 - Details on event that caused the USBEVENT event"]
+    _reserved24: [u8; 244usize],
+    #[doc = "0x400 - Details on what caused the USBEVENT event"]
     pub eventcause: EVENTCAUSE,
-    #[doc = "0x404 - Provides the logic state of the D+ and D- lines"]
-    pub busstate: BUSSTATE,
-    _reserved5: [u8; 24usize],
+    _reserved25: [u8; 28usize],
     #[doc = "0x420 - Unspecified"]
     pub halted: HALTED,
-    _reserved6: [u8; 4usize],
+    _reserved26: [u8; 4usize],
     #[doc = "0x468 - Provides information on which endpoint's EasyDMA registers have been captured"]
     pub epstatus: EPSTATUS,
     #[doc = "0x46c - Provides information on which endpoint(s) an acknowledged data transfer has occurred (EPDATA event)"]
     pub epdatastatus: EPDATASTATUS,
     #[doc = "0x470 - Device USB address"]
     pub usbaddr: USBADDR,
-    _reserved7: [u8; 12usize],
+    _reserved29: [u8; 12usize],
     #[doc = "0x480 - SETUP data, byte 0, bmRequestType"]
     pub bmrequesttype: BMREQUESTTYPE,
     #[doc = "0x484 - SETUP data, byte 1, bRequest"]
@@ -89,14 +85,14 @@ pub struct RegisterBlock {
     pub wlengthh: WLENGTHH,
     #[doc = "0x4a0 - Unspecified"]
     pub size: SIZE,
-    _reserved8: [u8; 60usize],
+    _reserved38: [u8; 60usize],
     #[doc = "0x500 - Enable USB"]
     pub enable: ENABLE,
     #[doc = "0x504 - Control of the USB pull-up"]
     pub usbpullup: USBPULLUP,
-    #[doc = "0x508 - State at which the DPDMDRIVE task will force D+ and D-. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
+    #[doc = "0x508 - State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
     pub dpdmvalue: DPDMVALUE,
-    #[doc = "0x50c - Data toggle control and status."]
+    #[doc = "0x50c - Data toggle control and status"]
     pub dtoggle: DTOGGLE,
     #[doc = "0x510 - Endpoint IN enable"]
     pub epinen: EPINEN,
@@ -108,71 +104,73 @@ pub struct RegisterBlock {
     pub isosplit: ISOSPLIT,
     #[doc = "0x520 - Returns the current value of the start of frame counter"]
     pub framecntr: FRAMECNTR,
-    _reserved9: [u8; 12usize],
+    _reserved47: [u8; 8usize],
+    #[doc = "0x52c - Controls USBD peripheral low power mode during USB suspend"]
+    pub lowpower: LOWPOWER,
     #[doc = "0x530 - Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent"]
     pub isoinconfig: ISOINCONFIG,
-    _reserved10: [u8; 204usize],
+    _reserved49: [u8; 204usize],
     #[doc = "0x600 - Unspecified"]
     pub epin0: EPIN,
-    _reserved11: [u8; 8usize],
+    _reserved50: [u8; 8usize],
     #[doc = "0x614 - Unspecified"]
     pub epin1: EPIN,
-    _reserved12: [u8; 8usize],
+    _reserved51: [u8; 8usize],
     #[doc = "0x628 - Unspecified"]
     pub epin2: EPIN,
-    _reserved13: [u8; 8usize],
+    _reserved52: [u8; 8usize],
     #[doc = "0x63c - Unspecified"]
     pub epin3: EPIN,
-    _reserved14: [u8; 8usize],
+    _reserved53: [u8; 8usize],
     #[doc = "0x650 - Unspecified"]
     pub epin4: EPIN,
-    _reserved15: [u8; 8usize],
+    _reserved54: [u8; 8usize],
     #[doc = "0x664 - Unspecified"]
     pub epin5: EPIN,
-    _reserved16: [u8; 8usize],
+    _reserved55: [u8; 8usize],
     #[doc = "0x678 - Unspecified"]
     pub epin6: EPIN,
-    _reserved17: [u8; 8usize],
+    _reserved56: [u8; 8usize],
     #[doc = "0x68c - Unspecified"]
     pub epin7: EPIN,
-    _reserved18: [u8; 8usize],
+    _reserved57: [u8; 8usize],
     #[doc = "0x6a0 - Unspecified"]
     pub isoin: ISOIN,
-    _reserved19: [u8; 84usize],
+    _reserved58: [u8; 84usize],
     #[doc = "0x700 - Unspecified"]
     pub epout0: EPOUT,
-    _reserved20: [u8; 8usize],
+    _reserved59: [u8; 8usize],
     #[doc = "0x714 - Unspecified"]
     pub epout1: EPOUT,
-    _reserved21: [u8; 8usize],
+    _reserved60: [u8; 8usize],
     #[doc = "0x728 - Unspecified"]
     pub epout2: EPOUT,
-    _reserved22: [u8; 8usize],
+    _reserved61: [u8; 8usize],
     #[doc = "0x73c - Unspecified"]
     pub epout3: EPOUT,
-    _reserved23: [u8; 8usize],
+    _reserved62: [u8; 8usize],
     #[doc = "0x750 - Unspecified"]
     pub epout4: EPOUT,
-    _reserved24: [u8; 8usize],
+    _reserved63: [u8; 8usize],
     #[doc = "0x764 - Unspecified"]
     pub epout5: EPOUT,
-    _reserved25: [u8; 8usize],
+    _reserved64: [u8; 8usize],
     #[doc = "0x778 - Unspecified"]
     pub epout6: EPOUT,
-    _reserved26: [u8; 8usize],
+    _reserved65: [u8; 8usize],
     #[doc = "0x78c - Unspecified"]
     pub epout7: EPOUT,
-    _reserved27: [u8; 8usize],
+    _reserved66: [u8; 8usize],
     #[doc = "0x7a0 - Unspecified"]
     pub isoout: ISOOUT,
 }
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct HALTED {
-    #[doc = "0x00 - Description collection[0]: IN endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint."]
+    #[doc = "0x00 - Description collection[n]: IN endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint."]
     pub epin: [self::halted::EPIN; 8],
-    _reserved0: [u8; 4usize],
-    #[doc = "0x24 - Description collection[0]: OUT endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint."]
+    _reserved1: [u8; 4usize],
+    #[doc = "0x24 - Description collection[n]: OUT endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint."]
     pub epout: [self::halted::EPOUT; 8],
 }
 #[doc = r" Register block"]
@@ -181,9 +179,9 @@ pub mod halted;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct SIZE {
-    #[doc = "0x00 - Description collection[0]: Amount of bytes received last in the data stage of this OUT endpoint"]
+    #[doc = "0x00 - Description collection[n]: Number of bytes received last in the data stage of this OUT endpoint"]
     pub epout: [self::size::EPOUT; 8],
-    #[doc = "0x20 - Amount of bytes received last on this iso OUT data endpoint"]
+    #[doc = "0x20 - Number of bytes received last on this ISO OUT data endpoint"]
     pub isoout: self::size::ISOOUT,
 }
 #[doc = r" Register block"]
@@ -192,11 +190,11 @@ pub mod size;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct EPIN {
-    #[doc = "0x00 - Description cluster[0]: Data pointer"]
+    #[doc = "0x00 - Description cluster[n]: Data pointer"]
     pub ptr: self::epin::PTR,
-    #[doc = "0x04 - Description cluster[0]: Maximum number of bytes to transfer"]
+    #[doc = "0x04 - Description cluster[n]: Maximum number of bytes to transfer"]
     pub maxcnt: self::epin::MAXCNT,
-    #[doc = "0x08 - Description cluster[0]: Number of bytes transferred in the last transaction"]
+    #[doc = "0x08 - Description cluster[n]: Number of bytes transferred in the last transaction"]
     pub amount: self::epin::AMOUNT,
 }
 #[doc = r" Register block"]
@@ -218,11 +216,11 @@ pub mod isoin;
 #[doc = r" Register block"]
 #[repr(C)]
 pub struct EPOUT {
-    #[doc = "0x00 - Description cluster[0]: Data pointer"]
+    #[doc = "0x00 - Description cluster[n]: Data pointer"]
     pub ptr: self::epout::PTR,
-    #[doc = "0x04 - Description cluster[0]: Maximum number of bytes to transfer"]
+    #[doc = "0x04 - Description cluster[n]: Maximum number of bytes to transfer"]
     pub maxcnt: self::epout::MAXCNT,
-    #[doc = "0x08 - Description cluster[0]: Number of bytes transferred in the last transaction"]
+    #[doc = "0x08 - Description cluster[n]: Number of bytes transferred in the last transaction"]
     pub amount: self::epout::AMOUNT,
 }
 #[doc = r" Register block"]
@@ -241,29 +239,29 @@ pub struct ISOOUT {
 #[doc = r" Register block"]
 #[doc = "Unspecified"]
 pub mod isoout;
-#[doc = "Description collection[0]: Captures the EPIN[0].PTR, EPIN[0].MAXCNT and EPIN[0].CONFIG registers values, and enables endpoint IN 0 to respond to traffic from host"]
+#[doc = "Description collection[n]: Captures the EPIN[n].PTR and EPIN[n].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host"]
 pub struct TASKS_STARTEPIN {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Captures the EPIN[0].PTR, EPIN[0].MAXCNT and EPIN[0].CONFIG registers values, and enables endpoint IN 0 to respond to traffic from host"]
+#[doc = "Description collection[n]: Captures the EPIN[n].PTR and EPIN[n].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host"]
 pub mod tasks_startepin;
-#[doc = "Captures the ISOIN.PTR, ISOIN.MAXCNT and ISOIN.CONFIG registers values, and enables sending data on iso endpoint"]
+#[doc = "Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint"]
 pub struct TASKS_STARTISOIN {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Captures the ISOIN.PTR, ISOIN.MAXCNT and ISOIN.CONFIG registers values, and enables sending data on iso endpoint"]
+#[doc = "Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint"]
 pub mod tasks_startisoin;
-#[doc = "Description collection[0]: Captures the EPOUT[0].PTR, EPOUT[0].MAXCNT and EPOUT[0].CONFIG registers values, and enables endpoint 0 to respond to traffic from host"]
+#[doc = "Description collection[n]: Captures the EPOUT[n].PTR and EPOUT[n].MAXCNT registers values, and enables endpoint n to respond to traffic from host"]
 pub struct TASKS_STARTEPOUT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Captures the EPOUT[0].PTR, EPOUT[0].MAXCNT and EPOUT[0].CONFIG registers values, and enables endpoint 0 to respond to traffic from host"]
+#[doc = "Description collection[n]: Captures the EPOUT[n].PTR and EPOUT[n].MAXCNT registers values, and enables endpoint n to respond to traffic from host"]
 pub mod tasks_startepout;
-#[doc = "Captures the ISOOUT.PTR, ISOOUT.MAXCNT and ISOOUT.CONFIG registers values, and enables receiving of data on iso endpoint"]
+#[doc = "Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint"]
 pub struct TASKS_STARTISOOUT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Captures the ISOOUT.PTR, ISOOUT.MAXCNT and ISOOUT.CONFIG registers values, and enables receiving of data on iso endpoint"]
+#[doc = "Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint"]
 pub mod tasks_startisoout;
 #[doc = "Allows OUT data stage on control endpoint 0"]
 pub struct TASKS_EP0RCVOUT {
@@ -277,41 +275,41 @@ pub struct TASKS_EP0STATUS {
 }
 #[doc = "Allows status stage on control endpoint 0"]
 pub mod tasks_ep0status;
-#[doc = "STALLs data and status stage on control endpoint 0"]
+#[doc = "Stalls data and status stage on control endpoint 0"]
 pub struct TASKS_EP0STALL {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "STALLs data and status stage on control endpoint 0"]
+#[doc = "Stalls data and status stage on control endpoint 0"]
 pub mod tasks_ep0stall;
-#[doc = "Forces D+ and D-lines to the state defined in the DPDMVALUE register"]
+#[doc = "Forces D+ and D- lines into the state defined in the DPDMVALUE register"]
 pub struct TASKS_DPDMDRIVE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Forces D+ and D-lines to the state defined in the DPDMVALUE register"]
+#[doc = "Forces D+ and D- lines into the state defined in the DPDMVALUE register"]
 pub mod tasks_dpdmdrive;
-#[doc = "Stops forcing D+ and D- lines to any state (USB engine takes control)"]
+#[doc = "Stops forcing D+ and D- lines into any state (USB engine takes control)"]
 pub struct TASKS_DPDMNODRIVE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Stops forcing D+ and D- lines to any state (USB engine takes control)"]
+#[doc = "Stops forcing D+ and D- lines into any state (USB engine takes control)"]
 pub mod tasks_dpdmnodrive;
-#[doc = "Signals that a USB reset condition has been detected on the USB lines"]
+#[doc = "Signals that a USB reset condition has been detected on USB lines"]
 pub struct EVENTS_USBRESET {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Signals that a USB reset condition has been detected on the USB lines"]
+#[doc = "Signals that a USB reset condition has been detected on USB lines"]
 pub mod events_usbreset;
-#[doc = "Confirms that the EPIN[n].PTR, EPIN[n].MAXCNT, EPIN[n].CONFIG, or EPOUT[n].PTR, EPOUT[n].MAXCNT and EPOUT[n].CONFIG registers have been captured on all endpoints reported in the EPSTATUS register"]
+#[doc = "Confirms that the EPIN[n].PTR and EPIN[n].MAXCNT, or EPOUT[n].PTR and EPOUT[n].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register"]
 pub struct EVENTS_STARTED {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Confirms that the EPIN[n].PTR, EPIN[n].MAXCNT, EPIN[n].CONFIG, or EPOUT[n].PTR, EPOUT[n].MAXCNT and EPOUT[n].CONFIG registers have been captured on all endpoints reported in the EPSTATUS register"]
+#[doc = "Confirms that the EPIN[n].PTR and EPIN[n].MAXCNT, or EPOUT[n].PTR and EPOUT[n].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register"]
 pub mod events_started;
-#[doc = "Description collection[0]: The whole EPIN[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection[n]: The whole EPIN[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub struct EVENTS_ENDEPIN {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: The whole EPIN[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection[n]: The whole EPIN[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endepin;
 #[doc = "An acknowledged data transfer has taken place on the control endpoint"]
 pub struct EVENTS_EP0DATADONE {
@@ -325,11 +323,11 @@ pub struct EVENTS_ENDISOIN {
 }
 #[doc = "The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endisoin;
-#[doc = "Description collection[0]: The whole EPOUT[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection[n]: The whole EPOUT[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub struct EVENTS_ENDEPOUT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: The whole EPOUT[0] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection[n]: The whole EPOUT[n] buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endepout;
 #[doc = "The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub struct EVENTS_ENDISOOUT {
@@ -337,17 +335,17 @@ pub struct EVENTS_ENDISOOUT {
 }
 #[doc = "The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endisoout;
-#[doc = "Signals that a SOF (start of frame) condition has been detected on the USB lines"]
+#[doc = "Signals that a SOF (start of frame) condition has been detected on USB lines"]
 pub struct EVENTS_SOF {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Signals that a SOF (start of frame) condition has been detected on the USB lines"]
+#[doc = "Signals that a SOF (start of frame) condition has been detected on USB lines"]
 pub mod events_sof;
-#[doc = "An event or an error not covered by specific events has occurred, check EVENTCAUSE register to find the cause"]
+#[doc = "An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause."]
 pub struct EVENTS_USBEVENT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "An event or an error not covered by specific events has occurred, check EVENTCAUSE register to find the cause"]
+#[doc = "An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause."]
 pub mod events_usbevent;
 #[doc = "A valid SETUP token has been received (and acknowledged) on the control endpoint"]
 pub struct EVENTS_EP0SETUP {
@@ -361,12 +359,6 @@ pub struct EVENTS_EPDATA {
 }
 #[doc = "A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register"]
 pub mod events_epdata;
-#[doc = "Access to an unavailable USB register has been attempted (software or EasyDMA). This event can get fired even when USBD is not ENABLEd."]
-pub struct EVENTS_ACCESSFAULT {
-    register: ::vcell::VolatileCell<u32>,
-}
-#[doc = "Access to an unavailable USB register has been attempted (software or EasyDMA). This event can get fired even when USBD is not ENABLEd."]
-pub mod events_accessfault;
 #[doc = "Shortcut register"]
 pub struct SHORTS {
     register: ::vcell::VolatileCell<u32>,
@@ -391,18 +383,12 @@ pub struct INTENCLR {
 }
 #[doc = "Disable interrupt"]
 pub mod intenclr;
-#[doc = "Details on event that caused the USBEVENT event"]
+#[doc = "Details on what caused the USBEVENT event"]
 pub struct EVENTCAUSE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Details on event that caused the USBEVENT event"]
+#[doc = "Details on what caused the USBEVENT event"]
 pub mod eventcause;
-#[doc = "Provides the logic state of the D+ and D- lines"]
-pub struct BUSSTATE {
-    register: ::vcell::VolatileCell<u32>,
-}
-#[doc = "Provides the logic state of the D+ and D- lines"]
-pub mod busstate;
 #[doc = "Provides information on which endpoint's EasyDMA registers have been captured"]
 pub struct EPSTATUS {
     register: ::vcell::VolatileCell<u32>,
@@ -481,17 +467,17 @@ pub struct USBPULLUP {
 }
 #[doc = "Control of the USB pull-up"]
 pub mod usbpullup;
-#[doc = "State at which the DPDMDRIVE task will force D+ and D-. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
+#[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
 pub struct DPDMVALUE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "State at which the DPDMDRIVE task will force D+ and D-. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
+#[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
 pub mod dpdmvalue;
-#[doc = "Data toggle control and status."]
+#[doc = "Data toggle control and status"]
 pub struct DTOGGLE {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Data toggle control and status."]
+#[doc = "Data toggle control and status"]
 pub mod dtoggle;
 #[doc = "Endpoint IN enable"]
 pub struct EPINEN {
@@ -523,6 +509,12 @@ pub struct FRAMECNTR {
 }
 #[doc = "Returns the current value of the start of frame counter"]
 pub mod framecntr;
+#[doc = "Controls USBD peripheral low power mode during USB suspend"]
+pub struct LOWPOWER {
+    register: ::vcell::VolatileCell<u32>,
+}
+#[doc = "Controls USBD peripheral low power mode during USB suspend"]
+pub mod lowpower;
 #[doc = "Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent"]
 pub struct ISOINCONFIG {
     register: ::vcell::VolatileCell<u32>,

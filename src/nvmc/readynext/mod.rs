@@ -2,7 +2,7 @@
 pub struct R {
     bits: u32,
 }
-impl super::STATUS {
+impl super::READYNEXT {
     #[doc = r" Reads the contents of the register"]
     #[inline]
     pub fn read(&self) -> R {
@@ -11,15 +11,15 @@ impl super::STATUS {
         }
     }
 }
-#[doc = "Possible values of the field `STATUS`"]
+#[doc = "Possible values of the field `READYNEXT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum STATUSR {
-    #[doc = "Timer is stopped"]
-    STOPPED,
-    #[doc = "Timer is started"]
-    STARTED,
+pub enum READYNEXTR {
+    #[doc = "NVMC cannot accept any write operation"]
+    BUSY,
+    #[doc = "NVMC is ready"]
+    READY,
 }
-impl STATUSR {
+impl READYNEXTR {
     #[doc = r" Returns `true` if the bit is clear (0)"]
     #[inline]
     pub fn bit_is_clear(&self) -> bool {
@@ -34,28 +34,28 @@ impl STATUSR {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            STATUSR::STOPPED => false,
-            STATUSR::STARTED => true,
+            READYNEXTR::BUSY => false,
+            READYNEXTR::READY => true,
         }
     }
     #[allow(missing_docs)]
     #[doc(hidden)]
     #[inline]
-    pub fn _from(value: bool) -> STATUSR {
+    pub fn _from(value: bool) -> READYNEXTR {
         match value {
-            false => STATUSR::STOPPED,
-            true => STATUSR::STARTED,
+            false => READYNEXTR::BUSY,
+            true => READYNEXTR::READY,
         }
     }
-    #[doc = "Checks if the value of the field is `STOPPED`"]
+    #[doc = "Checks if the value of the field is `BUSY`"]
     #[inline]
-    pub fn is_stopped(&self) -> bool {
-        *self == STATUSR::STOPPED
+    pub fn is_busy(&self) -> bool {
+        *self == READYNEXTR::BUSY
     }
-    #[doc = "Checks if the value of the field is `STARTED`"]
+    #[doc = "Checks if the value of the field is `READY`"]
     #[inline]
-    pub fn is_started(&self) -> bool {
-        *self == STATUSR::STARTED
+    pub fn is_ready(&self) -> bool {
+        *self == READYNEXTR::READY
     }
 }
 impl R {
@@ -64,10 +64,10 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 0 - Timer status"]
+    #[doc = "Bit 0 - NVMC can accept a new write operation"]
     #[inline]
-    pub fn status(&self) -> STATUSR {
-        STATUSR::_from({
+    pub fn readynext(&self) -> READYNEXTR {
+        READYNEXTR::_from({
             const MASK: bool = true;
             const OFFSET: u8 = 0;
             ((self.bits >> OFFSET) & MASK as u32) != 0

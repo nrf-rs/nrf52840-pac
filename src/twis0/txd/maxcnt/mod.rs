@@ -44,12 +44,12 @@ impl super::MAXCNT {
 }
 #[doc = r" Value of the field"]
 pub struct MAXCNTR {
-    bits: u8,
+    bits: u16,
 }
 impl MAXCNTR {
     #[doc = r" Value of the field as raw bits"]
     #[inline]
-    pub fn bits(&self) -> u8 {
+    pub fn bits(&self) -> u16 {
         self.bits
     }
 }
@@ -60,8 +60,8 @@ pub struct _MAXCNTW<'a> {
 impl<'a> _MAXCNTW<'a> {
     #[doc = r" Writes raw bits to the field"]
     #[inline]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
+    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+        const MASK: u16 = 65535;
         const OFFSET: u8 = 0;
         self.w.bits &= !((MASK as u32) << OFFSET);
         self.w.bits |= ((value & MASK) as u32) << OFFSET;
@@ -74,13 +74,13 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:7 - Maximum number of bytes in TXD buffer"]
+    #[doc = "Bits 0:15 - Maximum number of bytes in TXD buffer"]
     #[inline]
     pub fn maxcnt(&self) -> MAXCNTR {
         let bits = {
-            const MASK: u8 = 255;
+            const MASK: u16 = 65535;
             const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
+            ((self.bits >> OFFSET) & MASK as u32) as u16
         };
         MAXCNTR { bits }
     }
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:7 - Maximum number of bytes in TXD buffer"]
+    #[doc = "Bits 0:15 - Maximum number of bytes in TXD buffer"]
     #[inline]
     pub fn maxcnt(&mut self) -> _MAXCNTW {
         _MAXCNTW { w: self }

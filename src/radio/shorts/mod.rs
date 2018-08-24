@@ -841,6 +841,100 @@ impl RXREADY_STARTR {
         *self == RXREADY_STARTR::ENABLED
     }
 }
+#[doc = "Possible values of the field `PHYEND_DISABLE`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PHYEND_DISABLER {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl PHYEND_DISABLER {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            PHYEND_DISABLER::DISABLED => false,
+            PHYEND_DISABLER::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> PHYEND_DISABLER {
+        match value {
+            false => PHYEND_DISABLER::DISABLED,
+            true => PHYEND_DISABLER::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == PHYEND_DISABLER::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == PHYEND_DISABLER::ENABLED
+    }
+}
+#[doc = "Possible values of the field `PHYEND_START`"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PHYEND_STARTR {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl PHYEND_STARTR {
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        match *self {
+            PHYEND_STARTR::DISABLED => false,
+            PHYEND_STARTR::ENABLED => true,
+        }
+    }
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _from(value: bool) -> PHYEND_STARTR {
+        match value {
+            false => PHYEND_STARTR::DISABLED,
+            true => PHYEND_STARTR::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline]
+    pub fn is_disabled(&self) -> bool {
+        *self == PHYEND_STARTR::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline]
+    pub fn is_enabled(&self) -> bool {
+        *self == PHYEND_STARTR::ENABLED
+    }
+}
 #[doc = "Values that can be written to the field `READY_START`"]
 pub enum READY_STARTW {
     #[doc = "Disable shortcut"]
@@ -1827,6 +1921,122 @@ impl<'a> _RXREADY_STARTW<'a> {
         self.w
     }
 }
+#[doc = "Values that can be written to the field `PHYEND_DISABLE`"]
+pub enum PHYEND_DISABLEW {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl PHYEND_DISABLEW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            PHYEND_DISABLEW::DISABLED => false,
+            PHYEND_DISABLEW::ENABLED => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _PHYEND_DISABLEW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _PHYEND_DISABLEW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: PHYEND_DISABLEW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable shortcut"]
+    #[inline]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(PHYEND_DISABLEW::DISABLED)
+    }
+    #[doc = "Enable shortcut"]
+    #[inline]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PHYEND_DISABLEW::ENABLED)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 20;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
+#[doc = "Values that can be written to the field `PHYEND_START`"]
+pub enum PHYEND_STARTW {
+    #[doc = "Disable shortcut"]
+    DISABLED,
+    #[doc = "Enable shortcut"]
+    ENABLED,
+}
+impl PHYEND_STARTW {
+    #[allow(missing_docs)]
+    #[doc(hidden)]
+    #[inline]
+    pub fn _bits(&self) -> bool {
+        match *self {
+            PHYEND_STARTW::DISABLED => false,
+            PHYEND_STARTW::ENABLED => true,
+        }
+    }
+}
+#[doc = r" Proxy"]
+pub struct _PHYEND_STARTW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _PHYEND_STARTW<'a> {
+    #[doc = r" Writes `variant` to the field"]
+    #[inline]
+    pub fn variant(self, variant: PHYEND_STARTW) -> &'a mut W {
+        {
+            self.bit(variant._bits())
+        }
+    }
+    #[doc = "Disable shortcut"]
+    #[inline]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(PHYEND_STARTW::DISABLED)
+    }
+    #[doc = "Enable shortcut"]
+    #[inline]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(PHYEND_STARTW::ENABLED)
+    }
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 21;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -1986,6 +2196,24 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
+    #[doc = "Bit 20 - Shortcut between PHYEND event and DISABLE task"]
+    #[inline]
+    pub fn phyend_disable(&self) -> PHYEND_DISABLER {
+        PHYEND_DISABLER::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 20;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
+    #[doc = "Bit 21 - Shortcut between PHYEND event and START task"]
+    #[inline]
+    pub fn phyend_start(&self) -> PHYEND_STARTR {
+        PHYEND_STARTR::_from({
+            const MASK: bool = true;
+            const OFFSET: u8 = 21;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        })
+    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -2083,5 +2311,15 @@ impl W {
     #[inline]
     pub fn rxready_start(&mut self) -> _RXREADY_STARTW {
         _RXREADY_STARTW { w: self }
+    }
+    #[doc = "Bit 20 - Shortcut between PHYEND event and DISABLE task"]
+    #[inline]
+    pub fn phyend_disable(&mut self) -> _PHYEND_DISABLEW {
+        _PHYEND_DISABLEW { w: self }
+    }
+    #[doc = "Bit 21 - Shortcut between PHYEND event and START task"]
+    #[inline]
+    pub fn phyend_start(&mut self) -> _PHYEND_STARTW {
+        _PHYEND_STARTW { w: self }
     }
 }

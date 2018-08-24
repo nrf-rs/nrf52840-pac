@@ -339,7 +339,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for RXPTRUPD event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for RXPTRUPD event"]
     #[inline]
     pub fn rxptrupd(&self) -> RXPTRUPDR {
         RXPTRUPDR::_from({
@@ -348,7 +348,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&self) -> STOPPEDR {
         STOPPEDR::_from({
@@ -357,7 +357,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for TXPTRUPD event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for TXPTRUPD event"]
     #[inline]
     pub fn txptrupd(&self) -> TXPTRUPDR {
         TXPTRUPDR::_from({
@@ -379,17 +379,17 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bit 1 - Write '1' to Enable interrupt for RXPTRUPD event"]
+    #[doc = "Bit 1 - Write '1' to enable interrupt for RXPTRUPD event"]
     #[inline]
     pub fn rxptrupd(&mut self) -> _RXPTRUPDW {
         _RXPTRUPDW { w: self }
     }
-    #[doc = "Bit 2 - Write '1' to Enable interrupt for STOPPED event"]
+    #[doc = "Bit 2 - Write '1' to enable interrupt for STOPPED event"]
     #[inline]
     pub fn stopped(&mut self) -> _STOPPEDW {
         _STOPPEDW { w: self }
     }
-    #[doc = "Bit 5 - Write '1' to Enable interrupt for TXPTRUPD event"]
+    #[doc = "Bit 5 - Write '1' to enable interrupt for TXPTRUPD event"]
     #[inline]
     pub fn txptrupd(&mut self) -> _TXPTRUPDW {
         _TXPTRUPDW { w: self }

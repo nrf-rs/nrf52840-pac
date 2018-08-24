@@ -6,7 +6,7 @@ pub struct R {
 pub struct W {
     bits: u32,
 }
-impl super::EVENTS_ACCESSFAULT {
+impl super::ERASEPAGEPARTIAL {
     #[doc = r" Modifies the contents of the register"]
     #[inline]
     pub fn modify<F>(&self, f: F)
@@ -42,11 +42,47 @@ impl super::EVENTS_ACCESSFAULT {
         self.write(|w| w)
     }
 }
+#[doc = r" Value of the field"]
+pub struct ERASEPAGEPARTIALR {
+    bits: u32,
+}
+impl ERASEPAGEPARTIALR {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bits(&self) -> u32 {
+        self.bits
+    }
+}
+#[doc = r" Proxy"]
+pub struct _ERASEPAGEPARTIALW<'a> {
+    w: &'a mut W,
+}
+impl<'a> _ERASEPAGEPARTIALW<'a> {
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub unsafe fn bits(self, value: u32) -> &'a mut W {
+        const MASK: u32 = 4294967295;
+        const OFFSET: u8 = 0;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
     pub fn bits(&self) -> u32 {
         self.bits
+    }
+    #[doc = "Bits 0:31 - Register for starting partial erase of a page in code area"]
+    #[inline]
+    pub fn erasepagepartial(&self) -> ERASEPAGEPARTIALR {
+        let bits = {
+            const MASK: u32 = 4294967295;
+            const OFFSET: u8 = 0;
+            ((self.bits >> OFFSET) & MASK as u32) as u32
+        };
+        ERASEPAGEPARTIALR { bits }
     }
 }
 impl W {
@@ -60,5 +96,10 @@ impl W {
     pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
         self.bits = bits;
         self
+    }
+    #[doc = "Bits 0:31 - Register for starting partial erase of a page in code area"]
+    #[inline]
+    pub fn erasepagepartial(&mut self) -> _ERASEPAGEPARTIALW {
+        _ERASEPAGEPARTIALW { w: self }
     }
 }

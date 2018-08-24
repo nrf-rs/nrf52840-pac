@@ -4,11 +4,11 @@ pub struct PART {
 }
 #[doc = "Part code"]
 pub mod part;
-#[doc = "Part variant (hardware version and production configuration)"]
+#[doc = "Build code (hardware version and production configuration)"]
 pub struct VARIANT {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Part variant (hardware version and production configuration)"]
+#[doc = "Build code (hardware version and production configuration)"]
 pub mod variant;
 #[doc = "Package option"]
 pub struct PACKAGE {
@@ -28,9 +28,9 @@ pub struct FLASH {
 }
 #[doc = "Flash variant"]
 pub mod flash;
-#[doc = "Description collection[0]: Unspecified"]
-pub struct UNUSED0 {
+#[doc = "Unspecified"]
+pub struct UNUSED8 {
     register: ::vcell::VolatileCell<u32>,
 }
-#[doc = "Description collection[0]: Unspecified"]
-pub mod unused0;
+#[doc = "Unspecified"]
+pub mod unused8;

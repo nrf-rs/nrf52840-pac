@@ -3,6 +3,7 @@
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
 #![no_std]
+#![feature(untagged_unions)]
 extern crate bare_metal;
 extern crate cortex_m;
 #[cfg(feature = "rt")]
@@ -55,8 +56,8 @@ extern "C" {
     fn UARTE1();
     fn QSPI();
     fn CRYPTOCELL();
-    fn SPIM3();
     fn PWM3();
+    fn SPIM3();
 }
 #[doc(hidden)]
 pub union Vector {
@@ -67,7 +68,7 @@ pub union Vector {
 #[doc(hidden)]
 #[link_section = ".vector_table.interrupts"]
 #[no_mangle]
-pub static __INTERRUPTS: [Vector; 46] = [
+pub static __INTERRUPTS: [Vector; 48] = [
     Vector {
         _handler: POWER_CLOCK,
     },
@@ -137,9 +138,11 @@ pub static __INTERRUPTS: [Vector; 46] = [
     Vector {
         _handler: CRYPTOCELL,
     },
-    Vector { _handler: SPIM3 },
+    Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _handler: PWM3 },
+    Vector { _reserved: 0 },
+    Vector { _handler: SPIM3 },
 ];
 #[doc = r" Macro to override a device specific interrupt handler"]
 #[doc = r""]
@@ -166,7 +169,7 @@ pub static __INTERRUPTS: [Vector; 46] = [
 #[cfg(feature = "rt")]
 #[macro_export]
 macro_rules! interrupt {
-    ($Name:ident, $handler:path,state: $State:ty = $initial_state:expr) => {
+    ( $ Name : ident , $ handler : path , state : $ State : ty = $ initial_state : expr ) => {
         #[allow(unsafe_code)]
         #[deny(private_no_mangle_fns)]
         #[no_mangle]
@@ -177,7 +180,7 @@ macro_rules! interrupt {
             f(&mut STATE)
         }
     };
-    ($Name:ident, $handler:path) => {
+    ( $ Name : ident , $ handler : path ) => {
         #[allow(unsafe_code)]
         #[deny(private_no_mangle_fns)]
         #[no_mangle]
@@ -272,10 +275,10 @@ pub enum Interrupt {
     QSPI,
     #[doc = "42 - CRYPTOCELL"]
     CRYPTOCELL,
-    #[doc = "43 - SPIM3"]
-    SPIM3,
     #[doc = "45 - PWM3"]
     PWM3,
+    #[doc = "47 - SPIM3"]
+    SPIM3,
 }
 unsafe impl ::bare_metal::Nr for Interrupt {
     #[inline]
@@ -322,8 +325,8 @@ unsafe impl ::bare_metal::Nr for Interrupt {
             Interrupt::UARTE1 => 40,
             Interrupt::QSPI => 41,
             Interrupt::CRYPTOCELL => 42,
-            Interrupt::SPIM3 => 43,
             Interrupt::PWM3 => 45,
+            Interrupt::SPIM3 => 47,
         }
     }
 }
@@ -369,25 +372,6 @@ impl Deref for UICR {
 }
 #[doc = "User information configuration registers"]
 pub mod uicr;
-#[doc = "Power control"]
-pub struct POWER {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for POWER {}
-impl POWER {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const power::RegisterBlock {
-        1073741824 as *const _
-    }
-}
-impl Deref for POWER {
-    type Target = power::RegisterBlock;
-    fn deref(&self) -> &power::RegisterBlock {
-        unsafe { &*POWER::ptr() }
-    }
-}
-#[doc = "Power control"]
-pub mod power;
 #[doc = "Clock control"]
 pub struct CLOCK {
     _marker: PhantomData<*const ()>,
@@ -407,7 +391,26 @@ impl Deref for CLOCK {
 }
 #[doc = "Clock control"]
 pub mod clock;
-#[doc = "2.4 GHz Radio"]
+#[doc = "Power control"]
+pub struct POWER {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for POWER {}
+impl POWER {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const power::RegisterBlock {
+        1073741824 as *const _
+    }
+}
+impl Deref for POWER {
+    type Target = power::RegisterBlock;
+    fn deref(&self) -> &power::RegisterBlock {
+        unsafe { &*POWER::ptr() }
+    }
+}
+#[doc = "Power control"]
+pub mod power;
+#[doc = "2.4 GHz radio"]
 pub struct RADIO {
     _marker: PhantomData<*const ()>,
 }
@@ -424,27 +427,8 @@ impl Deref for RADIO {
         unsafe { &*RADIO::ptr() }
     }
 }
-#[doc = "2.4 GHz Radio"]
+#[doc = "2.4 GHz radio"]
 pub mod radio;
-#[doc = "UART with EasyDMA 0"]
-pub struct UARTE0 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for UARTE0 {}
-impl UARTE0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const uarte0::RegisterBlock {
-        1073750016 as *const _
-    }
-}
-impl Deref for UARTE0 {
-    type Target = uarte0::RegisterBlock;
-    fn deref(&self) -> &uarte0::RegisterBlock {
-        unsafe { &*UARTE0::ptr() }
-    }
-}
-#[doc = "UART with EasyDMA 0"]
-pub mod uarte0;
 #[doc = "Universal Asynchronous Receiver/Transmitter"]
 pub struct UART0 {
     _marker: PhantomData<*const ()>,
@@ -464,6 +448,44 @@ impl Deref for UART0 {
 }
 #[doc = "Universal Asynchronous Receiver/Transmitter"]
 pub mod uart0;
+#[doc = "UART with EasyDMA 0"]
+pub struct UARTE0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for UARTE0 {}
+impl UARTE0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const uarte0::RegisterBlock {
+        1073750016 as *const _
+    }
+}
+impl Deref for UARTE0 {
+    type Target = uarte0::RegisterBlock;
+    fn deref(&self) -> &uarte0::RegisterBlock {
+        unsafe { &*UARTE0::ptr() }
+    }
+}
+#[doc = "UART with EasyDMA 0"]
+pub mod uarte0;
+#[doc = "Serial Peripheral Interface 0"]
+pub struct SPI0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPI0 {}
+impl SPI0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const spi0::RegisterBlock {
+        1073754112 as *const _
+    }
+}
+impl Deref for SPI0 {
+    type Target = spi0::RegisterBlock;
+    fn deref(&self) -> &spi0::RegisterBlock {
+        unsafe { &*SPI0::ptr() }
+    }
+}
+#[doc = "Serial Peripheral Interface 0"]
+pub mod spi0;
 #[doc = "Serial Peripheral Interface Master with EasyDMA 0"]
 pub struct SPIM0 {
     _marker: PhantomData<*const ()>,
@@ -502,6 +524,25 @@ impl Deref for SPIS0 {
 }
 #[doc = "SPI Slave 0"]
 pub mod spis0;
+#[doc = "I2C compatible Two-Wire Interface 0"]
+pub struct TWI0 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for TWI0 {}
+impl TWI0 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const twi0::RegisterBlock {
+        1073754112 as *const _
+    }
+}
+impl Deref for TWI0 {
+    type Target = twi0::RegisterBlock;
+    fn deref(&self) -> &twi0::RegisterBlock {
+        unsafe { &*TWI0::ptr() }
+    }
+}
+#[doc = "I2C compatible Two-Wire Interface 0"]
+pub mod twi0;
 #[doc = "I2C compatible Two-Wire Master Interface with EasyDMA 0"]
 pub struct TWIM0 {
     _marker: PhantomData<*const ()>,
@@ -540,44 +581,23 @@ impl Deref for TWIS0 {
 }
 #[doc = "I2C compatible Two-Wire Slave Interface with EasyDMA 0"]
 pub mod twis0;
-#[doc = "Serial Peripheral Interface 0"]
-pub struct SPI0 {
+#[doc = "Serial Peripheral Interface 1"]
+pub struct SPI1 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SPI0 {}
-impl SPI0 {
+unsafe impl Send for SPI1 {}
+impl SPI1 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const spi0::RegisterBlock {
-        1073754112 as *const _
+        1073758208 as *const _
     }
 }
-impl Deref for SPI0 {
+impl Deref for SPI1 {
     type Target = spi0::RegisterBlock;
     fn deref(&self) -> &spi0::RegisterBlock {
-        unsafe { &*SPI0::ptr() }
+        unsafe { &*SPI1::ptr() }
     }
 }
-#[doc = "Serial Peripheral Interface 0"]
-pub mod spi0;
-#[doc = "I2C compatible Two-Wire Interface 0"]
-pub struct TWI0 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for TWI0 {}
-impl TWI0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const twi0::RegisterBlock {
-        1073754112 as *const _
-    }
-}
-impl Deref for TWI0 {
-    type Target = twi0::RegisterBlock;
-    fn deref(&self) -> &twi0::RegisterBlock {
-        unsafe { &*TWI0::ptr() }
-    }
-}
-#[doc = "I2C compatible Two-Wire Interface 0"]
-pub mod twi0;
 #[doc = "Serial Peripheral Interface Master with EasyDMA 1"]
 pub struct SPIM1 {
     _marker: PhantomData<*const ()>,
@@ -612,6 +632,23 @@ impl Deref for SPIS1 {
         unsafe { &*SPIS1::ptr() }
     }
 }
+#[doc = "I2C compatible Two-Wire Interface 1"]
+pub struct TWI1 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for TWI1 {}
+impl TWI1 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const twi0::RegisterBlock {
+        1073758208 as *const _
+    }
+}
+impl Deref for TWI1 {
+    type Target = twi0::RegisterBlock;
+    fn deref(&self) -> &twi0::RegisterBlock {
+        unsafe { &*TWI1::ptr() }
+    }
+}
 #[doc = "I2C compatible Two-Wire Master Interface with EasyDMA 1"]
 pub struct TWIM1 {
     _marker: PhantomData<*const ()>,
@@ -644,40 +681,6 @@ impl Deref for TWIS1 {
     type Target = twis0::RegisterBlock;
     fn deref(&self) -> &twis0::RegisterBlock {
         unsafe { &*TWIS1::ptr() }
-    }
-}
-#[doc = "Serial Peripheral Interface 1"]
-pub struct SPI1 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for SPI1 {}
-impl SPI1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const spi0::RegisterBlock {
-        1073758208 as *const _
-    }
-}
-impl Deref for SPI1 {
-    type Target = spi0::RegisterBlock;
-    fn deref(&self) -> &spi0::RegisterBlock {
-        unsafe { &*SPI1::ptr() }
-    }
-}
-#[doc = "I2C compatible Two-Wire Interface 1"]
-pub struct TWI1 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for TWI1 {}
-impl TWI1 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const twi0::RegisterBlock {
-        1073758208 as *const _
-    }
-}
-impl Deref for TWI1 {
-    type Target = twi0::RegisterBlock;
-    fn deref(&self) -> &twi0::RegisterBlock {
-        unsafe { &*TWI1::ptr() }
     }
 }
 #[doc = "NFC-A compatible radio"]
@@ -718,7 +721,7 @@ impl Deref for GPIOTE {
 }
 #[doc = "GPIO Tasks and Events"]
 pub mod gpiote;
-#[doc = "Analog to Digital Converter"]
+#[doc = "Successive approximation register (SAR) analog-to-digital converter"]
 pub struct SAADC {
     _marker: PhantomData<*const ()>,
 }
@@ -735,7 +738,7 @@ impl Deref for SAADC {
         unsafe { &*SAADC::ptr() }
     }
 }
-#[doc = "Analog to Digital Converter"]
+#[doc = "Successive approximation register (SAR) analog-to-digital converter"]
 pub mod saadc;
 #[doc = "Timer/Counter 0"]
 pub struct TIMER0 {
@@ -866,25 +869,6 @@ impl Deref for ECB {
 }
 #[doc = "AES ECB Mode Encryption"]
 pub mod ecb;
-#[doc = "AES CCM Mode Encryption"]
-pub struct CCM {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for CCM {}
-impl CCM {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const ccm::RegisterBlock {
-        1073803264 as *const _
-    }
-}
-impl Deref for CCM {
-    type Target = ccm::RegisterBlock;
-    fn deref(&self) -> &ccm::RegisterBlock {
-        unsafe { &*CCM::ptr() }
-    }
-}
-#[doc = "AES CCM Mode Encryption"]
-pub mod ccm;
 #[doc = "Accelerated Address Resolver"]
 pub struct AAR {
     _marker: PhantomData<*const ()>,
@@ -904,6 +888,25 @@ impl Deref for AAR {
 }
 #[doc = "Accelerated Address Resolver"]
 pub mod aar;
+#[doc = "AES CCM Mode Encryption"]
+pub struct CCM {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for CCM {}
+impl CCM {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const ccm::RegisterBlock {
+        1073803264 as *const _
+    }
+}
+impl Deref for CCM {
+    type Target = ccm::RegisterBlock;
+    fn deref(&self) -> &ccm::RegisterBlock {
+        unsafe { &*CCM::ptr() }
+    }
+}
+#[doc = "AES CCM Mode Encryption"]
+pub mod ccm;
 #[doc = "Watchdog Timer"]
 pub struct WDT {
     _marker: PhantomData<*const ()>,
@@ -997,25 +1000,6 @@ impl Deref for LPCOMP {
 }
 #[doc = "Low Power Comparator"]
 pub mod lpcomp;
-#[doc = "Software interrupt 0"]
-pub struct SWI0 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for SWI0 {}
-impl SWI0 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const swi0::RegisterBlock {
-        1073823744 as *const _
-    }
-}
-impl Deref for SWI0 {
-    type Target = swi0::RegisterBlock;
-    fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI0::ptr() }
-    }
-}
-#[doc = "Software interrupt 0"]
-pub mod swi0;
 #[doc = "Event Generator Unit 0"]
 pub struct EGU0 {
     _marker: PhantomData<*const ()>,
@@ -1035,23 +1019,25 @@ impl Deref for EGU0 {
 }
 #[doc = "Event Generator Unit 0"]
 pub mod egu0;
-#[doc = "Software interrupt 1"]
-pub struct SWI1 {
+#[doc = "Software interrupt 0"]
+pub struct SWI0 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SWI1 {}
-impl SWI1 {
+unsafe impl Send for SWI0 {}
+impl SWI0 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const swi0::RegisterBlock {
-        1073827840 as *const _
+        1073823744 as *const _
     }
 }
-impl Deref for SWI1 {
+impl Deref for SWI0 {
     type Target = swi0::RegisterBlock;
     fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI1::ptr() }
+        unsafe { &*SWI0::ptr() }
     }
 }
+#[doc = "Software interrupt 0"]
+pub mod swi0;
 #[doc = "Event Generator Unit 1"]
 pub struct EGU1 {
     _marker: PhantomData<*const ()>,
@@ -1069,21 +1055,21 @@ impl Deref for EGU1 {
         unsafe { &*EGU1::ptr() }
     }
 }
-#[doc = "Software interrupt 2"]
-pub struct SWI2 {
+#[doc = "Software interrupt 1"]
+pub struct SWI1 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SWI2 {}
-impl SWI2 {
+unsafe impl Send for SWI1 {}
+impl SWI1 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const swi0::RegisterBlock {
-        1073831936 as *const _
+        1073827840 as *const _
     }
 }
-impl Deref for SWI2 {
+impl Deref for SWI1 {
     type Target = swi0::RegisterBlock;
     fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI2::ptr() }
+        unsafe { &*SWI1::ptr() }
     }
 }
 #[doc = "Event Generator Unit 2"]
@@ -1103,21 +1089,21 @@ impl Deref for EGU2 {
         unsafe { &*EGU2::ptr() }
     }
 }
-#[doc = "Software interrupt 3"]
-pub struct SWI3 {
+#[doc = "Software interrupt 2"]
+pub struct SWI2 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SWI3 {}
-impl SWI3 {
+unsafe impl Send for SWI2 {}
+impl SWI2 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const swi0::RegisterBlock {
-        1073836032 as *const _
+        1073831936 as *const _
     }
 }
-impl Deref for SWI3 {
+impl Deref for SWI2 {
     type Target = swi0::RegisterBlock;
     fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI3::ptr() }
+        unsafe { &*SWI2::ptr() }
     }
 }
 #[doc = "Event Generator Unit 3"]
@@ -1137,21 +1123,21 @@ impl Deref for EGU3 {
         unsafe { &*EGU3::ptr() }
     }
 }
-#[doc = "Software interrupt 4"]
-pub struct SWI4 {
+#[doc = "Software interrupt 3"]
+pub struct SWI3 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SWI4 {}
-impl SWI4 {
+unsafe impl Send for SWI3 {}
+impl SWI3 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const swi0::RegisterBlock {
-        1073840128 as *const _
+        1073836032 as *const _
     }
 }
-impl Deref for SWI4 {
+impl Deref for SWI3 {
     type Target = swi0::RegisterBlock;
     fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI4::ptr() }
+        unsafe { &*SWI3::ptr() }
     }
 }
 #[doc = "Event Generator Unit 4"]
@@ -1171,21 +1157,21 @@ impl Deref for EGU4 {
         unsafe { &*EGU4::ptr() }
     }
 }
-#[doc = "Software interrupt 5"]
-pub struct SWI5 {
+#[doc = "Software interrupt 4"]
+pub struct SWI4 {
     _marker: PhantomData<*const ()>,
 }
-unsafe impl Send for SWI5 {}
-impl SWI5 {
+unsafe impl Send for SWI4 {}
+impl SWI4 {
     #[doc = r" Returns a pointer to the register block"]
     pub fn ptr() -> *const swi0::RegisterBlock {
-        1073844224 as *const _
+        1073840128 as *const _
     }
 }
-impl Deref for SWI5 {
+impl Deref for SWI4 {
     type Target = swi0::RegisterBlock;
     fn deref(&self) -> &swi0::RegisterBlock {
-        unsafe { &*SWI5::ptr() }
+        unsafe { &*SWI4::ptr() }
     }
 }
 #[doc = "Event Generator Unit 5"]
@@ -1203,6 +1189,23 @@ impl Deref for EGU5 {
     type Target = egu0::RegisterBlock;
     fn deref(&self) -> &egu0::RegisterBlock {
         unsafe { &*EGU5::ptr() }
+    }
+}
+#[doc = "Software interrupt 5"]
+pub struct SWI5 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SWI5 {}
+impl SWI5 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const swi0::RegisterBlock {
+        1073844224 as *const _
+    }
+}
+impl Deref for SWI5 {
+    type Target = swi0::RegisterBlock;
+    fn deref(&self) -> &swi0::RegisterBlock {
+        unsafe { &*SWI5::ptr() }
     }
 }
 #[doc = "Timer/Counter 3"]
@@ -1239,7 +1242,7 @@ impl Deref for TIMER4 {
         unsafe { &*TIMER4::ptr() }
     }
 }
-#[doc = "Pulse Width Modulation Unit 0"]
+#[doc = "Pulse width modulation unit 0"]
 pub struct PWM0 {
     _marker: PhantomData<*const ()>,
 }
@@ -1256,7 +1259,7 @@ impl Deref for PWM0 {
         unsafe { &*PWM0::ptr() }
     }
 }
-#[doc = "Pulse Width Modulation Unit 0"]
+#[doc = "Pulse width modulation unit 0"]
 pub mod pwm0;
 #[doc = "Pulse Density Modulation (Digital Microphone) Interface"]
 pub struct PDM {
@@ -1277,25 +1280,6 @@ impl Deref for PDM {
 }
 #[doc = "Pulse Density Modulation (Digital Microphone) Interface"]
 pub mod pdm;
-#[doc = "Non Volatile Memory Controller"]
-pub struct NVMC {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for NVMC {}
-impl NVMC {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const nvmc::RegisterBlock {
-        1073864704 as *const _
-    }
-}
-impl Deref for NVMC {
-    type Target = nvmc::RegisterBlock;
-    fn deref(&self) -> &nvmc::RegisterBlock {
-        unsafe { &*NVMC::ptr() }
-    }
-}
-#[doc = "Non Volatile Memory Controller"]
-pub mod nvmc;
 #[doc = "Access control lists"]
 pub struct ACL {
     _marker: PhantomData<*const ()>,
@@ -1315,6 +1299,25 @@ impl Deref for ACL {
 }
 #[doc = "Access control lists"]
 pub mod acl;
+#[doc = "Non Volatile Memory Controller"]
+pub struct NVMC {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for NVMC {}
+impl NVMC {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const nvmc::RegisterBlock {
+        1073864704 as *const _
+    }
+}
+impl Deref for NVMC {
+    type Target = nvmc::RegisterBlock;
+    fn deref(&self) -> &nvmc::RegisterBlock {
+        unsafe { &*NVMC::ptr() }
+    }
+}
+#[doc = "Non Volatile Memory Controller"]
+pub mod nvmc;
 #[doc = "Programmable Peripheral Interconnect"]
 pub struct PPI {
     _marker: PhantomData<*const ()>,
@@ -1353,7 +1356,7 @@ impl Deref for MWU {
 }
 #[doc = "Memory Watch Unit"]
 pub mod mwu;
-#[doc = "Pulse Width Modulation Unit 1"]
+#[doc = "Pulse width modulation unit 1"]
 pub struct PWM1 {
     _marker: PhantomData<*const ()>,
 }
@@ -1370,7 +1373,7 @@ impl Deref for PWM1 {
         unsafe { &*PWM1::ptr() }
     }
 }
-#[doc = "Pulse Width Modulation Unit 2"]
+#[doc = "Pulse width modulation unit 2"]
 pub struct PWM2 {
     _marker: PhantomData<*const ()>,
 }
@@ -1385,6 +1388,23 @@ impl Deref for PWM2 {
     type Target = pwm0::RegisterBlock;
     fn deref(&self) -> &pwm0::RegisterBlock {
         unsafe { &*PWM2::ptr() }
+    }
+}
+#[doc = "Serial Peripheral Interface 2"]
+pub struct SPI2 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPI2 {}
+impl SPI2 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const spi0::RegisterBlock {
+        1073885184 as *const _
+    }
+}
+impl Deref for SPI2 {
+    type Target = spi0::RegisterBlock;
+    fn deref(&self) -> &spi0::RegisterBlock {
+        unsafe { &*SPI2::ptr() }
     }
 }
 #[doc = "Serial Peripheral Interface Master with EasyDMA 2"]
@@ -1419,23 +1439,6 @@ impl Deref for SPIS2 {
     type Target = spis0::RegisterBlock;
     fn deref(&self) -> &spis0::RegisterBlock {
         unsafe { &*SPIS2::ptr() }
-    }
-}
-#[doc = "Serial Peripheral Interface 2"]
-pub struct SPI2 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for SPI2 {}
-impl SPI2 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const spi0::RegisterBlock {
-        1073885184 as *const _
-    }
-}
-impl Deref for SPI2 {
-    type Target = spi0::RegisterBlock;
-    fn deref(&self) -> &spi0::RegisterBlock {
-        unsafe { &*SPI2::ptr() }
     }
 }
 #[doc = "Real time counter 2"]
@@ -1474,7 +1477,7 @@ impl Deref for I2S {
 }
 #[doc = "Inter-IC Sound"]
 pub mod i2s;
-#[doc = "Universal Serial Bus device"]
+#[doc = "Universal serial bus device"]
 pub struct USBD {
     _marker: PhantomData<*const ()>,
 }
@@ -1491,7 +1494,7 @@ impl Deref for USBD {
         unsafe { &*USBD::ptr() }
     }
 }
-#[doc = "Universal Serial Bus device"]
+#[doc = "Universal serial bus device"]
 pub mod usbd;
 #[doc = "UART with EasyDMA 1"]
 pub struct UARTE1 {
@@ -1529,24 +1532,7 @@ impl Deref for QSPI {
 }
 #[doc = "External flash interface"]
 pub mod qspi;
-#[doc = "Serial Peripheral Interface Master with EasyDMA 3"]
-pub struct SPIM3 {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for SPIM3 {}
-impl SPIM3 {
-    #[doc = r" Returns a pointer to the register block"]
-    pub fn ptr() -> *const spim0::RegisterBlock {
-        1073917952 as *const _
-    }
-}
-impl Deref for SPIM3 {
-    type Target = spim0::RegisterBlock;
-    fn deref(&self) -> &spim0::RegisterBlock {
-        unsafe { &*SPIM3::ptr() }
-    }
-}
-#[doc = "Pulse Width Modulation Unit 3"]
+#[doc = "Pulse width modulation unit 3"]
 pub struct PWM3 {
     _marker: PhantomData<*const ()>,
 }
@@ -1561,6 +1547,23 @@ impl Deref for PWM3 {
     type Target = pwm0::RegisterBlock;
     fn deref(&self) -> &pwm0::RegisterBlock {
         unsafe { &*PWM3::ptr() }
+    }
+}
+#[doc = "Serial Peripheral Interface Master with EasyDMA 3"]
+pub struct SPIM3 {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for SPIM3 {}
+impl SPIM3 {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const spim0::RegisterBlock {
+        1073934336 as *const _
+    }
+}
+impl Deref for SPIM3 {
+    type Target = spim0::RegisterBlock;
+    fn deref(&self) -> &spim0::RegisterBlock {
+        unsafe { &*SPIM3::ptr() }
     }
 }
 #[doc = "GPIO Port 1"]
@@ -1599,7 +1602,26 @@ impl Deref for P1 {
         unsafe { &*P1::ptr() }
     }
 }
-#[doc = "ARM CryptoCell register interface"]
+#[doc = "CRYPTOCELL HOST_RGF interface"]
+pub struct CC_HOST_RGF {
+    _marker: PhantomData<*const ()>,
+}
+unsafe impl Send for CC_HOST_RGF {}
+impl CC_HOST_RGF {
+    #[doc = r" Returns a pointer to the register block"]
+    pub fn ptr() -> *const cc_host_rgf::RegisterBlock {
+        1342349312 as *const _
+    }
+}
+impl Deref for CC_HOST_RGF {
+    type Target = cc_host_rgf::RegisterBlock;
+    fn deref(&self) -> &cc_host_rgf::RegisterBlock {
+        unsafe { &*CC_HOST_RGF::ptr() }
+    }
+}
+#[doc = "CRYPTOCELL HOST_RGF interface"]
+pub mod cc_host_rgf;
+#[doc = "ARM TrustZone CryptoCell register interface"]
 pub struct CRYPTOCELL {
     _marker: PhantomData<*const ()>,
 }
@@ -1616,7 +1638,7 @@ impl Deref for CRYPTOCELL {
         unsafe { &*CRYPTOCELL::ptr() }
     }
 }
-#[doc = "ARM CryptoCell register interface"]
+#[doc = "ARM TrustZone CryptoCell register interface"]
 pub mod cryptocell;
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
@@ -1628,40 +1650,40 @@ pub struct Peripherals {
     pub FICR: FICR,
     #[doc = "UICR"]
     pub UICR: UICR,
-    #[doc = "POWER"]
-    pub POWER: POWER,
     #[doc = "CLOCK"]
     pub CLOCK: CLOCK,
+    #[doc = "POWER"]
+    pub POWER: POWER,
     #[doc = "RADIO"]
     pub RADIO: RADIO,
-    #[doc = "UARTE0"]
-    pub UARTE0: UARTE0,
     #[doc = "UART0"]
     pub UART0: UART0,
+    #[doc = "UARTE0"]
+    pub UARTE0: UARTE0,
+    #[doc = "SPI0"]
+    pub SPI0: SPI0,
     #[doc = "SPIM0"]
     pub SPIM0: SPIM0,
     #[doc = "SPIS0"]
     pub SPIS0: SPIS0,
+    #[doc = "TWI0"]
+    pub TWI0: TWI0,
     #[doc = "TWIM0"]
     pub TWIM0: TWIM0,
     #[doc = "TWIS0"]
     pub TWIS0: TWIS0,
-    #[doc = "SPI0"]
-    pub SPI0: SPI0,
-    #[doc = "TWI0"]
-    pub TWI0: TWI0,
+    #[doc = "SPI1"]
+    pub SPI1: SPI1,
     #[doc = "SPIM1"]
     pub SPIM1: SPIM1,
     #[doc = "SPIS1"]
     pub SPIS1: SPIS1,
+    #[doc = "TWI1"]
+    pub TWI1: TWI1,
     #[doc = "TWIM1"]
     pub TWIM1: TWIM1,
     #[doc = "TWIS1"]
     pub TWIS1: TWIS1,
-    #[doc = "SPI1"]
-    pub SPI1: SPI1,
-    #[doc = "TWI1"]
-    pub TWI1: TWI1,
     #[doc = "NFCT"]
     pub NFCT: NFCT,
     #[doc = "GPIOTE"]
@@ -1682,10 +1704,10 @@ pub struct Peripherals {
     pub RNG: RNG,
     #[doc = "ECB"]
     pub ECB: ECB,
-    #[doc = "CCM"]
-    pub CCM: CCM,
     #[doc = "AAR"]
     pub AAR: AAR,
+    #[doc = "CCM"]
+    pub CCM: CCM,
     #[doc = "WDT"]
     pub WDT: WDT,
     #[doc = "RTC1"]
@@ -1696,30 +1718,30 @@ pub struct Peripherals {
     pub COMP: COMP,
     #[doc = "LPCOMP"]
     pub LPCOMP: LPCOMP,
-    #[doc = "SWI0"]
-    pub SWI0: SWI0,
     #[doc = "EGU0"]
     pub EGU0: EGU0,
-    #[doc = "SWI1"]
-    pub SWI1: SWI1,
+    #[doc = "SWI0"]
+    pub SWI0: SWI0,
     #[doc = "EGU1"]
     pub EGU1: EGU1,
-    #[doc = "SWI2"]
-    pub SWI2: SWI2,
+    #[doc = "SWI1"]
+    pub SWI1: SWI1,
     #[doc = "EGU2"]
     pub EGU2: EGU2,
-    #[doc = "SWI3"]
-    pub SWI3: SWI3,
+    #[doc = "SWI2"]
+    pub SWI2: SWI2,
     #[doc = "EGU3"]
     pub EGU3: EGU3,
-    #[doc = "SWI4"]
-    pub SWI4: SWI4,
+    #[doc = "SWI3"]
+    pub SWI3: SWI3,
     #[doc = "EGU4"]
     pub EGU4: EGU4,
-    #[doc = "SWI5"]
-    pub SWI5: SWI5,
+    #[doc = "SWI4"]
+    pub SWI4: SWI4,
     #[doc = "EGU5"]
     pub EGU5: EGU5,
+    #[doc = "SWI5"]
+    pub SWI5: SWI5,
     #[doc = "TIMER3"]
     pub TIMER3: TIMER3,
     #[doc = "TIMER4"]
@@ -1728,10 +1750,10 @@ pub struct Peripherals {
     pub PWM0: PWM0,
     #[doc = "PDM"]
     pub PDM: PDM,
-    #[doc = "NVMC"]
-    pub NVMC: NVMC,
     #[doc = "ACL"]
     pub ACL: ACL,
+    #[doc = "NVMC"]
+    pub NVMC: NVMC,
     #[doc = "PPI"]
     pub PPI: PPI,
     #[doc = "MWU"]
@@ -1740,12 +1762,12 @@ pub struct Peripherals {
     pub PWM1: PWM1,
     #[doc = "PWM2"]
     pub PWM2: PWM2,
+    #[doc = "SPI2"]
+    pub SPI2: SPI2,
     #[doc = "SPIM2"]
     pub SPIM2: SPIM2,
     #[doc = "SPIS2"]
     pub SPIS2: SPIS2,
-    #[doc = "SPI2"]
-    pub SPI2: SPI2,
     #[doc = "RTC2"]
     pub RTC2: RTC2,
     #[doc = "I2S"]
@@ -1756,14 +1778,16 @@ pub struct Peripherals {
     pub UARTE1: UARTE1,
     #[doc = "QSPI"]
     pub QSPI: QSPI,
-    #[doc = "SPIM3"]
-    pub SPIM3: SPIM3,
     #[doc = "PWM3"]
     pub PWM3: PWM3,
+    #[doc = "SPIM3"]
+    pub SPIM3: SPIM3,
     #[doc = "P0"]
     pub P0: P0,
     #[doc = "P1"]
     pub P1: P1,
+    #[doc = "CC_HOST_RGF"]
+    pub CC_HOST_RGF: CC_HOST_RGF,
     #[doc = "CRYPTOCELL"]
     pub CRYPTOCELL: CRYPTOCELL,
 }
@@ -1790,19 +1814,22 @@ impl Peripherals {
             UICR: UICR {
                 _marker: PhantomData,
             },
-            POWER: POWER {
+            CLOCK: CLOCK {
                 _marker: PhantomData,
             },
-            CLOCK: CLOCK {
+            POWER: POWER {
                 _marker: PhantomData,
             },
             RADIO: RADIO {
                 _marker: PhantomData,
             },
+            UART0: UART0 {
+                _marker: PhantomData,
+            },
             UARTE0: UARTE0 {
                 _marker: PhantomData,
             },
-            UART0: UART0 {
+            SPI0: SPI0 {
                 _marker: PhantomData,
             },
             SPIM0: SPIM0 {
@@ -1811,16 +1838,16 @@ impl Peripherals {
             SPIS0: SPIS0 {
                 _marker: PhantomData,
             },
+            TWI0: TWI0 {
+                _marker: PhantomData,
+            },
             TWIM0: TWIM0 {
                 _marker: PhantomData,
             },
             TWIS0: TWIS0 {
                 _marker: PhantomData,
             },
-            SPI0: SPI0 {
-                _marker: PhantomData,
-            },
-            TWI0: TWI0 {
+            SPI1: SPI1 {
                 _marker: PhantomData,
             },
             SPIM1: SPIM1 {
@@ -1829,16 +1856,13 @@ impl Peripherals {
             SPIS1: SPIS1 {
                 _marker: PhantomData,
             },
+            TWI1: TWI1 {
+                _marker: PhantomData,
+            },
             TWIM1: TWIM1 {
                 _marker: PhantomData,
             },
             TWIS1: TWIS1 {
-                _marker: PhantomData,
-            },
-            SPI1: SPI1 {
-                _marker: PhantomData,
-            },
-            TWI1: TWI1 {
                 _marker: PhantomData,
             },
             NFCT: NFCT {
@@ -1871,10 +1895,10 @@ impl Peripherals {
             ECB: ECB {
                 _marker: PhantomData,
             },
-            CCM: CCM {
+            AAR: AAR {
                 _marker: PhantomData,
             },
-            AAR: AAR {
+            CCM: CCM {
                 _marker: PhantomData,
             },
             WDT: WDT {
@@ -1892,40 +1916,40 @@ impl Peripherals {
             LPCOMP: LPCOMP {
                 _marker: PhantomData,
             },
-            SWI0: SWI0 {
-                _marker: PhantomData,
-            },
             EGU0: EGU0 {
                 _marker: PhantomData,
             },
-            SWI1: SWI1 {
+            SWI0: SWI0 {
                 _marker: PhantomData,
             },
             EGU1: EGU1 {
                 _marker: PhantomData,
             },
-            SWI2: SWI2 {
+            SWI1: SWI1 {
                 _marker: PhantomData,
             },
             EGU2: EGU2 {
                 _marker: PhantomData,
             },
-            SWI3: SWI3 {
+            SWI2: SWI2 {
                 _marker: PhantomData,
             },
             EGU3: EGU3 {
                 _marker: PhantomData,
             },
-            SWI4: SWI4 {
+            SWI3: SWI3 {
                 _marker: PhantomData,
             },
             EGU4: EGU4 {
                 _marker: PhantomData,
             },
-            SWI5: SWI5 {
+            SWI4: SWI4 {
                 _marker: PhantomData,
             },
             EGU5: EGU5 {
+                _marker: PhantomData,
+            },
+            SWI5: SWI5 {
                 _marker: PhantomData,
             },
             TIMER3: TIMER3 {
@@ -1940,10 +1964,10 @@ impl Peripherals {
             PDM: PDM {
                 _marker: PhantomData,
             },
-            NVMC: NVMC {
+            ACL: ACL {
                 _marker: PhantomData,
             },
-            ACL: ACL {
+            NVMC: NVMC {
                 _marker: PhantomData,
             },
             PPI: PPI {
@@ -1958,13 +1982,13 @@ impl Peripherals {
             PWM2: PWM2 {
                 _marker: PhantomData,
             },
+            SPI2: SPI2 {
+                _marker: PhantomData,
+            },
             SPIM2: SPIM2 {
                 _marker: PhantomData,
             },
             SPIS2: SPIS2 {
-                _marker: PhantomData,
-            },
-            SPI2: SPI2 {
                 _marker: PhantomData,
             },
             RTC2: RTC2 {
@@ -1982,16 +2006,19 @@ impl Peripherals {
             QSPI: QSPI {
                 _marker: PhantomData,
             },
-            SPIM3: SPIM3 {
+            PWM3: PWM3 {
                 _marker: PhantomData,
             },
-            PWM3: PWM3 {
+            SPIM3: SPIM3 {
                 _marker: PhantomData,
             },
             P0: P0 {
                 _marker: PhantomData,
             },
             P1: P1 {
+                _marker: PhantomData,
+            },
+            CC_HOST_RGF: CC_HOST_RGF {
                 _marker: PhantomData,
             },
             CRYPTOCELL: CRYPTOCELL {

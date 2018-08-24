@@ -74,7 +74,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:31 - Beginning address in Data RAM of this sequence"]
+    #[doc = "Bits 0:31 - Beginning address in RAM of this sequence"]
     #[inline]
     pub fn ptr(&self) -> PTRR {
         let bits = {
@@ -97,7 +97,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:31 - Beginning address in Data RAM of this sequence"]
+    #[doc = "Bits 0:31 - Beginning address in RAM of this sequence"]
     #[inline]
     pub fn ptr(&mut self) -> _PTRW {
         _PTRW { w: self }

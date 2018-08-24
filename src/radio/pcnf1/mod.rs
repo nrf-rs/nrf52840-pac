@@ -78,7 +78,7 @@ impl BALENR {
 #[doc = "Possible values of the field `ENDIAN`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDIANR {
-    #[doc = "Least Significant bit on air first"]
+    #[doc = "Least significant bit on air first"]
     LITTLE,
     #[doc = "Most significant bit on air first"]
     BIG,
@@ -216,7 +216,7 @@ impl<'a> _BALENW<'a> {
 }
 #[doc = "Values that can be written to the field `ENDIAN`"]
 pub enum ENDIANW {
-    #[doc = "Least Significant bit on air first"]
+    #[doc = "Least significant bit on air first"]
     LITTLE,
     #[doc = "Most significant bit on air first"]
     BIG,
@@ -244,7 +244,7 @@ impl<'a> _ENDIANW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Least Significant bit on air first"]
+    #[doc = "Least significant bit on air first"]
     #[inline]
     pub fn little(self) -> &'a mut W {
         self.variant(ENDIANW::LITTLE)

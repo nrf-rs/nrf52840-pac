@@ -45,11 +45,11 @@ impl super::LFCLKSRC {
 #[doc = "Possible values of the field `SRC`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SRCR {
-    #[doc = "32.768 kHz RC oscillator"]
+    #[doc = "32.768 kHz RC oscillator (LFRC)"]
     RC,
-    #[doc = "32.768 kHz crystal oscillator"]
+    #[doc = "32.768 kHz crystal oscillator (LFXO)"]
     XTAL,
-    #[doc = "32.768 kHz synthesized from HFCLK"]
+    #[doc = "32.768 kHz synthesized from HFCLK (LFSYNT)"]
     SYNTH,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -188,11 +188,11 @@ impl EXTERNALR {
 }
 #[doc = "Values that can be written to the field `SRC`"]
 pub enum SRCW {
-    #[doc = "32.768 kHz RC oscillator"]
+    #[doc = "32.768 kHz RC oscillator (LFRC)"]
     RC,
-    #[doc = "32.768 kHz crystal oscillator"]
+    #[doc = "32.768 kHz crystal oscillator (LFXO)"]
     XTAL,
-    #[doc = "32.768 kHz synthesized from HFCLK"]
+    #[doc = "32.768 kHz synthesized from HFCLK (LFSYNT)"]
     SYNTH,
 }
 impl SRCW {
@@ -217,17 +217,17 @@ impl<'a> _SRCW<'a> {
     pub fn variant(self, variant: SRCW) -> &'a mut W {
         unsafe { self.bits(variant._bits()) }
     }
-    #[doc = "32.768 kHz RC oscillator"]
+    #[doc = "32.768 kHz RC oscillator (LFRC)"]
     #[inline]
     pub fn rc(self) -> &'a mut W {
         self.variant(SRCW::RC)
     }
-    #[doc = "32.768 kHz crystal oscillator"]
+    #[doc = "32.768 kHz crystal oscillator (LFXO)"]
     #[inline]
     pub fn xtal(self) -> &'a mut W {
         self.variant(SRCW::XTAL)
     }
-    #[doc = "32.768 kHz synthesized from HFCLK"]
+    #[doc = "32.768 kHz synthesized from HFCLK (LFSYNT)"]
     #[inline]
     pub fn synth(self) -> &'a mut W {
         self.variant(SRCW::SYNTH)

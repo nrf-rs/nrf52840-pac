@@ -421,9 +421,9 @@ impl OUT7R {
 #[doc = "Possible values of the field `ISOOUT`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ISOOUTR {
-    #[doc = "Disable iso OUT endpoint 8"]
+    #[doc = "Disable ISO OUT endpoint 8"]
     DISABLE,
-    #[doc = "Enable iso OUT endpoint 8"]
+    #[doc = "Enable ISO OUT endpoint 8"]
     ENABLE,
 }
 impl ISOOUTR {
@@ -931,9 +931,9 @@ impl<'a> _OUT7W<'a> {
 }
 #[doc = "Values that can be written to the field `ISOOUT`"]
 pub enum ISOOUTW {
-    #[doc = "Disable iso OUT endpoint 8"]
+    #[doc = "Disable ISO OUT endpoint 8"]
     DISABLE,
-    #[doc = "Enable iso OUT endpoint 8"]
+    #[doc = "Enable ISO OUT endpoint 8"]
     ENABLE,
 }
 impl ISOOUTW {
@@ -959,12 +959,12 @@ impl<'a> _ISOOUTW<'a> {
             self.bit(variant._bits())
         }
     }
-    #[doc = "Disable iso OUT endpoint 8"]
+    #[doc = "Disable ISO OUT endpoint 8"]
     #[inline]
     pub fn disable(self) -> &'a mut W {
         self.variant(ISOOUTW::DISABLE)
     }
-    #[doc = "Enable iso OUT endpoint 8"]
+    #[doc = "Enable ISO OUT endpoint 8"]
     #[inline]
     pub fn enable(self) -> &'a mut W {
         self.variant(ISOOUTW::ENABLE)
@@ -1065,7 +1065,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Enable iso OUT endpoint 8"]
+    #[doc = "Bit 8 - Enable ISO OUT endpoint 8"]
     #[inline]
     pub fn isoout(&self) -> ISOOUTR {
         ISOOUTR::_from({
@@ -1127,7 +1127,7 @@ impl W {
     pub fn out7(&mut self) -> _OUT7W {
         _OUT7W { w: self }
     }
-    #[doc = "Bit 8 - Enable iso OUT endpoint 8"]
+    #[doc = "Bit 8 - Enable ISO OUT endpoint 8"]
     #[inline]
     pub fn isoout(&mut self) -> _ISOOUTW {
         _ISOOUTW { w: self }

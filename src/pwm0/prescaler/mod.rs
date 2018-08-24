@@ -45,21 +45,21 @@ impl super::PRESCALER {
 #[doc = "Possible values of the field `PRESCALER`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PRESCALERR {
-    #[doc = "Divide by   1 (16MHz)"]
+    #[doc = "Divide by 1 (16 MHz)"]
     DIV_1,
-    #[doc = "Divide by   2 ( 8MHz)"]
+    #[doc = "Divide by 2 (8 MHz)"]
     DIV_2,
-    #[doc = "Divide by   4 ( 4MHz)"]
+    #[doc = "Divide by 4 (4 MHz)"]
     DIV_4,
-    #[doc = "Divide by   8 ( 2MHz)"]
+    #[doc = "Divide by 8 (2 MHz)"]
     DIV_8,
-    #[doc = "Divide by  16 ( 1MHz)"]
+    #[doc = "Divide by 16 (1 MHz)"]
     DIV_16,
-    #[doc = "Divide by  32 ( 500kHz)"]
+    #[doc = "Divide by 32 (500 kHz)"]
     DIV_32,
-    #[doc = "Divide by  64 ( 250kHz)"]
+    #[doc = "Divide by 64 (250 kHz)"]
     DIV_64,
-    #[doc = "Divide by 128 ( 125kHz)"]
+    #[doc = "Divide by 128 (125 kHz)"]
     DIV_128,
 }
 impl PRESCALERR {
@@ -136,21 +136,21 @@ impl PRESCALERR {
 }
 #[doc = "Values that can be written to the field `PRESCALER`"]
 pub enum PRESCALERW {
-    #[doc = "Divide by   1 (16MHz)"]
+    #[doc = "Divide by 1 (16 MHz)"]
     DIV_1,
-    #[doc = "Divide by   2 ( 8MHz)"]
+    #[doc = "Divide by 2 (8 MHz)"]
     DIV_2,
-    #[doc = "Divide by   4 ( 4MHz)"]
+    #[doc = "Divide by 4 (4 MHz)"]
     DIV_4,
-    #[doc = "Divide by   8 ( 2MHz)"]
+    #[doc = "Divide by 8 (2 MHz)"]
     DIV_8,
-    #[doc = "Divide by  16 ( 1MHz)"]
+    #[doc = "Divide by 16 (1 MHz)"]
     DIV_16,
-    #[doc = "Divide by  32 ( 500kHz)"]
+    #[doc = "Divide by 32 (500 kHz)"]
     DIV_32,
-    #[doc = "Divide by  64 ( 250kHz)"]
+    #[doc = "Divide by 64 (250 kHz)"]
     DIV_64,
-    #[doc = "Divide by 128 ( 125kHz)"]
+    #[doc = "Divide by 128 (125 kHz)"]
     DIV_128,
 }
 impl PRESCALERW {
@@ -182,42 +182,42 @@ impl<'a> _PRESCALERW<'a> {
             self.bits(variant._bits())
         }
     }
-    #[doc = "Divide by 1 (16MHz)"]
+    #[doc = "Divide by 1 (16 MHz)"]
     #[inline]
     pub fn div_1(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_1)
     }
-    #[doc = "Divide by 2 ( 8MHz)"]
+    #[doc = "Divide by 2 (8 MHz)"]
     #[inline]
     pub fn div_2(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_2)
     }
-    #[doc = "Divide by 4 ( 4MHz)"]
+    #[doc = "Divide by 4 (4 MHz)"]
     #[inline]
     pub fn div_4(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_4)
     }
-    #[doc = "Divide by 8 ( 2MHz)"]
+    #[doc = "Divide by 8 (2 MHz)"]
     #[inline]
     pub fn div_8(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_8)
     }
-    #[doc = "Divide by 16 ( 1MHz)"]
+    #[doc = "Divide by 16 (1 MHz)"]
     #[inline]
     pub fn div_16(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_16)
     }
-    #[doc = "Divide by 32 ( 500kHz)"]
+    #[doc = "Divide by 32 (500 kHz)"]
     #[inline]
     pub fn div_32(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_32)
     }
-    #[doc = "Divide by 64 ( 250kHz)"]
+    #[doc = "Divide by 64 (250 kHz)"]
     #[inline]
     pub fn div_64(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_64)
     }
-    #[doc = "Divide by 128 ( 125kHz)"]
+    #[doc = "Divide by 128 (125 kHz)"]
     #[inline]
     pub fn div_128(self) -> &'a mut W {
         self.variant(PRESCALERW::DIV_128)
@@ -238,7 +238,7 @@ impl R {
     pub fn bits(&self) -> u32 {
         self.bits
     }
-    #[doc = "Bits 0:2 - Pre-scaler of PWM_CLK"]
+    #[doc = "Bits 0:2 - Prescaler of PWM_CLK"]
     #[inline]
     pub fn prescaler(&self) -> PRESCALERR {
         PRESCALERR::_from({
@@ -260,7 +260,7 @@ impl W {
         self.bits = bits;
         self
     }
-    #[doc = "Bits 0:2 - Pre-scaler of PWM_CLK"]
+    #[doc = "Bits 0:2 - Prescaler of PWM_CLK"]
     #[inline]
     pub fn prescaler(&mut self) -> _PRESCALERW {
         _PRESCALERW { w: self }
