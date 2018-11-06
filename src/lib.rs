@@ -3,7 +3,6 @@
 #![deny(warnings)]
 #![allow(non_camel_case_types)]
 #![no_std]
-#![feature(untagged_unions)]
 extern crate bare_metal;
 extern crate cortex_m;
 #[cfg(feature = "rt")]
@@ -1640,6 +1639,7 @@ impl Deref for CRYPTOCELL {
 }
 #[doc = "ARM TrustZone CryptoCell register interface"]
 pub mod cryptocell;
+#[allow(renamed_and_removed_lints)]
 #[allow(private_no_mangle_statics)]
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
