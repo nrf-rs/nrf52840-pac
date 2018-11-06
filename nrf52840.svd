@@ -110,7 +110,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>DEVICEID[%s]</name>
           <description>Description collection[n]: Device identifier</description>
@@ -127,7 +127,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x4</dim>
+          <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>ER[%s]</name>
           <description>Description collection[n]: Encryption root, word n</description>
@@ -144,7 +144,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x4</dim>
+          <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>IR[%s]</name>
           <description>Description collection[n]: Identity Root, word n</description>
@@ -188,7 +188,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>DEVICEADDR[%s]</name>
           <description>Description collection[n]: Device address n</description>
@@ -415,7 +415,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
             </fields>
           </register>
           <register>
-            <dim>0x3</dim>
+            <dim>3</dim>
             <dimIncrement>0x4</dimIncrement>
             <name>UNUSED8[%s]</name>
             <description>Unspecified</description>
@@ -424,7 +424,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </register>
         </cluster>
         <register>
-          <dim>0x3</dim>
+          <dim>3</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>PRODTEST[%s]</name>
           <description>Description collection[n]: Production test signature n</description>
@@ -1016,7 +1016,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <access>read-write</access>
         </register>
         <register>
-          <dim>0xF</dim>
+          <dim>15</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>NRFFW[%s]</name>
           <description>Description collection[n]: Reserved for Nordic firmware design</description>
@@ -1033,7 +1033,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0xC</dim>
+          <dim>11</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>NRFHW[%s]</name>
           <description>Description collection[n]: Reserved for Nordic hardware design</description>
@@ -1050,7 +1050,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x20</dim>
+          <dim>32</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>CUSTOMER[%s]</name>
           <description>Description collection[n]: Reserved for customer</description>
@@ -1067,7 +1067,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>PSELRESET[%s]</name>
           <description>Description collection[n]: Mapping of the nRESET function</description>
@@ -7643,7 +7643,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>DAB[%s]</name>
           <description>Description collection[n]: Device address base segment n</description>
@@ -7659,7 +7659,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>DAP[%s]</name>
           <description>Description collection[n]: Device address prefix n</description>
@@ -15865,7 +15865,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </register>
         </cluster>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>ADDRESS[%s]</name>
           <description>Description collection[n]: TWI slave address n</description>
@@ -17607,8 +17607,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <fields>
             <field>
               <name>SLEEPSTATE</name>
-              <description>Reflects the sleep state during automatic collision resolution. Set to IDLE 
-        by a GOIDLE task. Set to SLEEP_A when a valid SLEEP_REQ frame is received or by a 
+              <description>Reflects the sleep state during automatic collision resolution. Set to IDLE
+        by a GOIDLE task. Set to SLEEP_A when a valid SLEEP_REQ frame is received or by a
         GOSLEEP task.</description>
               <lsb>0</lsb>
               <msb>0</msb>
@@ -18220,7 +18220,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
       <size>0x20</size>
       <registers>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_OUT[%s]</name>
           <description>Description collection[n]: Task for writing to pin specified in CONFIG[n].PSEL. Action on pin is configured in CONFIG[n].POLARITY.</description>
@@ -18235,7 +18235,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_SET[%s]</name>
           <description>Description collection[n]: Task for writing to pin specified in CONFIG[n].PSEL. Action on pin is to set it high.</description>
@@ -18250,7 +18250,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_CLR[%s]</name>
           <description>Description collection[n]: Task for writing to pin specified in CONFIG[n].PSEL. Action on pin is to set it low.</description>
@@ -18265,7 +18265,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_IN[%s]</name>
           <description>Description collection[n]: Event generated from pin specified in CONFIG[n].PSEL</description>
@@ -18795,7 +18795,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>CONFIG[%s]</name>
           <description>Description collection[n]: Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event</description>
@@ -21368,7 +21368,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x6</dim>
+          <dim>6</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_CAPTURE[%s]</name>
           <description>Description collection[n]: Capture Timer value to CC[n] register</description>
@@ -21383,7 +21383,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x6</dim>
+          <dim>6</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_COMPARE[%s]</name>
           <description>Description collection[n]: Compare event on CC[n] match</description>
@@ -22044,7 +22044,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x6</dim>
+          <dim>6</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>CC[%s]</name>
           <description>Description collection[n]: Capture/Compare register n</description>
@@ -22175,7 +22175,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x4</dim>
+          <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_COMPARE[%s]</name>
           <description>Description collection[n]: Compare event on CC[n] match</description>
@@ -23014,7 +23014,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x4</dim>
+          <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>CC[%s]</name>
           <description>Description collection[n]: Compare register n</description>
@@ -25240,7 +25240,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>RR[%s]</name>
           <description>Description collection[n]: Reload request n</description>
@@ -27829,7 +27829,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
       <size>0x20</size>
       <registers>
         <register>
-          <dim>0x10</dim>
+          <dim>16</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_TRIGGER[%s]</name>
           <description>Description collection[n]: Trigger n for triggering the corresponding TRIGGERED[n] event</description>
@@ -27844,7 +27844,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x10</dim>
+          <dim>16</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_TRIGGERED[%s]</name>
           <description>Description collection[n]: Event number n generated by triggering the corresponding TRIGGER[n] task</description>
@@ -29207,7 +29207,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_SEQSTART[%s]</name>
           <description>Description collection[n]: Loads the first PWM value on all enabled channels from sequence n, and starts playing that sequence at the rate defined in SEQ[n]REFRESH and/or DECODER.MODE. Causes PWM generation to start if not running.</description>
@@ -29248,7 +29248,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_SEQSTARTED[%s]</name>
           <description>Description collection[n]: First PWM period started on sequence n</description>
@@ -29263,7 +29263,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x2</dim>
+          <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_SEQEND[%s]</name>
           <description>Description collection[n]: Emitted at end of every sequence n, when last value from RAM has been applied to wave counter</description>
@@ -30220,7 +30220,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <headerStructName>PWM_PSEL</headerStructName>
           <addressOffset>0x560</addressOffset>
           <register>
-            <dim>0x4</dim>
+            <dim>4</dim>
             <dimIncrement>0x4</dimIncrement>
             <name>OUT[%s]</name>
             <description>Description collection[n]: Output pin select for PWM channel n</description>
@@ -33726,7 +33726,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </register>
         </cluster>
         <register>
-          <dim>0x6</dim>
+          <dim>6</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>CHG[%s]</name>
           <description>Description collection[n]: Channel group n</description>
@@ -40036,7 +40036,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
       <size>0x20</size>
       <registers>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_STARTEPIN[%s]</name>
           <description>Description collection[n]: Captures the EPIN[n].PTR and EPIN[n].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host</description>
@@ -40064,7 +40064,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>TASKS_STARTEPOUT[%s]</name>
           <description>Description collection[n]: Captures the EPOUT[n].PTR and EPOUT[n].MAXCNT registers values, and enables endpoint n to respond to traffic from host</description>
@@ -40183,7 +40183,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_ENDEPIN[%s]</name>
           <description>Description collection[n]: The whole EPIN[n] buffer has been consumed. The RAM buffer can be accessed safely by software.</description>
@@ -40224,7 +40224,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x8</dim>
+          <dim>8</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>EVENTS_ENDEPOUT[%s]</name>
           <description>Description collection[n]: The whole EPOUT[n] buffer has been consumed. The RAM buffer can be accessed safely by software.</description>
@@ -42330,7 +42330,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <headerStructName>USBD_HALTED</headerStructName>
           <addressOffset>0x420</addressOffset>
           <register>
-            <dim>0x8</dim>
+            <dim>8</dim>
             <dimIncrement>0x4</dimIncrement>
             <name>EPIN[%s]</name>
             <description>Description collection[n]: IN endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint.</description>
@@ -42358,7 +42358,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
             </fields>
           </register>
           <register>
-            <dim>0x8</dim>
+            <dim>8</dim>
             <dimIncrement>0x4</dimIncrement>
             <name>EPOUT[%s]</name>
             <description>Description collection[n]: OUT endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint.</description>
@@ -43240,7 +43240,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           <headerStructName>USBD_SIZE</headerStructName>
           <addressOffset>0x4A0</addressOffset>
           <register>
-            <dim>0x8</dim>
+            <dim>8</dim>
             <dimIncrement>0x4</dimIncrement>
             <name>EPOUT[%s]</name>
             <description>Description collection[n]: Number of bytes received last in the data stage of this OUT endpoint</description>
@@ -51195,7 +51195,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\
           </fields>
         </register>
         <register>
-          <dim>0x20</dim>
+          <dim>32</dim>
           <dimIncrement>0x4</dimIncrement>
           <name>PIN_CNF[%s]</name>
           <description>Description collection[n]: Configuration of GPIO pins</description>
