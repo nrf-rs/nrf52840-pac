@@ -13,11 +13,10 @@ pub struct RegisterBlock {
     #[doc = "0x14 - Description collection\\[n\\]: Reserved for Nordic firmware design"]
     pub nrffw: [NRFFW; 15],
     #[doc = "0x50 - Description collection\\[n\\]: Reserved for Nordic hardware design"]
-    pub nrfhw: [NRFHW; 11],
-    _reserved1: [u8; 4usize],
+    pub nrfhw: [NRFHW; 12],
     #[doc = "0x80 - Description collection\\[n\\]: Reserved for customer"]
     pub customer: [CUSTOMER; 32],
-    _reserved2: [u8; 256usize],
+    _reserved1: [u8; 256usize],
     #[doc = "0x200 - Description collection\\[n\\]: Mapping of the nRESET function"]
     pub pselreset: [PSELRESET; 2],
     #[doc = "0x208 - Access port protection"]
@@ -26,7 +25,7 @@ pub struct RegisterBlock {
     pub nfcpins: NFCPINS,
     #[doc = "0x210 - Processor debug control"]
     pub debugctrl: DEBUGCTRL,
-    _reserved3: [u8; 240usize],
+    _reserved2: [u8; 240usize],
     #[doc = "0x304 - GPIO reference voltage / external output supply voltage in high voltage mode"]
     pub regout0: REGOUT0,
 }
