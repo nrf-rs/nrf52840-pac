@@ -2691,7 +2691,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN[0] event"]
+    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\] event"]
     #[inline]
     pub fn endepin0(&self) -> ENDEPIN0R {
         ENDEPIN0R::_from({
@@ -2700,7 +2700,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN[1] event"]
+    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\] event"]
     #[inline]
     pub fn endepin1(&self) -> ENDEPIN1R {
         ENDEPIN1R::_from({
@@ -2709,7 +2709,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN[2] event"]
+    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\] event"]
     #[inline]
     pub fn endepin2(&self) -> ENDEPIN2R {
         ENDEPIN2R::_from({
@@ -2718,7 +2718,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN[3] event"]
+    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\] event"]
     #[inline]
     pub fn endepin3(&self) -> ENDEPIN3R {
         ENDEPIN3R::_from({
@@ -2727,7 +2727,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN[4] event"]
+    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\] event"]
     #[inline]
     pub fn endepin4(&self) -> ENDEPIN4R {
         ENDEPIN4R::_from({
@@ -2736,7 +2736,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN[5] event"]
+    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\] event"]
     #[inline]
     pub fn endepin5(&self) -> ENDEPIN5R {
         ENDEPIN5R::_from({
@@ -2745,7 +2745,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN[6] event"]
+    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\] event"]
     #[inline]
     pub fn endepin6(&self) -> ENDEPIN6R {
         ENDEPIN6R::_from({
@@ -2754,7 +2754,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN[7] event"]
+    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\] event"]
     #[inline]
     pub fn endepin7(&self) -> ENDEPIN7R {
         ENDEPIN7R::_from({
@@ -2781,7 +2781,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT[0] event"]
+    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\] event"]
     #[inline]
     pub fn endepout0(&self) -> ENDEPOUT0R {
         ENDEPOUT0R::_from({
@@ -2790,7 +2790,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT[1] event"]
+    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\] event"]
     #[inline]
     pub fn endepout1(&self) -> ENDEPOUT1R {
         ENDEPOUT1R::_from({
@@ -2799,7 +2799,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT[2] event"]
+    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\] event"]
     #[inline]
     pub fn endepout2(&self) -> ENDEPOUT2R {
         ENDEPOUT2R::_from({
@@ -2808,7 +2808,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT[3] event"]
+    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\] event"]
     #[inline]
     pub fn endepout3(&self) -> ENDEPOUT3R {
         ENDEPOUT3R::_from({
@@ -2817,7 +2817,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT[4] event"]
+    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\] event"]
     #[inline]
     pub fn endepout4(&self) -> ENDEPOUT4R {
         ENDEPOUT4R::_from({
@@ -2826,7 +2826,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT[5] event"]
+    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\] event"]
     #[inline]
     pub fn endepout5(&self) -> ENDEPOUT5R {
         ENDEPOUT5R::_from({
@@ -2835,7 +2835,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT[6] event"]
+    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\] event"]
     #[inline]
     pub fn endepout6(&self) -> ENDEPOUT6R {
         ENDEPOUT6R::_from({
@@ -2844,7 +2844,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) != 0
         })
     }
-    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT[7] event"]
+    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\] event"]
     #[inline]
     pub fn endepout7(&self) -> ENDEPOUT7R {
         ENDEPOUT7R::_from({
@@ -2921,42 +2921,42 @@ impl W {
     pub fn started(&mut self) -> _STARTEDW {
         _STARTEDW { w: self }
     }
-    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN[0] event"]
+    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\] event"]
     #[inline]
     pub fn endepin0(&mut self) -> _ENDEPIN0W {
         _ENDEPIN0W { w: self }
     }
-    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN[1] event"]
+    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\] event"]
     #[inline]
     pub fn endepin1(&mut self) -> _ENDEPIN1W {
         _ENDEPIN1W { w: self }
     }
-    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN[2] event"]
+    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\] event"]
     #[inline]
     pub fn endepin2(&mut self) -> _ENDEPIN2W {
         _ENDEPIN2W { w: self }
     }
-    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN[3] event"]
+    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\] event"]
     #[inline]
     pub fn endepin3(&mut self) -> _ENDEPIN3W {
         _ENDEPIN3W { w: self }
     }
-    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN[4] event"]
+    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\] event"]
     #[inline]
     pub fn endepin4(&mut self) -> _ENDEPIN4W {
         _ENDEPIN4W { w: self }
     }
-    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN[5] event"]
+    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\] event"]
     #[inline]
     pub fn endepin5(&mut self) -> _ENDEPIN5W {
         _ENDEPIN5W { w: self }
     }
-    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN[6] event"]
+    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\] event"]
     #[inline]
     pub fn endepin6(&mut self) -> _ENDEPIN6W {
         _ENDEPIN6W { w: self }
     }
-    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN[7] event"]
+    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\] event"]
     #[inline]
     pub fn endepin7(&mut self) -> _ENDEPIN7W {
         _ENDEPIN7W { w: self }
@@ -2971,42 +2971,42 @@ impl W {
     pub fn endisoin(&mut self) -> _ENDISOINW {
         _ENDISOINW { w: self }
     }
-    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT[0] event"]
+    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\] event"]
     #[inline]
     pub fn endepout0(&mut self) -> _ENDEPOUT0W {
         _ENDEPOUT0W { w: self }
     }
-    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT[1] event"]
+    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\] event"]
     #[inline]
     pub fn endepout1(&mut self) -> _ENDEPOUT1W {
         _ENDEPOUT1W { w: self }
     }
-    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT[2] event"]
+    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\] event"]
     #[inline]
     pub fn endepout2(&mut self) -> _ENDEPOUT2W {
         _ENDEPOUT2W { w: self }
     }
-    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT[3] event"]
+    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\] event"]
     #[inline]
     pub fn endepout3(&mut self) -> _ENDEPOUT3W {
         _ENDEPOUT3W { w: self }
     }
-    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT[4] event"]
+    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\] event"]
     #[inline]
     pub fn endepout4(&mut self) -> _ENDEPOUT4W {
         _ENDEPOUT4W { w: self }
     }
-    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT[5] event"]
+    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\] event"]
     #[inline]
     pub fn endepout5(&mut self) -> _ENDEPOUT5W {
         _ENDEPOUT5W { w: self }
     }
-    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT[6] event"]
+    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\] event"]
     #[inline]
     pub fn endepout6(&mut self) -> _ENDEPOUT6W {
         _ENDEPOUT6W { w: self }
     }
-    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT[7] event"]
+    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\] event"]
     #[inline]
     pub fn endepout7(&mut self) -> _ENDEPOUT7W {
         _ENDEPOUT7W { w: self }

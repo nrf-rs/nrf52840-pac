@@ -127,13 +127,13 @@ impl PORTR {
 #[doc = "Possible values of the field `POLARITY`"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POLARITYR {
-    #[doc = "Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity."]
+    #[doc = "Task mode: No effect on pin from OUT\\[n\\] task. Event mode: no IN\\[n\\] event generated on pin activity."]
     NONE,
-    #[doc = "Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin."]
+    #[doc = "Task mode: Set pin from OUT\\[n\\] task. Event mode: Generate IN\\[n\\] event when rising edge on pin."]
     LOTOHI,
-    #[doc = "Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin."]
+    #[doc = "Task mode: Clear pin from OUT\\[n\\] task. Event mode: Generate IN\\[n\\] event when falling edge on pin."]
     HITOLO,
-    #[doc = "Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin."]
+    #[doc = "Task mode: Toggle pin from OUT\\[n\\]. Event mode: Generate IN\\[n\\] when any change on pin."]
     TOGGLE,
 }
 impl POLARITYR {
@@ -323,13 +323,13 @@ impl<'a> _PORTW<'a> {
 }
 #[doc = "Values that can be written to the field `POLARITY`"]
 pub enum POLARITYW {
-    #[doc = "Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity."]
+    #[doc = "Task mode: No effect on pin from OUT\\[n\\] task. Event mode: no IN\\[n\\] event generated on pin activity."]
     NONE,
-    #[doc = "Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin."]
+    #[doc = "Task mode: Set pin from OUT\\[n\\] task. Event mode: Generate IN\\[n\\] event when rising edge on pin."]
     LOTOHI,
-    #[doc = "Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin."]
+    #[doc = "Task mode: Clear pin from OUT\\[n\\] task. Event mode: Generate IN\\[n\\] event when falling edge on pin."]
     HITOLO,
-    #[doc = "Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin."]
+    #[doc = "Task mode: Toggle pin from OUT\\[n\\]. Event mode: Generate IN\\[n\\] when any change on pin."]
     TOGGLE,
 }
 impl POLARITYW {
@@ -460,7 +460,7 @@ impl R {
             ((self.bits >> OFFSET) & MASK as u32) as u8
         })
     }
-    #[doc = "Bits 8:12 - GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event"]
+    #[doc = "Bits 8:12 - GPIO number associated with SET\\[n\\], CLR\\[n\\] and OUT\\[n\\] tasks and IN\\[n\\] event"]
     #[inline]
     pub fn psel(&self) -> PSELR {
         let bits = {
@@ -480,7 +480,7 @@ impl R {
         };
         PORTR { bits }
     }
-    #[doc = "Bits 16:17 - When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event."]
+    #[doc = "Bits 16:17 - When In task mode: Operation to be performed on output when OUT\\[n\\] task is triggered. When In event mode: Operation on input that shall trigger IN\\[n\\] event."]
     #[inline]
     pub fn polarity(&self) -> POLARITYR {
         POLARITYR::_from({
@@ -516,7 +516,7 @@ impl W {
     pub fn mode(&mut self) -> _MODEW {
         _MODEW { w: self }
     }
-    #[doc = "Bits 8:12 - GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event"]
+    #[doc = "Bits 8:12 - GPIO number associated with SET\\[n\\], CLR\\[n\\] and OUT\\[n\\] tasks and IN\\[n\\] event"]
     #[inline]
     pub fn psel(&mut self) -> _PSELW {
         _PSELW { w: self }
@@ -526,7 +526,7 @@ impl W {
     pub fn port(&mut self) -> _PORTW {
         _PORTW { w: self }
     }
-    #[doc = "Bits 16:17 - When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event."]
+    #[doc = "Bits 16:17 - When In task mode: Operation to be performed on output when OUT\\[n\\] task is triggered. When In event mode: Operation on input that shall trigger IN\\[n\\] event."]
     #[inline]
     pub fn polarity(&mut self) -> _POLARITYW {
         _POLARITYW { w: self }

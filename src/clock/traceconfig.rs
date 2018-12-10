@@ -105,7 +105,7 @@ pub enum TRACEMUXR {
     GPIO,
     #[doc = "SWO trace signal routed to pin. Remaining pins can be used as regular GPIOs."]
     SERIAL,
-    #[doc = "All trace signals (TRACECLK and TRACEDATA[n]) routed to pins."]
+    #[doc = "All trace signals (TRACECLK and TRACEDATA\\[n\\]) routed to pins."]
     PARALLEL,
     #[doc = r" Reserved"]
     _Reserved(u8),
@@ -220,7 +220,7 @@ pub enum TRACEMUXW {
     GPIO,
     #[doc = "SWO trace signal routed to pin. Remaining pins can be used as regular GPIOs."]
     SERIAL,
-    #[doc = "All trace signals (TRACECLK and TRACEDATA[n]) routed to pins."]
+    #[doc = "All trace signals (TRACECLK and TRACEDATA\\[n\\]) routed to pins."]
     PARALLEL,
 }
 impl TRACEMUXW {
