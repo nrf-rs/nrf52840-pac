@@ -2,12 +2,15 @@
 set -x
 set -e
 
-cargo install --force --git https://github.com/wez/svd2rust svd2rust
-cargo install --force --version 0.3.0 form
+# NOTE: Last executed using Rust 1.31.0
+
+cargo install --force --version 0.14.0 svd2rust
+cargo install --force --version 0.4.0  form
+rustup component add rustfmt
 
 rm -rf src
 mkdir src
-svd2rust -i nrf52840.svd --nightly
+svd2rust -i ./nrf52840.svd
 form -i lib.rs -o src
 rm lib.rs
 cargo fmt
