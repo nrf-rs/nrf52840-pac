@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::LOWPOWER {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register LOWPOWER"]
+pub type R = crate::R<u32, super::LOWPOWER>;
+#[doc = "Writer for register LOWPOWER"]
+pub type W = crate::W<u32, super::LOWPOWER>;
+#[doc = "Register LOWPOWER `reset()`'s with value 0"]
+impl crate::ResetValue for super::LOWPOWER {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `LOWPOWER`"]
+#[doc = "Controls USBD peripheral low-power mode during USB suspend\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum LOWPOWERR {
-    #[doc = "Software must write this value to exit low power mode and before performing a remote wake-up"]
+pub enum LOWPOWER_A {
+    #[doc = "0: Software must write this value to exit low power mode and before performing a remote wake-up"]
     FORCENORMAL,
-    #[doc = "Software must write this value to enter low power mode after DMA and software have finished interacting with the USB peripheral"]
+    #[doc = "1: Software must write this value to enter low power mode after DMA and software have finished interacting with the USB peripheral"]
     LOWPOWER,
 }
-impl LOWPOWERR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            LOWPOWERR::FORCENORMAL => false,
-            LOWPOWERR::LOWPOWER => true,
+impl From<LOWPOWER_A> for bool {
+    #[inline(always)]
+    fn from(variant: LOWPOWER_A) -> Self {
+        match variant {
+            LOWPOWER_A::FORCENORMAL => false,
+            LOWPOWER_A::LOWPOWER => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> LOWPOWERR {
-        match value {
-            false => LOWPOWERR::FORCENORMAL,
-            true => LOWPOWERR::LOWPOWER,
+}
+#[doc = "Reader of field `LOWPOWER`"]
+pub type LOWPOWER_R = crate::R<bool, LOWPOWER_A>;
+impl LOWPOWER_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> LOWPOWER_A {
+        match self.bits {
+            false => LOWPOWER_A::FORCENORMAL,
+            true => LOWPOWER_A::LOWPOWER,
         }
     }
     #[doc = "Checks if the value of the field is `FORCENORMAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_force_normal(&self) -> bool {
-        *self == LOWPOWERR::FORCENORMAL
+        *self == LOWPOWER_A::FORCENORMAL
     }
     #[doc = "Checks if the value of the field is `LOWPOWER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low_power(&self) -> bool {
-        *self == LOWPOWERR::LOWPOWER
+        *self == LOWPOWER_A::LOWPOWER
     }
 }
-#[doc = "Values that can be written to the field `LOWPOWER`"]
-pub enum LOWPOWERW {
-    #[doc = "Software must write this value to exit low power mode and before performing a remote wake-up"]
-    FORCENORMAL,
-    #[doc = "Software must write this value to enter low power mode after DMA and software have finished interacting with the USB peripheral"]
-    LOWPOWER,
-}
-impl LOWPOWERW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            LOWPOWERW::FORCENORMAL => false,
-            LOWPOWERW::LOWPOWER => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _LOWPOWERW<'a> {
+#[doc = "Write proxy for field `LOWPOWER`"]
+pub struct LOWPOWER_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _LOWPOWERW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: LOWPOWERW) -> &'a mut W {
+impl<'a> LOWPOWER_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: LOWPOWER_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Software must write this value to exit low power mode and before performing a remote wake-up"]
-    #[inline]
+    #[inline(always)]
     pub fn force_normal(self) -> &'a mut W {
-        self.variant(LOWPOWERW::FORCENORMAL)
+        self.variant(LOWPOWER_A::FORCENORMAL)
     }
     #[doc = "Software must write this value to enter low power mode after DMA and software have finished interacting with the USB peripheral"]
-    #[inline]
+    #[inline(always)]
     pub fn low_power(self) -> &'a mut W {
-        self.variant(LOWPOWERW::LOWPOWER)
+        self.variant(LOWPOWER_A::LOWPOWER)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Controls USBD peripheral low-power mode during USB suspend"]
-    #[inline]
-    pub fn lowpower(&self) -> LOWPOWERR {
-        LOWPOWERR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn lowpower(&self) -> LOWPOWER_R {
+        LOWPOWER_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Controls USBD peripheral low-power mode during USB suspend"]
-    #[inline]
-    pub fn lowpower(&mut self) -> _LOWPOWERW {
-        _LOWPOWERW { w: self }
+    #[inline(always)]
+    pub fn lowpower(&mut self) -> LOWPOWER_W {
+        LOWPOWER_W { w: self }
     }
 }

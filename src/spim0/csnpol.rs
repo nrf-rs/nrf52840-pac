@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CSNPOL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CSNPOL"]
+pub type R = crate::R<u32, super::CSNPOL>;
+#[doc = "Writer for register CSNPOL"]
+pub type W = crate::W<u32, super::CSNPOL>;
+#[doc = "Register CSNPOL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CSNPOL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CSNPOL`"]
+#[doc = "Polarity of CSN output\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CSNPOLR {
-    #[doc = "Active low (idle state high)"]
+pub enum CSNPOL_A {
+    #[doc = "0: Active low (idle state high)"]
     LOW,
-    #[doc = "Active high (idle state low)"]
+    #[doc = "1: Active high (idle state low)"]
     HIGH,
 }
-impl CSNPOLR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            CSNPOLR::LOW => false,
-            CSNPOLR::HIGH => true,
+impl From<CSNPOL_A> for bool {
+    #[inline(always)]
+    fn from(variant: CSNPOL_A) -> Self {
+        match variant {
+            CSNPOL_A::LOW => false,
+            CSNPOL_A::HIGH => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> CSNPOLR {
-        match value {
-            false => CSNPOLR::LOW,
-            true => CSNPOLR::HIGH,
+}
+#[doc = "Reader of field `CSNPOL`"]
+pub type CSNPOL_R = crate::R<bool, CSNPOL_A>;
+impl CSNPOL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> CSNPOL_A {
+        match self.bits {
+            false => CSNPOL_A::LOW,
+            true => CSNPOL_A::HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `LOW`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == CSNPOLR::LOW
+        *self == CSNPOL_A::LOW
     }
     #[doc = "Checks if the value of the field is `HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == CSNPOLR::HIGH
+        *self == CSNPOL_A::HIGH
     }
 }
-#[doc = "Values that can be written to the field `CSNPOL`"]
-pub enum CSNPOLW {
-    #[doc = "Active low (idle state high)"]
-    LOW,
-    #[doc = "Active high (idle state low)"]
-    HIGH,
-}
-impl CSNPOLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            CSNPOLW::LOW => false,
-            CSNPOLW::HIGH => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CSNPOLW<'a> {
+#[doc = "Write proxy for field `CSNPOL`"]
+pub struct CSNPOL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CSNPOLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CSNPOLW) -> &'a mut W {
+impl<'a> CSNPOL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CSNPOL_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Active low (idle state high)"]
-    #[inline]
+    #[inline(always)]
     pub fn low(self) -> &'a mut W {
-        self.variant(CSNPOLW::LOW)
+        self.variant(CSNPOL_A::LOW)
     }
     #[doc = "Active high (idle state low)"]
-    #[inline]
+    #[inline(always)]
     pub fn high(self) -> &'a mut W {
-        self.variant(CSNPOLW::HIGH)
+        self.variant(CSNPOL_A::HIGH)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Polarity of CSN output"]
-    #[inline]
-    pub fn csnpol(&self) -> CSNPOLR {
-        CSNPOLR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn csnpol(&self) -> CSNPOL_R {
+        CSNPOL_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Polarity of CSN output"]
-    #[inline]
-    pub fn csnpol(&mut self) -> _CSNPOLW {
-        _CSNPOLW { w: self }
+    #[inline(always)]
+    pub fn csnpol(&mut self) -> CSNPOL_W {
+        CSNPOL_W { w: self }
     }
 }

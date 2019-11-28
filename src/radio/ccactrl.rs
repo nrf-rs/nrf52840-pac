@@ -1,341 +1,208 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CCACTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CCACTRL"]
+pub type R = crate::R<u32, super::CCACTRL>;
+#[doc = "Writer for register CCACTRL"]
+pub type W = crate::W<u32, super::CCACTRL>;
+#[doc = "Register CCACTRL `reset()`'s with value 0"]
+impl crate::ResetValue for super::CCACTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `CCAMODE`"]
+#[doc = "CCA mode of operation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CCAMODER {
-    #[doc = "Energy above threshold"]
+pub enum CCAMODE_A {
+    #[doc = "0: Energy above threshold"]
     EDMODE,
-    #[doc = "Carrier seen"]
+    #[doc = "1: Carrier seen"]
     CARRIERMODE,
-    #[doc = "Energy above threshold AND carrier seen"]
+    #[doc = "2: Energy above threshold AND carrier seen"]
     CARRIERANDEDMODE,
-    #[doc = "Energy above threshold OR carrier seen"]
+    #[doc = "3: Energy above threshold OR carrier seen"]
     CARRIEROREDMODE,
-    #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
+    #[doc = "4: Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
     EDMODETEST1,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl CCAMODER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CCAMODER::EDMODE => 0,
-            CCAMODER::CARRIERMODE => 1,
-            CCAMODER::CARRIERANDEDMODE => 2,
-            CCAMODER::CARRIEROREDMODE => 3,
-            CCAMODER::EDMODETEST1 => 4,
-            CCAMODER::_Reserved(bits) => bits,
+impl From<CCAMODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CCAMODE_A) -> Self {
+        match variant {
+            CCAMODE_A::EDMODE => 0,
+            CCAMODE_A::CARRIERMODE => 1,
+            CCAMODE_A::CARRIERANDEDMODE => 2,
+            CCAMODE_A::CARRIEROREDMODE => 3,
+            CCAMODE_A::EDMODETEST1 => 4,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CCAMODER {
-        match value {
-            0 => CCAMODER::EDMODE,
-            1 => CCAMODER::CARRIERMODE,
-            2 => CCAMODER::CARRIERANDEDMODE,
-            3 => CCAMODER::CARRIEROREDMODE,
-            4 => CCAMODER::EDMODETEST1,
-            i => CCAMODER::_Reserved(i),
+}
+#[doc = "Reader of field `CCAMODE`"]
+pub type CCAMODE_R = crate::R<u8, CCAMODE_A>;
+impl CCAMODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CCAMODE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(CCAMODE_A::EDMODE),
+            1 => Val(CCAMODE_A::CARRIERMODE),
+            2 => Val(CCAMODE_A::CARRIERANDEDMODE),
+            3 => Val(CCAMODE_A::CARRIEROREDMODE),
+            4 => Val(CCAMODE_A::EDMODETEST1),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `EDMODE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ed_mode(&self) -> bool {
-        *self == CCAMODER::EDMODE
+        *self == CCAMODE_A::EDMODE
     }
     #[doc = "Checks if the value of the field is `CARRIERMODE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_carrier_mode(&self) -> bool {
-        *self == CCAMODER::CARRIERMODE
+        *self == CCAMODE_A::CARRIERMODE
     }
     #[doc = "Checks if the value of the field is `CARRIERANDEDMODE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_carrier_and_ed_mode(&self) -> bool {
-        *self == CCAMODER::CARRIERANDEDMODE
+        *self == CCAMODE_A::CARRIERANDEDMODE
     }
     #[doc = "Checks if the value of the field is `CARRIEROREDMODE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_carrier_or_ed_mode(&self) -> bool {
-        *self == CCAMODER::CARRIEROREDMODE
+        *self == CCAMODE_A::CARRIEROREDMODE
     }
     #[doc = "Checks if the value of the field is `EDMODETEST1`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ed_mode_test1(&self) -> bool {
-        *self == CCAMODER::EDMODETEST1
+        *self == CCAMODE_A::EDMODETEST1
     }
 }
-#[doc = r" Value of the field"]
-pub struct CCAEDTHRESR {
-    bits: u8,
-}
-impl CCAEDTHRESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CCACORRTHRESR {
-    bits: u8,
-}
-impl CCACORRTHRESR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct CCACORRCNTR {
-    bits: u8,
-}
-impl CCACORRCNTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = "Values that can be written to the field `CCAMODE`"]
-pub enum CCAMODEW {
-    #[doc = "Energy above threshold"]
-    EDMODE,
-    #[doc = "Carrier seen"]
-    CARRIERMODE,
-    #[doc = "Energy above threshold AND carrier seen"]
-    CARRIERANDEDMODE,
-    #[doc = "Energy above threshold OR carrier seen"]
-    CARRIEROREDMODE,
-    #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
-    EDMODETEST1,
-}
-impl CCAMODEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CCAMODEW::EDMODE => 0,
-            CCAMODEW::CARRIERMODE => 1,
-            CCAMODEW::CARRIERANDEDMODE => 2,
-            CCAMODEW::CARRIEROREDMODE => 3,
-            CCAMODEW::EDMODETEST1 => 4,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CCAMODEW<'a> {
+#[doc = "Write proxy for field `CCAMODE`"]
+pub struct CCAMODE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CCAMODEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CCAMODEW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CCAMODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CCAMODE_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Energy above threshold"]
-    #[inline]
+    #[inline(always)]
     pub fn ed_mode(self) -> &'a mut W {
-        self.variant(CCAMODEW::EDMODE)
+        self.variant(CCAMODE_A::EDMODE)
     }
     #[doc = "Carrier seen"]
-    #[inline]
+    #[inline(always)]
     pub fn carrier_mode(self) -> &'a mut W {
-        self.variant(CCAMODEW::CARRIERMODE)
+        self.variant(CCAMODE_A::CARRIERMODE)
     }
     #[doc = "Energy above threshold AND carrier seen"]
-    #[inline]
+    #[inline(always)]
     pub fn carrier_and_ed_mode(self) -> &'a mut W {
-        self.variant(CCAMODEW::CARRIERANDEDMODE)
+        self.variant(CCAMODE_A::CARRIERANDEDMODE)
     }
     #[doc = "Energy above threshold OR carrier seen"]
-    #[inline]
+    #[inline(always)]
     pub fn carrier_or_ed_mode(self) -> &'a mut W {
-        self.variant(CCAMODEW::CARRIEROREDMODE)
+        self.variant(CCAMODE_A::CARRIEROREDMODE)
     }
     #[doc = "Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
-    #[inline]
+    #[inline(always)]
     pub fn ed_mode_test1(self) -> &'a mut W {
-        self.variant(CCAMODEW::EDMODETEST1)
+        self.variant(CCAMODE_A::EDMODETEST1)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CCAEDTHRESW<'a> {
+#[doc = "Reader of field `CCAEDTHRES`"]
+pub type CCAEDTHRES_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CCAEDTHRES`"]
+pub struct CCAEDTHRES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CCAEDTHRESW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CCAEDTHRES_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CCACORRTHRESW<'a> {
+#[doc = "Reader of field `CCACORRTHRES`"]
+pub type CCACORRTHRES_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CCACORRTHRES`"]
+pub struct CCACORRTHRES_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CCACORRTHRESW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CCACORRTHRES_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _CCACORRCNTW<'a> {
+#[doc = "Reader of field `CCACORRCNT`"]
+pub type CCACORRCNT_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `CCACORRCNT`"]
+pub struct CCACORRCNT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CCACORRCNTW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> CCACORRCNT_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:2 - CCA mode of operation"]
-    #[inline]
-    pub fn ccamode(&self) -> CCAMODER {
-        CCAMODER::_from({
-            const MASK: u8 = 7;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn ccamode(&self) -> CCAMODE_R {
+        CCAMODE_R::new((self.bits & 0x07) as u8)
     }
     #[doc = "Bits 8:15 - CCA energy busy threshold. Used in all the CCA modes except CarrierMode."]
-    #[inline]
-    pub fn ccaedthres(&self) -> CCAEDTHRESR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CCAEDTHRESR { bits }
+    #[inline(always)]
+    pub fn ccaedthres(&self) -> CCAEDTHRES_R {
+        CCAEDTHRES_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - CCA correlator busy threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
-    #[inline]
-    pub fn ccacorrthres(&self) -> CCACORRTHRESR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CCACORRTHRESR { bits }
+    #[inline(always)]
+    pub fn ccacorrthres(&self) -> CCACORRTHRES_R {
+        CCACORRTHRES_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - Limit for occurances above CCACORRTHRES. When not equal to zero the corrolator based signal detect is enabled."]
-    #[inline]
-    pub fn ccacorrcnt(&self) -> CCACORRCNTR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        CCACORRCNTR { bits }
+    #[inline(always)]
+    pub fn ccacorrcnt(&self) -> CCACORRCNT_R {
+        CCACORRCNT_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:2 - CCA mode of operation"]
-    #[inline]
-    pub fn ccamode(&mut self) -> _CCAMODEW {
-        _CCAMODEW { w: self }
+    #[inline(always)]
+    pub fn ccamode(&mut self) -> CCAMODE_W {
+        CCAMODE_W { w: self }
     }
     #[doc = "Bits 8:15 - CCA energy busy threshold. Used in all the CCA modes except CarrierMode."]
-    #[inline]
-    pub fn ccaedthres(&mut self) -> _CCAEDTHRESW {
-        _CCAEDTHRESW { w: self }
+    #[inline(always)]
+    pub fn ccaedthres(&mut self) -> CCAEDTHRES_W {
+        CCAEDTHRES_W { w: self }
     }
     #[doc = "Bits 16:23 - CCA correlator busy threshold. Only relevant to CarrierMode, CarrierAndEdMode and CarrierOrEdMode."]
-    #[inline]
-    pub fn ccacorrthres(&mut self) -> _CCACORRTHRESW {
-        _CCACORRTHRESW { w: self }
+    #[inline(always)]
+    pub fn ccacorrthres(&mut self) -> CCACORRTHRES_W {
+        CCACORRTHRES_W { w: self }
     }
     #[doc = "Bits 24:31 - Limit for occurances above CCACORRTHRES. When not equal to zero the corrolator based signal detect is enabled."]
-    #[inline]
-    pub fn ccacorrcnt(&mut self) -> _CCACORRCNTW {
-        _CCACORRCNTW { w: self }
+    #[inline(always)]
+    pub fn ccacorrcnt(&mut self) -> CCACORRCNT_W {
+        CCACORRCNT_W { w: self }
     }
 }

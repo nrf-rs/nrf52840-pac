@@ -1,11 +1,11 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 2048usize],
     #[doc = "0x800 - Unspecified"]
     pub acl: [ACL; 8],
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct ACL {
     #[doc = "0x00 - Description cluster\\[n\\]: Configure the word-aligned start address of region n to protect"]
@@ -17,6 +17,6 @@ pub struct ACL {
     #[doc = "0x0c - Unspecified"]
     pub unused0: self::acl::UNUSED0,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod acl;

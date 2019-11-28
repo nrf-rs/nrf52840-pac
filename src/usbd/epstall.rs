@@ -1,175 +1,151 @@
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::EPSTALL {
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
+#[doc = "Writer for register EPSTALL"]
+pub type W = crate::W<u32, super::EPSTALL>;
+#[doc = "Register EPSTALL `reset()`'s with value 0"]
+impl crate::ResetValue for super::EPSTALL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Proxy"]
-pub struct _EPW<'a> {
+#[doc = "Write proxy for field `EP`"]
+pub struct EP_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPW<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> EP_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 7;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x07) | ((value as u32) & 0x07);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `IO`"]
-pub enum IOW {
-    #[doc = "Selects OUT endpoint"]
+#[doc = "Selects IN or OUT endpoint\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum IO_AW {
+    #[doc = "0: Selects OUT endpoint"]
     OUT,
-    #[doc = "Selects IN endpoint"]
+    #[doc = "1: Selects IN endpoint"]
     IN,
 }
-impl IOW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            IOW::OUT => false,
-            IOW::IN => true,
+impl From<IO_AW> for bool {
+    #[inline(always)]
+    fn from(variant: IO_AW) -> Self {
+        match variant {
+            IO_AW::OUT => false,
+            IO_AW::IN => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _IOW<'a> {
+#[doc = "Write proxy for field `IO`"]
+pub struct IO_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _IOW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: IOW) -> &'a mut W {
+impl<'a> IO_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: IO_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Selects OUT endpoint"]
-    #[inline]
+    #[inline(always)]
     pub fn out(self) -> &'a mut W {
-        self.variant(IOW::OUT)
+        self.variant(IO_AW::OUT)
     }
     #[doc = "Selects IN endpoint"]
-    #[inline]
+    #[inline(always)]
     pub fn in_(self) -> &'a mut W {
-        self.variant(IOW::IN)
+        self.variant(IO_AW::IN)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `STALL`"]
-pub enum STALLW {
-    #[doc = "Don't stall selected endpoint"]
+#[doc = "Stall selected endpoint\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum STALL_AW {
+    #[doc = "0: Don't stall selected endpoint"]
     UNSTALL,
-    #[doc = "Stall selected endpoint"]
+    #[doc = "1: Stall selected endpoint"]
     STALL,
 }
-impl STALLW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            STALLW::UNSTALL => false,
-            STALLW::STALL => true,
+impl From<STALL_AW> for bool {
+    #[inline(always)]
+    fn from(variant: STALL_AW) -> Self {
+        match variant {
+            STALL_AW::UNSTALL => false,
+            STALL_AW::STALL => true,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _STALLW<'a> {
+#[doc = "Write proxy for field `STALL`"]
+pub struct STALL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _STALLW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: STALLW) -> &'a mut W {
+impl<'a> STALL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: STALL_AW) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Don't stall selected endpoint"]
-    #[inline]
+    #[inline(always)]
     pub fn un_stall(self) -> &'a mut W {
-        self.variant(STALLW::UNSTALL)
+        self.variant(STALL_AW::UNSTALL)
     }
     #[doc = "Stall selected endpoint"]
-    #[inline]
+    #[inline(always)]
     pub fn stall(self) -> &'a mut W {
-        self.variant(STALLW::STALL)
+        self.variant(STALL_AW::STALL)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 8)) | (((value as u32) & 0x01) << 8);
         self.w
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:2 - Select endpoint number"]
-    #[inline]
-    pub fn ep(&mut self) -> _EPW {
-        _EPW { w: self }
+    #[inline(always)]
+    pub fn ep(&mut self) -> EP_W {
+        EP_W { w: self }
     }
     #[doc = "Bit 7 - Selects IN or OUT endpoint"]
-    #[inline]
-    pub fn io(&mut self) -> _IOW {
-        _IOW { w: self }
+    #[inline(always)]
+    pub fn io(&mut self) -> IO_W {
+        IO_W { w: self }
     }
     #[doc = "Bit 8 - Stall selected endpoint"]
-    #[inline]
-    pub fn stall(&mut self) -> _STALLW {
-        _STALLW { w: self }
+    #[inline(always)]
+    pub fn stall(&mut self) -> STALL_W {
+        STALL_W { w: self }
     }
 }

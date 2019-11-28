@@ -1,228 +1,112 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::CINSTRDAT1 {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register CINSTRDAT1"]
+pub type R = crate::R<u32, super::CINSTRDAT1>;
+#[doc = "Writer for register CINSTRDAT1"]
+pub type W = crate::W<u32, super::CINSTRDAT1>;
+#[doc = "Register CINSTRDAT1 `reset()`'s with value 0"]
+impl crate::ResetValue for super::CINSTRDAT1 {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = r" Value of the field"]
-pub struct BYTE4R {
-    bits: u8,
-}
-impl BYTE4R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BYTE5R {
-    bits: u8,
-}
-impl BYTE5R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BYTE6R {
-    bits: u8,
-}
-impl BYTE6R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Value of the field"]
-pub struct BYTE7R {
-    bits: u8,
-}
-impl BYTE7R {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
-#[doc = r" Proxy"]
-pub struct _BYTE4W<'a> {
+#[doc = "Reader of field `BYTE4`"]
+pub type BYTE4_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `BYTE4`"]
+pub struct BYTE4_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BYTE4W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> BYTE4_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BYTE5W<'a> {
+#[doc = "Reader of field `BYTE5`"]
+pub type BYTE5_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `BYTE5`"]
+pub struct BYTE5_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BYTE5W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> BYTE5_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BYTE6W<'a> {
+#[doc = "Reader of field `BYTE6`"]
+pub type BYTE6_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `BYTE6`"]
+pub struct BYTE6_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BYTE6W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> BYTE6_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 16;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 16)) | (((value as u32) & 0xff) << 16);
         self.w
     }
 }
-#[doc = r" Proxy"]
-pub struct _BYTE7W<'a> {
+#[doc = "Reader of field `BYTE7`"]
+pub type BYTE7_R = crate::R<u8, u8>;
+#[doc = "Write proxy for field `BYTE7`"]
+pub struct BYTE7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _BYTE7W<'a> {
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+impl<'a> BYTE7_W<'a> {
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 24;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 24)) | (((value as u32) & 0xff) << 24);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Data byte 4"]
-    #[inline]
-    pub fn byte4(&self) -> BYTE4R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BYTE4R { bits }
+    #[inline(always)]
+    pub fn byte4(&self) -> BYTE4_R {
+        BYTE4_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Data byte 5"]
-    #[inline]
-    pub fn byte5(&self) -> BYTE5R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BYTE5R { bits }
+    #[inline(always)]
+    pub fn byte5(&self) -> BYTE5_R {
+        BYTE5_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - Data byte 6"]
-    #[inline]
-    pub fn byte6(&self) -> BYTE6R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 16;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BYTE6R { bits }
+    #[inline(always)]
+    pub fn byte6(&self) -> BYTE6_R {
+        BYTE6_R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - Data byte 7"]
-    #[inline]
-    pub fn byte7(&self) -> BYTE7R {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        BYTE7R { bits }
+    #[inline(always)]
+    pub fn byte7(&self) -> BYTE7_R {
+        BYTE7_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - Data byte 4"]
-    #[inline]
-    pub fn byte4(&mut self) -> _BYTE4W {
-        _BYTE4W { w: self }
+    #[inline(always)]
+    pub fn byte4(&mut self) -> BYTE4_W {
+        BYTE4_W { w: self }
     }
     #[doc = "Bits 8:15 - Data byte 5"]
-    #[inline]
-    pub fn byte5(&mut self) -> _BYTE5W {
-        _BYTE5W { w: self }
+    #[inline(always)]
+    pub fn byte5(&mut self) -> BYTE5_W {
+        BYTE5_W { w: self }
     }
     #[doc = "Bits 16:23 - Data byte 6"]
-    #[inline]
-    pub fn byte6(&mut self) -> _BYTE6W {
-        _BYTE6W { w: self }
+    #[inline(always)]
+    pub fn byte6(&mut self) -> BYTE6_W {
+        BYTE6_W { w: self }
     }
     #[doc = "Bits 24:31 - Data byte 7"]
-    #[inline]
-    pub fn byte7(&mut self) -> _BYTE7W {
-        _BYTE7W { w: self }
+    #[inline(always)]
+    pub fn byte7(&mut self) -> BYTE7_W {
+        BYTE7_W { w: self }
     }
 }

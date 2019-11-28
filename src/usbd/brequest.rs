@@ -1,151 +1,131 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::BREQUEST {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `BREQUEST`"]
+#[doc = "Reader of register BREQUEST"]
+pub type R = crate::R<u32, super::BREQUEST>;
+#[doc = "SETUP data, byte 1, bRequest. Values provided for standard requests only, user must implement class and vendor values.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum BREQUESTR {
-    #[doc = "Standard request GET_STATUS"]
+pub enum BREQUEST_A {
+    #[doc = "0: Standard request GET_STATUS"]
     STD_GET_STATUS,
-    #[doc = "Standard request CLEAR_FEATURE"]
+    #[doc = "1: Standard request CLEAR_FEATURE"]
     STD_CLEAR_FEATURE,
-    #[doc = "Standard request SET_FEATURE"]
+    #[doc = "3: Standard request SET_FEATURE"]
     STD_SET_FEATURE,
-    #[doc = "Standard request SET_ADDRESS"]
+    #[doc = "5: Standard request SET_ADDRESS"]
     STD_SET_ADDRESS,
-    #[doc = "Standard request GET_DESCRIPTOR"]
+    #[doc = "6: Standard request GET_DESCRIPTOR"]
     STD_GET_DESCRIPTOR,
-    #[doc = "Standard request SET_DESCRIPTOR"]
+    #[doc = "7: Standard request SET_DESCRIPTOR"]
     STD_SET_DESCRIPTOR,
-    #[doc = "Standard request GET_CONFIGURATION"]
+    #[doc = "8: Standard request GET_CONFIGURATION"]
     STD_GET_CONFIGURATION,
-    #[doc = "Standard request SET_CONFIGURATION"]
+    #[doc = "9: Standard request SET_CONFIGURATION"]
     STD_SET_CONFIGURATION,
-    #[doc = "Standard request GET_INTERFACE"]
+    #[doc = "10: Standard request GET_INTERFACE"]
     STD_GET_INTERFACE,
-    #[doc = "Standard request SET_INTERFACE"]
+    #[doc = "11: Standard request SET_INTERFACE"]
     STD_SET_INTERFACE,
-    #[doc = "Standard request SYNCH_FRAME"]
+    #[doc = "12: Standard request SYNCH_FRAME"]
     STD_SYNCH_FRAME,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl BREQUESTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            BREQUESTR::STD_GET_STATUS => 0,
-            BREQUESTR::STD_CLEAR_FEATURE => 1,
-            BREQUESTR::STD_SET_FEATURE => 3,
-            BREQUESTR::STD_SET_ADDRESS => 5,
-            BREQUESTR::STD_GET_DESCRIPTOR => 6,
-            BREQUESTR::STD_SET_DESCRIPTOR => 7,
-            BREQUESTR::STD_GET_CONFIGURATION => 8,
-            BREQUESTR::STD_SET_CONFIGURATION => 9,
-            BREQUESTR::STD_GET_INTERFACE => 10,
-            BREQUESTR::STD_SET_INTERFACE => 11,
-            BREQUESTR::STD_SYNCH_FRAME => 12,
-            BREQUESTR::_Reserved(bits) => bits,
+impl From<BREQUEST_A> for u8 {
+    #[inline(always)]
+    fn from(variant: BREQUEST_A) -> Self {
+        match variant {
+            BREQUEST_A::STD_GET_STATUS => 0,
+            BREQUEST_A::STD_CLEAR_FEATURE => 1,
+            BREQUEST_A::STD_SET_FEATURE => 3,
+            BREQUEST_A::STD_SET_ADDRESS => 5,
+            BREQUEST_A::STD_GET_DESCRIPTOR => 6,
+            BREQUEST_A::STD_SET_DESCRIPTOR => 7,
+            BREQUEST_A::STD_GET_CONFIGURATION => 8,
+            BREQUEST_A::STD_SET_CONFIGURATION => 9,
+            BREQUEST_A::STD_GET_INTERFACE => 10,
+            BREQUEST_A::STD_SET_INTERFACE => 11,
+            BREQUEST_A::STD_SYNCH_FRAME => 12,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> BREQUESTR {
-        match value {
-            0 => BREQUESTR::STD_GET_STATUS,
-            1 => BREQUESTR::STD_CLEAR_FEATURE,
-            3 => BREQUESTR::STD_SET_FEATURE,
-            5 => BREQUESTR::STD_SET_ADDRESS,
-            6 => BREQUESTR::STD_GET_DESCRIPTOR,
-            7 => BREQUESTR::STD_SET_DESCRIPTOR,
-            8 => BREQUESTR::STD_GET_CONFIGURATION,
-            9 => BREQUESTR::STD_SET_CONFIGURATION,
-            10 => BREQUESTR::STD_GET_INTERFACE,
-            11 => BREQUESTR::STD_SET_INTERFACE,
-            12 => BREQUESTR::STD_SYNCH_FRAME,
-            i => BREQUESTR::_Reserved(i),
+}
+#[doc = "Reader of field `BREQUEST`"]
+pub type BREQUEST_R = crate::R<u8, BREQUEST_A>;
+impl BREQUEST_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, BREQUEST_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(BREQUEST_A::STD_GET_STATUS),
+            1 => Val(BREQUEST_A::STD_CLEAR_FEATURE),
+            3 => Val(BREQUEST_A::STD_SET_FEATURE),
+            5 => Val(BREQUEST_A::STD_SET_ADDRESS),
+            6 => Val(BREQUEST_A::STD_GET_DESCRIPTOR),
+            7 => Val(BREQUEST_A::STD_SET_DESCRIPTOR),
+            8 => Val(BREQUEST_A::STD_GET_CONFIGURATION),
+            9 => Val(BREQUEST_A::STD_SET_CONFIGURATION),
+            10 => Val(BREQUEST_A::STD_GET_INTERFACE),
+            11 => Val(BREQUEST_A::STD_SET_INTERFACE),
+            12 => Val(BREQUEST_A::STD_SYNCH_FRAME),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `STD_GET_STATUS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_get_status(&self) -> bool {
-        *self == BREQUESTR::STD_GET_STATUS
+        *self == BREQUEST_A::STD_GET_STATUS
     }
     #[doc = "Checks if the value of the field is `STD_CLEAR_FEATURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_clear_feature(&self) -> bool {
-        *self == BREQUESTR::STD_CLEAR_FEATURE
+        *self == BREQUEST_A::STD_CLEAR_FEATURE
     }
     #[doc = "Checks if the value of the field is `STD_SET_FEATURE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_set_feature(&self) -> bool {
-        *self == BREQUESTR::STD_SET_FEATURE
+        *self == BREQUEST_A::STD_SET_FEATURE
     }
     #[doc = "Checks if the value of the field is `STD_SET_ADDRESS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_set_address(&self) -> bool {
-        *self == BREQUESTR::STD_SET_ADDRESS
+        *self == BREQUEST_A::STD_SET_ADDRESS
     }
     #[doc = "Checks if the value of the field is `STD_GET_DESCRIPTOR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_get_descriptor(&self) -> bool {
-        *self == BREQUESTR::STD_GET_DESCRIPTOR
+        *self == BREQUEST_A::STD_GET_DESCRIPTOR
     }
     #[doc = "Checks if the value of the field is `STD_SET_DESCRIPTOR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_set_descriptor(&self) -> bool {
-        *self == BREQUESTR::STD_SET_DESCRIPTOR
+        *self == BREQUEST_A::STD_SET_DESCRIPTOR
     }
     #[doc = "Checks if the value of the field is `STD_GET_CONFIGURATION`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_get_configuration(&self) -> bool {
-        *self == BREQUESTR::STD_GET_CONFIGURATION
+        *self == BREQUEST_A::STD_GET_CONFIGURATION
     }
     #[doc = "Checks if the value of the field is `STD_SET_CONFIGURATION`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_set_configuration(&self) -> bool {
-        *self == BREQUESTR::STD_SET_CONFIGURATION
+        *self == BREQUEST_A::STD_SET_CONFIGURATION
     }
     #[doc = "Checks if the value of the field is `STD_GET_INTERFACE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_get_interface(&self) -> bool {
-        *self == BREQUESTR::STD_GET_INTERFACE
+        *self == BREQUEST_A::STD_GET_INTERFACE
     }
     #[doc = "Checks if the value of the field is `STD_SET_INTERFACE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_set_interface(&self) -> bool {
-        *self == BREQUESTR::STD_SET_INTERFACE
+        *self == BREQUEST_A::STD_SET_INTERFACE
     }
     #[doc = "Checks if the value of the field is `STD_SYNCH_FRAME`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_std_synch_frame(&self) -> bool {
-        *self == BREQUESTR::STD_SYNCH_FRAME
+        *self == BREQUEST_A::STD_SYNCH_FRAME
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - SETUP data, byte 1, bRequest. Values provided for standard requests only, user must implement class and vendor values."]
-    #[inline]
-    pub fn brequest(&self) -> BREQUESTR {
-        BREQUESTR::_from({
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn brequest(&self) -> BREQUEST_R {
+        BREQUEST_R::new((self.bits & 0xff) as u8)
     }
 }

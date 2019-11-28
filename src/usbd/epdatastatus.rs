@@ -1,1730 +1,1248 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::EPDATASTATUS {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register EPDATASTATUS"]
+pub type R = crate::R<u32, super::EPDATASTATUS>;
+#[doc = "Writer for register EPDATASTATUS"]
+pub type W = crate::W<u32, super::EPDATASTATUS>;
+#[doc = "Register EPDATASTATUS `reset()`'s with value 0"]
+impl crate::ResetValue for super::EPDATASTATUS {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `EPIN1`"]
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN1R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
+pub enum EPIN1_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
     NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
     DATADONE,
 }
-impl EPIN1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN1R::NOTDONE => false,
-            EPIN1R::DATADONE => true,
+impl From<EPIN1_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN1_A) -> Self {
+        match variant {
+            EPIN1_A::NOTDONE => false,
+            EPIN1_A::DATADONE => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN1R {
-        match value {
-            false => EPIN1R::NOTDONE,
-            true => EPIN1R::DATADONE,
+}
+#[doc = "Reader of field `EPIN1`"]
+pub type EPIN1_R = crate::R<bool, EPIN1_A>;
+impl EPIN1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN1_A {
+        match self.bits {
+            false => EPIN1_A::NOTDONE,
+            true => EPIN1_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN1R::NOTDONE
+        *self == EPIN1_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN1R::DATADONE
+        *self == EPIN1_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN2R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN1`"]
+pub struct EPIN1_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN2R::NOTDONE => false,
-            EPIN2R::DATADONE => true,
+impl<'a> EPIN1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN2R {
-        match value {
-            false => EPIN2R::NOTDONE,
-            true => EPIN2R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN1_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN1_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 1)) | (((value as u32) & 0x01) << 1);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN2_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN2_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN2_A) -> Self {
+        match variant {
+            EPIN2_A::NOTDONE => false,
+            EPIN2_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN2`"]
+pub type EPIN2_R = crate::R<bool, EPIN2_A>;
+impl EPIN2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN2_A {
+        match self.bits {
+            false => EPIN2_A::NOTDONE,
+            true => EPIN2_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN2R::NOTDONE
+        *self == EPIN2_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN2R::DATADONE
+        *self == EPIN2_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN3R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN2`"]
+pub struct EPIN2_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN3R::NOTDONE => false,
-            EPIN3R::DATADONE => true,
+impl<'a> EPIN2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN3R {
-        match value {
-            false => EPIN3R::NOTDONE,
-            true => EPIN3R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN2_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN2_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 2)) | (((value as u32) & 0x01) << 2);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN3_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN3_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN3_A) -> Self {
+        match variant {
+            EPIN3_A::NOTDONE => false,
+            EPIN3_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN3`"]
+pub type EPIN3_R = crate::R<bool, EPIN3_A>;
+impl EPIN3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN3_A {
+        match self.bits {
+            false => EPIN3_A::NOTDONE,
+            true => EPIN3_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN3R::NOTDONE
+        *self == EPIN3_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN3R::DATADONE
+        *self == EPIN3_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN4R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN3`"]
+pub struct EPIN3_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN4R::NOTDONE => false,
-            EPIN4R::DATADONE => true,
+impl<'a> EPIN3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN4R {
-        match value {
-            false => EPIN4R::NOTDONE,
-            true => EPIN4R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN3_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN3_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | (((value as u32) & 0x01) << 3);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN4_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN4_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN4_A) -> Self {
+        match variant {
+            EPIN4_A::NOTDONE => false,
+            EPIN4_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN4`"]
+pub type EPIN4_R = crate::R<bool, EPIN4_A>;
+impl EPIN4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN4_A {
+        match self.bits {
+            false => EPIN4_A::NOTDONE,
+            true => EPIN4_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN4R::NOTDONE
+        *self == EPIN4_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN4R::DATADONE
+        *self == EPIN4_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN5R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN4`"]
+pub struct EPIN4_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN5R::NOTDONE => false,
-            EPIN5R::DATADONE => true,
+impl<'a> EPIN4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN5R {
-        match value {
-            false => EPIN5R::NOTDONE,
-            true => EPIN5R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN4_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN4_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 4)) | (((value as u32) & 0x01) << 4);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN5_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN5_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN5_A) -> Self {
+        match variant {
+            EPIN5_A::NOTDONE => false,
+            EPIN5_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN5`"]
+pub type EPIN5_R = crate::R<bool, EPIN5_A>;
+impl EPIN5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN5_A {
+        match self.bits {
+            false => EPIN5_A::NOTDONE,
+            true => EPIN5_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN5R::NOTDONE
+        *self == EPIN5_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN5R::DATADONE
+        *self == EPIN5_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN6R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN5`"]
+pub struct EPIN5_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN6R::NOTDONE => false,
-            EPIN6R::DATADONE => true,
+impl<'a> EPIN5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN6R {
-        match value {
-            false => EPIN6R::NOTDONE,
-            true => EPIN6R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN5_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN5_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 5)) | (((value as u32) & 0x01) << 5);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN6_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN6_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN6_A) -> Self {
+        match variant {
+            EPIN6_A::NOTDONE => false,
+            EPIN6_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN6`"]
+pub type EPIN6_R = crate::R<bool, EPIN6_A>;
+impl EPIN6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN6_A {
+        match self.bits {
+            false => EPIN6_A::NOTDONE,
+            true => EPIN6_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN6R::NOTDONE
+        *self == EPIN6_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN6R::DATADONE
+        *self == EPIN6_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPIN7`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPIN7R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
+#[doc = "Write proxy for field `EPIN6`"]
+pub struct EPIN6_W<'a> {
+    w: &'a mut W,
 }
-impl EPIN7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPIN7R::NOTDONE => false,
-            EPIN7R::DATADONE => true,
+impl<'a> EPIN6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN6_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPIN7R {
-        match value {
-            false => EPIN7R::NOTDONE,
-            true => EPIN7R::DATADONE,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN6_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN6_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 6)) | (((value as u32) & 0x01) << 6);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this IN endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPIN7_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTDONE,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    DATADONE,
+}
+impl From<EPIN7_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPIN7_A) -> Self {
+        match variant {
+            EPIN7_A::NOTDONE => false,
+            EPIN7_A::DATADONE => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPIN7`"]
+pub type EPIN7_R = crate::R<bool, EPIN7_A>;
+impl EPIN7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPIN7_A {
+        match self.bits {
+            false => EPIN7_A::NOTDONE,
+            true => EPIN7_A::DATADONE,
         }
     }
     #[doc = "Checks if the value of the field is `NOTDONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_done(&self) -> bool {
-        *self == EPIN7R::NOTDONE
+        *self == EPIN7_A::NOTDONE
     }
     #[doc = "Checks if the value of the field is `DATADONE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_data_done(&self) -> bool {
-        *self == EPIN7R::DATADONE
+        *self == EPIN7_A::DATADONE
     }
 }
-#[doc = "Possible values of the field `EPOUT1`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT1R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPIN7`"]
+pub struct EPIN7_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT1R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT1R::NOTSTARTED => false,
-            EPOUT1R::STARTED => true,
+impl<'a> EPIN7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPIN7_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT1R {
-        match value {
-            false => EPOUT1R::NOTSTARTED,
-            true => EPOUT1R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_done(self) -> &'a mut W {
+        self.variant(EPIN7_A::NOTDONE)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn data_done(self) -> &'a mut W {
+        self.variant(EPIN7_A::DATADONE)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 7)) | (((value as u32) & 0x01) << 7);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT1_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT1_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT1_A) -> Self {
+        match variant {
+            EPOUT1_A::NOTSTARTED => false,
+            EPOUT1_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT1`"]
+pub type EPOUT1_R = crate::R<bool, EPOUT1_A>;
+impl EPOUT1_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT1_A {
+        match self.bits {
+            false => EPOUT1_A::NOTSTARTED,
+            true => EPOUT1_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT1R::NOTSTARTED
+        *self == EPOUT1_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT1R::STARTED
+        *self == EPOUT1_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT2`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT2R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT1`"]
+pub struct EPOUT1_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT2R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT2R::NOTSTARTED => false,
-            EPOUT2R::STARTED => true,
+impl<'a> EPOUT1_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT1_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT2R {
-        match value {
-            false => EPOUT2R::NOTSTARTED,
-            true => EPOUT2R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT1_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT1_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 17)) | (((value as u32) & 0x01) << 17);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT2_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT2_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT2_A) -> Self {
+        match variant {
+            EPOUT2_A::NOTSTARTED => false,
+            EPOUT2_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT2`"]
+pub type EPOUT2_R = crate::R<bool, EPOUT2_A>;
+impl EPOUT2_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT2_A {
+        match self.bits {
+            false => EPOUT2_A::NOTSTARTED,
+            true => EPOUT2_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT2R::NOTSTARTED
+        *self == EPOUT2_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT2R::STARTED
+        *self == EPOUT2_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT3`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT3R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT2`"]
+pub struct EPOUT2_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT3R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT3R::NOTSTARTED => false,
-            EPOUT3R::STARTED => true,
+impl<'a> EPOUT2_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT2_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT3R {
-        match value {
-            false => EPOUT3R::NOTSTARTED,
-            true => EPOUT3R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT2_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT2_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 18)) | (((value as u32) & 0x01) << 18);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT3_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT3_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT3_A) -> Self {
+        match variant {
+            EPOUT3_A::NOTSTARTED => false,
+            EPOUT3_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT3`"]
+pub type EPOUT3_R = crate::R<bool, EPOUT3_A>;
+impl EPOUT3_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT3_A {
+        match self.bits {
+            false => EPOUT3_A::NOTSTARTED,
+            true => EPOUT3_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT3R::NOTSTARTED
+        *self == EPOUT3_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT3R::STARTED
+        *self == EPOUT3_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT4`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT4R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT3`"]
+pub struct EPOUT3_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT4R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT4R::NOTSTARTED => false,
-            EPOUT4R::STARTED => true,
+impl<'a> EPOUT3_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT3_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT4R {
-        match value {
-            false => EPOUT4R::NOTSTARTED,
-            true => EPOUT4R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT3_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT3_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 19)) | (((value as u32) & 0x01) << 19);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT4_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT4_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT4_A) -> Self {
+        match variant {
+            EPOUT4_A::NOTSTARTED => false,
+            EPOUT4_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT4`"]
+pub type EPOUT4_R = crate::R<bool, EPOUT4_A>;
+impl EPOUT4_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT4_A {
+        match self.bits {
+            false => EPOUT4_A::NOTSTARTED,
+            true => EPOUT4_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT4R::NOTSTARTED
+        *self == EPOUT4_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT4R::STARTED
+        *self == EPOUT4_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT5`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT5R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT4`"]
+pub struct EPOUT4_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT5R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT5R::NOTSTARTED => false,
-            EPOUT5R::STARTED => true,
+impl<'a> EPOUT4_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT4_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT5R {
-        match value {
-            false => EPOUT5R::NOTSTARTED,
-            true => EPOUT5R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT4_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT4_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 20)) | (((value as u32) & 0x01) << 20);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT5_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT5_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT5_A) -> Self {
+        match variant {
+            EPOUT5_A::NOTSTARTED => false,
+            EPOUT5_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT5`"]
+pub type EPOUT5_R = crate::R<bool, EPOUT5_A>;
+impl EPOUT5_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT5_A {
+        match self.bits {
+            false => EPOUT5_A::NOTSTARTED,
+            true => EPOUT5_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT5R::NOTSTARTED
+        *self == EPOUT5_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT5R::STARTED
+        *self == EPOUT5_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT6`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT6R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT5`"]
+pub struct EPOUT5_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT6R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT6R::NOTSTARTED => false,
-            EPOUT6R::STARTED => true,
+impl<'a> EPOUT5_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT5_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT6R {
-        match value {
-            false => EPOUT6R::NOTSTARTED,
-            true => EPOUT6R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT5_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT5_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 21)) | (((value as u32) & 0x01) << 21);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT6_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT6_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT6_A) -> Self {
+        match variant {
+            EPOUT6_A::NOTSTARTED => false,
+            EPOUT6_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT6`"]
+pub type EPOUT6_R = crate::R<bool, EPOUT6_A>;
+impl EPOUT6_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT6_A {
+        match self.bits {
+            false => EPOUT6_A::NOTSTARTED,
+            true => EPOUT6_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT6R::NOTSTARTED
+        *self == EPOUT6_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT6R::STARTED
+        *self == EPOUT6_A::STARTED
     }
 }
-#[doc = "Possible values of the field `EPOUT7`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum EPOUT7R {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
+#[doc = "Write proxy for field `EPOUT6`"]
+pub struct EPOUT6_W<'a> {
+    w: &'a mut W,
 }
-impl EPOUT7R {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            EPOUT7R::NOTSTARTED => false,
-            EPOUT7R::STARTED => true,
+impl<'a> EPOUT6_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT6_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> EPOUT7R {
-        match value {
-            false => EPOUT7R::NOTSTARTED,
-            true => EPOUT7R::STARTED,
+    #[doc = "No acknowledged data transfer on this endpoint"]
+    #[inline(always)]
+    pub fn not_started(self) -> &'a mut W {
+        self.variant(EPOUT6_A::NOTSTARTED)
+    }
+    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
+    #[inline(always)]
+    pub fn started(self) -> &'a mut W {
+        self.variant(EPOUT6_A::STARTED)
+    }
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 22)) | (((value as u32) & 0x01) << 22);
+        self.w
+    }
+}
+#[doc = "Acknowledged data transfer on this OUT endpoint. Write '1' to clear.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EPOUT7_A {
+    #[doc = "0: No acknowledged data transfer on this endpoint"]
+    NOTSTARTED,
+    #[doc = "1: Acknowledged data transfer on this endpoint has occurred"]
+    STARTED,
+}
+impl From<EPOUT7_A> for bool {
+    #[inline(always)]
+    fn from(variant: EPOUT7_A) -> Self {
+        match variant {
+            EPOUT7_A::NOTSTARTED => false,
+            EPOUT7_A::STARTED => true,
+        }
+    }
+}
+#[doc = "Reader of field `EPOUT7`"]
+pub type EPOUT7_R = crate::R<bool, EPOUT7_A>;
+impl EPOUT7_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EPOUT7_A {
+        match self.bits {
+            false => EPOUT7_A::NOTSTARTED,
+            true => EPOUT7_A::STARTED,
         }
     }
     #[doc = "Checks if the value of the field is `NOTSTARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_started(&self) -> bool {
-        *self == EPOUT7R::NOTSTARTED
+        *self == EPOUT7_A::NOTSTARTED
     }
     #[doc = "Checks if the value of the field is `STARTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_started(&self) -> bool {
-        *self == EPOUT7R::STARTED
+        *self == EPOUT7_A::STARTED
     }
 }
-#[doc = "Values that can be written to the field `EPIN1`"]
-pub enum EPIN1W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN1W::NOTDONE => false,
-            EPIN1W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN1W<'a> {
+#[doc = "Write proxy for field `EPOUT7`"]
+pub struct EPOUT7_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _EPIN1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN1W) -> &'a mut W {
+impl<'a> EPOUT7_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EPOUT7_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN1W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN1W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 1;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN2`"]
-pub enum EPIN2W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN2W::NOTDONE => false,
-            EPIN2W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN2W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN2W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN2W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 2;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN3`"]
-pub enum EPIN3W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN3W::NOTDONE => false,
-            EPIN3W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN3W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN3W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 3;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN4`"]
-pub enum EPIN4W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN4W::NOTDONE => false,
-            EPIN4W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN4W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN4W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 4;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN5`"]
-pub enum EPIN5W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN5W::NOTDONE => false,
-            EPIN5W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN5W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN5W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 5;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN6`"]
-pub enum EPIN6W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN6W::NOTDONE => false,
-            EPIN6W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN6W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN6W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 6;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPIN7`"]
-pub enum EPIN7W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTDONE,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    DATADONE,
-}
-impl EPIN7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPIN7W::NOTDONE => false,
-            EPIN7W::DATADONE => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPIN7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPIN7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPIN7W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_done(self) -> &'a mut W {
-        self.variant(EPIN7W::NOTDONE)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn data_done(self) -> &'a mut W {
-        self.variant(EPIN7W::DATADONE)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 7;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT1`"]
-pub enum EPOUT1W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT1W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT1W::NOTSTARTED => false,
-            EPOUT1W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT1W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT1W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT1W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
+    #[inline(always)]
     pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT1W::NOTSTARTED)
+        self.variant(EPOUT7_A::NOTSTARTED)
     }
     #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
+    #[inline(always)]
     pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT1W::STARTED)
+        self.variant(EPOUT7_A::STARTED)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 17;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT2`"]
-pub enum EPOUT2W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT2W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT2W::NOTSTARTED => false,
-            EPOUT2W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT2W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT2W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT2W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT2W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT2W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 18;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT3`"]
-pub enum EPOUT3W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT3W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT3W::NOTSTARTED => false,
-            EPOUT3W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT3W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT3W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT3W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT3W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT3W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 19;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT4`"]
-pub enum EPOUT4W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT4W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT4W::NOTSTARTED => false,
-            EPOUT4W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT4W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT4W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT4W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT4W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT4W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 20;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT5`"]
-pub enum EPOUT5W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT5W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT5W::NOTSTARTED => false,
-            EPOUT5W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT5W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT5W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT5W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT5W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT5W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 21;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT6`"]
-pub enum EPOUT6W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT6W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT6W::NOTSTARTED => false,
-            EPOUT6W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT6W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT6W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT6W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT6W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT6W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 22;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
-        self.w
-    }
-}
-#[doc = "Values that can be written to the field `EPOUT7`"]
-pub enum EPOUT7W {
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    NOTSTARTED,
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    STARTED,
-}
-impl EPOUT7W {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            EPOUT7W::NOTSTARTED => false,
-            EPOUT7W::STARTED => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _EPOUT7W<'a> {
-    w: &'a mut W,
-}
-impl<'a> _EPOUT7W<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: EPOUT7W) -> &'a mut W {
-        {
-            self.bit(variant._bits())
-        }
-    }
-    #[doc = "No acknowledged data transfer on this endpoint"]
-    #[inline]
-    pub fn not_started(self) -> &'a mut W {
-        self.variant(EPOUT7W::NOTSTARTED)
-    }
-    #[doc = "Acknowledged data transfer on this endpoint has occurred"]
-    #[inline]
-    pub fn started(self) -> &'a mut W {
-        self.variant(EPOUT7W::STARTED)
-    }
-    #[doc = r" Sets the field bit"]
-    pub fn set_bit(self) -> &'a mut W {
-        self.bit(true)
-    }
-    #[doc = r" Clears the field bit"]
-    pub fn clear_bit(self) -> &'a mut W {
-        self.bit(false)
-    }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
-    pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 23;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0x01 << 23)) | (((value as u32) & 0x01) << 23);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 1 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin1(&self) -> EPIN1R {
-        EPIN1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin1(&self) -> EPIN1_R {
+        EPIN1_R::new(((self.bits >> 1) & 0x01) != 0)
     }
     #[doc = "Bit 2 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin2(&self) -> EPIN2R {
-        EPIN2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin2(&self) -> EPIN2_R {
+        EPIN2_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin3(&self) -> EPIN3R {
-        EPIN3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin3(&self) -> EPIN3_R {
+        EPIN3_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bit 4 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin4(&self) -> EPIN4R {
-        EPIN4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 4;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin4(&self) -> EPIN4_R {
+        EPIN4_R::new(((self.bits >> 4) & 0x01) != 0)
     }
     #[doc = "Bit 5 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin5(&self) -> EPIN5R {
-        EPIN5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin5(&self) -> EPIN5_R {
+        EPIN5_R::new(((self.bits >> 5) & 0x01) != 0)
     }
     #[doc = "Bit 6 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin6(&self) -> EPIN6R {
-        EPIN6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 6;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin6(&self) -> EPIN6_R {
+        EPIN6_R::new(((self.bits >> 6) & 0x01) != 0)
     }
     #[doc = "Bit 7 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin7(&self) -> EPIN7R {
-        EPIN7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epin7(&self) -> EPIN7_R {
+        EPIN7_R::new(((self.bits >> 7) & 0x01) != 0)
     }
     #[doc = "Bit 17 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout1(&self) -> EPOUT1R {
-        EPOUT1R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 17;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout1(&self) -> EPOUT1_R {
+        EPOUT1_R::new(((self.bits >> 17) & 0x01) != 0)
     }
     #[doc = "Bit 18 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout2(&self) -> EPOUT2R {
-        EPOUT2R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 18;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout2(&self) -> EPOUT2_R {
+        EPOUT2_R::new(((self.bits >> 18) & 0x01) != 0)
     }
     #[doc = "Bit 19 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout3(&self) -> EPOUT3R {
-        EPOUT3R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 19;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout3(&self) -> EPOUT3_R {
+        EPOUT3_R::new(((self.bits >> 19) & 0x01) != 0)
     }
     #[doc = "Bit 20 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout4(&self) -> EPOUT4R {
-        EPOUT4R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 20;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout4(&self) -> EPOUT4_R {
+        EPOUT4_R::new(((self.bits >> 20) & 0x01) != 0)
     }
     #[doc = "Bit 21 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout5(&self) -> EPOUT5R {
-        EPOUT5R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 21;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout5(&self) -> EPOUT5_R {
+        EPOUT5_R::new(((self.bits >> 21) & 0x01) != 0)
     }
     #[doc = "Bit 22 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout6(&self) -> EPOUT6R {
-        EPOUT6R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 22;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout6(&self) -> EPOUT6_R {
+        EPOUT6_R::new(((self.bits >> 22) & 0x01) != 0)
     }
     #[doc = "Bit 23 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout7(&self) -> EPOUT7R {
-        EPOUT7R::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 23;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn epout7(&self) -> EPOUT7_R {
+        EPOUT7_R::new(((self.bits >> 23) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 1 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin1(&mut self) -> _EPIN1W {
-        _EPIN1W { w: self }
+    #[inline(always)]
+    pub fn epin1(&mut self) -> EPIN1_W {
+        EPIN1_W { w: self }
     }
     #[doc = "Bit 2 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin2(&mut self) -> _EPIN2W {
-        _EPIN2W { w: self }
+    #[inline(always)]
+    pub fn epin2(&mut self) -> EPIN2_W {
+        EPIN2_W { w: self }
     }
     #[doc = "Bit 3 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin3(&mut self) -> _EPIN3W {
-        _EPIN3W { w: self }
+    #[inline(always)]
+    pub fn epin3(&mut self) -> EPIN3_W {
+        EPIN3_W { w: self }
     }
     #[doc = "Bit 4 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin4(&mut self) -> _EPIN4W {
-        _EPIN4W { w: self }
+    #[inline(always)]
+    pub fn epin4(&mut self) -> EPIN4_W {
+        EPIN4_W { w: self }
     }
     #[doc = "Bit 5 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin5(&mut self) -> _EPIN5W {
-        _EPIN5W { w: self }
+    #[inline(always)]
+    pub fn epin5(&mut self) -> EPIN5_W {
+        EPIN5_W { w: self }
     }
     #[doc = "Bit 6 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin6(&mut self) -> _EPIN6W {
-        _EPIN6W { w: self }
+    #[inline(always)]
+    pub fn epin6(&mut self) -> EPIN6_W {
+        EPIN6_W { w: self }
     }
     #[doc = "Bit 7 - Acknowledged data transfer on this IN endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epin7(&mut self) -> _EPIN7W {
-        _EPIN7W { w: self }
+    #[inline(always)]
+    pub fn epin7(&mut self) -> EPIN7_W {
+        EPIN7_W { w: self }
     }
     #[doc = "Bit 17 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout1(&mut self) -> _EPOUT1W {
-        _EPOUT1W { w: self }
+    #[inline(always)]
+    pub fn epout1(&mut self) -> EPOUT1_W {
+        EPOUT1_W { w: self }
     }
     #[doc = "Bit 18 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout2(&mut self) -> _EPOUT2W {
-        _EPOUT2W { w: self }
+    #[inline(always)]
+    pub fn epout2(&mut self) -> EPOUT2_W {
+        EPOUT2_W { w: self }
     }
     #[doc = "Bit 19 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout3(&mut self) -> _EPOUT3W {
-        _EPOUT3W { w: self }
+    #[inline(always)]
+    pub fn epout3(&mut self) -> EPOUT3_W {
+        EPOUT3_W { w: self }
     }
     #[doc = "Bit 20 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout4(&mut self) -> _EPOUT4W {
-        _EPOUT4W { w: self }
+    #[inline(always)]
+    pub fn epout4(&mut self) -> EPOUT4_W {
+        EPOUT4_W { w: self }
     }
     #[doc = "Bit 21 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout5(&mut self) -> _EPOUT5W {
-        _EPOUT5W { w: self }
+    #[inline(always)]
+    pub fn epout5(&mut self) -> EPOUT5_W {
+        EPOUT5_W { w: self }
     }
     #[doc = "Bit 22 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout6(&mut self) -> _EPOUT6W {
-        _EPOUT6W { w: self }
+    #[inline(always)]
+    pub fn epout6(&mut self) -> EPOUT6_W {
+        EPOUT6_W { w: self }
     }
     #[doc = "Bit 23 - Acknowledged data transfer on this OUT endpoint. Write '1' to clear."]
-    #[inline]
-    pub fn epout7(&mut self) -> _EPOUT7W {
-        _EPOUT7W { w: self }
+    #[inline(always)]
+    pub fn epout7(&mut self) -> EPOUT7_W {
+        EPOUT7_W { w: self }
     }
 }

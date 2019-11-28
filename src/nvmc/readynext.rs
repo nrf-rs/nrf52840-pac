@@ -1,76 +1,48 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::READYNEXT {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `READYNEXT`"]
+#[doc = "Reader of register READYNEXT"]
+pub type R = crate::R<u32, super::READYNEXT>;
+#[doc = "NVMC can accept a new write operation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum READYNEXTR {
-    #[doc = "NVMC cannot accept any write operation"]
+pub enum READYNEXT_A {
+    #[doc = "0: NVMC cannot accept any write operation"]
     BUSY,
-    #[doc = "NVMC is ready"]
+    #[doc = "1: NVMC is ready"]
     READY,
 }
-impl READYNEXTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            READYNEXTR::BUSY => false,
-            READYNEXTR::READY => true,
+impl From<READYNEXT_A> for bool {
+    #[inline(always)]
+    fn from(variant: READYNEXT_A) -> Self {
+        match variant {
+            READYNEXT_A::BUSY => false,
+            READYNEXT_A::READY => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> READYNEXTR {
-        match value {
-            false => READYNEXTR::BUSY,
-            true => READYNEXTR::READY,
+}
+#[doc = "Reader of field `READYNEXT`"]
+pub type READYNEXT_R = crate::R<bool, READYNEXT_A>;
+impl READYNEXT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> READYNEXT_A {
+        match self.bits {
+            false => READYNEXT_A::BUSY,
+            true => READYNEXT_A::READY,
         }
     }
     #[doc = "Checks if the value of the field is `BUSY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_busy(&self) -> bool {
-        *self == READYNEXTR::BUSY
+        *self == READYNEXT_A::BUSY
     }
     #[doc = "Checks if the value of the field is `READY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ready(&self) -> bool {
-        *self == READYNEXTR::READY
+        *self == READYNEXT_A::READY
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - NVMC can accept a new write operation"]
-    #[inline]
-    pub fn readynext(&self) -> READYNEXTR {
-        READYNEXTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn readynext(&self) -> READYNEXT_R {
+        READYNEXT_R::new((self.bits & 0x01) != 0)
     }
 }

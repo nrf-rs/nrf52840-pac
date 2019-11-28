@@ -1,76 +1,48 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::MAINREGSTATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `MAINREGSTATUS`"]
+#[doc = "Reader of register MAINREGSTATUS"]
+pub type R = crate::R<u32, super::MAINREGSTATUS>;
+#[doc = "Main supply status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum MAINREGSTATUSR {
-    #[doc = "Normal voltage mode. Voltage supplied on VDD."]
+pub enum MAINREGSTATUS_A {
+    #[doc = "0: Normal voltage mode. Voltage supplied on VDD."]
     NORMAL,
-    #[doc = "High voltage mode. Voltage supplied on VDDH."]
+    #[doc = "1: High voltage mode. Voltage supplied on VDDH."]
     HIGH,
 }
-impl MAINREGSTATUSR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            MAINREGSTATUSR::NORMAL => false,
-            MAINREGSTATUSR::HIGH => true,
+impl From<MAINREGSTATUS_A> for bool {
+    #[inline(always)]
+    fn from(variant: MAINREGSTATUS_A) -> Self {
+        match variant {
+            MAINREGSTATUS_A::NORMAL => false,
+            MAINREGSTATUS_A::HIGH => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> MAINREGSTATUSR {
-        match value {
-            false => MAINREGSTATUSR::NORMAL,
-            true => MAINREGSTATUSR::HIGH,
+}
+#[doc = "Reader of field `MAINREGSTATUS`"]
+pub type MAINREGSTATUS_R = crate::R<bool, MAINREGSTATUS_A>;
+impl MAINREGSTATUS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> MAINREGSTATUS_A {
+        match self.bits {
+            false => MAINREGSTATUS_A::NORMAL,
+            true => MAINREGSTATUS_A::HIGH,
         }
     }
     #[doc = "Checks if the value of the field is `NORMAL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == MAINREGSTATUSR::NORMAL
+        *self == MAINREGSTATUS_A::NORMAL
     }
     #[doc = "Checks if the value of the field is `HIGH`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == MAINREGSTATUSR::HIGH
+        *self == MAINREGSTATUS_A::HIGH
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Main supply status"]
-    #[inline]
-    pub fn mainregstatus(&self) -> MAINREGSTATUSR {
-        MAINREGSTATUSR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn mainregstatus(&self) -> MAINREGSTATUS_R {
+        MAINREGSTATUS_R::new((self.bits & 0x01) != 0)
     }
 }

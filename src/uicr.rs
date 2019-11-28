@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     #[doc = "0x00 - Unspecified"]
@@ -7,7 +7,7 @@ pub struct RegisterBlock {
     pub unused1: UNUSED1,
     #[doc = "0x08 - Unspecified"]
     pub unused2: UNUSED2,
-    _reserved0: [u8; 4usize],
+    _reserved3: [u8; 4usize],
     #[doc = "0x10 - Unspecified"]
     pub unused3: UNUSED3,
     #[doc = "0x14 - Description collection\\[n\\]: Reserved for Nordic firmware design"]
@@ -16,7 +16,7 @@ pub struct RegisterBlock {
     pub nrfhw: [NRFHW; 12],
     #[doc = "0x80 - Description collection\\[n\\]: Reserved for customer"]
     pub customer: [CUSTOMER; 32],
-    _reserved1: [u8; 256usize],
+    _reserved7: [u8; 256usize],
     #[doc = "0x200 - Description collection\\[n\\]: Mapping of the nRESET function"]
     pub pselreset: [PSELRESET; 2],
     #[doc = "0x208 - Access port protection"]
@@ -25,79 +25,139 @@ pub struct RegisterBlock {
     pub nfcpins: NFCPINS,
     #[doc = "0x210 - Processor debug control"]
     pub debugctrl: DEBUGCTRL,
-    _reserved2: [u8; 240usize],
+    _reserved11: [u8; 240usize],
     #[doc = "0x304 - GPIO reference voltage / external output supply voltage in high voltage mode"]
     pub regout0: REGOUT0,
 }
-#[doc = "Unspecified"]
-pub struct UNUSED0 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [unused0](unused0) module"]
+pub type UNUSED0 = crate::Reg<u32, _UNUSED0>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _UNUSED0;
+#[doc = "`read()` method returns [unused0::R](unused0::R) reader structure"]
+impl crate::Readable for UNUSED0 {}
+#[doc = "`write(|w| ..)` method takes [unused0::W](unused0::W) writer structure"]
+impl crate::Writable for UNUSED0 {}
 #[doc = "Unspecified"]
 pub mod unused0;
-#[doc = "Unspecified"]
-pub struct UNUSED1 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [unused1](unused1) module"]
+pub type UNUSED1 = crate::Reg<u32, _UNUSED1>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _UNUSED1;
+#[doc = "`read()` method returns [unused1::R](unused1::R) reader structure"]
+impl crate::Readable for UNUSED1 {}
+#[doc = "`write(|w| ..)` method takes [unused1::W](unused1::W) writer structure"]
+impl crate::Writable for UNUSED1 {}
 #[doc = "Unspecified"]
 pub mod unused1;
-#[doc = "Unspecified"]
-pub struct UNUSED2 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [unused2](unused2) module"]
+pub type UNUSED2 = crate::Reg<u32, _UNUSED2>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _UNUSED2;
+#[doc = "`read()` method returns [unused2::R](unused2::R) reader structure"]
+impl crate::Readable for UNUSED2 {}
+#[doc = "`write(|w| ..)` method takes [unused2::W](unused2::W) writer structure"]
+impl crate::Writable for UNUSED2 {}
 #[doc = "Unspecified"]
 pub mod unused2;
-#[doc = "Unspecified"]
-pub struct UNUSED3 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Unspecified\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [unused3](unused3) module"]
+pub type UNUSED3 = crate::Reg<u32, _UNUSED3>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _UNUSED3;
+#[doc = "`read()` method returns [unused3::R](unused3::R) reader structure"]
+impl crate::Readable for UNUSED3 {}
+#[doc = "`write(|w| ..)` method takes [unused3::W](unused3::W) writer structure"]
+impl crate::Writable for UNUSED3 {}
 #[doc = "Unspecified"]
 pub mod unused3;
-#[doc = "Description collection\\[n\\]: Reserved for Nordic firmware design"]
-pub struct NRFFW {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Reserved for Nordic firmware design\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nrffw](nrffw) module"]
+pub type NRFFW = crate::Reg<u32, _NRFFW>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _NRFFW;
+#[doc = "`read()` method returns [nrffw::R](nrffw::R) reader structure"]
+impl crate::Readable for NRFFW {}
+#[doc = "`write(|w| ..)` method takes [nrffw::W](nrffw::W) writer structure"]
+impl crate::Writable for NRFFW {}
 #[doc = "Description collection\\[n\\]: Reserved for Nordic firmware design"]
 pub mod nrffw;
-#[doc = "Description collection\\[n\\]: Reserved for Nordic hardware design"]
-pub struct NRFHW {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Reserved for Nordic hardware design\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nrfhw](nrfhw) module"]
+pub type NRFHW = crate::Reg<u32, _NRFHW>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _NRFHW;
+#[doc = "`read()` method returns [nrfhw::R](nrfhw::R) reader structure"]
+impl crate::Readable for NRFHW {}
+#[doc = "`write(|w| ..)` method takes [nrfhw::W](nrfhw::W) writer structure"]
+impl crate::Writable for NRFHW {}
 #[doc = "Description collection\\[n\\]: Reserved for Nordic hardware design"]
 pub mod nrfhw;
-#[doc = "Description collection\\[n\\]: Reserved for customer"]
-pub struct CUSTOMER {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Reserved for customer\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [customer](customer) module"]
+pub type CUSTOMER = crate::Reg<u32, _CUSTOMER>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CUSTOMER;
+#[doc = "`read()` method returns [customer::R](customer::R) reader structure"]
+impl crate::Readable for CUSTOMER {}
+#[doc = "`write(|w| ..)` method takes [customer::W](customer::W) writer structure"]
+impl crate::Writable for CUSTOMER {}
 #[doc = "Description collection\\[n\\]: Reserved for customer"]
 pub mod customer;
-#[doc = "Description collection\\[n\\]: Mapping of the nRESET function"]
-pub struct PSELRESET {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Mapping of the nRESET function\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pselreset](pselreset) module"]
+pub type PSELRESET = crate::Reg<u32, _PSELRESET>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PSELRESET;
+#[doc = "`read()` method returns [pselreset::R](pselreset::R) reader structure"]
+impl crate::Readable for PSELRESET {}
+#[doc = "`write(|w| ..)` method takes [pselreset::W](pselreset::W) writer structure"]
+impl crate::Writable for PSELRESET {}
 #[doc = "Description collection\\[n\\]: Mapping of the nRESET function"]
 pub mod pselreset;
-#[doc = "Access port protection"]
-pub struct APPROTECT {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Access port protection\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [approtect](approtect) module"]
+pub type APPROTECT = crate::Reg<u32, _APPROTECT>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _APPROTECT;
+#[doc = "`read()` method returns [approtect::R](approtect::R) reader structure"]
+impl crate::Readable for APPROTECT {}
+#[doc = "`write(|w| ..)` method takes [approtect::W](approtect::W) writer structure"]
+impl crate::Writable for APPROTECT {}
 #[doc = "Access port protection"]
 pub mod approtect;
-#[doc = "Setting of pins dedicated to NFC functionality: NFC antenna or GPIO"]
-pub struct NFCPINS {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Setting of pins dedicated to NFC functionality: NFC antenna or GPIO\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nfcpins](nfcpins) module"]
+pub type NFCPINS = crate::Reg<u32, _NFCPINS>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _NFCPINS;
+#[doc = "`read()` method returns [nfcpins::R](nfcpins::R) reader structure"]
+impl crate::Readable for NFCPINS {}
+#[doc = "`write(|w| ..)` method takes [nfcpins::W](nfcpins::W) writer structure"]
+impl crate::Writable for NFCPINS {}
 #[doc = "Setting of pins dedicated to NFC functionality: NFC antenna or GPIO"]
 pub mod nfcpins;
-#[doc = "Processor debug control"]
-pub struct DEBUGCTRL {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Processor debug control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [debugctrl](debugctrl) module"]
+pub type DEBUGCTRL = crate::Reg<u32, _DEBUGCTRL>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DEBUGCTRL;
+#[doc = "`read()` method returns [debugctrl::R](debugctrl::R) reader structure"]
+impl crate::Readable for DEBUGCTRL {}
+#[doc = "`write(|w| ..)` method takes [debugctrl::W](debugctrl::W) writer structure"]
+impl crate::Writable for DEBUGCTRL {}
 #[doc = "Processor debug control"]
 pub mod debugctrl;
-#[doc = "GPIO reference voltage / external output supply voltage in high voltage mode"]
-pub struct REGOUT0 {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "GPIO reference voltage / external output supply voltage in high voltage mode\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [regout0](regout0) module"]
+pub type REGOUT0 = crate::Reg<u32, _REGOUT0>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _REGOUT0;
+#[doc = "`read()` method returns [regout0::R](regout0::R) reader structure"]
+impl crate::Readable for REGOUT0 {}
+#[doc = "`write(|w| ..)` method takes [regout0::W](regout0::W) writer structure"]
+impl crate::Writable for REGOUT0 {}
 #[doc = "GPIO reference voltage / external output supply voltage in high voltage mode"]
 pub mod regout0;
