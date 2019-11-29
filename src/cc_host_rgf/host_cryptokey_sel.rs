@@ -1,184 +1,108 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::HOST_CRYPTOKEY_SEL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register HOST_CRYPTOKEY_SEL"]
+pub type R = crate::R<u32, super::HOST_CRYPTOKEY_SEL>;
+#[doc = "Writer for register HOST_CRYPTOKEY_SEL"]
+pub type W = crate::W<u32, super::HOST_CRYPTOKEY_SEL>;
+#[doc = "Register HOST_CRYPTOKEY_SEL `reset()`'s with value 0"]
+impl crate::ResetValue for super::HOST_CRYPTOKEY_SEL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `HOST_CRYPTOKEY_SEL`"]
+#[doc = "Select the source of the HW key that is used by the AES engine\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum HOST_CRYPTOKEY_SELR {
-    #[doc = "Use device root key K_DR from CRYPTOCELL AO power domain"]
+pub enum HOST_CRYPTOKEY_SEL_A {
+    #[doc = "0: Use device root key K_DR from CRYPTOCELL AO power domain"]
     K_DR,
-    #[doc = "Use hard-coded RTL key K_PRTL"]
+    #[doc = "1: Use hard-coded RTL key K_PRTL"]
     K_PRTL,
-    #[doc = "Use provided session key"]
+    #[doc = "2: Use provided session key"]
     SESSION,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl HOST_CRYPTOKEY_SELR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            HOST_CRYPTOKEY_SELR::K_DR => 0,
-            HOST_CRYPTOKEY_SELR::K_PRTL => 1,
-            HOST_CRYPTOKEY_SELR::SESSION => 2,
-            HOST_CRYPTOKEY_SELR::_Reserved(bits) => bits,
+impl From<HOST_CRYPTOKEY_SEL_A> for u8 {
+    #[inline(always)]
+    fn from(variant: HOST_CRYPTOKEY_SEL_A) -> Self {
+        match variant {
+            HOST_CRYPTOKEY_SEL_A::K_DR => 0,
+            HOST_CRYPTOKEY_SEL_A::K_PRTL => 1,
+            HOST_CRYPTOKEY_SEL_A::SESSION => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> HOST_CRYPTOKEY_SELR {
-        match value {
-            0 => HOST_CRYPTOKEY_SELR::K_DR,
-            1 => HOST_CRYPTOKEY_SELR::K_PRTL,
-            2 => HOST_CRYPTOKEY_SELR::SESSION,
-            i => HOST_CRYPTOKEY_SELR::_Reserved(i),
+}
+#[doc = "Reader of field `HOST_CRYPTOKEY_SEL`"]
+pub type HOST_CRYPTOKEY_SEL_R = crate::R<u8, HOST_CRYPTOKEY_SEL_A>;
+impl HOST_CRYPTOKEY_SEL_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, HOST_CRYPTOKEY_SEL_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(HOST_CRYPTOKEY_SEL_A::K_DR),
+            1 => Val(HOST_CRYPTOKEY_SEL_A::K_PRTL),
+            2 => Val(HOST_CRYPTOKEY_SEL_A::SESSION),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `K_DR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_k_dr(&self) -> bool {
-        *self == HOST_CRYPTOKEY_SELR::K_DR
+        *self == HOST_CRYPTOKEY_SEL_A::K_DR
     }
     #[doc = "Checks if the value of the field is `K_PRTL`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_k_prtl(&self) -> bool {
-        *self == HOST_CRYPTOKEY_SELR::K_PRTL
+        *self == HOST_CRYPTOKEY_SEL_A::K_PRTL
     }
     #[doc = "Checks if the value of the field is `SESSION`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_session(&self) -> bool {
-        *self == HOST_CRYPTOKEY_SELR::SESSION
+        *self == HOST_CRYPTOKEY_SEL_A::SESSION
     }
 }
-#[doc = "Values that can be written to the field `HOST_CRYPTOKEY_SEL`"]
-pub enum HOST_CRYPTOKEY_SELW {
-    #[doc = "Use device root key K_DR from CRYPTOCELL AO power domain"]
-    K_DR,
-    #[doc = "Use hard-coded RTL key K_PRTL"]
-    K_PRTL,
-    #[doc = "Use provided session key"]
-    SESSION,
-}
-impl HOST_CRYPTOKEY_SELW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            HOST_CRYPTOKEY_SELW::K_DR => 0,
-            HOST_CRYPTOKEY_SELW::K_PRTL => 1,
-            HOST_CRYPTOKEY_SELW::SESSION => 2,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _HOST_CRYPTOKEY_SELW<'a> {
+#[doc = "Write proxy for field `HOST_CRYPTOKEY_SEL`"]
+pub struct HOST_CRYPTOKEY_SEL_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _HOST_CRYPTOKEY_SELW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: HOST_CRYPTOKEY_SELW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> HOST_CRYPTOKEY_SEL_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: HOST_CRYPTOKEY_SEL_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Use device root key K_DR from CRYPTOCELL AO power domain"]
-    #[inline]
+    #[inline(always)]
     pub fn k_dr(self) -> &'a mut W {
-        self.variant(HOST_CRYPTOKEY_SELW::K_DR)
+        self.variant(HOST_CRYPTOKEY_SEL_A::K_DR)
     }
     #[doc = "Use hard-coded RTL key K_PRTL"]
-    #[inline]
+    #[inline(always)]
     pub fn k_prtl(self) -> &'a mut W {
-        self.variant(HOST_CRYPTOKEY_SELW::K_PRTL)
+        self.variant(HOST_CRYPTOKEY_SEL_A::K_PRTL)
     }
     #[doc = "Use provided session key"]
-    #[inline]
+    #[inline(always)]
     pub fn session(self) -> &'a mut W {
-        self.variant(HOST_CRYPTOKEY_SELW::SESSION)
+        self.variant(HOST_CRYPTOKEY_SEL_A::SESSION)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Select the source of the HW key that is used by the AES engine"]
-    #[inline]
-    pub fn host_cryptokey_sel(&self) -> HOST_CRYPTOKEY_SELR {
-        HOST_CRYPTOKEY_SELR::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn host_cryptokey_sel(&self) -> HOST_CRYPTOKEY_SEL_R {
+        HOST_CRYPTOKEY_SEL_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Select the source of the HW key that is used by the AES engine"]
-    #[inline]
-    pub fn host_cryptokey_sel(&mut self) -> _HOST_CRYPTOKEY_SELW {
-        _HOST_CRYPTOKEY_SELW { w: self }
+    #[inline(always)]
+    pub fn host_cryptokey_sel(&mut self) -> HOST_CRYPTOKEY_SEL_W {
+        HOST_CRYPTOKEY_SEL_W { w: self }
     }
 }

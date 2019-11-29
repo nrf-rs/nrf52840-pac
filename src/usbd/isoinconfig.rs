@@ -1,183 +1,104 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::ISOINCONFIG {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register ISOINCONFIG"]
+pub type R = crate::R<u32, super::ISOINCONFIG>;
+#[doc = "Writer for register ISOINCONFIG"]
+pub type W = crate::W<u32, super::ISOINCONFIG>;
+#[doc = "Register ISOINCONFIG `reset()`'s with value 0"]
+impl crate::ResetValue for super::ISOINCONFIG {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RESPONSE`"]
+#[doc = "Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RESPONSER {
-    #[doc = "Endpoint does not respond in that case"]
+pub enum RESPONSE_A {
+    #[doc = "0: Endpoint does not respond in that case"]
     NORESP,
-    #[doc = "Endpoint responds with a zero-length data packet in that case"]
+    #[doc = "1: Endpoint responds with a zero-length data packet in that case"]
     ZERODATA,
 }
-impl RESPONSER {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            RESPONSER::NORESP => false,
-            RESPONSER::ZERODATA => true,
+impl From<RESPONSE_A> for bool {
+    #[inline(always)]
+    fn from(variant: RESPONSE_A) -> Self {
+        match variant {
+            RESPONSE_A::NORESP => false,
+            RESPONSE_A::ZERODATA => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> RESPONSER {
-        match value {
-            false => RESPONSER::NORESP,
-            true => RESPONSER::ZERODATA,
+}
+#[doc = "Reader of field `RESPONSE`"]
+pub type RESPONSE_R = crate::R<bool, RESPONSE_A>;
+impl RESPONSE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RESPONSE_A {
+        match self.bits {
+            false => RESPONSE_A::NORESP,
+            true => RESPONSE_A::ZERODATA,
         }
     }
     #[doc = "Checks if the value of the field is `NORESP`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_resp(&self) -> bool {
-        *self == RESPONSER::NORESP
+        *self == RESPONSE_A::NORESP
     }
     #[doc = "Checks if the value of the field is `ZERODATA`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_zero_data(&self) -> bool {
-        *self == RESPONSER::ZERODATA
+        *self == RESPONSE_A::ZERODATA
     }
 }
-#[doc = "Values that can be written to the field `RESPONSE`"]
-pub enum RESPONSEW {
-    #[doc = "Endpoint does not respond in that case"]
-    NORESP,
-    #[doc = "Endpoint responds with a zero-length data packet in that case"]
-    ZERODATA,
-}
-impl RESPONSEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> bool {
-        match *self {
-            RESPONSEW::NORESP => false,
-            RESPONSEW::ZERODATA => true,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RESPONSEW<'a> {
+#[doc = "Write proxy for field `RESPONSE`"]
+pub struct RESPONSE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RESPONSEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RESPONSEW) -> &'a mut W {
+impl<'a> RESPONSE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RESPONSE_A) -> &'a mut W {
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Endpoint does not respond in that case"]
-    #[inline]
+    #[inline(always)]
     pub fn no_resp(self) -> &'a mut W {
-        self.variant(RESPONSEW::NORESP)
+        self.variant(RESPONSE_A::NORESP)
     }
     #[doc = "Endpoint responds with a zero-length data packet in that case"]
-    #[inline]
+    #[inline(always)]
     pub fn zero_data(self) -> &'a mut W {
-        self.variant(RESPONSEW::ZERODATA)
+        self.variant(RESPONSE_A::ZERODATA)
     }
-    #[doc = r" Sets the field bit"]
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
         self.bit(true)
     }
-    #[doc = r" Clears the field bit"]
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
     pub fn clear_bit(self) -> &'a mut W {
         self.bit(false)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bit(self, value: bool) -> &'a mut W {
-        const MASK: bool = true;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x01) | ((value as u32) & 0x01);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent"]
-    #[inline]
-    pub fn response(&self) -> RESPONSER {
-        RESPONSER::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn response(&self) -> RESPONSE_R {
+        RESPONSE_R::new((self.bits & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bit 0 - Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent"]
-    #[inline]
-    pub fn response(&mut self) -> _RESPONSEW {
-        _RESPONSEW { w: self }
+    #[inline(always)]
+    pub fn response(&mut self) -> RESPONSE_W {
+        RESPONSE_W { w: self }
     }
 }

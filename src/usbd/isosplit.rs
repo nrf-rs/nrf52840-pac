@@ -1,167 +1,94 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::ISOSPLIT {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register ISOSPLIT"]
+pub type R = crate::R<u32, super::ISOSPLIT>;
+#[doc = "Writer for register ISOSPLIT"]
+pub type W = crate::W<u32, super::ISOSPLIT>;
+#[doc = "Register ISOSPLIT `reset()`'s with value 0"]
+impl crate::ResetValue for super::ISOSPLIT {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `SPLIT`"]
+#[doc = "Controls the split of ISO buffers\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum SPLITR {
-    #[doc = "Full buffer dedicated to either iso IN or OUT"]
+pub enum SPLIT_A {
+    #[doc = "0: Full buffer dedicated to either iso IN or OUT"]
     ONEDIR,
-    #[doc = "Lower half for IN, upper half for OUT"]
+    #[doc = "128: Lower half for IN, upper half for OUT"]
     HALFIN,
-    #[doc = r" Reserved"]
-    _Reserved(u16),
 }
-impl SPLITR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        match *self {
-            SPLITR::ONEDIR => 0,
-            SPLITR::HALFIN => 128,
-            SPLITR::_Reserved(bits) => bits,
+impl From<SPLIT_A> for u16 {
+    #[inline(always)]
+    fn from(variant: SPLIT_A) -> Self {
+        match variant {
+            SPLIT_A::ONEDIR => 0,
+            SPLIT_A::HALFIN => 128,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u16) -> SPLITR {
-        match value {
-            0 => SPLITR::ONEDIR,
-            128 => SPLITR::HALFIN,
-            i => SPLITR::_Reserved(i),
+}
+#[doc = "Reader of field `SPLIT`"]
+pub type SPLIT_R = crate::R<u16, SPLIT_A>;
+impl SPLIT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u16, SPLIT_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(SPLIT_A::ONEDIR),
+            128 => Val(SPLIT_A::HALFIN),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `ONEDIR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_one_dir(&self) -> bool {
-        *self == SPLITR::ONEDIR
+        *self == SPLIT_A::ONEDIR
     }
     #[doc = "Checks if the value of the field is `HALFIN`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_half_in(&self) -> bool {
-        *self == SPLITR::HALFIN
+        *self == SPLIT_A::HALFIN
     }
 }
-#[doc = "Values that can be written to the field `SPLIT`"]
-pub enum SPLITW {
-    #[doc = "Full buffer dedicated to either iso IN or OUT"]
-    ONEDIR,
-    #[doc = "Lower half for IN, upper half for OUT"]
-    HALFIN,
-}
-impl SPLITW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u16 {
-        match *self {
-            SPLITW::ONEDIR => 0,
-            SPLITW::HALFIN => 128,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _SPLITW<'a> {
+#[doc = "Write proxy for field `SPLIT`"]
+pub struct SPLIT_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _SPLITW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: SPLITW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> SPLIT_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SPLIT_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Full buffer dedicated to either iso IN or OUT"]
-    #[inline]
+    #[inline(always)]
     pub fn one_dir(self) -> &'a mut W {
-        self.variant(SPLITW::ONEDIR)
+        self.variant(SPLIT_A::ONEDIR)
     }
     #[doc = "Lower half for IN, upper half for OUT"]
-    #[inline]
+    #[inline(always)]
     pub fn half_in(self) -> &'a mut W {
-        self.variant(SPLITW::HALFIN)
+        self.variant(SPLIT_A::HALFIN)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u16) -> &'a mut W {
-        const MASK: u16 = 65535;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xffff) | ((value as u32) & 0xffff);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:15 - Controls the split of ISO buffers"]
-    #[inline]
-    pub fn split(&self) -> SPLITR {
-        SPLITR::_from({
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        })
+    #[inline(always)]
+    pub fn split(&self) -> SPLIT_R {
+        SPLIT_R::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:15 - Controls the split of ISO buffers"]
-    #[inline]
-    pub fn split(&mut self) -> _SPLITW {
-        _SPLITW { w: self }
+    #[inline(always)]
+    pub fn split(&mut self) -> SPLIT_W {
+        SPLIT_W { w: self }
     }
 }

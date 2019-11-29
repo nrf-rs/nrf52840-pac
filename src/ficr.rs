@@ -1,4 +1,4 @@
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
     _reserved0: [u8; 16usize],
@@ -6,10 +6,10 @@ pub struct RegisterBlock {
     pub codepagesize: CODEPAGESIZE,
     #[doc = "0x14 - Code memory size"]
     pub codesize: CODESIZE,
-    _reserved1: [u8; 72usize],
+    _reserved2: [u8; 72usize],
     #[doc = "0x60 - Description collection\\[n\\]: Device identifier"]
     pub deviceid: [DEVICEID; 2],
-    _reserved2: [u8; 24usize],
+    _reserved3: [u8; 24usize],
     #[doc = "0x80 - Description collection\\[n\\]: Encryption root, word n"]
     pub er: [ER; 4],
     #[doc = "0x90 - Description collection\\[n\\]: Identity Root, word n"]
@@ -18,23 +18,23 @@ pub struct RegisterBlock {
     pub deviceaddrtype: DEVICEADDRTYPE,
     #[doc = "0xa4 - Description collection\\[n\\]: Device address n"]
     pub deviceaddr: [DEVICEADDR; 2],
-    _reserved3: [u8; 84usize],
+    _reserved7: [u8; 84usize],
     #[doc = "0x100 - Device info"]
     pub info: INFO,
-    _reserved4: [u8; 560usize],
+    _reserved8: [u8; 560usize],
     #[doc = "0x350 - Description collection\\[n\\]: Production test signature n"]
     pub prodtest: [PRODTEST; 3],
-    _reserved5: [u8; 168usize],
+    _reserved9: [u8; 168usize],
     #[doc = "0x404 - Registers storing factory TEMP module linearization coefficients"]
     pub temp: TEMP,
-    _reserved6: [u8; 8usize],
+    _reserved10: [u8; 8usize],
     #[doc = "0x450 - Unspecified"]
     pub nfc: NFC,
-    _reserved7: [u8; 1952usize],
+    _reserved11: [u8; 1952usize],
     #[doc = "0xc00 - NIST800-90B RNG calibration data"]
     pub trng90b: TRNG90B,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct INFO {
     #[doc = "0x00 - Part code"]
@@ -50,10 +50,10 @@ pub struct INFO {
     #[doc = "0x14 - Unspecified"]
     pub unused8: [self::info::UNUSED8; 3],
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Device info"]
 pub mod info;
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct TEMP {
     #[doc = "0x00 - Slope definition A0"]
@@ -91,10 +91,10 @@ pub struct TEMP {
     #[doc = "0x40 - Segment end T4"]
     pub t4: self::temp::T4,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Registers storing factory TEMP module linearization coefficients"]
 pub mod temp;
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct NFC {
     #[doc = "0x00 - Default header for NFC tag. Software can read these values to populate NFCID1_3RD_LAST, NFCID1_2ND_LAST and NFCID1_LAST."]
@@ -106,10 +106,10 @@ pub struct NFC {
     #[doc = "0x0c - Default header for NFC tag. Software can read these values to populate NFCID1_3RD_LAST, NFCID1_2ND_LAST and NFCID1_LAST."]
     pub tagheader3: self::nfc::TAGHEADER3,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod nfc;
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[repr(C)]
 pub struct TRNG90B {
     #[doc = "0x00 - Amount of bytes for the required entropy bits"]
@@ -129,54 +129,78 @@ pub struct TRNG90B {
     #[doc = "0x1c - Sample count for ring oscillator 4"]
     pub rosc4: self::trng90b::ROSC4,
 }
-#[doc = r" Register block"]
+#[doc = r"Register block"]
 #[doc = "NIST800-90B RNG calibration data"]
 pub mod trng90b;
-#[doc = "Code memory page size"]
-pub struct CODEPAGESIZE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Code memory page size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [codepagesize](codepagesize) module"]
+pub type CODEPAGESIZE = crate::Reg<u32, _CODEPAGESIZE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CODEPAGESIZE;
+#[doc = "`read()` method returns [codepagesize::R](codepagesize::R) reader structure"]
+impl crate::Readable for CODEPAGESIZE {}
 #[doc = "Code memory page size"]
 pub mod codepagesize;
-#[doc = "Code memory size"]
-pub struct CODESIZE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Code memory size\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [codesize](codesize) module"]
+pub type CODESIZE = crate::Reg<u32, _CODESIZE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _CODESIZE;
+#[doc = "`read()` method returns [codesize::R](codesize::R) reader structure"]
+impl crate::Readable for CODESIZE {}
 #[doc = "Code memory size"]
 pub mod codesize;
-#[doc = "Description collection\\[n\\]: Device identifier"]
-pub struct DEVICEID {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Device identifier\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deviceid](deviceid) module"]
+pub type DEVICEID = crate::Reg<u32, _DEVICEID>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DEVICEID;
+#[doc = "`read()` method returns [deviceid::R](deviceid::R) reader structure"]
+impl crate::Readable for DEVICEID {}
 #[doc = "Description collection\\[n\\]: Device identifier"]
 pub mod deviceid;
-#[doc = "Description collection\\[n\\]: Encryption root, word n"]
-pub struct ER {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Encryption root, word n\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [er](er) module"]
+pub type ER = crate::Reg<u32, _ER>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _ER;
+#[doc = "`read()` method returns [er::R](er::R) reader structure"]
+impl crate::Readable for ER {}
 #[doc = "Description collection\\[n\\]: Encryption root, word n"]
 pub mod er;
-#[doc = "Description collection\\[n\\]: Identity Root, word n"]
-pub struct IR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Identity Root, word n\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ir](ir) module"]
+pub type IR = crate::Reg<u32, _IR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _IR;
+#[doc = "`read()` method returns [ir::R](ir::R) reader structure"]
+impl crate::Readable for IR {}
 #[doc = "Description collection\\[n\\]: Identity Root, word n"]
 pub mod ir;
-#[doc = "Device address type"]
-pub struct DEVICEADDRTYPE {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Device address type\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deviceaddrtype](deviceaddrtype) module"]
+pub type DEVICEADDRTYPE = crate::Reg<u32, _DEVICEADDRTYPE>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DEVICEADDRTYPE;
+#[doc = "`read()` method returns [deviceaddrtype::R](deviceaddrtype::R) reader structure"]
+impl crate::Readable for DEVICEADDRTYPE {}
 #[doc = "Device address type"]
 pub mod deviceaddrtype;
-#[doc = "Description collection\\[n\\]: Device address n"]
-pub struct DEVICEADDR {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Device address n\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [deviceaddr](deviceaddr) module"]
+pub type DEVICEADDR = crate::Reg<u32, _DEVICEADDR>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _DEVICEADDR;
+#[doc = "`read()` method returns [deviceaddr::R](deviceaddr::R) reader structure"]
+impl crate::Readable for DEVICEADDR {}
 #[doc = "Description collection\\[n\\]: Device address n"]
 pub mod deviceaddr;
-#[doc = "Description collection\\[n\\]: Production test signature n"]
-pub struct PRODTEST {
-    register: ::vcell::VolatileCell<u32>,
-}
+#[doc = "Description collection\\[n\\]: Production test signature n\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [prodtest](prodtest) module"]
+pub type PRODTEST = crate::Reg<u32, _PRODTEST>;
+#[allow(missing_docs)]
+#[doc(hidden)]
+pub struct _PRODTEST;
+#[doc = "`read()` method returns [prodtest::R](prodtest::R) reader structure"]
+impl crate::Readable for PRODTEST {}
 #[doc = "Description collection\\[n\\]: Production test signature n"]
 pub mod prodtest;

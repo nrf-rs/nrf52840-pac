@@ -1,200 +1,123 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::RATEOVERRIDE {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register RATEOVERRIDE"]
+pub type R = crate::R<u32, super::RATEOVERRIDE>;
+#[doc = "Writer for register RATEOVERRIDE"]
+pub type W = crate::W<u32, super::RATEOVERRIDE>;
+#[doc = "Register RATEOVERRIDE `reset()`'s with value 0"]
+impl crate::ResetValue for super::RATEOVERRIDE {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0
     }
 }
-#[doc = "Possible values of the field `RATEOVERRIDE`"]
+#[doc = "Data rate override setting.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RATEOVERRIDER {
-    #[doc = "1 Mbps"]
+pub enum RATEOVERRIDE_A {
+    #[doc = "0: 1 Mbps"]
     _1MBIT,
-    #[doc = "2 Mbps"]
+    #[doc = "1: 2 Mbps"]
     _2MBIT,
-    #[doc = "125 Kbps"]
+    #[doc = "2: 125 Kbps"]
     _125KBPS,
-    #[doc = "500 Kbps"]
+    #[doc = "3: 500 Kbps"]
     _500KBPS,
 }
-impl RATEOVERRIDER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            RATEOVERRIDER::_1MBIT => 0,
-            RATEOVERRIDER::_2MBIT => 1,
-            RATEOVERRIDER::_125KBPS => 2,
-            RATEOVERRIDER::_500KBPS => 3,
+impl From<RATEOVERRIDE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: RATEOVERRIDE_A) -> Self {
+        match variant {
+            RATEOVERRIDE_A::_1MBIT => 0,
+            RATEOVERRIDE_A::_2MBIT => 1,
+            RATEOVERRIDE_A::_125KBPS => 2,
+            RATEOVERRIDE_A::_500KBPS => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> RATEOVERRIDER {
-        match value {
-            0 => RATEOVERRIDER::_1MBIT,
-            1 => RATEOVERRIDER::_2MBIT,
-            2 => RATEOVERRIDER::_125KBPS,
-            3 => RATEOVERRIDER::_500KBPS,
+}
+#[doc = "Reader of field `RATEOVERRIDE`"]
+pub type RATEOVERRIDE_R = crate::R<u8, RATEOVERRIDE_A>;
+impl RATEOVERRIDE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RATEOVERRIDE_A {
+        match self.bits {
+            0 => RATEOVERRIDE_A::_1MBIT,
+            1 => RATEOVERRIDE_A::_2MBIT,
+            2 => RATEOVERRIDE_A::_125KBPS,
+            3 => RATEOVERRIDE_A::_500KBPS,
             _ => unreachable!(),
         }
     }
     #[doc = "Checks if the value of the field is `_1MBIT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_1mbit(&self) -> bool {
-        *self == RATEOVERRIDER::_1MBIT
+        *self == RATEOVERRIDE_A::_1MBIT
     }
     #[doc = "Checks if the value of the field is `_2MBIT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_2mbit(&self) -> bool {
-        *self == RATEOVERRIDER::_2MBIT
+        *self == RATEOVERRIDE_A::_2MBIT
     }
     #[doc = "Checks if the value of the field is `_125KBPS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_125kbps(&self) -> bool {
-        *self == RATEOVERRIDER::_125KBPS
+        *self == RATEOVERRIDE_A::_125KBPS
     }
     #[doc = "Checks if the value of the field is `_500KBPS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_500kbps(&self) -> bool {
-        *self == RATEOVERRIDER::_500KBPS
+        *self == RATEOVERRIDE_A::_500KBPS
     }
 }
-#[doc = "Values that can be written to the field `RATEOVERRIDE`"]
-pub enum RATEOVERRIDEW {
-    #[doc = "1 Mbps"]
-    _1MBIT,
-    #[doc = "2 Mbps"]
-    _2MBIT,
-    #[doc = "125 Kbps"]
-    _125KBPS,
-    #[doc = "500 Kbps"]
-    _500KBPS,
-}
-impl RATEOVERRIDEW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            RATEOVERRIDEW::_1MBIT => 0,
-            RATEOVERRIDEW::_2MBIT => 1,
-            RATEOVERRIDEW::_125KBPS => 2,
-            RATEOVERRIDEW::_500KBPS => 3,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _RATEOVERRIDEW<'a> {
+#[doc = "Write proxy for field `RATEOVERRIDE`"]
+pub struct RATEOVERRIDE_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _RATEOVERRIDEW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: RATEOVERRIDEW) -> &'a mut W {
+impl<'a> RATEOVERRIDE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RATEOVERRIDE_A) -> &'a mut W {
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "1 Mbps"]
-    #[inline]
+    #[inline(always)]
     pub fn _1mbit(self) -> &'a mut W {
-        self.variant(RATEOVERRIDEW::_1MBIT)
+        self.variant(RATEOVERRIDE_A::_1MBIT)
     }
     #[doc = "2 Mbps"]
-    #[inline]
+    #[inline(always)]
     pub fn _2mbit(self) -> &'a mut W {
-        self.variant(RATEOVERRIDEW::_2MBIT)
+        self.variant(RATEOVERRIDE_A::_2MBIT)
     }
     #[doc = "125 Kbps"]
-    #[inline]
+    #[inline(always)]
     pub fn _125kbps(self) -> &'a mut W {
-        self.variant(RATEOVERRIDEW::_125KBPS)
+        self.variant(RATEOVERRIDE_A::_125KBPS)
     }
     #[doc = "500 Kbps"]
-    #[inline]
+    #[inline(always)]
     pub fn _500kbps(self) -> &'a mut W {
-        self.variant(RATEOVERRIDEW::_500KBPS)
+        self.variant(RATEOVERRIDE_A::_500KBPS)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 3;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0x03) | ((value as u32) & 0x03);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:1 - Data rate override setting."]
-    #[inline]
-    pub fn rateoverride(&self) -> RATEOVERRIDER {
-        RATEOVERRIDER::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn rateoverride(&self) -> RATEOVERRIDE_R {
+        RATEOVERRIDE_R::new((self.bits & 0x03) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 0 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:1 - Data rate override setting."]
-    #[inline]
-    pub fn rateoverride(&mut self) -> _RATEOVERRIDEW {
-        _RATEOVERRIDEW { w: self }
+    #[inline(always)]
+    pub fn rateoverride(&mut self) -> RATEOVERRIDE_W {
+        RATEOVERRIDE_W { w: self }
     }
 }

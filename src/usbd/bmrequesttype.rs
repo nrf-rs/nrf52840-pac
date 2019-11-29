@@ -1,203 +1,167 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::BMREQUESTTYPE {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `RECIPIENT`"]
+#[doc = "Reader of register BMREQUESTTYPE"]
+pub type R = crate::R<u32, super::BMREQUESTTYPE>;
+#[doc = "Data transfer type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum RECIPIENTR {
-    #[doc = "Device"]
+pub enum RECIPIENT_A {
+    #[doc = "0: Device"]
     DEVICE,
-    #[doc = "Interface"]
+    #[doc = "1: Interface"]
     INTERFACE,
-    #[doc = "Endpoint"]
+    #[doc = "2: Endpoint"]
     ENDPOINT,
-    #[doc = "Other"]
+    #[doc = "3: Other"]
     OTHER,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl RECIPIENTR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            RECIPIENTR::DEVICE => 0,
-            RECIPIENTR::INTERFACE => 1,
-            RECIPIENTR::ENDPOINT => 2,
-            RECIPIENTR::OTHER => 3,
-            RECIPIENTR::_Reserved(bits) => bits,
+impl From<RECIPIENT_A> for u8 {
+    #[inline(always)]
+    fn from(variant: RECIPIENT_A) -> Self {
+        match variant {
+            RECIPIENT_A::DEVICE => 0,
+            RECIPIENT_A::INTERFACE => 1,
+            RECIPIENT_A::ENDPOINT => 2,
+            RECIPIENT_A::OTHER => 3,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> RECIPIENTR {
-        match value {
-            0 => RECIPIENTR::DEVICE,
-            1 => RECIPIENTR::INTERFACE,
-            2 => RECIPIENTR::ENDPOINT,
-            3 => RECIPIENTR::OTHER,
-            i => RECIPIENTR::_Reserved(i),
+}
+#[doc = "Reader of field `RECIPIENT`"]
+pub type RECIPIENT_R = crate::R<u8, RECIPIENT_A>;
+impl RECIPIENT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, RECIPIENT_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(RECIPIENT_A::DEVICE),
+            1 => Val(RECIPIENT_A::INTERFACE),
+            2 => Val(RECIPIENT_A::ENDPOINT),
+            3 => Val(RECIPIENT_A::OTHER),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `DEVICE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_device(&self) -> bool {
-        *self == RECIPIENTR::DEVICE
+        *self == RECIPIENT_A::DEVICE
     }
     #[doc = "Checks if the value of the field is `INTERFACE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_interface(&self) -> bool {
-        *self == RECIPIENTR::INTERFACE
+        *self == RECIPIENT_A::INTERFACE
     }
     #[doc = "Checks if the value of the field is `ENDPOINT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_endpoint(&self) -> bool {
-        *self == RECIPIENTR::ENDPOINT
+        *self == RECIPIENT_A::ENDPOINT
     }
     #[doc = "Checks if the value of the field is `OTHER`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_other(&self) -> bool {
-        *self == RECIPIENTR::OTHER
+        *self == RECIPIENT_A::OTHER
     }
 }
-#[doc = "Possible values of the field `TYPE`"]
+#[doc = "Data transfer type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum TYPER {
-    #[doc = "Standard"]
+pub enum TYPE_A {
+    #[doc = "0: Standard"]
     STANDARD,
-    #[doc = "Class"]
+    #[doc = "1: Class"]
     CLASS,
-    #[doc = "Vendor"]
+    #[doc = "2: Vendor"]
     VENDOR,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl TYPER {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            TYPER::STANDARD => 0,
-            TYPER::CLASS => 1,
-            TYPER::VENDOR => 2,
-            TYPER::_Reserved(bits) => bits,
+impl From<TYPE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: TYPE_A) -> Self {
+        match variant {
+            TYPE_A::STANDARD => 0,
+            TYPE_A::CLASS => 1,
+            TYPE_A::VENDOR => 2,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> TYPER {
-        match value {
-            0 => TYPER::STANDARD,
-            1 => TYPER::CLASS,
-            2 => TYPER::VENDOR,
-            i => TYPER::_Reserved(i),
+}
+#[doc = "Reader of field `TYPE`"]
+pub type TYPE_R = crate::R<u8, TYPE_A>;
+impl TYPE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, TYPE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(TYPE_A::STANDARD),
+            1 => Val(TYPE_A::CLASS),
+            2 => Val(TYPE_A::VENDOR),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `STANDARD`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_standard(&self) -> bool {
-        *self == TYPER::STANDARD
+        *self == TYPE_A::STANDARD
     }
     #[doc = "Checks if the value of the field is `CLASS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_class(&self) -> bool {
-        *self == TYPER::CLASS
+        *self == TYPE_A::CLASS
     }
     #[doc = "Checks if the value of the field is `VENDOR`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_vendor(&self) -> bool {
-        *self == TYPER::VENDOR
+        *self == TYPE_A::VENDOR
     }
 }
-#[doc = "Possible values of the field `DIRECTION`"]
+#[doc = "Data transfer direction\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DIRECTIONR {
-    #[doc = "Host-to-device"]
+pub enum DIRECTION_A {
+    #[doc = "0: Host-to-device"]
     HOSTTODEVICE,
-    #[doc = "Device-to-host"]
+    #[doc = "1: Device-to-host"]
     DEVICETOHOST,
 }
-impl DIRECTIONR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DIRECTIONR::HOSTTODEVICE => false,
-            DIRECTIONR::DEVICETOHOST => true,
+impl From<DIRECTION_A> for bool {
+    #[inline(always)]
+    fn from(variant: DIRECTION_A) -> Self {
+        match variant {
+            DIRECTION_A::HOSTTODEVICE => false,
+            DIRECTION_A::DEVICETOHOST => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DIRECTIONR {
-        match value {
-            false => DIRECTIONR::HOSTTODEVICE,
-            true => DIRECTIONR::DEVICETOHOST,
+}
+#[doc = "Reader of field `DIRECTION`"]
+pub type DIRECTION_R = crate::R<bool, DIRECTION_A>;
+impl DIRECTION_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DIRECTION_A {
+        match self.bits {
+            false => DIRECTION_A::HOSTTODEVICE,
+            true => DIRECTION_A::DEVICETOHOST,
         }
     }
     #[doc = "Checks if the value of the field is `HOSTTODEVICE`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_host_to_device(&self) -> bool {
-        *self == DIRECTIONR::HOSTTODEVICE
+        *self == DIRECTION_A::HOSTTODEVICE
     }
     #[doc = "Checks if the value of the field is `DEVICETOHOST`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_device_to_host(&self) -> bool {
-        *self == DIRECTIONR::DEVICETOHOST
+        *self == DIRECTION_A::DEVICETOHOST
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:4 - Data transfer type"]
-    #[inline]
-    pub fn recipient(&self) -> RECIPIENTR {
-        RECIPIENTR::_from({
-            const MASK: u8 = 31;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn recipient(&self) -> RECIPIENT_R {
+        RECIPIENT_R::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bits 5:6 - Data transfer type"]
-    #[inline]
-    pub fn type_(&self) -> TYPER {
-        TYPER::_from({
-            const MASK: u8 = 3;
-            const OFFSET: u8 = 5;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn type_(&self) -> TYPE_R {
+        TYPE_R::new(((self.bits >> 5) & 0x03) as u8)
     }
     #[doc = "Bit 7 - Data transfer direction"]
-    #[inline]
-    pub fn direction(&self) -> DIRECTIONR {
-        DIRECTIONR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 7;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn direction(&self) -> DIRECTION_R {
+        DIRECTION_R::new(((self.bits >> 7) & 0x01) != 0)
     }
 }

@@ -1,70 +1,50 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::EPIN {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `GETSTATUS`"]
+#[doc = "Reader of register EPIN[%s]"]
+pub type R = crate::R<u32, super::EPIN>;
+#[doc = "IN endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum GETSTATUSR {
-    #[doc = "Endpoint is not halted"]
+pub enum GETSTATUS_A {
+    #[doc = "0: Endpoint is not halted"]
     NOTHALTED,
-    #[doc = "Endpoint is halted"]
+    #[doc = "1: Endpoint is halted"]
     HALTED,
-    #[doc = r" Reserved"]
-    _Reserved(u16),
 }
-impl GETSTATUSR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u16 {
-        match *self {
-            GETSTATUSR::NOTHALTED => 0,
-            GETSTATUSR::HALTED => 1,
-            GETSTATUSR::_Reserved(bits) => bits,
+impl From<GETSTATUS_A> for u16 {
+    #[inline(always)]
+    fn from(variant: GETSTATUS_A) -> Self {
+        match variant {
+            GETSTATUS_A::NOTHALTED => 0,
+            GETSTATUS_A::HALTED => 1,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u16) -> GETSTATUSR {
-        match value {
-            0 => GETSTATUSR::NOTHALTED,
-            1 => GETSTATUSR::HALTED,
-            i => GETSTATUSR::_Reserved(i),
+}
+#[doc = "Reader of field `GETSTATUS`"]
+pub type GETSTATUS_R = crate::R<u16, GETSTATUS_A>;
+impl GETSTATUS_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u16, GETSTATUS_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(GETSTATUS_A::NOTHALTED),
+            1 => Val(GETSTATUS_A::HALTED),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `NOTHALTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_halted(&self) -> bool {
-        *self == GETSTATUSR::NOTHALTED
+        *self == GETSTATUS_A::NOTHALTED
     }
     #[doc = "Checks if the value of the field is `HALTED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_halted(&self) -> bool {
-        *self == GETSTATUSR::HALTED
+        *self == GETSTATUS_A::HALTED
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:15 - IN endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint."]
-    #[inline]
-    pub fn getstatus(&self) -> GETSTATUSR {
-        GETSTATUSR::_from({
-            const MASK: u16 = 65535;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u16
-        })
+    #[inline(always)]
+    pub fn getstatus(&self) -> GETSTATUS_R {
+        GETSTATUS_R::new((self.bits & 0xffff) as u16)
     }
 }

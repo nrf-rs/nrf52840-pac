@@ -1,132 +1,92 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::USBREGSTATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `VBUSDETECT`"]
+#[doc = "Reader of register USBREGSTATUS"]
+pub type R = crate::R<u32, super::USBREGSTATUS>;
+#[doc = "VBUS input detection status (USBDETECTED and USBREMOVED events are derived from this information)\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum VBUSDETECTR {
-    #[doc = "VBUS voltage below valid threshold"]
+pub enum VBUSDETECT_A {
+    #[doc = "0: VBUS voltage below valid threshold"]
     NOVBUS,
-    #[doc = "VBUS voltage above valid threshold"]
+    #[doc = "1: VBUS voltage above valid threshold"]
     VBUSPRESENT,
 }
-impl VBUSDETECTR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            VBUSDETECTR::NOVBUS => false,
-            VBUSDETECTR::VBUSPRESENT => true,
+impl From<VBUSDETECT_A> for bool {
+    #[inline(always)]
+    fn from(variant: VBUSDETECT_A) -> Self {
+        match variant {
+            VBUSDETECT_A::NOVBUS => false,
+            VBUSDETECT_A::VBUSPRESENT => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> VBUSDETECTR {
-        match value {
-            false => VBUSDETECTR::NOVBUS,
-            true => VBUSDETECTR::VBUSPRESENT,
+}
+#[doc = "Reader of field `VBUSDETECT`"]
+pub type VBUSDETECT_R = crate::R<bool, VBUSDETECT_A>;
+impl VBUSDETECT_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> VBUSDETECT_A {
+        match self.bits {
+            false => VBUSDETECT_A::NOVBUS,
+            true => VBUSDETECT_A::VBUSPRESENT,
         }
     }
     #[doc = "Checks if the value of the field is `NOVBUS`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_no_vbus(&self) -> bool {
-        *self == VBUSDETECTR::NOVBUS
+        *self == VBUSDETECT_A::NOVBUS
     }
     #[doc = "Checks if the value of the field is `VBUSPRESENT`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_vbus_present(&self) -> bool {
-        *self == VBUSDETECTR::VBUSPRESENT
+        *self == VBUSDETECT_A::VBUSPRESENT
     }
 }
-#[doc = "Possible values of the field `OUTPUTRDY`"]
+#[doc = "USB supply output settling time elapsed\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum OUTPUTRDYR {
-    #[doc = "USBREG output settling time not elapsed"]
+pub enum OUTPUTRDY_A {
+    #[doc = "0: USBREG output settling time not elapsed"]
     NOTREADY,
-    #[doc = "USBREG output settling time elapsed (same information as USBPWRRDY event)"]
+    #[doc = "1: USBREG output settling time elapsed (same information as USBPWRRDY event)"]
     READY,
 }
-impl OUTPUTRDYR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            OUTPUTRDYR::NOTREADY => false,
-            OUTPUTRDYR::READY => true,
+impl From<OUTPUTRDY_A> for bool {
+    #[inline(always)]
+    fn from(variant: OUTPUTRDY_A) -> Self {
+        match variant {
+            OUTPUTRDY_A::NOTREADY => false,
+            OUTPUTRDY_A::READY => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> OUTPUTRDYR {
-        match value {
-            false => OUTPUTRDYR::NOTREADY,
-            true => OUTPUTRDYR::READY,
+}
+#[doc = "Reader of field `OUTPUTRDY`"]
+pub type OUTPUTRDY_R = crate::R<bool, OUTPUTRDY_A>;
+impl OUTPUTRDY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OUTPUTRDY_A {
+        match self.bits {
+            false => OUTPUTRDY_A::NOTREADY,
+            true => OUTPUTRDY_A::READY,
         }
     }
     #[doc = "Checks if the value of the field is `NOTREADY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_not_ready(&self) -> bool {
-        *self == OUTPUTRDYR::NOTREADY
+        *self == OUTPUTRDY_A::NOTREADY
     }
     #[doc = "Checks if the value of the field is `READY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ready(&self) -> bool {
-        *self == OUTPUTRDYR::READY
+        *self == OUTPUTRDY_A::READY
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 0 - VBUS input detection status (USBDETECTED and USBREMOVED events are derived from this information)"]
-    #[inline]
-    pub fn vbusdetect(&self) -> VBUSDETECTR {
-        VBUSDETECTR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn vbusdetect(&self) -> VBUSDETECT_R {
+        VBUSDETECT_R::new((self.bits & 0x01) != 0)
     }
     #[doc = "Bit 1 - USB supply output settling time elapsed"]
-    #[inline]
-    pub fn outputrdy(&self) -> OUTPUTRDYR {
-        OUTPUTRDYR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 1;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn outputrdy(&self) -> OUTPUTRDY_R {
+        OUTPUTRDY_R::new(((self.bits >> 1) & 0x01) != 0)
     }
 }

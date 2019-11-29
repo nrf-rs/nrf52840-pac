@@ -1,153 +1,99 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::STATUS {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = "Possible values of the field `DPM`"]
+#[doc = "Reader of register STATUS"]
+pub type R = crate::R<u32, super::STATUS>;
+#[doc = "Deep power-down mode (DPM) status of external flash.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum DPMR {
-    #[doc = "External flash is not in DPM."]
+pub enum DPM_A {
+    #[doc = "0: External flash is not in DPM."]
     DISABLED,
-    #[doc = "External flash is in DPM."]
+    #[doc = "1: External flash is in DPM."]
     ENABLED,
 }
-impl DPMR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            DPMR::DISABLED => false,
-            DPMR::ENABLED => true,
+impl From<DPM_A> for bool {
+    #[inline(always)]
+    fn from(variant: DPM_A) -> Self {
+        match variant {
+            DPM_A::DISABLED => false,
+            DPM_A::ENABLED => true,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> DPMR {
-        match value {
-            false => DPMR::DISABLED,
-            true => DPMR::ENABLED,
+}
+#[doc = "Reader of field `DPM`"]
+pub type DPM_R = crate::R<bool, DPM_A>;
+impl DPM_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> DPM_A {
+        match self.bits {
+            false => DPM_A::DISABLED,
+            true => DPM_A::ENABLED,
         }
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == DPMR::DISABLED
+        *self == DPM_A::DISABLED
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == DPMR::ENABLED
+        *self == DPM_A::ENABLED
     }
 }
-#[doc = "Possible values of the field `READY`"]
+#[doc = "Ready status.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum READYR {
-    #[doc = "QSPI peripheral is ready. It is allowed to trigger new tasks, writing custom instructions or enter/exit DPM."]
+pub enum READY_A {
+    #[doc = "1: QSPI peripheral is ready. It is allowed to trigger new tasks, writing custom instructions or enter/exit DPM."]
     READY,
-    #[doc = "QSPI peripheral is busy. It is not allowed to trigger any new tasks, writing custom instructions or enter/exit DPM."]
+    #[doc = "0: QSPI peripheral is busy. It is not allowed to trigger any new tasks, writing custom instructions or enter/exit DPM."]
     BUSY,
 }
-impl READYR {
-    #[doc = r" Returns `true` if the bit is clear (0)"]
-    #[inline]
-    pub fn bit_is_clear(&self) -> bool {
-        !self.bit()
-    }
-    #[doc = r" Returns `true` if the bit is set (1)"]
-    #[inline]
-    pub fn bit_is_set(&self) -> bool {
-        self.bit()
-    }
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bit(&self) -> bool {
-        match *self {
-            READYR::READY => true,
-            READYR::BUSY => false,
+impl From<READY_A> for bool {
+    #[inline(always)]
+    fn from(variant: READY_A) -> Self {
+        match variant {
+            READY_A::READY => true,
+            READY_A::BUSY => false,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: bool) -> READYR {
-        match value {
-            true => READYR::READY,
-            false => READYR::BUSY,
+}
+#[doc = "Reader of field `READY`"]
+pub type READY_R = crate::R<bool, READY_A>;
+impl READY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> READY_A {
+        match self.bits {
+            true => READY_A::READY,
+            false => READY_A::BUSY,
         }
     }
     #[doc = "Checks if the value of the field is `READY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_ready(&self) -> bool {
-        *self == READYR::READY
+        *self == READY_A::READY
     }
     #[doc = "Checks if the value of the field is `BUSY`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_busy(&self) -> bool {
-        *self == READYR::BUSY
+        *self == READY_A::BUSY
     }
 }
-#[doc = r" Value of the field"]
-pub struct SREGR {
-    bits: u8,
-}
-impl SREGR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        self.bits
-    }
-}
+#[doc = "Reader of field `SREG`"]
+pub type SREG_R = crate::R<u8, u8>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bit 2 - Deep power-down mode (DPM) status of external flash."]
-    #[inline]
-    pub fn dpm(&self) -> DPMR {
-        DPMR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 2;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn dpm(&self) -> DPM_R {
+        DPM_R::new(((self.bits >> 2) & 0x01) != 0)
     }
     #[doc = "Bit 3 - Ready status."]
-    #[inline]
-    pub fn ready(&self) -> READYR {
-        READYR::_from({
-            const MASK: bool = true;
-            const OFFSET: u8 = 3;
-            ((self.bits >> OFFSET) & MASK as u32) != 0
-        })
+    #[inline(always)]
+    pub fn ready(&self) -> READY_R {
+        READY_R::new(((self.bits >> 3) & 0x01) != 0)
     }
     #[doc = "Bits 24:31 - Value of external flash device Status Register. When the external flash has two bytes status register this field includes the value of the low byte."]
-    #[inline]
-    pub fn sreg(&self) -> SREGR {
-        let bits = {
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 24;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        };
-        SREGR { bits }
+    #[inline(always)]
+    pub fn sreg(&self) -> SREG_R {
+        SREG_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }

@@ -1,270 +1,172 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-#[doc = r" Value to write to the register"]
-pub struct W {
-    bits: u32,
-}
-impl super::DEBUGCTRL {
-    #[doc = r" Modifies the contents of the register"]
-    #[inline]
-    pub fn modify<F>(&self, f: F)
-    where
-        for<'w> F: FnOnce(&R, &'w mut W) -> &'w mut W,
-    {
-        let bits = self.register.get();
-        let r = R { bits: bits };
-        let mut w = W { bits: bits };
-        f(&r, &mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-    #[doc = r" Writes to the register"]
-    #[inline]
-    pub fn write<F>(&self, f: F)
-    where
-        F: FnOnce(&mut W) -> &mut W,
-    {
-        let mut w = W::reset_value();
-        f(&mut w);
-        self.register.set(w.bits);
-    }
-    #[doc = r" Writes the reset value to the register"]
-    #[inline]
-    pub fn reset(&self) {
-        self.write(|w| w)
+#[doc = "Reader of register DEBUGCTRL"]
+pub type R = crate::R<u32, super::DEBUGCTRL>;
+#[doc = "Writer for register DEBUGCTRL"]
+pub type W = crate::W<u32, super::DEBUGCTRL>;
+#[doc = "Register DEBUGCTRL `reset()`'s with value 0xffff_ffff"]
+impl crate::ResetValue for super::DEBUGCTRL {
+    type Type = u32;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        0xffff_ffff
     }
 }
-#[doc = "Possible values of the field `CPUNIDEN`"]
+#[doc = "Configure CPU non-intrusive debug features\n\nValue on reset: 255"]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPUNIDENR {
-    #[doc = "Enable CPU ITM and ETM functionality (default behavior)"]
+pub enum CPUNIDEN_A {
+    #[doc = "255: Enable CPU ITM and ETM functionality (default behavior)"]
     ENABLED,
-    #[doc = "Disable CPU ITM and ETM functionality"]
+    #[doc = "0: Disable CPU ITM and ETM functionality"]
     DISABLED,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
 }
-impl CPUNIDENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CPUNIDENR::ENABLED => 255,
-            CPUNIDENR::DISABLED => 0,
-            CPUNIDENR::_Reserved(bits) => bits,
+impl From<CPUNIDEN_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CPUNIDEN_A) -> Self {
+        match variant {
+            CPUNIDEN_A::ENABLED => 255,
+            CPUNIDEN_A::DISABLED => 0,
         }
     }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CPUNIDENR {
-        match value {
-            255 => CPUNIDENR::ENABLED,
-            0 => CPUNIDENR::DISABLED,
-            i => CPUNIDENR::_Reserved(i),
+}
+#[doc = "Reader of field `CPUNIDEN`"]
+pub type CPUNIDEN_R = crate::R<u8, CPUNIDEN_A>;
+impl CPUNIDEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CPUNIDEN_A> {
+        use crate::Variant::*;
+        match self.bits {
+            255 => Val(CPUNIDEN_A::ENABLED),
+            0 => Val(CPUNIDEN_A::DISABLED),
+            i => Res(i),
         }
     }
     #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == CPUNIDENR::ENABLED
+        *self == CPUNIDEN_A::ENABLED
     }
     #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
+    #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == CPUNIDENR::DISABLED
+        *self == CPUNIDEN_A::DISABLED
     }
 }
-#[doc = "Possible values of the field `CPUFPBEN`"]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub enum CPUFPBENR {
-    #[doc = "Enable CPU FPB unit (default behavior)"]
-    ENABLED,
-    #[doc = "Disable CPU FPB unit. Writes into the FPB registers will be ignored."]
-    DISABLED,
-    #[doc = r" Reserved"]
-    _Reserved(u8),
-}
-impl CPUFPBENR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u8 {
-        match *self {
-            CPUFPBENR::ENABLED => 255,
-            CPUFPBENR::DISABLED => 0,
-            CPUFPBENR::_Reserved(bits) => bits,
-        }
-    }
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _from(value: u8) -> CPUFPBENR {
-        match value {
-            255 => CPUFPBENR::ENABLED,
-            0 => CPUFPBENR::DISABLED,
-            i => CPUFPBENR::_Reserved(i),
-        }
-    }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
-    #[inline]
-    pub fn is_enabled(&self) -> bool {
-        *self == CPUFPBENR::ENABLED
-    }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
-    #[inline]
-    pub fn is_disabled(&self) -> bool {
-        *self == CPUFPBENR::DISABLED
-    }
-}
-#[doc = "Values that can be written to the field `CPUNIDEN`"]
-pub enum CPUNIDENW {
-    #[doc = "Enable CPU ITM and ETM functionality (default behavior)"]
-    ENABLED,
-    #[doc = "Disable CPU ITM and ETM functionality"]
-    DISABLED,
-}
-impl CPUNIDENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CPUNIDENW::ENABLED => 255,
-            CPUNIDENW::DISABLED => 0,
-        }
-    }
-}
-#[doc = r" Proxy"]
-pub struct _CPUNIDENW<'a> {
+#[doc = "Write proxy for field `CPUNIDEN`"]
+pub struct CPUNIDEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPUNIDENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CPUNIDENW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CPUNIDEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CPUNIDEN_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Enable CPU ITM and ETM functionality (default behavior)"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(CPUNIDENW::ENABLED)
+        self.variant(CPUNIDEN_A::ENABLED)
     }
     #[doc = "Disable CPU ITM and ETM functionality"]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(CPUNIDENW::DISABLED)
+        self.variant(CPUNIDEN_A::DISABLED)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 0;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !0xff) | ((value as u32) & 0xff);
         self.w
     }
 }
-#[doc = "Values that can be written to the field `CPUFPBEN`"]
-pub enum CPUFPBENW {
-    #[doc = "Enable CPU FPB unit (default behavior)"]
+#[doc = "Configure CPU flash patch and breakpoint (FPB) unit behavior\n\nValue on reset: 255"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum CPUFPBEN_A {
+    #[doc = "255: Enable CPU FPB unit (default behavior)"]
     ENABLED,
-    #[doc = "Disable CPU FPB unit. Writes into the FPB registers will be ignored."]
+    #[doc = "0: Disable CPU FPB unit. Writes into the FPB registers will be ignored."]
     DISABLED,
 }
-impl CPUFPBENW {
-    #[allow(missing_docs)]
-    #[doc(hidden)]
-    #[inline]
-    pub fn _bits(&self) -> u8 {
-        match *self {
-            CPUFPBENW::ENABLED => 255,
-            CPUFPBENW::DISABLED => 0,
+impl From<CPUFPBEN_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CPUFPBEN_A) -> Self {
+        match variant {
+            CPUFPBEN_A::ENABLED => 255,
+            CPUFPBEN_A::DISABLED => 0,
         }
     }
 }
-#[doc = r" Proxy"]
-pub struct _CPUFPBENW<'a> {
+#[doc = "Reader of field `CPUFPBEN`"]
+pub type CPUFPBEN_R = crate::R<u8, CPUFPBEN_A>;
+impl CPUFPBEN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CPUFPBEN_A> {
+        use crate::Variant::*;
+        match self.bits {
+            255 => Val(CPUFPBEN_A::ENABLED),
+            0 => Val(CPUFPBEN_A::DISABLED),
+            i => Res(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == CPUFPBEN_A::ENABLED
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == CPUFPBEN_A::DISABLED
+    }
+}
+#[doc = "Write proxy for field `CPUFPBEN`"]
+pub struct CPUFPBEN_W<'a> {
     w: &'a mut W,
 }
-impl<'a> _CPUFPBENW<'a> {
-    #[doc = r" Writes `variant` to the field"]
-    #[inline]
-    pub fn variant(self, variant: CPUFPBENW) -> &'a mut W {
-        unsafe { self.bits(variant._bits()) }
+impl<'a> CPUFPBEN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CPUFPBEN_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Enable CPU FPB unit (default behavior)"]
-    #[inline]
+    #[inline(always)]
     pub fn enabled(self) -> &'a mut W {
-        self.variant(CPUFPBENW::ENABLED)
+        self.variant(CPUFPBEN_A::ENABLED)
     }
     #[doc = "Disable CPU FPB unit. Writes into the FPB registers will be ignored."]
-    #[inline]
+    #[inline(always)]
     pub fn disabled(self) -> &'a mut W {
-        self.variant(CPUFPBENW::DISABLED)
+        self.variant(CPUFPBEN_A::DISABLED)
     }
-    #[doc = r" Writes raw bits to the field"]
-    #[inline]
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
-        const MASK: u8 = 255;
-        const OFFSET: u8 = 8;
-        self.w.bits &= !((MASK as u32) << OFFSET);
-        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w.bits = (self.w.bits & !(0xff << 8)) | (((value as u32) & 0xff) << 8);
         self.w
     }
 }
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:7 - Configure CPU non-intrusive debug features"]
-    #[inline]
-    pub fn cpuniden(&self) -> CPUNIDENR {
-        CPUNIDENR::_from({
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn cpuniden(&self) -> CPUNIDEN_R {
+        CPUNIDEN_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Configure CPU flash patch and breakpoint (FPB) unit behavior"]
-    #[inline]
-    pub fn cpufpben(&self) -> CPUFPBENR {
-        CPUFPBENR::_from({
-            const MASK: u8 = 255;
-            const OFFSET: u8 = 8;
-            ((self.bits >> OFFSET) & MASK as u32) as u8
-        })
+    #[inline(always)]
+    pub fn cpufpben(&self) -> CPUFPBEN_R {
+        CPUFPBEN_R::new(((self.bits >> 8) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = r" Reset value of the register"]
-    #[inline]
-    pub fn reset_value() -> W {
-        W { bits: 4294967295 }
-    }
-    #[doc = r" Writes raw bits to the register"]
-    #[inline]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.bits = bits;
-        self
-    }
     #[doc = "Bits 0:7 - Configure CPU non-intrusive debug features"]
-    #[inline]
-    pub fn cpuniden(&mut self) -> _CPUNIDENW {
-        _CPUNIDENW { w: self }
+    #[inline(always)]
+    pub fn cpuniden(&mut self) -> CPUNIDEN_W {
+        CPUNIDEN_W { w: self }
     }
     #[doc = "Bits 8:15 - Configure CPU flash patch and breakpoint (FPB) unit behavior"]
-    #[inline]
-    pub fn cpufpben(&mut self) -> _CPUFPBENW {
-        _CPUFPBENW { w: self }
+    #[inline(always)]
+    pub fn cpufpben(&mut self) -> CPUFPBEN_W {
+        CPUFPBEN_W { w: self }
     }
 }

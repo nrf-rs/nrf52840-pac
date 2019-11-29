@@ -1,41 +1,11 @@
-#[doc = r" Value read from the register"]
-pub struct R {
-    bits: u32,
-}
-impl super::APCUTOFF {
-    #[doc = r" Reads the contents of the register"]
-    #[inline]
-    pub fn read(&self) -> R {
-        R {
-            bits: self.register.get(),
-        }
-    }
-}
-#[doc = r" Value of the field"]
-pub struct APCUTOFFR {
-    bits: u32,
-}
-impl APCUTOFFR {
-    #[doc = r" Value of the field as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
-}
+#[doc = "Reader of register APCUTOFF"]
+pub type R = crate::R<u32, super::APCUTOFF>;
+#[doc = "Reader of field `APCUTOFF`"]
+pub type APCUTOFF_R = crate::R<u32, u32>;
 impl R {
-    #[doc = r" Value of the register as raw bits"]
-    #[inline]
-    pub fn bits(&self) -> u32 {
-        self.bits
-    }
     #[doc = "Bits 0:31 - Adaptive proportion cutoff"]
-    #[inline]
-    pub fn apcutoff(&self) -> APCUTOFFR {
-        let bits = {
-            const MASK: u32 = 4294967295;
-            const OFFSET: u8 = 0;
-            ((self.bits >> OFFSET) & MASK as u32) as u32
-        };
-        APCUTOFFR { bits }
+    #[inline(always)]
+    pub fn apcutoff(&self) -> APCUTOFF_R {
+        APCUTOFF_R::new((self.bits & 0xffff_ffff) as u32)
     }
 }
