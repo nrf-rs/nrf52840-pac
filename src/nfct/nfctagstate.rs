@@ -2,31 +2,25 @@
 pub type R = crate::R<u32, super::NFCTAGSTATE>;
 #[doc = "NfcTag state\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NFCTAGSTATE_A {
     #[doc = "0: Disabled or sense"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "2: RampUp"]
-    RAMPUP,
+    RAMPUP = 2,
     #[doc = "3: Idle"]
-    IDLE,
+    IDLE = 3,
     #[doc = "4: Receive"]
-    RECEIVE,
+    RECEIVE = 4,
     #[doc = "5: FrameDelay"]
-    FRAMEDELAY,
+    FRAMEDELAY = 5,
     #[doc = "6: Transmit"]
-    TRANSMIT,
+    TRANSMIT = 6,
 }
 impl From<NFCTAGSTATE_A> for u8 {
     #[inline(always)]
     fn from(variant: NFCTAGSTATE_A) -> Self {
-        match variant {
-            NFCTAGSTATE_A::DISABLED => 0,
-            NFCTAGSTATE_A::RAMPUP => 2,
-            NFCTAGSTATE_A::IDLE => 3,
-            NFCTAGSTATE_A::RECEIVE => 4,
-            NFCTAGSTATE_A::FRAMEDELAY => 5,
-            NFCTAGSTATE_A::TRANSMIT => 6,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `NFCTAGSTATE`"]

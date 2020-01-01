@@ -14,17 +14,14 @@ impl crate::ResetValue for super::CSNPOL {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CSNPOL_A {
     #[doc = "0: Active low (idle state high)"]
-    LOW,
+    LOW = 0,
     #[doc = "1: Active high (idle state low)"]
-    HIGH,
+    HIGH = 1,
 }
 impl From<CSNPOL_A> for bool {
     #[inline(always)]
     fn from(variant: CSNPOL_A) -> Self {
-        match variant {
-            CSNPOL_A::LOW => false,
-            CSNPOL_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CSNPOL`"]

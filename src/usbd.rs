@@ -25,13 +25,15 @@ pub struct RegisterBlock {
     pub events_usbreset: EVENTS_USBRESET,
     #[doc = "0x104 - Confirms that the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT, or EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register"]
     pub events_started: EVENTS_STARTED,
-    #[doc = "0x108 - Description collection\\[n\\]: The whole EPIN\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+    #[doc = "0x108 - Description collection\\[n\\]: The whole EPIN\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endepin: [EVENTS_ENDEPIN; 8],
     #[doc = "0x128 - An acknowledged data transfer has taken place on the control endpoint"]
     pub events_ep0datadone: EVENTS_EP0DATADONE,
     #[doc = "0x12c - The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endisoin: EVENTS_ENDISOIN,
-    #[doc = "0x130 - Description collection\\[n\\]: The whole EPOUT\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+    #[doc = "0x130 - Description collection\\[n\\]: The whole EPOUT\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endepout: [EVENTS_ENDEPOUT; 8],
     #[doc = "0x150 - The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software."]
     pub events_endisoout: EVENTS_ENDISOOUT,
@@ -239,7 +241,7 @@ pub struct ISOOUT {
 #[doc = r"Register block"]
 #[doc = "Unspecified"]
 pub mod isoout;
-#[doc = "Description collection\\[n\\]: Captures the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_startepin](tasks_startepin) module"]
+#[doc = "Description collection\\[n\\]: Captures the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_startepin](tasks_startepin) module"]
 pub type TASKS_STARTEPIN = crate::Reg<u32, _TASKS_STARTEPIN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -248,7 +250,7 @@ pub struct _TASKS_STARTEPIN;
 impl crate::Writable for TASKS_STARTEPIN {}
 #[doc = "Description collection\\[n\\]: Captures the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT registers values, and enables endpoint IN n to respond to traffic from host"]
 pub mod tasks_startepin;
-#[doc = "Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_startisoin](tasks_startisoin) module"]
+#[doc = "Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_startisoin](tasks_startisoin) module"]
 pub type TASKS_STARTISOIN = crate::Reg<u32, _TASKS_STARTISOIN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -257,7 +259,7 @@ pub struct _TASKS_STARTISOIN;
 impl crate::Writable for TASKS_STARTISOIN {}
 #[doc = "Captures the ISOIN.PTR and ISOIN.MAXCNT registers values, and enables sending data on ISO endpoint"]
 pub mod tasks_startisoin;
-#[doc = "Description collection\\[n\\]: Captures the EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers values, and enables endpoint n to respond to traffic from host\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_startepout](tasks_startepout) module"]
+#[doc = "Description collection\\[n\\]: Captures the EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers values, and enables endpoint n to respond to traffic from host\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_startepout](tasks_startepout) module"]
 pub type TASKS_STARTEPOUT = crate::Reg<u32, _TASKS_STARTEPOUT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -266,7 +268,7 @@ pub struct _TASKS_STARTEPOUT;
 impl crate::Writable for TASKS_STARTEPOUT {}
 #[doc = "Description collection\\[n\\]: Captures the EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers values, and enables endpoint n to respond to traffic from host"]
 pub mod tasks_startepout;
-#[doc = "Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_startisoout](tasks_startisoout) module"]
+#[doc = "Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_startisoout](tasks_startisoout) module"]
 pub type TASKS_STARTISOOUT = crate::Reg<u32, _TASKS_STARTISOOUT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -275,7 +277,7 @@ pub struct _TASKS_STARTISOOUT;
 impl crate::Writable for TASKS_STARTISOOUT {}
 #[doc = "Captures the ISOOUT.PTR and ISOOUT.MAXCNT registers values, and enables receiving of data on ISO endpoint"]
 pub mod tasks_startisoout;
-#[doc = "Allows OUT data stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_ep0rcvout](tasks_ep0rcvout) module"]
+#[doc = "Allows OUT data stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_ep0rcvout](tasks_ep0rcvout) module"]
 pub type TASKS_EP0RCVOUT = crate::Reg<u32, _TASKS_EP0RCVOUT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -284,7 +286,7 @@ pub struct _TASKS_EP0RCVOUT;
 impl crate::Writable for TASKS_EP0RCVOUT {}
 #[doc = "Allows OUT data stage on control endpoint 0"]
 pub mod tasks_ep0rcvout;
-#[doc = "Allows status stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_ep0status](tasks_ep0status) module"]
+#[doc = "Allows status stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_ep0status](tasks_ep0status) module"]
 pub type TASKS_EP0STATUS = crate::Reg<u32, _TASKS_EP0STATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -293,7 +295,7 @@ pub struct _TASKS_EP0STATUS;
 impl crate::Writable for TASKS_EP0STATUS {}
 #[doc = "Allows status stage on control endpoint 0"]
 pub mod tasks_ep0status;
-#[doc = "Stalls data and status stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_ep0stall](tasks_ep0stall) module"]
+#[doc = "Stalls data and status stage on control endpoint 0\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_ep0stall](tasks_ep0stall) module"]
 pub type TASKS_EP0STALL = crate::Reg<u32, _TASKS_EP0STALL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -302,7 +304,7 @@ pub struct _TASKS_EP0STALL;
 impl crate::Writable for TASKS_EP0STALL {}
 #[doc = "Stalls data and status stage on control endpoint 0"]
 pub mod tasks_ep0stall;
-#[doc = "Forces D+ and D- lines into the state defined in the DPDMVALUE register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_dpdmdrive](tasks_dpdmdrive) module"]
+#[doc = "Forces D+ and D- lines into the state defined in the DPDMVALUE register\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_dpdmdrive](tasks_dpdmdrive) module"]
 pub type TASKS_DPDMDRIVE = crate::Reg<u32, _TASKS_DPDMDRIVE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -311,7 +313,7 @@ pub struct _TASKS_DPDMDRIVE;
 impl crate::Writable for TASKS_DPDMDRIVE {}
 #[doc = "Forces D+ and D- lines into the state defined in the DPDMVALUE register"]
 pub mod tasks_dpdmdrive;
-#[doc = "Stops forcing D+ and D- lines into any state (USB engine takes control)\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [tasks_dpdmnodrive](tasks_dpdmnodrive) module"]
+#[doc = "Stops forcing D+ and D- lines into any state (USB engine takes control)\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_dpdmnodrive](tasks_dpdmnodrive) module"]
 pub type TASKS_DPDMNODRIVE = crate::Reg<u32, _TASKS_DPDMNODRIVE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -320,7 +322,7 @@ pub struct _TASKS_DPDMNODRIVE;
 impl crate::Writable for TASKS_DPDMNODRIVE {}
 #[doc = "Stops forcing D+ and D- lines into any state (USB engine takes control)"]
 pub mod tasks_dpdmnodrive;
-#[doc = "Signals that a USB reset condition has been detected on USB lines\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_usbreset](events_usbreset) module"]
+#[doc = "Signals that a USB reset condition has been detected on USB lines\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_usbreset](events_usbreset) module"]
 pub type EVENTS_USBRESET = crate::Reg<u32, _EVENTS_USBRESET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -331,7 +333,7 @@ impl crate::Readable for EVENTS_USBRESET {}
 impl crate::Writable for EVENTS_USBRESET {}
 #[doc = "Signals that a USB reset condition has been detected on USB lines"]
 pub mod events_usbreset;
-#[doc = "Confirms that the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT, or EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_started](events_started) module"]
+#[doc = "Confirms that the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT, or EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_started](events_started) module"]
 pub type EVENTS_STARTED = crate::Reg<u32, _EVENTS_STARTED>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -342,7 +344,8 @@ impl crate::Readable for EVENTS_STARTED {}
 impl crate::Writable for EVENTS_STARTED {}
 #[doc = "Confirms that the EPIN\\[n\\].PTR and EPIN\\[n\\].MAXCNT, or EPOUT\\[n\\].PTR and EPOUT\\[n\\].MAXCNT registers have been captured on all endpoints reported in the EPSTATUS register"]
 pub mod events_started;
-#[doc = "Description collection\\[n\\]: The whole EPIN\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_endepin](events_endepin) module"]
+#[doc = "Description collection\\[n\\]: The whole EPIN\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_endepin](events_endepin) module"]
 pub type EVENTS_ENDEPIN = crate::Reg<u32, _EVENTS_ENDEPIN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -351,9 +354,10 @@ pub struct _EVENTS_ENDEPIN;
 impl crate::Readable for EVENTS_ENDEPIN {}
 #[doc = "`write(|w| ..)` method takes [events_endepin::W](events_endepin::W) writer structure"]
 impl crate::Writable for EVENTS_ENDEPIN {}
-#[doc = "Description collection\\[n\\]: The whole EPIN\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection\\[n\\]: The whole EPIN\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endepin;
-#[doc = "An acknowledged data transfer has taken place on the control endpoint\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_ep0datadone](events_ep0datadone) module"]
+#[doc = "An acknowledged data transfer has taken place on the control endpoint\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_ep0datadone](events_ep0datadone) module"]
 pub type EVENTS_EP0DATADONE = crate::Reg<u32, _EVENTS_EP0DATADONE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -364,7 +368,7 @@ impl crate::Readable for EVENTS_EP0DATADONE {}
 impl crate::Writable for EVENTS_EP0DATADONE {}
 #[doc = "An acknowledged data transfer has taken place on the control endpoint"]
 pub mod events_ep0datadone;
-#[doc = "The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_endisoin](events_endisoin) module"]
+#[doc = "The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_endisoin](events_endisoin) module"]
 pub type EVENTS_ENDISOIN = crate::Reg<u32, _EVENTS_ENDISOIN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -375,7 +379,8 @@ impl crate::Readable for EVENTS_ENDISOIN {}
 impl crate::Writable for EVENTS_ENDISOIN {}
 #[doc = "The whole ISOIN buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endisoin;
-#[doc = "Description collection\\[n\\]: The whole EPOUT\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_endepout](events_endepout) module"]
+#[doc = "Description collection\\[n\\]: The whole EPOUT\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_endepout](events_endepout) module"]
 pub type EVENTS_ENDEPOUT = crate::Reg<u32, _EVENTS_ENDEPOUT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -384,9 +389,10 @@ pub struct _EVENTS_ENDEPOUT;
 impl crate::Readable for EVENTS_ENDEPOUT {}
 #[doc = "`write(|w| ..)` method takes [events_endepout::W](events_endepout::W) writer structure"]
 impl crate::Writable for EVENTS_ENDEPOUT {}
-#[doc = "Description collection\\[n\\]: The whole EPOUT\\[n\\] buffer has been consumed. The RAM buffer can be accessed safely by software."]
+#[doc = "Description collection\\[n\\]: The whole EPOUT\\[n\\]
+buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endepout;
-#[doc = "The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_endisoout](events_endisoout) module"]
+#[doc = "The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_endisoout](events_endisoout) module"]
 pub type EVENTS_ENDISOOUT = crate::Reg<u32, _EVENTS_ENDISOOUT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -397,7 +403,7 @@ impl crate::Readable for EVENTS_ENDISOOUT {}
 impl crate::Writable for EVENTS_ENDISOOUT {}
 #[doc = "The whole ISOOUT buffer has been consumed. The RAM buffer can be accessed safely by software."]
 pub mod events_endisoout;
-#[doc = "Signals that a SOF (start of frame) condition has been detected on USB lines\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_sof](events_sof) module"]
+#[doc = "Signals that a SOF (start of frame) condition has been detected on USB lines\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_sof](events_sof) module"]
 pub type EVENTS_SOF = crate::Reg<u32, _EVENTS_SOF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -408,7 +414,7 @@ impl crate::Readable for EVENTS_SOF {}
 impl crate::Writable for EVENTS_SOF {}
 #[doc = "Signals that a SOF (start of frame) condition has been detected on USB lines"]
 pub mod events_sof;
-#[doc = "An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_usbevent](events_usbevent) module"]
+#[doc = "An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_usbevent](events_usbevent) module"]
 pub type EVENTS_USBEVENT = crate::Reg<u32, _EVENTS_USBEVENT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -419,7 +425,7 @@ impl crate::Readable for EVENTS_USBEVENT {}
 impl crate::Writable for EVENTS_USBEVENT {}
 #[doc = "An event or an error not covered by specific events has occurred. Check EVENTCAUSE register to find the cause."]
 pub mod events_usbevent;
-#[doc = "A valid SETUP token has been received (and acknowledged) on the control endpoint\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_ep0setup](events_ep0setup) module"]
+#[doc = "A valid SETUP token has been received (and acknowledged) on the control endpoint\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_ep0setup](events_ep0setup) module"]
 pub type EVENTS_EP0SETUP = crate::Reg<u32, _EVENTS_EP0SETUP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -430,7 +436,7 @@ impl crate::Readable for EVENTS_EP0SETUP {}
 impl crate::Writable for EVENTS_EP0SETUP {}
 #[doc = "A valid SETUP token has been received (and acknowledged) on the control endpoint"]
 pub mod events_ep0setup;
-#[doc = "A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [events_epdata](events_epdata) module"]
+#[doc = "A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [events_epdata](events_epdata) module"]
 pub type EVENTS_EPDATA = crate::Reg<u32, _EVENTS_EPDATA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -441,7 +447,7 @@ impl crate::Readable for EVENTS_EPDATA {}
 impl crate::Writable for EVENTS_EPDATA {}
 #[doc = "A data transfer has occurred on a data endpoint, indicated by the EPDATASTATUS register"]
 pub mod events_epdata;
-#[doc = "Shortcut register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [shorts](shorts) module"]
+#[doc = "Shortcut register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [shorts](shorts) module"]
 pub type SHORTS = crate::Reg<u32, _SHORTS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -452,7 +458,7 @@ impl crate::Readable for SHORTS {}
 impl crate::Writable for SHORTS {}
 #[doc = "Shortcut register"]
 pub mod shorts;
-#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [inten](inten) module"]
+#[doc = "Enable or disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [inten](inten) module"]
 pub type INTEN = crate::Reg<u32, _INTEN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -463,7 +469,7 @@ impl crate::Readable for INTEN {}
 impl crate::Writable for INTEN {}
 #[doc = "Enable or disable interrupt"]
 pub mod inten;
-#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Enable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u32, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -474,7 +480,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Enable interrupt"]
 pub mod intenset;
-#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Disable interrupt\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u32, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -485,7 +491,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Disable interrupt"]
 pub mod intenclr;
-#[doc = "Details on what caused the USBEVENT event\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [eventcause](eventcause) module"]
+#[doc = "Details on what caused the USBEVENT event\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [eventcause](eventcause) module"]
 pub type EVENTCAUSE = crate::Reg<u32, _EVENTCAUSE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -496,7 +502,7 @@ impl crate::Readable for EVENTCAUSE {}
 impl crate::Writable for EVENTCAUSE {}
 #[doc = "Details on what caused the USBEVENT event"]
 pub mod eventcause;
-#[doc = "Provides information on which endpoint's EasyDMA registers have been captured\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [epstatus](epstatus) module"]
+#[doc = "Provides information on which endpoint's EasyDMA registers have been captured\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epstatus](epstatus) module"]
 pub type EPSTATUS = crate::Reg<u32, _EPSTATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -507,7 +513,7 @@ impl crate::Readable for EPSTATUS {}
 impl crate::Writable for EPSTATUS {}
 #[doc = "Provides information on which endpoint's EasyDMA registers have been captured"]
 pub mod epstatus;
-#[doc = "Provides information on which endpoint(s) an acknowledged data transfer has occurred (EPDATA event)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [epdatastatus](epdatastatus) module"]
+#[doc = "Provides information on which endpoint(s) an acknowledged data transfer has occurred (EPDATA event)\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epdatastatus](epdatastatus) module"]
 pub type EPDATASTATUS = crate::Reg<u32, _EPDATASTATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -518,7 +524,7 @@ impl crate::Readable for EPDATASTATUS {}
 impl crate::Writable for EPDATASTATUS {}
 #[doc = "Provides information on which endpoint(s) an acknowledged data transfer has occurred (EPDATA event)"]
 pub mod epdatastatus;
-#[doc = "Device USB address\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [usbaddr](usbaddr) module"]
+#[doc = "Device USB address\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbaddr](usbaddr) module"]
 pub type USBADDR = crate::Reg<u32, _USBADDR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -527,7 +533,7 @@ pub struct _USBADDR;
 impl crate::Readable for USBADDR {}
 #[doc = "Device USB address"]
 pub mod usbaddr;
-#[doc = "SETUP data, byte 0, bmRequestType\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [bmrequesttype](bmrequesttype) module"]
+#[doc = "SETUP data, byte 0, bmRequestType\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bmrequesttype](bmrequesttype) module"]
 pub type BMREQUESTTYPE = crate::Reg<u32, _BMREQUESTTYPE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -536,7 +542,7 @@ pub struct _BMREQUESTTYPE;
 impl crate::Readable for BMREQUESTTYPE {}
 #[doc = "SETUP data, byte 0, bmRequestType"]
 pub mod bmrequesttype;
-#[doc = "SETUP data, byte 1, bRequest\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [brequest](brequest) module"]
+#[doc = "SETUP data, byte 1, bRequest\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [brequest](brequest) module"]
 pub type BREQUEST = crate::Reg<u32, _BREQUEST>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -545,7 +551,7 @@ pub struct _BREQUEST;
 impl crate::Readable for BREQUEST {}
 #[doc = "SETUP data, byte 1, bRequest"]
 pub mod brequest;
-#[doc = "SETUP data, byte 2, LSB of wValue\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wvaluel](wvaluel) module"]
+#[doc = "SETUP data, byte 2, LSB of wValue\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wvaluel](wvaluel) module"]
 pub type WVALUEL = crate::Reg<u32, _WVALUEL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -554,7 +560,7 @@ pub struct _WVALUEL;
 impl crate::Readable for WVALUEL {}
 #[doc = "SETUP data, byte 2, LSB of wValue"]
 pub mod wvaluel;
-#[doc = "SETUP data, byte 3, MSB of wValue\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wvalueh](wvalueh) module"]
+#[doc = "SETUP data, byte 3, MSB of wValue\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wvalueh](wvalueh) module"]
 pub type WVALUEH = crate::Reg<u32, _WVALUEH>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -563,7 +569,7 @@ pub struct _WVALUEH;
 impl crate::Readable for WVALUEH {}
 #[doc = "SETUP data, byte 3, MSB of wValue"]
 pub mod wvalueh;
-#[doc = "SETUP data, byte 4, LSB of wIndex\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [windexl](windexl) module"]
+#[doc = "SETUP data, byte 4, LSB of wIndex\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [windexl](windexl) module"]
 pub type WINDEXL = crate::Reg<u32, _WINDEXL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -572,7 +578,7 @@ pub struct _WINDEXL;
 impl crate::Readable for WINDEXL {}
 #[doc = "SETUP data, byte 4, LSB of wIndex"]
 pub mod windexl;
-#[doc = "SETUP data, byte 5, MSB of wIndex\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [windexh](windexh) module"]
+#[doc = "SETUP data, byte 5, MSB of wIndex\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [windexh](windexh) module"]
 pub type WINDEXH = crate::Reg<u32, _WINDEXH>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -581,7 +587,7 @@ pub struct _WINDEXH;
 impl crate::Readable for WINDEXH {}
 #[doc = "SETUP data, byte 5, MSB of wIndex"]
 pub mod windexh;
-#[doc = "SETUP data, byte 6, LSB of wLength\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wlengthl](wlengthl) module"]
+#[doc = "SETUP data, byte 6, LSB of wLength\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wlengthl](wlengthl) module"]
 pub type WLENGTHL = crate::Reg<u32, _WLENGTHL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -590,7 +596,7 @@ pub struct _WLENGTHL;
 impl crate::Readable for WLENGTHL {}
 #[doc = "SETUP data, byte 6, LSB of wLength"]
 pub mod wlengthl;
-#[doc = "SETUP data, byte 7, MSB of wLength\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wlengthh](wlengthh) module"]
+#[doc = "SETUP data, byte 7, MSB of wLength\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wlengthh](wlengthh) module"]
 pub type WLENGTHH = crate::Reg<u32, _WLENGTHH>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -599,7 +605,7 @@ pub struct _WLENGTHH;
 impl crate::Readable for WLENGTHH {}
 #[doc = "SETUP data, byte 7, MSB of wLength"]
 pub mod wlengthh;
-#[doc = "Enable USB\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [enable](enable) module"]
+#[doc = "Enable USB\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [enable](enable) module"]
 pub type ENABLE = crate::Reg<u32, _ENABLE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -610,7 +616,7 @@ impl crate::Readable for ENABLE {}
 impl crate::Writable for ENABLE {}
 #[doc = "Enable USB"]
 pub mod enable;
-#[doc = "Control of the USB pull-up\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [usbpullup](usbpullup) module"]
+#[doc = "Control of the USB pull-up\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [usbpullup](usbpullup) module"]
 pub type USBPULLUP = crate::Reg<u32, _USBPULLUP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -621,7 +627,7 @@ impl crate::Readable for USBPULLUP {}
 impl crate::Writable for USBPULLUP {}
 #[doc = "Control of the USB pull-up"]
 pub mod usbpullup;
-#[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing).\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dpdmvalue](dpdmvalue) module"]
+#[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing).\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dpdmvalue](dpdmvalue) module"]
 pub type DPDMVALUE = crate::Reg<u32, _DPDMVALUE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -632,7 +638,7 @@ impl crate::Readable for DPDMVALUE {}
 impl crate::Writable for DPDMVALUE {}
 #[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task. The DPDMNODRIVE task reverts the control of the lines to MAC IP (no forcing)."]
 pub mod dpdmvalue;
-#[doc = "Data toggle control and status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dtoggle](dtoggle) module"]
+#[doc = "Data toggle control and status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dtoggle](dtoggle) module"]
 pub type DTOGGLE = crate::Reg<u32, _DTOGGLE>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -643,7 +649,7 @@ impl crate::Readable for DTOGGLE {}
 impl crate::Writable for DTOGGLE {}
 #[doc = "Data toggle control and status"]
 pub mod dtoggle;
-#[doc = "Endpoint IN enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [epinen](epinen) module"]
+#[doc = "Endpoint IN enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epinen](epinen) module"]
 pub type EPINEN = crate::Reg<u32, _EPINEN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -654,7 +660,7 @@ impl crate::Readable for EPINEN {}
 impl crate::Writable for EPINEN {}
 #[doc = "Endpoint IN enable"]
 pub mod epinen;
-#[doc = "Endpoint OUT enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [epouten](epouten) module"]
+#[doc = "Endpoint OUT enable\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epouten](epouten) module"]
 pub type EPOUTEN = crate::Reg<u32, _EPOUTEN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -665,7 +671,7 @@ impl crate::Readable for EPOUTEN {}
 impl crate::Writable for EPOUTEN {}
 #[doc = "Endpoint OUT enable"]
 pub mod epouten;
-#[doc = "STALL endpoints\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [epstall](epstall) module"]
+#[doc = "STALL endpoints\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [epstall](epstall) module"]
 pub type EPSTALL = crate::Reg<u32, _EPSTALL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -674,7 +680,7 @@ pub struct _EPSTALL;
 impl crate::Writable for EPSTALL {}
 #[doc = "STALL endpoints"]
 pub mod epstall;
-#[doc = "Controls the split of ISO buffers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [isosplit](isosplit) module"]
+#[doc = "Controls the split of ISO buffers\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isosplit](isosplit) module"]
 pub type ISOSPLIT = crate::Reg<u32, _ISOSPLIT>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -685,7 +691,7 @@ impl crate::Readable for ISOSPLIT {}
 impl crate::Writable for ISOSPLIT {}
 #[doc = "Controls the split of ISO buffers"]
 pub mod isosplit;
-#[doc = "Returns the current value of the start of frame counter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [framecntr](framecntr) module"]
+#[doc = "Returns the current value of the start of frame counter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [framecntr](framecntr) module"]
 pub type FRAMECNTR = crate::Reg<u32, _FRAMECNTR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -694,7 +700,7 @@ pub struct _FRAMECNTR;
 impl crate::Readable for FRAMECNTR {}
 #[doc = "Returns the current value of the start of frame counter"]
 pub mod framecntr;
-#[doc = "Controls USBD peripheral low power mode during USB suspend\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [lowpower](lowpower) module"]
+#[doc = "Controls USBD peripheral low power mode during USB suspend\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [lowpower](lowpower) module"]
 pub type LOWPOWER = crate::Reg<u32, _LOWPOWER>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -705,7 +711,7 @@ impl crate::Readable for LOWPOWER {}
 impl crate::Writable for LOWPOWER {}
 #[doc = "Controls USBD peripheral low power mode during USB suspend"]
 pub mod lowpower;
-#[doc = "Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [isoinconfig](isoinconfig) module"]
+#[doc = "Controls the response of the ISO IN endpoint to an IN token when no data is ready to be sent\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [isoinconfig](isoinconfig) module"]
 pub type ISOINCONFIG = crate::Reg<u32, _ISOINCONFIG>;
 #[allow(missing_docs)]
 #[doc(hidden)]

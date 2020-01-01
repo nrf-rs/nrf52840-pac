@@ -12,19 +12,17 @@ impl crate::ResetValue for super::HOST_IOT_LCS {
 }
 #[doc = "Lifecycle state value. This field is write-once per reset.\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LCS_A {
     #[doc = "0: CC310 operates in debug mode"]
-    DEBUG,
+    DEBUG = 0,
     #[doc = "2: CC310 operates in secure mode"]
-    SECURE,
+    SECURE = 2,
 }
 impl From<LCS_A> for u8 {
     #[inline(always)]
     fn from(variant: LCS_A) -> Self {
-        match variant {
-            LCS_A::DEBUG => 0,
-            LCS_A::SECURE => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LCS`"]
@@ -82,17 +80,14 @@ impl<'a> LCS_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LCS_IS_VALID_A {
     #[doc = "0: A valid LCS is not yet retained in the CRYPTOCELL AO power domain"]
-    INVALID,
+    INVALID = 0,
     #[doc = "1: A valid LCS is successfully retained in the CRYPTOCELL AO power domain"]
-    VALID,
+    VALID = 1,
 }
 impl From<LCS_IS_VALID_A> for bool {
     #[inline(always)]
     fn from(variant: LCS_IS_VALID_A) -> Self {
-        match variant {
-            LCS_IS_VALID_A::INVALID => false,
-            LCS_IS_VALID_A::VALID => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LCS_IS_VALID`"]

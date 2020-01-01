@@ -2,19 +2,17 @@
 pub type R = crate::R<u32, super::PACKAGE>;
 #[doc = "Package option\n\nValue on reset: 4294967295"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum PACKAGE_A {
     #[doc = "8196: QIxx - 73-pin aQFN"]
-    QI,
+    QI = 8196,
     #[doc = "4294967295: Unspecified"]
-    UNSPECIFIED,
+    UNSPECIFIED = 4294967295,
 }
 impl From<PACKAGE_A> for u32 {
     #[inline(always)]
     fn from(variant: PACKAGE_A) -> Self {
-        match variant {
-            PACKAGE_A::QI => 8196,
-            PACKAGE_A::UNSPECIFIED => 4294967295,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PACKAGE`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::ISOINCONFIG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RESPONSE_A {
     #[doc = "0: Endpoint does not respond in that case"]
-    NORESP,
+    NORESP = 0,
     #[doc = "1: Endpoint responds with a zero-length data packet in that case"]
-    ZERODATA,
+    ZERODATA = 1,
 }
 impl From<RESPONSE_A> for bool {
     #[inline(always)]
     fn from(variant: RESPONSE_A) -> Self {
-        match variant {
-            RESPONSE_A::NORESP => false,
-            RESPONSE_A::ZERODATA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RESPONSE`"]

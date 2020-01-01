@@ -12,22 +12,19 @@ impl crate::ResetValue for super::LEN {
 }
 #[doc = "LEN\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LEN_A {
     #[doc = "0: Erase 4 kB block (flash command 0x20)"]
-    _4KB,
+    _4KB = 0,
     #[doc = "1: Erase 64 kB block (flash command 0xD8)"]
-    _64KB,
+    _64KB = 1,
     #[doc = "2: Erase all (flash command 0xC7)"]
-    ALL,
+    ALL = 2,
 }
 impl From<LEN_A> for u8 {
     #[inline(always)]
     fn from(variant: LEN_A) -> Self {
-        match variant {
-            LEN_A::_4KB => 0,
-            LEN_A::_64KB => 1,
-            LEN_A::ALL => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LEN`"]

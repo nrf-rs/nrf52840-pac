@@ -1,6 +1,7 @@
 #[doc = "Writer for register TASKS_STARTEPIN[%s]"]
 pub type W = crate::W<u32, super::TASKS_STARTEPIN>;
-#[doc = "Register TASKS_STARTEPIN[%s] `reset()`'s with value 0"]
+#[doc = "Register TASKS_STARTEPIN[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::TASKS_STARTEPIN {
     type Type = u32;
     #[inline(always)]

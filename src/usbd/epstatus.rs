@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EPSTATUS {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN0_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN0_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN0_A) -> Self {
-        match variant {
-            EPIN0_A::NODATA => false,
-            EPIN0_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN0`"]
@@ -92,17 +89,14 @@ impl<'a> EPIN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN1_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN1_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN1_A) -> Self {
-        match variant {
-            EPIN1_A::NODATA => false,
-            EPIN1_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN1`"]
@@ -170,17 +164,14 @@ impl<'a> EPIN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN2_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN2_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN2_A) -> Self {
-        match variant {
-            EPIN2_A::NODATA => false,
-            EPIN2_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN2`"]
@@ -248,17 +239,14 @@ impl<'a> EPIN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN3_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN3_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN3_A) -> Self {
-        match variant {
-            EPIN3_A::NODATA => false,
-            EPIN3_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN3`"]
@@ -326,17 +314,14 @@ impl<'a> EPIN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN4_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN4_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN4_A) -> Self {
-        match variant {
-            EPIN4_A::NODATA => false,
-            EPIN4_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN4`"]
@@ -404,17 +389,14 @@ impl<'a> EPIN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN5_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN5_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN5_A) -> Self {
-        match variant {
-            EPIN5_A::NODATA => false,
-            EPIN5_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN5`"]
@@ -482,17 +464,14 @@ impl<'a> EPIN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN6_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN6_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN6_A) -> Self {
-        match variant {
-            EPIN6_A::NODATA => false,
-            EPIN6_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN6`"]
@@ -560,17 +539,14 @@ impl<'a> EPIN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN7_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN7_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN7_A) -> Self {
-        match variant {
-            EPIN7_A::NODATA => false,
-            EPIN7_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN7`"]
@@ -638,17 +614,14 @@ impl<'a> EPIN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPIN8_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPIN8_A> for bool {
     #[inline(always)]
     fn from(variant: EPIN8_A) -> Self {
-        match variant {
-            EPIN8_A::NODATA => false,
-            EPIN8_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPIN8`"]
@@ -716,17 +689,14 @@ impl<'a> EPIN8_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT0_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT0_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT0_A) -> Self {
-        match variant {
-            EPOUT0_A::NODATA => false,
-            EPOUT0_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT0`"]
@@ -794,17 +764,14 @@ impl<'a> EPOUT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT1_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT1_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT1_A) -> Self {
-        match variant {
-            EPOUT1_A::NODATA => false,
-            EPOUT1_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT1`"]
@@ -872,17 +839,14 @@ impl<'a> EPOUT1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT2_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT2_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT2_A) -> Self {
-        match variant {
-            EPOUT2_A::NODATA => false,
-            EPOUT2_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT2`"]
@@ -950,17 +914,14 @@ impl<'a> EPOUT2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT3_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT3_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT3_A) -> Self {
-        match variant {
-            EPOUT3_A::NODATA => false,
-            EPOUT3_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT3`"]
@@ -1028,17 +989,14 @@ impl<'a> EPOUT3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT4_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT4_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT4_A) -> Self {
-        match variant {
-            EPOUT4_A::NODATA => false,
-            EPOUT4_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT4`"]
@@ -1106,17 +1064,14 @@ impl<'a> EPOUT4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT5_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT5_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT5_A) -> Self {
-        match variant {
-            EPOUT5_A::NODATA => false,
-            EPOUT5_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT5`"]
@@ -1184,17 +1139,14 @@ impl<'a> EPOUT5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT6_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT6_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT6_A) -> Self {
-        match variant {
-            EPOUT6_A::NODATA => false,
-            EPOUT6_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT6`"]
@@ -1262,17 +1214,14 @@ impl<'a> EPOUT6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT7_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT7_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT7_A) -> Self {
-        match variant {
-            EPOUT7_A::NODATA => false,
-            EPOUT7_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT7`"]
@@ -1340,17 +1289,14 @@ impl<'a> EPOUT7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPOUT8_A {
     #[doc = "0: EasyDMA registers have not been captured for this endpoint"]
-    NODATA,
+    NODATA = 0,
     #[doc = "1: EasyDMA registers have been captured for this endpoint"]
-    DATADONE,
+    DATADONE = 1,
 }
 impl From<EPOUT8_A> for bool {
     #[inline(always)]
     fn from(variant: EPOUT8_A) -> Self {
-        match variant {
-            EPOUT8_A::NODATA => false,
-            EPOUT8_A::DATADONE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPOUT8`"]

@@ -12,58 +12,43 @@ impl crate::ResetValue for super::TXPOWER {
 }
 #[doc = "RADIO output power\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TXPOWER_A {
     #[doc = "8: +8 dBm"]
-    POS8DBM,
+    POS8DBM = 8,
     #[doc = "7: +7 dBm"]
-    POS7DBM,
+    POS7DBM = 7,
     #[doc = "6: +6 dBm"]
-    POS6DBM,
+    POS6DBM = 6,
     #[doc = "5: +5 dBm"]
-    POS5DBM,
+    POS5DBM = 5,
     #[doc = "4: +4 dBm"]
-    POS4DBM,
+    POS4DBM = 4,
     #[doc = "3: +3 dBm"]
-    POS3DBM,
+    POS3DBM = 3,
     #[doc = "2: +2 dBm"]
-    POS2DBM,
+    POS2DBM = 2,
     #[doc = "0: 0 dBm"]
-    _0DBM,
+    _0DBM = 0,
     #[doc = "252: -4 dBm"]
-    NEG4DBM,
+    NEG4DBM = 252,
     #[doc = "248: -8 dBm"]
-    NEG8DBM,
+    NEG8DBM = 248,
     #[doc = "244: -12 dBm"]
-    NEG12DBM,
+    NEG12DBM = 244,
     #[doc = "240: -16 dBm"]
-    NEG16DBM,
+    NEG16DBM = 240,
     #[doc = "236: -20 dBm"]
-    NEG20DBM,
+    NEG20DBM = 236,
     #[doc = "255: Deprecated enumerator -  -40 dBm"]
-    NEG30DBM,
+    NEG30DBM = 255,
     #[doc = "216: -40 dBm"]
-    NEG40DBM,
+    NEG40DBM = 216,
 }
 impl From<TXPOWER_A> for u8 {
     #[inline(always)]
     fn from(variant: TXPOWER_A) -> Self {
-        match variant {
-            TXPOWER_A::POS8DBM => 8,
-            TXPOWER_A::POS7DBM => 7,
-            TXPOWER_A::POS6DBM => 6,
-            TXPOWER_A::POS5DBM => 5,
-            TXPOWER_A::POS4DBM => 4,
-            TXPOWER_A::POS3DBM => 3,
-            TXPOWER_A::POS2DBM => 2,
-            TXPOWER_A::_0DBM => 0,
-            TXPOWER_A::NEG4DBM => 252,
-            TXPOWER_A::NEG8DBM => 248,
-            TXPOWER_A::NEG12DBM => 244,
-            TXPOWER_A::NEG16DBM => 240,
-            TXPOWER_A::NEG20DBM => 236,
-            TXPOWER_A::NEG30DBM => 255,
-            TXPOWER_A::NEG40DBM => 216,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TXPOWER`"]

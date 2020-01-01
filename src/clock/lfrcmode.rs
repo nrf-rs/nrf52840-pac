@@ -14,17 +14,14 @@ impl crate::ResetValue for super::LFRCMODE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODE_A {
     #[doc = "0: Normal mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Ultra-low power mode (ULP)"]
-    ULP,
+    ULP = 1,
 }
 impl From<MODE_A> for bool {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::NORMAL => false,
-            MODE_A::ULP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -92,17 +89,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STATUS_A {
     #[doc = "0: Normal mode"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Ultra-low power mode (ULP)"]
-    ULP,
+    ULP = 1,
 }
 impl From<STATUS_A> for bool {
     #[inline(always)]
     fn from(variant: STATUS_A) -> Self {
-        match variant {
-            STATUS_A::NORMAL => false,
-            STATUS_A::ULP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STATUS`"]

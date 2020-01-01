@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTENSET {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POFWARN_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<POFWARN_A> for bool {
     #[inline(always)]
     fn from(variant: POFWARN_A) -> Self {
-        match variant {
-            POFWARN_A::DISABLED => false,
-            POFWARN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POFWARN`"]
@@ -53,14 +50,12 @@ impl POFWARN_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POFWARN_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<POFWARN_AW> for bool {
     #[inline(always)]
     fn from(variant: POFWARN_AW) -> Self {
-        match variant {
-            POFWARN_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `POFWARN`"]
@@ -101,17 +96,14 @@ impl<'a> POFWARN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPENTER_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLEEPENTER_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPENTER_A) -> Self {
-        match variant {
-            SLEEPENTER_A::DISABLED => false,
-            SLEEPENTER_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPENTER`"]
@@ -140,14 +132,12 @@ impl SLEEPENTER_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPENTER_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<SLEEPENTER_AW> for bool {
     #[inline(always)]
     fn from(variant: SLEEPENTER_AW) -> Self {
-        match variant {
-            SLEEPENTER_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `SLEEPENTER`"]
@@ -188,17 +178,14 @@ impl<'a> SLEEPENTER_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPEXIT_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SLEEPEXIT_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPEXIT_A) -> Self {
-        match variant {
-            SLEEPEXIT_A::DISABLED => false,
-            SLEEPEXIT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPEXIT`"]
@@ -227,14 +214,12 @@ impl SLEEPEXIT_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPEXIT_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<SLEEPEXIT_AW> for bool {
     #[inline(always)]
     fn from(variant: SLEEPEXIT_AW) -> Self {
-        match variant {
-            SLEEPEXIT_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `SLEEPEXIT`"]
@@ -275,17 +260,14 @@ impl<'a> SLEEPEXIT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBDETECTED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USBDETECTED_A> for bool {
     #[inline(always)]
     fn from(variant: USBDETECTED_A) -> Self {
-        match variant {
-            USBDETECTED_A::DISABLED => false,
-            USBDETECTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBDETECTED`"]
@@ -314,14 +296,12 @@ impl USBDETECTED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBDETECTED_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<USBDETECTED_AW> for bool {
     #[inline(always)]
     fn from(variant: USBDETECTED_AW) -> Self {
-        match variant {
-            USBDETECTED_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `USBDETECTED`"]
@@ -362,17 +342,14 @@ impl<'a> USBDETECTED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBREMOVED_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USBREMOVED_A> for bool {
     #[inline(always)]
     fn from(variant: USBREMOVED_A) -> Self {
-        match variant {
-            USBREMOVED_A::DISABLED => false,
-            USBREMOVED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBREMOVED`"]
@@ -401,14 +378,12 @@ impl USBREMOVED_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBREMOVED_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<USBREMOVED_AW> for bool {
     #[inline(always)]
     fn from(variant: USBREMOVED_AW) -> Self {
-        match variant {
-            USBREMOVED_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `USBREMOVED`"]
@@ -449,17 +424,14 @@ impl<'a> USBREMOVED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBPWRRDY_A {
     #[doc = "0: Read: Disabled"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Read: Enabled"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USBPWRRDY_A> for bool {
     #[inline(always)]
     fn from(variant: USBPWRRDY_A) -> Self {
-        match variant {
-            USBPWRRDY_A::DISABLED => false,
-            USBPWRRDY_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBPWRRDY`"]
@@ -488,14 +460,12 @@ impl USBPWRRDY_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBPWRRDY_AW {
     #[doc = "1: Enable"]
-    SET,
+    SET = 1,
 }
 impl From<USBPWRRDY_AW> for bool {
     #[inline(always)]
     fn from(variant: USBPWRRDY_AW) -> Self {
-        match variant {
-            USBPWRRDY_AW::SET => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `USBPWRRDY`"]

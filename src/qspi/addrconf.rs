@@ -54,25 +54,21 @@ impl<'a> BYTE1_W<'a> {
 }
 #[doc = "Extended addressing mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: Do not send any instruction."]
-    NOINSTR,
+    NOINSTR = 0,
     #[doc = "1: Send opcode."]
-    OPCODE,
+    OPCODE = 1,
     #[doc = "2: Send opcode, byte0."]
-    OPBYTE0,
+    OPBYTE0 = 2,
     #[doc = "3: Send opcode, byte0, byte1."]
-    ALL,
+    ALL = 3,
 }
 impl From<MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::NOINSTR => 0,
-            MODE_A::OPCODE => 1,
-            MODE_A::OPBYTE0 => 2,
-            MODE_A::ALL => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -153,17 +149,14 @@ impl<'a> MODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WIPWAIT_A {
     #[doc = "0: No wait."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Wait."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WIPWAIT_A> for bool {
     #[inline(always)]
     fn from(variant: WIPWAIT_A) -> Self {
-        match variant {
-            WIPWAIT_A::DISABLE => false,
-            WIPWAIT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WIPWAIT`"]
@@ -231,17 +224,14 @@ impl<'a> WIPWAIT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WREN_A {
     #[doc = "0: Do not send WREN."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Send WREN."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WREN_A> for bool {
     #[inline(always)]
     fn from(variant: WREN_A) -> Self {
-        match variant {
-            WREN_A::DISABLE => false,
-            WREN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WREN`"]

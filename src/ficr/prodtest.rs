@@ -2,19 +2,17 @@
 pub type R = crate::R<u32, super::PRODTEST>;
 #[doc = "Production test signature n\n\nValue on reset: 4294967295"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum PRODTEST_A {
     #[doc = "3141677471: Production tests done"]
-    DONE,
+    DONE = 3141677471,
     #[doc = "4294967295: Production tests not done"]
-    NOTDONE,
+    NOTDONE = 4294967295,
 }
 impl From<PRODTEST_A> for u32 {
     #[inline(always)]
     fn from(variant: PRODTEST_A) -> Self {
-        match variant {
-            PRODTEST_A::DONE => 3141677471,
-            PRODTEST_A::NOTDONE => 4294967295,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PRODTEST`"]

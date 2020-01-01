@@ -12,19 +12,17 @@ impl crate::ResetValue for super::HFXODEBOUNCE {
 }
 #[doc = "HFXO debounce time. Debounce time = HFXODEBOUNCE * 16 us.\n\nValue on reset: 16"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HFXODEBOUNCE_A {
     #[doc = "16: 256 us debounce time. Recommended for TSX-3225, FA-20H and FA-128 crystals."]
-    DB256US,
+    DB256US = 16,
     #[doc = "64: 1024 us debounce time. Recommended for NX1612AA and NX1210AB crystals."]
-    DB1024US,
+    DB1024US = 64,
 }
 impl From<HFXODEBOUNCE_A> for u8 {
     #[inline(always)]
     fn from(variant: HFXODEBOUNCE_A) -> Self {
-        match variant {
-            HFXODEBOUNCE_A::DB256US => 16,
-            HFXODEBOUNCE_A::DB1024US => 64,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `HFXODEBOUNCE`"]

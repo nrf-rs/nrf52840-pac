@@ -12,22 +12,19 @@ impl crate::ResetValue for super::HOST_CRYPTOKEY_SEL {
 }
 #[doc = "Select the source of the HW key that is used by the AES engine\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HOST_CRYPTOKEY_SEL_A {
     #[doc = "0: Use device root key K_DR from CRYPTOCELL AO power domain"]
-    K_DR,
+    K_DR = 0,
     #[doc = "1: Use hard-coded RTL key K_PRTL"]
-    K_PRTL,
+    K_PRTL = 1,
     #[doc = "2: Use provided session key"]
-    SESSION,
+    SESSION = 2,
 }
 impl From<HOST_CRYPTOKEY_SEL_A> for u8 {
     #[inline(always)]
     fn from(variant: HOST_CRYPTOKEY_SEL_A) -> Self {
-        match variant {
-            HOST_CRYPTOKEY_SEL_A::K_DR => 0,
-            HOST_CRYPTOKEY_SEL_A::K_PRTL => 1,
-            HOST_CRYPTOKEY_SEL_A::SESSION => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `HOST_CRYPTOKEY_SEL`"]

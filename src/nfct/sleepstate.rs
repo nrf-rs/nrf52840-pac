@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::SLEEPSTATE>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SLEEPSTATE_A {
     #[doc = "0: State is IDLE."]
-    IDLE,
+    IDLE = 0,
     #[doc = "1: State is SLEEP_A."]
-    SLEEPA,
+    SLEEPA = 1,
 }
 impl From<SLEEPSTATE_A> for bool {
     #[inline(always)]
     fn from(variant: SLEEPSTATE_A) -> Self {
-        match variant {
-            SLEEPSTATE_A::IDLE => false,
-            SLEEPSTATE_A::SLEEPA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SLEEPSTATE`"]

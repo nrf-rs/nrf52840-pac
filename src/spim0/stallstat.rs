@@ -14,17 +14,14 @@ impl crate::ResetValue for super::STALLSTAT {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TX_A {
     #[doc = "0: No stall"]
-    NOSTALL,
+    NOSTALL = 0,
     #[doc = "1: A stall has occurred"]
-    STALL,
+    STALL = 1,
 }
 impl From<TX_A> for bool {
     #[inline(always)]
     fn from(variant: TX_A) -> Self {
-        match variant {
-            TX_A::NOSTALL => false,
-            TX_A::STALL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `TX`"]
@@ -92,17 +89,14 @@ impl<'a> TX_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RX_A {
     #[doc = "0: No stall"]
-    NOSTALL,
+    NOSTALL = 0,
     #[doc = "1: A stall has occurred"]
-    STALL,
+    STALL = 1,
 }
 impl From<RX_A> for bool {
     #[inline(always)]
     fn from(variant: RX_A) -> Self {
-        match variant {
-            RX_A::NOSTALL => false,
-            RX_A::STALL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RX`"]

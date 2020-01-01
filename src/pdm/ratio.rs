@@ -14,17 +14,14 @@ impl crate::ResetValue for super::RATIO {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RATIO_A {
     #[doc = "0: Ratio of 64"]
-    RATIO64,
+    RATIO64 = 0,
     #[doc = "1: Ratio of 80"]
-    RATIO80,
+    RATIO80 = 1,
 }
 impl From<RATIO_A> for bool {
     #[inline(always)]
     fn from(variant: RATIO_A) -> Self {
-        match variant {
-            RATIO_A::RATIO64 => false,
-            RATIO_A::RATIO80 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RATIO`"]

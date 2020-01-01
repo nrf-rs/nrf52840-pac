@@ -12,25 +12,21 @@ impl crate::ResetValue for super::RATEOVERRIDE {
 }
 #[doc = "Data rate override setting.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RATEOVERRIDE_A {
     #[doc = "0: 1 Mbps"]
-    _1MBIT,
+    _1MBIT = 0,
     #[doc = "1: 2 Mbps"]
-    _2MBIT,
+    _2MBIT = 1,
     #[doc = "2: 125 Kbps"]
-    _125KBPS,
+    _125KBPS = 2,
     #[doc = "3: 500 Kbps"]
-    _500KBPS,
+    _500KBPS = 3,
 }
 impl From<RATEOVERRIDE_A> for u8 {
     #[inline(always)]
     fn from(variant: RATEOVERRIDE_A) -> Self {
-        match variant {
-            RATEOVERRIDE_A::_1MBIT => 0,
-            RATEOVERRIDE_A::_2MBIT => 1,
-            RATEOVERRIDE_A::_125KBPS => 2,
-            RATEOVERRIDE_A::_500KBPS => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RATEOVERRIDE`"]

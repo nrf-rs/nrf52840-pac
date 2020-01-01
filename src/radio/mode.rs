@@ -12,34 +12,27 @@ impl crate::ResetValue for super::MODE {
 }
 #[doc = "Radio data rate and modulation setting. The radio supports frequency-shift keying (FSK) modulation.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
     #[doc = "0: 1 Mbit/s Nordic proprietary radio mode"]
-    NRF_1MBIT,
+    NRF_1MBIT = 0,
     #[doc = "1: 2 Mbit/s Nordic proprietary radio mode"]
-    NRF_2MBIT,
+    NRF_2MBIT = 1,
     #[doc = "3: 1 Mbit/s BLE"]
-    BLE_1MBIT,
+    BLE_1MBIT = 3,
     #[doc = "4: 2 Mbit/s BLE"]
-    BLE_2MBIT,
+    BLE_2MBIT = 4,
     #[doc = "5: Long range 125 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
-    BLE_LR125KBIT,
+    BLE_LR125KBIT = 5,
     #[doc = "6: Long range 500 kbit/s TX, 125 kbit/s and 500 kbit/s RX"]
-    BLE_LR500KBIT,
+    BLE_LR500KBIT = 6,
     #[doc = "15: IEEE 802.15.4-2006 250 kbit/s"]
-    IEEE802154_250KBIT,
+    IEEE802154_250KBIT = 15,
 }
 impl From<MODE_A> for u8 {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::NRF_1MBIT => 0,
-            MODE_A::NRF_2MBIT => 1,
-            MODE_A::BLE_1MBIT => 3,
-            MODE_A::BLE_2MBIT => 4,
-            MODE_A::BLE_LR125KBIT => 5,
-            MODE_A::BLE_LR500KBIT => 6,
-            MODE_A::IEEE802154_250KBIT => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]

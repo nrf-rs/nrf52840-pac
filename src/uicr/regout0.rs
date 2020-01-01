@@ -12,34 +12,27 @@ impl crate::ResetValue for super::REGOUT0 {
 }
 #[doc = "Output voltage from of REG0 regulator stage. The maximum output voltage from this stage is given as VDDH - VEXDIF.\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum VOUT_A {
     #[doc = "0: 1.8 V"]
-    _1V8,
+    _1V8 = 0,
     #[doc = "1: 2.1 V"]
-    _2V1,
+    _2V1 = 1,
     #[doc = "2: 2.4 V"]
-    _2V4,
+    _2V4 = 2,
     #[doc = "3: 2.7 V"]
-    _2V7,
+    _2V7 = 3,
     #[doc = "4: 3.0 V"]
-    _3V0,
+    _3V0 = 4,
     #[doc = "5: 3.3 V"]
-    _3V3,
+    _3V3 = 5,
     #[doc = "7: Default voltage: 1.8 V"]
-    DEFAULT,
+    DEFAULT = 7,
 }
 impl From<VOUT_A> for u8 {
     #[inline(always)]
     fn from(variant: VOUT_A) -> Self {
-        match variant {
-            VOUT_A::_1V8 => 0,
-            VOUT_A::_2V1 => 1,
-            VOUT_A::_2V4 => 2,
-            VOUT_A::_2V7 => 3,
-            VOUT_A::_3V0 => 4,
-            VOUT_A::_3V3 => 5,
-            VOUT_A::DEFAULT => 7,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `VOUT`"]

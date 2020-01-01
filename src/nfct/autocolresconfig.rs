@@ -14,17 +14,14 @@ impl crate::ResetValue for super::AUTOCOLRESCONFIG {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODE_A {
     #[doc = "0: Auto collision resolution enabled"]
-    ENABLED,
+    ENABLED = 0,
     #[doc = "1: Auto collision resolution disabled"]
-    DISABLED,
+    DISABLED = 1,
 }
 impl From<MODE_A> for bool {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::ENABLED => false,
-            MODE_A::DISABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MODE`"]

@@ -24,17 +24,14 @@ impl<'a> EP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IO_AW {
     #[doc = "0: Selects OUT endpoint"]
-    OUT,
+    OUT = 0,
     #[doc = "1: Selects IN endpoint"]
-    IN,
+    IN = 1,
 }
 impl From<IO_AW> for bool {
     #[inline(always)]
     fn from(variant: IO_AW) -> Self {
-        match variant {
-            IO_AW::OUT => false,
-            IO_AW::IN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `IO`"]
@@ -80,17 +77,14 @@ impl<'a> IO_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STALL_AW {
     #[doc = "0: Don't stall selected endpoint"]
-    UNSTALL,
+    UNSTALL = 0,
     #[doc = "1: Stall selected endpoint"]
-    STALL,
+    STALL = 1,
 }
 impl From<STALL_AW> for bool {
     #[inline(always)]
     fn from(variant: STALL_AW) -> Self {
-        match variant {
-            STALL_AW::UNSTALL => false,
-            STALL_AW::STALL => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Write proxy for field `STALL`"]

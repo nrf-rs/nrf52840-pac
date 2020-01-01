@@ -12,22 +12,19 @@ impl crate::ResetValue for super::DPDMVALUE {
 }
 #[doc = "State D+ and D- lines will be forced into by the DPDMDRIVE task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum STATE_A {
     #[doc = "1: D+ forced low, D- forced high (K state) for a timing preset in hardware (50 us or 5 ms, depending on bus state)"]
-    RESUME,
+    RESUME = 1,
     #[doc = "2: D+ forced high, D- forced low (J state)"]
-    J,
+    J = 2,
     #[doc = "4: D+ forced low, D- forced high (K state)"]
-    K,
+    K = 4,
 }
 impl From<STATE_A> for u8 {
     #[inline(always)]
     fn from(variant: STATE_A) -> Self {
-        match variant {
-            STATE_A::RESUME => 1,
-            STATE_A::J => 2,
-            STATE_A::K => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `STATE`"]
