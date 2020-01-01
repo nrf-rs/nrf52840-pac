@@ -14,12 +14,12 @@ pub struct RegisterBlock {
     _reserved5: [u8; 44usize],
     #[doc = "0x40 - Description collection\\[n\\]: Capture Timer value to CC\\[n\\]
 register"]
-    pub tasks_capture: [TASKS_CAPTURE; 4],
-    _reserved6: [u8; 240usize],
+    pub tasks_capture: [TASKS_CAPTURE; 6],
+    _reserved6: [u8; 232usize],
     #[doc = "0x140 - Description collection\\[n\\]: Compare event on CC\\[n\\]
 match"]
-    pub events_compare: [EVENTS_COMPARE; 4],
-    _reserved7: [u8; 176usize],
+    pub events_compare: [EVENTS_COMPARE; 6],
+    _reserved7: [u8; 168usize],
     #[doc = "0x200 - Shortcut register"]
     pub shorts: SHORTS,
     _reserved8: [u8; 256usize],
@@ -37,7 +37,7 @@ match"]
     pub prescaler: PRESCALER,
     _reserved13: [u8; 44usize],
     #[doc = "0x540 - Description collection\\[n\\]: Capture/Compare register n"]
-    pub cc: [CC; 4],
+    pub cc: [CC; 6],
 }
 #[doc = "Start Timer\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tasks_start](tasks_start) module"]
 pub type TASKS_START = crate::Reg<u32, _TASKS_START>;
