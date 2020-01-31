@@ -28,17 +28,14 @@ impl<'a> EP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IO_A {
     #[doc = "0: Selects OUT endpoint"]
-    OUT,
+    OUT = 0,
     #[doc = "1: Selects IN endpoint"]
-    IN,
+    IN = 1,
 }
 impl From<IO_A> for bool {
     #[inline(always)]
     fn from(variant: IO_A) -> Self {
-        match variant {
-            IO_A::OUT => false,
-            IO_A::IN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IO`"]
@@ -104,22 +101,19 @@ impl<'a> IO_W<'a> {
 }
 #[doc = "Data toggle value\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum VALUE_A {
     #[doc = "0: No action on data toggle when writing the register with this value"]
-    NOP,
+    NOP = 0,
     #[doc = "1: Data toggle is DATA0 on endpoint set by EP and IO"]
-    DATA0,
+    DATA0 = 1,
     #[doc = "2: Data toggle is DATA1 on endpoint set by EP and IO"]
-    DATA1,
+    DATA1 = 2,
 }
 impl From<VALUE_A> for u8 {
     #[inline(always)]
     fn from(variant: VALUE_A) -> Self {
-        match variant {
-            VALUE_A::NOP => 0,
-            VALUE_A::DATA0 => 1,
-            VALUE_A::DATA1 => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `VALUE`"]

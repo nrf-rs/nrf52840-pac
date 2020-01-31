@@ -12,28 +12,23 @@ impl crate::ResetValue for super::IFCONFIG0 {
 }
 #[doc = "Configure number of data lines and opcode used for reading.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum READOC_A {
     #[doc = "0: Single data line SPI. FAST_READ (opcode 0x0B)."]
-    FASTREAD,
+    FASTREAD = 0,
     #[doc = "1: Dual data line SPI. READ2O (opcode 0x3B)."]
-    READ2O,
+    READ2O = 1,
     #[doc = "2: Dual data line SPI. READ2IO (opcode 0xBB)."]
-    READ2IO,
+    READ2IO = 2,
     #[doc = "3: Quad data line SPI. READ4O (opcode 0x6B)."]
-    READ4O,
+    READ4O = 3,
     #[doc = "4: Quad data line SPI. READ4IO (opcode 0xEB)."]
-    READ4IO,
+    READ4IO = 4,
 }
 impl From<READOC_A> for u8 {
     #[inline(always)]
     fn from(variant: READOC_A) -> Self {
-        match variant {
-            READOC_A::FASTREAD => 0,
-            READOC_A::READ2O => 1,
-            READOC_A::READ2IO => 2,
-            READOC_A::READ4O => 3,
-            READOC_A::READ4IO => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `READOC`"]
@@ -122,25 +117,21 @@ impl<'a> READOC_W<'a> {
 }
 #[doc = "Configure number of data lines and opcode used for writing.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WRITEOC_A {
     #[doc = "0: Single data line SPI. PP (opcode 0x02)."]
-    PP,
+    PP = 0,
     #[doc = "1: Dual data line SPI. PP2O (opcode 0xA2)."]
-    PP2O,
+    PP2O = 1,
     #[doc = "2: Quad data line SPI. PP4O (opcode 0x32)."]
-    PP4O,
+    PP4O = 2,
     #[doc = "3: Quad data line SPI. PP4IO (opcode 0x38)."]
-    PP4IO,
+    PP4IO = 3,
 }
 impl From<WRITEOC_A> for u8 {
     #[inline(always)]
     fn from(variant: WRITEOC_A) -> Self {
-        match variant {
-            WRITEOC_A::PP => 0,
-            WRITEOC_A::PP2O => 1,
-            WRITEOC_A::PP4O => 2,
-            WRITEOC_A::PP4IO => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `WRITEOC`"]
@@ -220,17 +211,14 @@ impl<'a> WRITEOC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ADDRMODE_A {
     #[doc = "0: 24-bit addressing."]
-    _24BIT,
+    _24BIT = 0,
     #[doc = "1: 32-bit addressing."]
-    _32BIT,
+    _32BIT = 1,
 }
 impl From<ADDRMODE_A> for bool {
     #[inline(always)]
     fn from(variant: ADDRMODE_A) -> Self {
-        match variant {
-            ADDRMODE_A::_24BIT => false,
-            ADDRMODE_A::_32BIT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ADDRMODE`"]
@@ -298,17 +286,14 @@ impl<'a> ADDRMODE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPMENABLE_A {
     #[doc = "0: Disable DPM feature."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable DPM feature."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<DPMENABLE_A> for bool {
     #[inline(always)]
     fn from(variant: DPMENABLE_A) -> Self {
-        match variant {
-            DPMENABLE_A::DISABLE => false,
-            DPMENABLE_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DPMENABLE`"]
@@ -376,17 +361,14 @@ impl<'a> DPMENABLE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PPSIZE_A {
     #[doc = "0: 256 bytes."]
-    _256BYTES,
+    _256BYTES = 0,
     #[doc = "1: 512 bytes."]
-    _512BYTES,
+    _512BYTES = 1,
 }
 impl From<PPSIZE_A> for bool {
     #[inline(always)]
     fn from(variant: PPSIZE_A) -> Self {
-        match variant {
-            PPSIZE_A::_256BYTES => false,
-            PPSIZE_A::_512BYTES => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PPSIZE`"]

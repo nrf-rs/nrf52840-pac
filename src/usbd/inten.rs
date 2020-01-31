@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBRESET_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USBRESET_A> for bool {
     #[inline(always)]
     fn from(variant: USBRESET_A) -> Self {
-        match variant {
-            USBRESET_A::DISABLED => false,
-            USBRESET_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBRESET`"]
@@ -92,17 +89,14 @@ impl<'a> USBRESET_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum STARTED_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<STARTED_A> for bool {
     #[inline(always)]
     fn from(variant: STARTED_A) -> Self {
-        match variant {
-            STARTED_A::DISABLED => false,
-            STARTED_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `STARTED`"]
@@ -166,21 +160,19 @@ impl<'a> STARTED_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[0\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[0\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN0_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN0_A) -> Self {
-        match variant {
-            ENDEPIN0_A::DISABLED => false,
-            ENDEPIN0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN0`"]
@@ -244,21 +236,19 @@ impl<'a> ENDEPIN0_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[1\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[1\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN1_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN1_A) -> Self {
-        match variant {
-            ENDEPIN1_A::DISABLED => false,
-            ENDEPIN1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN1`"]
@@ -322,21 +312,19 @@ impl<'a> ENDEPIN1_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[2\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[2\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN2_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN2_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN2_A) -> Self {
-        match variant {
-            ENDEPIN2_A::DISABLED => false,
-            ENDEPIN2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN2`"]
@@ -400,21 +388,19 @@ impl<'a> ENDEPIN2_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[3\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[3\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN3_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN3_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN3_A) -> Self {
-        match variant {
-            ENDEPIN3_A::DISABLED => false,
-            ENDEPIN3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN3`"]
@@ -478,21 +464,19 @@ impl<'a> ENDEPIN3_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[4\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[4\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN4_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN4_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN4_A) -> Self {
-        match variant {
-            ENDEPIN4_A::DISABLED => false,
-            ENDEPIN4_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN4`"]
@@ -556,21 +540,19 @@ impl<'a> ENDEPIN4_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[5\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[5\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN5_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN5_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN5_A) -> Self {
-        match variant {
-            ENDEPIN5_A::DISABLED => false,
-            ENDEPIN5_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN5`"]
@@ -634,21 +616,19 @@ impl<'a> ENDEPIN5_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[6\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[6\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN6_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN6_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN6_A) -> Self {
-        match variant {
-            ENDEPIN6_A::DISABLED => false,
-            ENDEPIN6_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN6`"]
@@ -712,21 +692,19 @@ impl<'a> ENDEPIN6_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPIN\\[7\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPIN\\[7\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPIN7_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPIN7_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPIN7_A) -> Self {
-        match variant {
-            ENDEPIN7_A::DISABLED => false,
-            ENDEPIN7_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPIN7`"]
@@ -794,17 +772,14 @@ impl<'a> ENDEPIN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP0DATADONE_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EP0DATADONE_A> for bool {
     #[inline(always)]
     fn from(variant: EP0DATADONE_A) -> Self {
-        match variant {
-            EP0DATADONE_A::DISABLED => false,
-            EP0DATADONE_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EP0DATADONE`"]
@@ -872,17 +847,14 @@ impl<'a> EP0DATADONE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDISOIN_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDISOIN_A> for bool {
     #[inline(always)]
     fn from(variant: ENDISOIN_A) -> Self {
-        match variant {
-            ENDISOIN_A::DISABLED => false,
-            ENDISOIN_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDISOIN`"]
@@ -946,21 +918,19 @@ impl<'a> ENDISOIN_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[0\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[0\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT0_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT0_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT0_A) -> Self {
-        match variant {
-            ENDEPOUT0_A::DISABLED => false,
-            ENDEPOUT0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT0`"]
@@ -1024,21 +994,19 @@ impl<'a> ENDEPOUT0_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[1\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[1\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT1_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT1_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT1_A) -> Self {
-        match variant {
-            ENDEPOUT1_A::DISABLED => false,
-            ENDEPOUT1_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT1`"]
@@ -1102,21 +1070,19 @@ impl<'a> ENDEPOUT1_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[2\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[2\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT2_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT2_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT2_A) -> Self {
-        match variant {
-            ENDEPOUT2_A::DISABLED => false,
-            ENDEPOUT2_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT2`"]
@@ -1180,21 +1146,19 @@ impl<'a> ENDEPOUT2_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[3\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[3\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT3_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT3_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT3_A) -> Self {
-        match variant {
-            ENDEPOUT3_A::DISABLED => false,
-            ENDEPOUT3_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT3`"]
@@ -1258,21 +1222,19 @@ impl<'a> ENDEPOUT3_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[4\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[4\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT4_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT4_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT4_A) -> Self {
-        match variant {
-            ENDEPOUT4_A::DISABLED => false,
-            ENDEPOUT4_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT4`"]
@@ -1336,21 +1298,19 @@ impl<'a> ENDEPOUT4_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[5\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[5\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT5_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT5_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT5_A) -> Self {
-        match variant {
-            ENDEPOUT5_A::DISABLED => false,
-            ENDEPOUT5_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT5`"]
@@ -1414,21 +1374,19 @@ impl<'a> ENDEPOUT5_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[6\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[6\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT6_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT6_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT6_A) -> Self {
-        match variant {
-            ENDEPOUT6_A::DISABLED => false,
-            ENDEPOUT6_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT6`"]
@@ -1492,21 +1450,19 @@ impl<'a> ENDEPOUT6_W<'a> {
         self.w
     }
 }
-#[doc = "Enable or disable interrupt for ENDEPOUT\\[7\\] event\n\nValue on reset: 0"]
+#[doc = "Enable or disable interrupt for ENDEPOUT\\[7\\]
+event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT7_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT7_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT7_A) -> Self {
-        match variant {
-            ENDEPOUT7_A::DISABLED => false,
-            ENDEPOUT7_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT7`"]
@@ -1574,17 +1530,14 @@ impl<'a> ENDEPOUT7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDISOOUT_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDISOOUT_A> for bool {
     #[inline(always)]
     fn from(variant: ENDISOOUT_A) -> Self {
-        match variant {
-            ENDISOOUT_A::DISABLED => false,
-            ENDISOOUT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDISOOUT`"]
@@ -1652,17 +1605,14 @@ impl<'a> ENDISOOUT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SOF_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<SOF_A> for bool {
     #[inline(always)]
     fn from(variant: SOF_A) -> Self {
-        match variant {
-            SOF_A::DISABLED => false,
-            SOF_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SOF`"]
@@ -1730,17 +1680,14 @@ impl<'a> SOF_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBEVENT_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<USBEVENT_A> for bool {
     #[inline(always)]
     fn from(variant: USBEVENT_A) -> Self {
-        match variant {
-            USBEVENT_A::DISABLED => false,
-            USBEVENT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBEVENT`"]
@@ -1808,17 +1755,14 @@ impl<'a> USBEVENT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP0SETUP_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EP0SETUP_A> for bool {
     #[inline(always)]
     fn from(variant: EP0SETUP_A) -> Self {
-        match variant {
-            EP0SETUP_A::DISABLED => false,
-            EP0SETUP_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EP0SETUP`"]
@@ -1886,17 +1830,14 @@ impl<'a> EP0SETUP_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EPDATA_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EPDATA_A> for bool {
     #[inline(always)]
     fn from(variant: EPDATA_A) -> Self {
-        match variant {
-            EPDATA_A::DISABLED => false,
-            EPDATA_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EPDATA`"]
@@ -1971,42 +1912,50 @@ impl R {
     pub fn started(&self) -> STARTED_R {
         STARTED_R::new(((self.bits >> 1) & 0x01) != 0)
     }
-    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\] event"]
+    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\]
+event"]
     #[inline(always)]
     pub fn endepin0(&self) -> ENDEPIN0_R {
         ENDEPIN0_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\] event"]
+    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\]
+event"]
     #[inline(always)]
     pub fn endepin1(&self) -> ENDEPIN1_R {
         ENDEPIN1_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\] event"]
+    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\]
+event"]
     #[inline(always)]
     pub fn endepin2(&self) -> ENDEPIN2_R {
         ENDEPIN2_R::new(((self.bits >> 4) & 0x01) != 0)
     }
-    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\] event"]
+    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\]
+event"]
     #[inline(always)]
     pub fn endepin3(&self) -> ENDEPIN3_R {
         ENDEPIN3_R::new(((self.bits >> 5) & 0x01) != 0)
     }
-    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\] event"]
+    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\]
+event"]
     #[inline(always)]
     pub fn endepin4(&self) -> ENDEPIN4_R {
         ENDEPIN4_R::new(((self.bits >> 6) & 0x01) != 0)
     }
-    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\] event"]
+    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\]
+event"]
     #[inline(always)]
     pub fn endepin5(&self) -> ENDEPIN5_R {
         ENDEPIN5_R::new(((self.bits >> 7) & 0x01) != 0)
     }
-    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\] event"]
+    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\]
+event"]
     #[inline(always)]
     pub fn endepin6(&self) -> ENDEPIN6_R {
         ENDEPIN6_R::new(((self.bits >> 8) & 0x01) != 0)
     }
-    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\] event"]
+    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\]
+event"]
     #[inline(always)]
     pub fn endepin7(&self) -> ENDEPIN7_R {
         ENDEPIN7_R::new(((self.bits >> 9) & 0x01) != 0)
@@ -2021,42 +1970,50 @@ impl R {
     pub fn endisoin(&self) -> ENDISOIN_R {
         ENDISOIN_R::new(((self.bits >> 11) & 0x01) != 0)
     }
-    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\] event"]
+    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\]
+event"]
     #[inline(always)]
     pub fn endepout0(&self) -> ENDEPOUT0_R {
         ENDEPOUT0_R::new(((self.bits >> 12) & 0x01) != 0)
     }
-    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\] event"]
+    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\]
+event"]
     #[inline(always)]
     pub fn endepout1(&self) -> ENDEPOUT1_R {
         ENDEPOUT1_R::new(((self.bits >> 13) & 0x01) != 0)
     }
-    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\] event"]
+    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\]
+event"]
     #[inline(always)]
     pub fn endepout2(&self) -> ENDEPOUT2_R {
         ENDEPOUT2_R::new(((self.bits >> 14) & 0x01) != 0)
     }
-    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\] event"]
+    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\]
+event"]
     #[inline(always)]
     pub fn endepout3(&self) -> ENDEPOUT3_R {
         ENDEPOUT3_R::new(((self.bits >> 15) & 0x01) != 0)
     }
-    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\] event"]
+    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\]
+event"]
     #[inline(always)]
     pub fn endepout4(&self) -> ENDEPOUT4_R {
         ENDEPOUT4_R::new(((self.bits >> 16) & 0x01) != 0)
     }
-    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\] event"]
+    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\]
+event"]
     #[inline(always)]
     pub fn endepout5(&self) -> ENDEPOUT5_R {
         ENDEPOUT5_R::new(((self.bits >> 17) & 0x01) != 0)
     }
-    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\] event"]
+    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\]
+event"]
     #[inline(always)]
     pub fn endepout6(&self) -> ENDEPOUT6_R {
         ENDEPOUT6_R::new(((self.bits >> 18) & 0x01) != 0)
     }
-    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\] event"]
+    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\]
+event"]
     #[inline(always)]
     pub fn endepout7(&self) -> ENDEPOUT7_R {
         ENDEPOUT7_R::new(((self.bits >> 19) & 0x01) != 0)
@@ -2098,42 +2055,50 @@ impl W {
     pub fn started(&mut self) -> STARTED_W {
         STARTED_W { w: self }
     }
-    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\] event"]
+    #[doc = "Bit 2 - Enable or disable interrupt for ENDEPIN\\[0\\]
+event"]
     #[inline(always)]
     pub fn endepin0(&mut self) -> ENDEPIN0_W {
         ENDEPIN0_W { w: self }
     }
-    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\] event"]
+    #[doc = "Bit 3 - Enable or disable interrupt for ENDEPIN\\[1\\]
+event"]
     #[inline(always)]
     pub fn endepin1(&mut self) -> ENDEPIN1_W {
         ENDEPIN1_W { w: self }
     }
-    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\] event"]
+    #[doc = "Bit 4 - Enable or disable interrupt for ENDEPIN\\[2\\]
+event"]
     #[inline(always)]
     pub fn endepin2(&mut self) -> ENDEPIN2_W {
         ENDEPIN2_W { w: self }
     }
-    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\] event"]
+    #[doc = "Bit 5 - Enable or disable interrupt for ENDEPIN\\[3\\]
+event"]
     #[inline(always)]
     pub fn endepin3(&mut self) -> ENDEPIN3_W {
         ENDEPIN3_W { w: self }
     }
-    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\] event"]
+    #[doc = "Bit 6 - Enable or disable interrupt for ENDEPIN\\[4\\]
+event"]
     #[inline(always)]
     pub fn endepin4(&mut self) -> ENDEPIN4_W {
         ENDEPIN4_W { w: self }
     }
-    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\] event"]
+    #[doc = "Bit 7 - Enable or disable interrupt for ENDEPIN\\[5\\]
+event"]
     #[inline(always)]
     pub fn endepin5(&mut self) -> ENDEPIN5_W {
         ENDEPIN5_W { w: self }
     }
-    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\] event"]
+    #[doc = "Bit 8 - Enable or disable interrupt for ENDEPIN\\[6\\]
+event"]
     #[inline(always)]
     pub fn endepin6(&mut self) -> ENDEPIN6_W {
         ENDEPIN6_W { w: self }
     }
-    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\] event"]
+    #[doc = "Bit 9 - Enable or disable interrupt for ENDEPIN\\[7\\]
+event"]
     #[inline(always)]
     pub fn endepin7(&mut self) -> ENDEPIN7_W {
         ENDEPIN7_W { w: self }
@@ -2148,42 +2113,50 @@ impl W {
     pub fn endisoin(&mut self) -> ENDISOIN_W {
         ENDISOIN_W { w: self }
     }
-    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\] event"]
+    #[doc = "Bit 12 - Enable or disable interrupt for ENDEPOUT\\[0\\]
+event"]
     #[inline(always)]
     pub fn endepout0(&mut self) -> ENDEPOUT0_W {
         ENDEPOUT0_W { w: self }
     }
-    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\] event"]
+    #[doc = "Bit 13 - Enable or disable interrupt for ENDEPOUT\\[1\\]
+event"]
     #[inline(always)]
     pub fn endepout1(&mut self) -> ENDEPOUT1_W {
         ENDEPOUT1_W { w: self }
     }
-    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\] event"]
+    #[doc = "Bit 14 - Enable or disable interrupt for ENDEPOUT\\[2\\]
+event"]
     #[inline(always)]
     pub fn endepout2(&mut self) -> ENDEPOUT2_W {
         ENDEPOUT2_W { w: self }
     }
-    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\] event"]
+    #[doc = "Bit 15 - Enable or disable interrupt for ENDEPOUT\\[3\\]
+event"]
     #[inline(always)]
     pub fn endepout3(&mut self) -> ENDEPOUT3_W {
         ENDEPOUT3_W { w: self }
     }
-    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\] event"]
+    #[doc = "Bit 16 - Enable or disable interrupt for ENDEPOUT\\[4\\]
+event"]
     #[inline(always)]
     pub fn endepout4(&mut self) -> ENDEPOUT4_W {
         ENDEPOUT4_W { w: self }
     }
-    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\] event"]
+    #[doc = "Bit 17 - Enable or disable interrupt for ENDEPOUT\\[5\\]
+event"]
     #[inline(always)]
     pub fn endepout5(&mut self) -> ENDEPOUT5_W {
         ENDEPOUT5_W { w: self }
     }
-    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\] event"]
+    #[doc = "Bit 18 - Enable or disable interrupt for ENDEPOUT\\[6\\]
+event"]
     #[inline(always)]
     pub fn endepout6(&mut self) -> ENDEPOUT6_W {
         ENDEPOUT6_W { w: self }
     }
-    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\] event"]
+    #[doc = "Bit 19 - Enable or disable interrupt for ENDEPOUT\\[7\\]
+event"]
     #[inline(always)]
     pub fn endepout7(&mut self) -> ENDEPOUT7_W {
         ENDEPOUT7_W { w: self }

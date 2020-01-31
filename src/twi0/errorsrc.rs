@@ -14,17 +14,14 @@ impl crate::ResetValue for super::ERRORSRC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OVERRUN_A {
     #[doc = "0: Read: no overrun occured"]
-    NOTPRESENT,
+    NOTPRESENT = 0,
     #[doc = "1: Read: overrun occured"]
-    PRESENT,
+    PRESENT = 1,
 }
 impl From<OVERRUN_A> for bool {
     #[inline(always)]
     fn from(variant: OVERRUN_A) -> Self {
-        match variant {
-            OVERRUN_A::NOTPRESENT => false,
-            OVERRUN_A::PRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OVERRUN`"]
@@ -92,17 +89,14 @@ impl<'a> OVERRUN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ANACK_A {
     #[doc = "0: Read: error not present"]
-    NOTPRESENT,
+    NOTPRESENT = 0,
     #[doc = "1: Read: error present"]
-    PRESENT,
+    PRESENT = 1,
 }
 impl From<ANACK_A> for bool {
     #[inline(always)]
     fn from(variant: ANACK_A) -> Self {
-        match variant {
-            ANACK_A::NOTPRESENT => false,
-            ANACK_A::PRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ANACK`"]
@@ -170,17 +164,14 @@ impl<'a> ANACK_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DNACK_A {
     #[doc = "0: Read: error not present"]
-    NOTPRESENT,
+    NOTPRESENT = 0,
     #[doc = "1: Read: error present"]
-    PRESENT,
+    PRESENT = 1,
 }
 impl From<DNACK_A> for bool {
     #[inline(always)]
     fn from(variant: DNACK_A) -> Self {
-        match variant {
-            DNACK_A::NOTPRESENT => false,
-            DNACK_A::PRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DNACK`"]

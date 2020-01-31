@@ -2,19 +2,17 @@
 pub type R = crate::R<u32, super::EPOUT>;
 #[doc = "OUT endpoint halted status. Can be used as is as response to a GetStatus() request to endpoint.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u16)]
 pub enum GETSTATUS_A {
     #[doc = "0: Endpoint is not halted"]
-    NOTHALTED,
+    NOTHALTED = 0,
     #[doc = "1: Endpoint is halted"]
-    HALTED,
+    HALTED = 1,
 }
 impl From<GETSTATUS_A> for u16 {
     #[inline(always)]
     fn from(variant: GETSTATUS_A) -> Self {
-        match variant {
-            GETSTATUS_A::NOTHALTED => 0,
-            GETSTATUS_A::HALTED => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `GETSTATUS`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EPINEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN0_A {
     #[doc = "0: Disable endpoint IN 0 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 0 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN0_A> for bool {
     #[inline(always)]
     fn from(variant: IN0_A) -> Self {
-        match variant {
-            IN0_A::DISABLE => false,
-            IN0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN0`"]
@@ -92,17 +89,14 @@ impl<'a> IN0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN1_A {
     #[doc = "0: Disable endpoint IN 1 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 1 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN1_A> for bool {
     #[inline(always)]
     fn from(variant: IN1_A) -> Self {
-        match variant {
-            IN1_A::DISABLE => false,
-            IN1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN1`"]
@@ -170,17 +164,14 @@ impl<'a> IN1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN2_A {
     #[doc = "0: Disable endpoint IN 2 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 2 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN2_A> for bool {
     #[inline(always)]
     fn from(variant: IN2_A) -> Self {
-        match variant {
-            IN2_A::DISABLE => false,
-            IN2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN2`"]
@@ -248,17 +239,14 @@ impl<'a> IN2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN3_A {
     #[doc = "0: Disable endpoint IN 3 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 3 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN3_A> for bool {
     #[inline(always)]
     fn from(variant: IN3_A) -> Self {
-        match variant {
-            IN3_A::DISABLE => false,
-            IN3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN3`"]
@@ -326,17 +314,14 @@ impl<'a> IN3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN4_A {
     #[doc = "0: Disable endpoint IN 4 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 4 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN4_A> for bool {
     #[inline(always)]
     fn from(variant: IN4_A) -> Self {
-        match variant {
-            IN4_A::DISABLE => false,
-            IN4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN4`"]
@@ -404,17 +389,14 @@ impl<'a> IN4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN5_A {
     #[doc = "0: Disable endpoint IN 5 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 5 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN5_A> for bool {
     #[inline(always)]
     fn from(variant: IN5_A) -> Self {
-        match variant {
-            IN5_A::DISABLE => false,
-            IN5_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN5`"]
@@ -482,17 +464,14 @@ impl<'a> IN5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN6_A {
     #[doc = "0: Disable endpoint IN 6 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 6 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN6_A> for bool {
     #[inline(always)]
     fn from(variant: IN6_A) -> Self {
-        match variant {
-            IN6_A::DISABLE => false,
-            IN6_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN6`"]
@@ -560,17 +539,14 @@ impl<'a> IN6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum IN7_A {
     #[doc = "0: Disable endpoint IN 7 (no response to IN tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint IN 7 (response to IN tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<IN7_A> for bool {
     #[inline(always)]
     fn from(variant: IN7_A) -> Self {
-        match variant {
-            IN7_A::DISABLE => false,
-            IN7_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `IN7`"]
@@ -638,17 +614,14 @@ impl<'a> IN7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ISOIN_A {
     #[doc = "0: Disable ISO IN endpoint 8"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable ISO IN endpoint 8"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ISOIN_A> for bool {
     #[inline(always)]
     fn from(variant: ISOIN_A) -> Self {
-        match variant {
-            ISOIN_A::DISABLE => false,
-            ISOIN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ISOIN`"]

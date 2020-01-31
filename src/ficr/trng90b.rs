@@ -1,4 +1,4 @@
-#[doc = "Amount of bytes for the required entropy bits\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [bytes](bytes) module"]
+#[doc = "Amount of bytes for the required entropy bits\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bytes](bytes) module"]
 pub type BYTES = crate::Reg<u32, _BYTES>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -7,7 +7,7 @@ pub struct _BYTES;
 impl crate::Readable for BYTES {}
 #[doc = "Amount of bytes for the required entropy bits"]
 pub mod bytes;
-#[doc = "Repetition counter cutoff\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rccutoff](rccutoff) module"]
+#[doc = "Repetition counter cutoff\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rccutoff](rccutoff) module"]
 pub type RCCUTOFF = crate::Reg<u32, _RCCUTOFF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -16,7 +16,7 @@ pub struct _RCCUTOFF;
 impl crate::Readable for RCCUTOFF {}
 #[doc = "Repetition counter cutoff"]
 pub mod rccutoff;
-#[doc = "Adaptive proportion cutoff\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [apcutoff](apcutoff) module"]
+#[doc = "Adaptive proportion cutoff\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [apcutoff](apcutoff) module"]
 pub type APCUTOFF = crate::Reg<u32, _APCUTOFF>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -25,7 +25,7 @@ pub struct _APCUTOFF;
 impl crate::Readable for APCUTOFF {}
 #[doc = "Adaptive proportion cutoff"]
 pub mod apcutoff;
-#[doc = "Amount of bytes for the startup tests\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [startup](startup) module"]
+#[doc = "Amount of bytes for the startup tests\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [startup](startup) module"]
 pub type STARTUP = crate::Reg<u32, _STARTUP>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -34,7 +34,7 @@ pub struct _STARTUP;
 impl crate::Readable for STARTUP {}
 #[doc = "Amount of bytes for the startup tests"]
 pub mod startup;
-#[doc = "Sample count for ring oscillator 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rosc1](rosc1) module"]
+#[doc = "Sample count for ring oscillator 1\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rosc1](rosc1) module"]
 pub type ROSC1 = crate::Reg<u32, _ROSC1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ pub struct _ROSC1;
 impl crate::Readable for ROSC1 {}
 #[doc = "Sample count for ring oscillator 1"]
 pub mod rosc1;
-#[doc = "Sample count for ring oscillator 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rosc2](rosc2) module"]
+#[doc = "Sample count for ring oscillator 2\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rosc2](rosc2) module"]
 pub type ROSC2 = crate::Reg<u32, _ROSC2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ pub struct _ROSC2;
 impl crate::Readable for ROSC2 {}
 #[doc = "Sample count for ring oscillator 2"]
 pub mod rosc2;
-#[doc = "Sample count for ring oscillator 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rosc3](rosc3) module"]
+#[doc = "Sample count for ring oscillator 3\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rosc3](rosc3) module"]
 pub type ROSC3 = crate::Reg<u32, _ROSC3>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -61,7 +61,7 @@ pub struct _ROSC3;
 impl crate::Readable for ROSC3 {}
 #[doc = "Sample count for ring oscillator 3"]
 pub mod rosc3;
-#[doc = "Sample count for ring oscillator 4\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [rosc4](rosc4) module"]
+#[doc = "Sample count for ring oscillator 4\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rosc4](rosc4) module"]
 pub type ROSC4 = crate::Reg<u32, _ROSC4>;
 #[allow(missing_docs)]
 #[doc(hidden)]

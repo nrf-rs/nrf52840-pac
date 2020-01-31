@@ -6,17 +6,14 @@ pub type SIZE_R = crate::R<u16, u16>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ZERO_A {
     #[doc = "0: No zero-length data received, use value in SIZE"]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: Zero-length data received, ignore value in SIZE"]
-    ZERODATA,
+    ZERODATA = 1,
 }
 impl From<ZERO_A> for bool {
     #[inline(always)]
     fn from(variant: ZERO_A) -> Self {
-        match variant {
-            ZERO_A::NORMAL => false,
-            ZERO_A::ZERODATA => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ZERO`"]

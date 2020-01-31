@@ -12,19 +12,17 @@ impl crate::ResetValue for super::ISOSPLIT {
 }
 #[doc = "Controls the split of ISO buffers\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u16)]
 pub enum SPLIT_A {
     #[doc = "0: Full buffer dedicated to either iso IN or OUT"]
-    ONEDIR,
+    ONEDIR = 0,
     #[doc = "128: Lower half for IN, upper half for OUT"]
-    HALFIN,
+    HALFIN = 128,
 }
 impl From<SPLIT_A> for u16 {
     #[inline(always)]
     fn from(variant: SPLIT_A) -> Self {
-        match variant {
-            SPLIT_A::ONEDIR => 0,
-            SPLIT_A::HALFIN => 128,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `SPLIT`"]

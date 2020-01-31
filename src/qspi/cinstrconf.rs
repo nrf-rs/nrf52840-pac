@@ -26,40 +26,31 @@ impl<'a> OPCODE_W<'a> {
 }
 #[doc = "Length of custom instruction in number of bytes.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LENGTH_A {
     #[doc = "1: Send opcode only."]
-    _1B,
+    _1B = 1,
     #[doc = "2: Send opcode, CINSTRDAT0.BYTE0."]
-    _2B,
+    _2B = 2,
     #[doc = "3: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE1."]
-    _3B,
+    _3B = 3,
     #[doc = "4: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE2."]
-    _4B,
+    _4B = 4,
     #[doc = "5: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT0.BYTE3."]
-    _5B,
+    _5B = 5,
     #[doc = "6: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE4."]
-    _6B,
+    _6B = 6,
     #[doc = "7: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE5."]
-    _7B,
+    _7B = 7,
     #[doc = "8: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE6."]
-    _8B,
+    _8B = 8,
     #[doc = "9: Send opcode, CINSTRDAT0.BYTE0 -&gt; CINSTRDAT1.BYTE7."]
-    _9B,
+    _9B = 9,
 }
 impl From<LENGTH_A> for u8 {
     #[inline(always)]
     fn from(variant: LENGTH_A) -> Self {
-        match variant {
-            LENGTH_A::_1B => 1,
-            LENGTH_A::_2B => 2,
-            LENGTH_A::_3B => 3,
-            LENGTH_A::_4B => 4,
-            LENGTH_A::_5B => 5,
-            LENGTH_A::_6B => 6,
-            LENGTH_A::_7B => 7,
-            LENGTH_A::_8B => 8,
-            LENGTH_A::_9B => 9,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `LENGTH`"]
@@ -242,17 +233,14 @@ impl<'a> LIO3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WIPWAIT_A {
     #[doc = "0: No wait."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Wait."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WIPWAIT_A> for bool {
     #[inline(always)]
     fn from(variant: WIPWAIT_A) -> Self {
-        match variant {
-            WIPWAIT_A::DISABLE => false,
-            WIPWAIT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WIPWAIT`"]
@@ -320,17 +308,14 @@ impl<'a> WIPWAIT_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WREN_A {
     #[doc = "0: Do not send WREN."]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Send WREN."]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<WREN_A> for bool {
     #[inline(always)]
     fn from(variant: WREN_A) -> Self {
-        match variant {
-            WREN_A::DISABLE => false,
-            WREN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WREN`"]
@@ -398,17 +383,14 @@ impl<'a> WREN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFEN_A {
     #[doc = "0: Long frame mode disabled"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Long frame mode enabled"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<LFEN_A> for bool {
     #[inline(always)]
     fn from(variant: LFEN_A) -> Self {
-        match variant {
-            LFEN_A::DISABLE => false,
-            LFEN_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LFEN`"]
@@ -476,14 +458,12 @@ impl<'a> LFEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LFSTOP_A {
     #[doc = "1: Stop"]
-    STOP,
+    STOP = 1,
 }
 impl From<LFSTOP_A> for bool {
     #[inline(always)]
     fn from(variant: LFSTOP_A) -> Self {
-        match variant {
-            LFSTOP_A::STOP => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LFSTOP`"]

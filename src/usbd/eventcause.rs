@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EVENTCAUSE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ISOOUTCRC_A {
     #[doc = "0: No error detected"]
-    NOTDETECTED,
+    NOTDETECTED = 0,
     #[doc = "1: Error detected"]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<ISOOUTCRC_A> for bool {
     #[inline(always)]
     fn from(variant: ISOOUTCRC_A) -> Self {
-        match variant {
-            ISOOUTCRC_A::NOTDETECTED => false,
-            ISOOUTCRC_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ISOOUTCRC`"]
@@ -92,17 +89,14 @@ impl<'a> ISOOUTCRC_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SUSPEND_A {
     #[doc = "0: Suspend not detected"]
-    NOTDETECTED,
+    NOTDETECTED = 0,
     #[doc = "1: Suspend detected"]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<SUSPEND_A> for bool {
     #[inline(always)]
     fn from(variant: SUSPEND_A) -> Self {
-        match variant {
-            SUSPEND_A::NOTDETECTED => false,
-            SUSPEND_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SUSPEND`"]
@@ -170,17 +164,14 @@ impl<'a> SUSPEND_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum RESUME_A {
     #[doc = "0: Resume not detected"]
-    NOTDETECTED,
+    NOTDETECTED = 0,
     #[doc = "1: Resume detected"]
-    DETECTED,
+    DETECTED = 1,
 }
 impl From<RESUME_A> for bool {
     #[inline(always)]
     fn from(variant: RESUME_A) -> Self {
-        match variant {
-            RESUME_A::NOTDETECTED => false,
-            RESUME_A::DETECTED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `RESUME`"]
@@ -248,17 +239,14 @@ impl<'a> RESUME_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum USBWUALLOWED_A {
     #[doc = "0: Wake up not allowed"]
-    NOTALLOWED,
+    NOTALLOWED = 0,
     #[doc = "1: Wake up allowed"]
-    ALLOWED,
+    ALLOWED = 1,
 }
 impl From<USBWUALLOWED_A> for bool {
     #[inline(always)]
     fn from(variant: USBWUALLOWED_A) -> Self {
-        match variant {
-            USBWUALLOWED_A::NOTALLOWED => false,
-            USBWUALLOWED_A::ALLOWED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `USBWUALLOWED`"]
@@ -326,17 +314,14 @@ impl<'a> USBWUALLOWED_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READY_A {
     #[doc = "0: USBEVENT was not issued due to USBD peripheral ready"]
-    NOTDETECTED,
+    NOTDETECTED = 0,
     #[doc = "1: USBD peripheral is ready"]
-    READY,
+    READY = 1,
 }
 impl From<READY_A> for bool {
     #[inline(always)]
     fn from(variant: READY_A) -> Self {
-        match variant {
-            READY_A::NOTDETECTED => false,
-            READY_A::READY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READY`"]

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::PDUSTAT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PDUSTAT_A {
     #[doc = "0: Payload less than PCNF1.MAXLEN"]
-    LESSTHAN,
+    LESSTHAN = 0,
     #[doc = "1: Payload greater than PCNF1.MAXLEN"]
-    GREATERTHAN,
+    GREATERTHAN = 1,
 }
 impl From<PDUSTAT_A> for bool {
     #[inline(always)]
     fn from(variant: PDUSTAT_A) -> Self {
-        match variant {
-            PDUSTAT_A::LESSTHAN => false,
-            PDUSTAT_A::GREATERTHAN => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PDUSTAT`"]
@@ -41,19 +38,17 @@ impl PDUSTAT_R {
 }
 #[doc = "Status on what rate packet is received with in Long Range\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CISTAT_A {
     #[doc = "0: Frame is received at 125kbps"]
-    LR125KBIT,
+    LR125KBIT = 0,
     #[doc = "1: Frame is received at 500kbps"]
-    LR500KBIT,
+    LR500KBIT = 1,
 }
 impl From<CISTAT_A> for u8 {
     #[inline(always)]
     fn from(variant: CISTAT_A) -> Self {
-        match variant {
-            CISTAT_A::LR125KBIT => 0,
-            CISTAT_A::LR500KBIT => 1,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CISTAT`"]

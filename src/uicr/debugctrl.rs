@@ -12,19 +12,17 @@ impl crate::ResetValue for super::DEBUGCTRL {
 }
 #[doc = "Configure CPU non-intrusive debug features\n\nValue on reset: 255"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CPUNIDEN_A {
     #[doc = "255: Enable CPU ITM and ETM functionality (default behavior)"]
-    ENABLED,
+    ENABLED = 255,
     #[doc = "0: Disable CPU ITM and ETM functionality"]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<CPUNIDEN_A> for u8 {
     #[inline(always)]
     fn from(variant: CPUNIDEN_A) -> Self {
-        match variant {
-            CPUNIDEN_A::ENABLED => 255,
-            CPUNIDEN_A::DISABLED => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CPUNIDEN`"]
@@ -80,19 +78,17 @@ impl<'a> CPUNIDEN_W<'a> {
 }
 #[doc = "Configure CPU flash patch and breakpoint (FPB) unit behavior\n\nValue on reset: 255"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CPUFPBEN_A {
     #[doc = "255: Enable CPU FPB unit (default behavior)"]
-    ENABLED,
+    ENABLED = 255,
     #[doc = "0: Disable CPU FPB unit. Writes into the FPB registers will be ignored."]
-    DISABLED,
+    DISABLED = 0,
 }
 impl From<CPUFPBEN_A> for u8 {
     #[inline(always)]
     fn from(variant: CPUFPBEN_A) -> Self {
-        match variant {
-            CPUFPBEN_A::ENABLED => 255,
-            CPUFPBEN_A::DISABLED => 0,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CPUFPBEN`"]

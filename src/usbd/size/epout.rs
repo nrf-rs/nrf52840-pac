@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::EPOUT>;
 #[doc = "Writer for register EPOUT[%s]"]
 pub type W = crate::W<u32, super::EPOUT>;
-#[doc = "Register EPOUT[%s] `reset()`'s with value 0"]
+#[doc = "Register EPOUT[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::EPOUT {
     type Type = u32;
     #[inline(always)]

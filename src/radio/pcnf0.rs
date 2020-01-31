@@ -66,17 +66,14 @@ impl<'a> S1LEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum S1INCL_A {
     #[doc = "0: Include S1 field in RAM only if S1LEN &gt; 0"]
-    AUTOMATIC,
+    AUTOMATIC = 0,
     #[doc = "1: Always include S1 field in RAM independent of S1LEN"]
-    INCLUDE,
+    INCLUDE = 1,
 }
 impl From<S1INCL_A> for bool {
     #[inline(always)]
     fn from(variant: S1INCL_A) -> Self {
-        match variant {
-            S1INCL_A::AUTOMATIC => false,
-            S1INCL_A::INCLUDE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `S1INCL`"]
@@ -156,25 +153,21 @@ impl<'a> CILEN_W<'a> {
 }
 #[doc = "Length of preamble on air. Decision point: TASKS_START task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PLEN_A {
     #[doc = "0: 8-bit preamble"]
-    _8BIT,
+    _8BIT = 0,
     #[doc = "1: 16-bit preamble"]
-    _16BIT,
+    _16BIT = 1,
     #[doc = "2: 32-bit zero preamble - used for IEEE 802.15.4"]
-    _32BITZERO,
+    _32BITZERO = 2,
     #[doc = "3: Preamble - used for BLE long range"]
-    LONGRANGE,
+    LONGRANGE = 3,
 }
 impl From<PLEN_A> for u8 {
     #[inline(always)]
     fn from(variant: PLEN_A) -> Self {
-        match variant {
-            PLEN_A::_8BIT => 0,
-            PLEN_A::_16BIT => 1,
-            PLEN_A::_32BITZERO => 2,
-            PLEN_A::LONGRANGE => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `PLEN`"]
@@ -255,17 +248,14 @@ impl<'a> PLEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CRCINC_A {
     #[doc = "0: LENGTH does not contain CRC"]
-    EXCLUDE,
+    EXCLUDE = 0,
     #[doc = "1: LENGTH includes CRC"]
-    INCLUDE,
+    INCLUDE = 1,
 }
 impl From<CRCINC_A> for bool {
     #[inline(always)]
     fn from(variant: CRCINC_A) -> Self {
-        match variant {
-            CRCINC_A::EXCLUDE => false,
-            CRCINC_A::INCLUDE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CRCINC`"]

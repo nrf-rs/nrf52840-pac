@@ -2,25 +2,21 @@
 pub type R = crate::R<u32, super::BMREQUESTTYPE>;
 #[doc = "Data transfer type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RECIPIENT_A {
     #[doc = "0: Device"]
-    DEVICE,
+    DEVICE = 0,
     #[doc = "1: Interface"]
-    INTERFACE,
+    INTERFACE = 1,
     #[doc = "2: Endpoint"]
-    ENDPOINT,
+    ENDPOINT = 2,
     #[doc = "3: Other"]
-    OTHER,
+    OTHER = 3,
 }
 impl From<RECIPIENT_A> for u8 {
     #[inline(always)]
     fn from(variant: RECIPIENT_A) -> Self {
-        match variant {
-            RECIPIENT_A::DEVICE => 0,
-            RECIPIENT_A::INTERFACE => 1,
-            RECIPIENT_A::ENDPOINT => 2,
-            RECIPIENT_A::OTHER => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `RECIPIENT`"]
@@ -61,22 +57,19 @@ impl RECIPIENT_R {
 }
 #[doc = "Data transfer type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TYPE_A {
     #[doc = "0: Standard"]
-    STANDARD,
+    STANDARD = 0,
     #[doc = "1: Class"]
-    CLASS,
+    CLASS = 1,
     #[doc = "2: Vendor"]
-    VENDOR,
+    VENDOR = 2,
 }
 impl From<TYPE_A> for u8 {
     #[inline(always)]
     fn from(variant: TYPE_A) -> Self {
-        match variant {
-            TYPE_A::STANDARD => 0,
-            TYPE_A::CLASS => 1,
-            TYPE_A::VENDOR => 2,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `TYPE`"]
@@ -113,17 +106,14 @@ impl TYPE_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DIRECTION_A {
     #[doc = "0: Host-to-device"]
-    HOSTTODEVICE,
+    HOSTTODEVICE = 0,
     #[doc = "1: Device-to-host"]
-    DEVICETOHOST,
+    DEVICETOHOST = 1,
 }
 impl From<DIRECTION_A> for bool {
     #[inline(always)]
     fn from(variant: DIRECTION_A) -> Self {
-        match variant {
-            DIRECTION_A::HOSTTODEVICE => false,
-            DIRECTION_A::DEVICETOHOST => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DIRECTION`"]

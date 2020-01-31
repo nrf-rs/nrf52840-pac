@@ -14,17 +14,14 @@ impl crate::ResetValue for super::USBPULLUP {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum CONNECT_A {
     #[doc = "0: Pull-up is disconnected"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Pull-up is connected to D+"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<CONNECT_A> for bool {
     #[inline(always)]
     fn from(variant: CONNECT_A) -> Self {
-        match variant {
-            CONNECT_A::DISABLED => false,
-            CONNECT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `CONNECT`"]

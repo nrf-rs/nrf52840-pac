@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::READYNEXT>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READYNEXT_A {
     #[doc = "0: NVMC cannot accept any write operation"]
-    BUSY,
+    BUSY = 0,
     #[doc = "1: NVMC is ready"]
-    READY,
+    READY = 1,
 }
 impl From<READYNEXT_A> for bool {
     #[inline(always)]
     fn from(variant: READYNEXT_A) -> Self {
-        match variant {
-            READYNEXT_A::BUSY => false,
-            READYNEXT_A::READY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READYNEXT`"]

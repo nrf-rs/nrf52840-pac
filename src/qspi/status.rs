@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::STATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPM_A {
     #[doc = "0: External flash is not in DPM."]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: External flash is in DPM."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<DPM_A> for bool {
     #[inline(always)]
     fn from(variant: DPM_A) -> Self {
-        match variant {
-            DPM_A::DISABLED => false,
-            DPM_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DPM`"]
@@ -43,17 +40,14 @@ impl DPM_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READY_A {
     #[doc = "1: QSPI peripheral is ready. It is allowed to trigger new tasks, writing custom instructions or enter/exit DPM."]
-    READY,
+    READY = 1,
     #[doc = "0: QSPI peripheral is busy. It is not allowed to trigger any new tasks, writing custom instructions or enter/exit DPM."]
-    BUSY,
+    BUSY = 0,
 }
 impl From<READY_A> for bool {
     #[inline(always)]
     fn from(variant: READY_A) -> Self {
-        match variant {
-            READY_A::READY => true,
-            READY_A::BUSY => false,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READY`"]

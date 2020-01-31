@@ -14,17 +14,14 @@ impl crate::ResetValue for super::HOST_IOT_KPRTL_LOCK {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HOST_IOT_KPRTL_LOCK_A {
     #[doc = "0: K_PRTL can be selected for use from register HOST_CRYPTOKEY_SEL"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: K_PRTL has been locked until next power-on reset (POR). If K_PRTL is selected anyway, a zeroed key will be used instead."]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<HOST_IOT_KPRTL_LOCK_A> for bool {
     #[inline(always)]
     fn from(variant: HOST_IOT_KPRTL_LOCK_A) -> Self {
-        match variant {
-            HOST_IOT_KPRTL_LOCK_A::DISABLED => false,
-            HOST_IOT_KPRTL_LOCK_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `HOST_IOT_KPRTL_LOCK`"]

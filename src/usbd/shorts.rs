@@ -10,21 +10,19 @@ impl crate::ResetValue for super::SHORTS {
         0
     }
 }
-#[doc = "Shortcut between EP0DATADONE event and STARTEPIN\\[0\\] task\n\nValue on reset: 0"]
+#[doc = "Shortcut between EP0DATADONE event and STARTEPIN\\[0\\]
+task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP0DATADONE_STARTEPIN0_A {
     #[doc = "0: Disable shortcut"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable shortcut"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EP0DATADONE_STARTEPIN0_A> for bool {
     #[inline(always)]
     fn from(variant: EP0DATADONE_STARTEPIN0_A) -> Self {
-        match variant {
-            EP0DATADONE_STARTEPIN0_A::DISABLED => false,
-            EP0DATADONE_STARTEPIN0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EP0DATADONE_STARTEPIN0`"]
@@ -88,21 +86,19 @@ impl<'a> EP0DATADONE_STARTEPIN0_W<'a> {
         self.w
     }
 }
-#[doc = "Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\] task\n\nValue on reset: 0"]
+#[doc = "Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\]
+task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP0DATADONE_STARTEPOUT0_A {
     #[doc = "0: Disable shortcut"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable shortcut"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EP0DATADONE_STARTEPOUT0_A> for bool {
     #[inline(always)]
     fn from(variant: EP0DATADONE_STARTEPOUT0_A) -> Self {
-        match variant {
-            EP0DATADONE_STARTEPOUT0_A::DISABLED => false,
-            EP0DATADONE_STARTEPOUT0_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EP0DATADONE_STARTEPOUT0`"]
@@ -170,17 +166,14 @@ impl<'a> EP0DATADONE_STARTEPOUT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum EP0DATADONE_EP0STATUS_A {
     #[doc = "0: Disable shortcut"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable shortcut"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<EP0DATADONE_EP0STATUS_A> for bool {
     #[inline(always)]
     fn from(variant: EP0DATADONE_EP0STATUS_A) -> Self {
-        match variant {
-            EP0DATADONE_EP0STATUS_A::DISABLED => false,
-            EP0DATADONE_EP0STATUS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `EP0DATADONE_EP0STATUS`"]
@@ -244,21 +237,19 @@ impl<'a> EP0DATADONE_EP0STATUS_W<'a> {
         self.w
     }
 }
-#[doc = "Shortcut between ENDEPOUT\\[0\\] event and EP0STATUS task\n\nValue on reset: 0"]
+#[doc = "Shortcut between ENDEPOUT\\[0\\]
+event and EP0STATUS task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT0_EP0STATUS_A {
     #[doc = "0: Disable shortcut"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable shortcut"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT0_EP0STATUS_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT0_EP0STATUS_A) -> Self {
-        match variant {
-            ENDEPOUT0_EP0STATUS_A::DISABLED => false,
-            ENDEPOUT0_EP0STATUS_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT0_EP0STATUS`"]
@@ -322,21 +313,19 @@ impl<'a> ENDEPOUT0_EP0STATUS_W<'a> {
         self.w
     }
 }
-#[doc = "Shortcut between ENDEPOUT\\[0\\] event and EP0RCVOUT task\n\nValue on reset: 0"]
+#[doc = "Shortcut between ENDEPOUT\\[0\\]
+event and EP0RCVOUT task\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ENDEPOUT0_EP0RCVOUT_A {
     #[doc = "0: Disable shortcut"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable shortcut"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<ENDEPOUT0_EP0RCVOUT_A> for bool {
     #[inline(always)]
     fn from(variant: ENDEPOUT0_EP0RCVOUT_A) -> Self {
-        match variant {
-            ENDEPOUT0_EP0RCVOUT_A::DISABLED => false,
-            ENDEPOUT0_EP0RCVOUT_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ENDEPOUT0_EP0RCVOUT`"]
@@ -401,12 +390,14 @@ impl<'a> ENDEPOUT0_EP0RCVOUT_W<'a> {
     }
 }
 impl R {
-    #[doc = "Bit 0 - Shortcut between EP0DATADONE event and STARTEPIN\\[0\\] task"]
+    #[doc = "Bit 0 - Shortcut between EP0DATADONE event and STARTEPIN\\[0\\]
+task"]
     #[inline(always)]
     pub fn ep0datadone_startepin0(&self) -> EP0DATADONE_STARTEPIN0_R {
         EP0DATADONE_STARTEPIN0_R::new((self.bits & 0x01) != 0)
     }
-    #[doc = "Bit 1 - Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\] task"]
+    #[doc = "Bit 1 - Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\]
+task"]
     #[inline(always)]
     pub fn ep0datadone_startepout0(&self) -> EP0DATADONE_STARTEPOUT0_R {
         EP0DATADONE_STARTEPOUT0_R::new(((self.bits >> 1) & 0x01) != 0)
@@ -416,24 +407,28 @@ impl R {
     pub fn ep0datadone_ep0status(&self) -> EP0DATADONE_EP0STATUS_R {
         EP0DATADONE_EP0STATUS_R::new(((self.bits >> 2) & 0x01) != 0)
     }
-    #[doc = "Bit 3 - Shortcut between ENDEPOUT\\[0\\] event and EP0STATUS task"]
+    #[doc = "Bit 3 - Shortcut between ENDEPOUT\\[0\\]
+event and EP0STATUS task"]
     #[inline(always)]
     pub fn endepout0_ep0status(&self) -> ENDEPOUT0_EP0STATUS_R {
         ENDEPOUT0_EP0STATUS_R::new(((self.bits >> 3) & 0x01) != 0)
     }
-    #[doc = "Bit 4 - Shortcut between ENDEPOUT\\[0\\] event and EP0RCVOUT task"]
+    #[doc = "Bit 4 - Shortcut between ENDEPOUT\\[0\\]
+event and EP0RCVOUT task"]
     #[inline(always)]
     pub fn endepout0_ep0rcvout(&self) -> ENDEPOUT0_EP0RCVOUT_R {
         ENDEPOUT0_EP0RCVOUT_R::new(((self.bits >> 4) & 0x01) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Shortcut between EP0DATADONE event and STARTEPIN\\[0\\] task"]
+    #[doc = "Bit 0 - Shortcut between EP0DATADONE event and STARTEPIN\\[0\\]
+task"]
     #[inline(always)]
     pub fn ep0datadone_startepin0(&mut self) -> EP0DATADONE_STARTEPIN0_W {
         EP0DATADONE_STARTEPIN0_W { w: self }
     }
-    #[doc = "Bit 1 - Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\] task"]
+    #[doc = "Bit 1 - Shortcut between EP0DATADONE event and STARTEPOUT\\[0\\]
+task"]
     #[inline(always)]
     pub fn ep0datadone_startepout0(&mut self) -> EP0DATADONE_STARTEPOUT0_W {
         EP0DATADONE_STARTEPOUT0_W { w: self }
@@ -443,12 +438,14 @@ impl W {
     pub fn ep0datadone_ep0status(&mut self) -> EP0DATADONE_EP0STATUS_W {
         EP0DATADONE_EP0STATUS_W { w: self }
     }
-    #[doc = "Bit 3 - Shortcut between ENDEPOUT\\[0\\] event and EP0STATUS task"]
+    #[doc = "Bit 3 - Shortcut between ENDEPOUT\\[0\\]
+event and EP0STATUS task"]
     #[inline(always)]
     pub fn endepout0_ep0status(&mut self) -> ENDEPOUT0_EP0STATUS_W {
         ENDEPOUT0_EP0STATUS_W { w: self }
     }
-    #[doc = "Bit 4 - Shortcut between ENDEPOUT\\[0\\] event and EP0RCVOUT task"]
+    #[doc = "Bit 4 - Shortcut between ENDEPOUT\\[0\\]
+event and EP0RCVOUT task"]
     #[inline(always)]
     pub fn endepout0_ep0rcvout(&mut self) -> ENDEPOUT0_EP0RCVOUT_W {
         ENDEPOUT0_EP0RCVOUT_W { w: self }

@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::USBREGSTATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum VBUSDETECT_A {
     #[doc = "0: VBUS voltage below valid threshold"]
-    NOVBUS,
+    NOVBUS = 0,
     #[doc = "1: VBUS voltage above valid threshold"]
-    VBUSPRESENT,
+    VBUSPRESENT = 1,
 }
 impl From<VBUSDETECT_A> for bool {
     #[inline(always)]
     fn from(variant: VBUSDETECT_A) -> Self {
-        match variant {
-            VBUSDETECT_A::NOVBUS => false,
-            VBUSDETECT_A::VBUSPRESENT => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `VBUSDETECT`"]
@@ -43,17 +40,14 @@ impl VBUSDETECT_R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUTPUTRDY_A {
     #[doc = "0: USBREG output settling time not elapsed"]
-    NOTREADY,
+    NOTREADY = 0,
     #[doc = "1: USBREG output settling time elapsed (same information as USBPWRRDY event)"]
-    READY,
+    READY = 1,
 }
 impl From<OUTPUTRDY_A> for bool {
     #[inline(always)]
     fn from(variant: OUTPUTRDY_A) -> Self {
-        match variant {
-            OUTPUTRDY_A::NOTREADY => false,
-            OUTPUTRDY_A::READY => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUTPUTRDY`"]

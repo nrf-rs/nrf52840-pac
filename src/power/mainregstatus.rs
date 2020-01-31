@@ -4,17 +4,14 @@ pub type R = crate::R<u32, super::MAINREGSTATUS>;
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MAINREGSTATUS_A {
     #[doc = "0: Normal voltage mode. Voltage supplied on VDD."]
-    NORMAL,
+    NORMAL = 0,
     #[doc = "1: High voltage mode. Voltage supplied on VDDH."]
-    HIGH,
+    HIGH = 1,
 }
 impl From<MAINREGSTATUS_A> for bool {
     #[inline(always)]
     fn from(variant: MAINREGSTATUS_A) -> Self {
-        match variant {
-            MAINREGSTATUS_A::NORMAL => false,
-            MAINREGSTATUS_A::HIGH => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MAINREGSTATUS`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::MODE {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum MODE_A {
     #[doc = "0: AES CCM packet encryption mode"]
-    ENCRYPTION,
+    ENCRYPTION = 0,
     #[doc = "1: AES CCM packet decryption mode"]
-    DECRYPTION,
+    DECRYPTION = 1,
 }
 impl From<MODE_A> for bool {
     #[inline(always)]
     fn from(variant: MODE_A) -> Self {
-        match variant {
-            MODE_A::ENCRYPTION => false,
-            MODE_A::DECRYPTION => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -90,25 +87,21 @@ impl<'a> MODE_W<'a> {
 }
 #[doc = "Radio data rate that the CCM shall run synchronous with\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DATARATE_A {
     #[doc = "0: 1 Mbps"]
-    _1MBIT,
+    _1MBIT = 0,
     #[doc = "1: 2 Mbps"]
-    _2MBIT,
+    _2MBIT = 1,
     #[doc = "2: 125 Kbps"]
-    _125KBPS,
+    _125KBPS = 2,
     #[doc = "3: 500 Kbps"]
-    _500KBPS,
+    _500KBPS = 3,
 }
 impl From<DATARATE_A> for u8 {
     #[inline(always)]
     fn from(variant: DATARATE_A) -> Self {
-        match variant {
-            DATARATE_A::_1MBIT => 0,
-            DATARATE_A::_2MBIT => 1,
-            DATARATE_A::_125KBPS => 2,
-            DATARATE_A::_500KBPS => 3,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `DATARATE`"]
@@ -189,17 +182,14 @@ impl<'a> DATARATE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LENGTH_A {
     #[doc = "0: Default length. Effective length of LENGTH field in encrypted/decrypted packet is 5 bits. A key-stream for packet payloads up to 27 bytes will be generated."]
-    DEFAULT,
+    DEFAULT = 0,
     #[doc = "1: Extended length. Effective length of LENGTH field in encrypted/decrypted packet is 8 bits. A key-stream for packet payloads up to MAXPACKETSIZE bytes will be generated."]
-    EXTENDED,
+    EXTENDED = 1,
 }
 impl From<LENGTH_A> for bool {
     #[inline(always)]
     fn from(variant: LENGTH_A) -> Self {
-        match variant {
-            LENGTH_A::DEFAULT => false,
-            LENGTH_A::EXTENDED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LENGTH`"]

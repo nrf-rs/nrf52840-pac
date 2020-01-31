@@ -14,17 +14,14 @@ impl crate::ResetValue for super::PERM {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum WRITE_A {
     #[doc = "0: Allow write and erase instructions to region n"]
-    ENABLE,
+    ENABLE = 0,
     #[doc = "1: Block write and erase instructions to region n"]
-    DISABLE,
+    DISABLE = 1,
 }
 impl From<WRITE_A> for bool {
     #[inline(always)]
     fn from(variant: WRITE_A) -> Self {
-        match variant {
-            WRITE_A::ENABLE => false,
-            WRITE_A::DISABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `WRITE`"]
@@ -92,17 +89,14 @@ impl<'a> WRITE_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READ_A {
     #[doc = "0: Allow read instructions to region n"]
-    ENABLE,
+    ENABLE = 0,
     #[doc = "1: Block read instructions to region n"]
-    DISABLE,
+    DISABLE = 1,
 }
 impl From<READ_A> for bool {
     #[inline(always)]
     fn from(variant: READ_A) -> Self {
-        match variant {
-            READ_A::ENABLE => false,
-            READ_A::DISABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READ`"]

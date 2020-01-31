@@ -28,17 +28,14 @@ impl<'a> SCKDELAY_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPMEN_A {
     #[doc = "0: Exit DPM."]
-    EXIT,
+    EXIT = 0,
     #[doc = "1: Enter DPM."]
-    ENTER,
+    ENTER = 1,
 }
 impl From<DPMEN_A> for bool {
     #[inline(always)]
     fn from(variant: DPMEN_A) -> Self {
-        match variant {
-            DPMEN_A::EXIT => false,
-            DPMEN_A::ENTER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DPMEN`"]
@@ -106,17 +103,14 @@ impl<'a> DPMEN_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum SPIMODE_A {
     #[doc = "0: Mode 0: Data are captured on the clock rising edge and data is output on a falling edge. Base level of clock is 0 (CPOL=0, CPHA=0)."]
-    MODE0,
+    MODE0 = 0,
     #[doc = "1: Mode 3: Data are captured on the clock falling edge and data is output on a rising edge. Base level of clock is 1 (CPOL=1, CPHA=1)."]
-    MODE3,
+    MODE3 = 1,
 }
 impl From<SPIMODE_A> for bool {
     #[inline(always)]
     fn from(variant: SPIMODE_A) -> Self {
-        match variant {
-            SPIMODE_A::MODE0 => false,
-            SPIMODE_A::MODE3 => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `SPIMODE`"]

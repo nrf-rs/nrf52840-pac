@@ -14,17 +14,14 @@ impl crate::ResetValue for super::EPOUTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT0_A {
     #[doc = "0: Disable endpoint OUT 0 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 0 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT0_A> for bool {
     #[inline(always)]
     fn from(variant: OUT0_A) -> Self {
-        match variant {
-            OUT0_A::DISABLE => false,
-            OUT0_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT0`"]
@@ -92,17 +89,14 @@ impl<'a> OUT0_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT1_A {
     #[doc = "0: Disable endpoint OUT 1 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 1 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT1_A> for bool {
     #[inline(always)]
     fn from(variant: OUT1_A) -> Self {
-        match variant {
-            OUT1_A::DISABLE => false,
-            OUT1_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT1`"]
@@ -170,17 +164,14 @@ impl<'a> OUT1_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT2_A {
     #[doc = "0: Disable endpoint OUT 2 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 2 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT2_A> for bool {
     #[inline(always)]
     fn from(variant: OUT2_A) -> Self {
-        match variant {
-            OUT2_A::DISABLE => false,
-            OUT2_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT2`"]
@@ -248,17 +239,14 @@ impl<'a> OUT2_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT3_A {
     #[doc = "0: Disable endpoint OUT 3 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 3 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT3_A> for bool {
     #[inline(always)]
     fn from(variant: OUT3_A) -> Self {
-        match variant {
-            OUT3_A::DISABLE => false,
-            OUT3_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT3`"]
@@ -326,17 +314,14 @@ impl<'a> OUT3_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT4_A {
     #[doc = "0: Disable endpoint OUT 4 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 4 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT4_A> for bool {
     #[inline(always)]
     fn from(variant: OUT4_A) -> Self {
-        match variant {
-            OUT4_A::DISABLE => false,
-            OUT4_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT4`"]
@@ -404,17 +389,14 @@ impl<'a> OUT4_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT5_A {
     #[doc = "0: Disable endpoint OUT 5 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 5 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT5_A> for bool {
     #[inline(always)]
     fn from(variant: OUT5_A) -> Self {
-        match variant {
-            OUT5_A::DISABLE => false,
-            OUT5_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT5`"]
@@ -482,17 +464,14 @@ impl<'a> OUT5_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT6_A {
     #[doc = "0: Disable endpoint OUT 6 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 6 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT6_A> for bool {
     #[inline(always)]
     fn from(variant: OUT6_A) -> Self {
-        match variant {
-            OUT6_A::DISABLE => false,
-            OUT6_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT6`"]
@@ -560,17 +539,14 @@ impl<'a> OUT6_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum OUT7_A {
     #[doc = "0: Disable endpoint OUT 7 (no response to OUT tokens)"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable endpoint OUT 7 (response to OUT tokens)"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<OUT7_A> for bool {
     #[inline(always)]
     fn from(variant: OUT7_A) -> Self {
-        match variant {
-            OUT7_A::DISABLE => false,
-            OUT7_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `OUT7`"]
@@ -638,17 +614,14 @@ impl<'a> OUT7_W<'a> {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum ISOOUT_A {
     #[doc = "0: Disable ISO OUT endpoint 8"]
-    DISABLE,
+    DISABLE = 0,
     #[doc = "1: Enable ISO OUT endpoint 8"]
-    ENABLE,
+    ENABLE = 1,
 }
 impl From<ISOOUT_A> for bool {
     #[inline(always)]
     fn from(variant: ISOOUT_A) -> Self {
-        match variant {
-            ISOOUT_A::DISABLE => false,
-            ISOOUT_A::ENABLE => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `ISOOUT`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::POFCON {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum POF_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<POF_A> for bool {
     #[inline(always)]
     fn from(variant: POF_A) -> Self {
-        match variant {
-            POF_A::DISABLED => false,
-            POF_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `POF`"]
@@ -90,49 +87,37 @@ impl<'a> POF_W<'a> {
 }
 #[doc = "Power-fail comparator threshold setting. This setting applies both for normal voltage mode (supply connected to both VDD and VDDH) and high voltage mode (supply connected to VDDH only). Values 0-3 set threshold below 1.7 V and should not be used as brown out detection will be activated before power failure warning on such low voltages.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum THRESHOLD_A {
     #[doc = "4: Set threshold to 1.7 V"]
-    V17,
+    V17 = 4,
     #[doc = "5: Set threshold to 1.8 V"]
-    V18,
+    V18 = 5,
     #[doc = "6: Set threshold to 1.9 V"]
-    V19,
+    V19 = 6,
     #[doc = "7: Set threshold to 2.0 V"]
-    V20,
+    V20 = 7,
     #[doc = "8: Set threshold to 2.1 V"]
-    V21,
+    V21 = 8,
     #[doc = "9: Set threshold to 2.2 V"]
-    V22,
+    V22 = 9,
     #[doc = "10: Set threshold to 2.3 V"]
-    V23,
+    V23 = 10,
     #[doc = "11: Set threshold to 2.4 V"]
-    V24,
+    V24 = 11,
     #[doc = "12: Set threshold to 2.5 V"]
-    V25,
+    V25 = 12,
     #[doc = "13: Set threshold to 2.6 V"]
-    V26,
+    V26 = 13,
     #[doc = "14: Set threshold to 2.7 V"]
-    V27,
+    V27 = 14,
     #[doc = "15: Set threshold to 2.8 V"]
-    V28,
+    V28 = 15,
 }
 impl From<THRESHOLD_A> for u8 {
     #[inline(always)]
     fn from(variant: THRESHOLD_A) -> Self {
-        match variant {
-            THRESHOLD_A::V17 => 4,
-            THRESHOLD_A::V18 => 5,
-            THRESHOLD_A::V19 => 6,
-            THRESHOLD_A::V20 => 7,
-            THRESHOLD_A::V21 => 8,
-            THRESHOLD_A::V22 => 9,
-            THRESHOLD_A::V23 => 10,
-            THRESHOLD_A::V24 => 11,
-            THRESHOLD_A::V25 => 12,
-            THRESHOLD_A::V26 => 13,
-            THRESHOLD_A::V27 => 14,
-            THRESHOLD_A::V28 => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `THRESHOLD`"]
@@ -298,61 +283,45 @@ impl<'a> THRESHOLD_W<'a> {
 }
 #[doc = "Power-fail comparator threshold setting for high voltage mode (supply connected to VDDH only). This setting does not apply for normal voltage mode (supply connected to both VDD and VDDH).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum THRESHOLDVDDH_A {
     #[doc = "0: Set threshold to 2.7 V"]
-    V27,
+    V27 = 0,
     #[doc = "1: Set threshold to 2.8 V"]
-    V28,
+    V28 = 1,
     #[doc = "2: Set threshold to 2.9 V"]
-    V29,
+    V29 = 2,
     #[doc = "3: Set threshold to 3.0 V"]
-    V30,
+    V30 = 3,
     #[doc = "4: Set threshold to 3.1 V"]
-    V31,
+    V31 = 4,
     #[doc = "5: Set threshold to 3.2 V"]
-    V32,
+    V32 = 5,
     #[doc = "6: Set threshold to 3.3 V"]
-    V33,
+    V33 = 6,
     #[doc = "7: Set threshold to 3.4 V"]
-    V34,
+    V34 = 7,
     #[doc = "8: Set threshold to 3.5 V"]
-    V35,
+    V35 = 8,
     #[doc = "9: Set threshold to 3.6 V"]
-    V36,
+    V36 = 9,
     #[doc = "10: Set threshold to 3.7 V"]
-    V37,
+    V37 = 10,
     #[doc = "11: Set threshold to 3.8 V"]
-    V38,
+    V38 = 11,
     #[doc = "12: Set threshold to 3.9 V"]
-    V39,
+    V39 = 12,
     #[doc = "13: Set threshold to 4.0 V"]
-    V40,
+    V40 = 13,
     #[doc = "14: Set threshold to 4.1 V"]
-    V41,
+    V41 = 14,
     #[doc = "15: Set threshold to 4.2 V"]
-    V42,
+    V42 = 15,
 }
 impl From<THRESHOLDVDDH_A> for u8 {
     #[inline(always)]
     fn from(variant: THRESHOLDVDDH_A) -> Self {
-        match variant {
-            THRESHOLDVDDH_A::V27 => 0,
-            THRESHOLDVDDH_A::V28 => 1,
-            THRESHOLDVDDH_A::V29 => 2,
-            THRESHOLDVDDH_A::V30 => 3,
-            THRESHOLDVDDH_A::V31 => 4,
-            THRESHOLDVDDH_A::V32 => 5,
-            THRESHOLDVDDH_A::V33 => 6,
-            THRESHOLDVDDH_A::V34 => 7,
-            THRESHOLDVDDH_A::V35 => 8,
-            THRESHOLDVDDH_A::V36 => 9,
-            THRESHOLDVDDH_A::V37 => 10,
-            THRESHOLDVDDH_A::V38 => 11,
-            THRESHOLDVDDH_A::V39 => 12,
-            THRESHOLDVDDH_A::V40 => 13,
-            THRESHOLDVDDH_A::V41 => 14,
-            THRESHOLDVDDH_A::V42 => 15,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `THRESHOLDVDDH`"]

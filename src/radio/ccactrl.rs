@@ -12,28 +12,23 @@ impl crate::ResetValue for super::CCACTRL {
 }
 #[doc = "CCA mode of operation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CCAMODE_A {
     #[doc = "0: Energy above threshold"]
-    EDMODE,
+    EDMODE = 0,
     #[doc = "1: Carrier seen"]
-    CARRIERMODE,
+    CARRIERMODE = 1,
     #[doc = "2: Energy above threshold AND carrier seen"]
-    CARRIERANDEDMODE,
+    CARRIERANDEDMODE = 2,
     #[doc = "3: Energy above threshold OR carrier seen"]
-    CARRIEROREDMODE,
+    CARRIEROREDMODE = 3,
     #[doc = "4: Energy above threshold test mode that will abort when first ED measurement over threshold is seen. No averaging."]
-    EDMODETEST1,
+    EDMODETEST1 = 4,
 }
 impl From<CCAMODE_A> for u8 {
     #[inline(always)]
     fn from(variant: CCAMODE_A) -> Self {
-        match variant {
-            CCAMODE_A::EDMODE => 0,
-            CCAMODE_A::CARRIERMODE => 1,
-            CCAMODE_A::CARRIERANDEDMODE => 2,
-            CCAMODE_A::CARRIEROREDMODE => 3,
-            CCAMODE_A::EDMODETEST1 => 4,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `CCAMODE`"]

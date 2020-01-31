@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::EVENTS_ENDEPIN>;
 #[doc = "Writer for register EVENTS_ENDEPIN[%s]"]
 pub type W = crate::W<u32, super::EVENTS_ENDEPIN>;
-#[doc = "Register EVENTS_ENDEPIN[%s] `reset()`'s with value 0"]
+#[doc = "Register EVENTS_ENDEPIN[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::EVENTS_ENDEPIN {
     type Type = u32;
     #[inline(always)]

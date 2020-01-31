@@ -1,4 +1,4 @@
-#[doc = "Pin select for serial clock SCK\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sck](sck) module"]
+#[doc = "Pin select for serial clock SCK\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sck](sck) module"]
 pub type SCK = crate::Reg<u32, _SCK>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -9,7 +9,7 @@ impl crate::Readable for SCK {}
 impl crate::Writable for SCK {}
 #[doc = "Pin select for serial clock SCK"]
 pub mod sck;
-#[doc = "Pin select for chip select signal CSN.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [csn](csn) module"]
+#[doc = "Pin select for chip select signal CSN.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [csn](csn) module"]
 pub type CSN = crate::Reg<u32, _CSN>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -20,7 +20,7 @@ impl crate::Readable for CSN {}
 impl crate::Writable for CSN {}
 #[doc = "Pin select for chip select signal CSN."]
 pub mod csn;
-#[doc = "Pin select for serial data MOSI/IO0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [io0](io0) module"]
+#[doc = "Pin select for serial data MOSI/IO0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [io0](io0) module"]
 pub type IO0 = crate::Reg<u32, _IO0>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -31,7 +31,7 @@ impl crate::Readable for IO0 {}
 impl crate::Writable for IO0 {}
 #[doc = "Pin select for serial data MOSI/IO0."]
 pub mod io0;
-#[doc = "Pin select for serial data MISO/IO1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [io1](io1) module"]
+#[doc = "Pin select for serial data MISO/IO1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [io1](io1) module"]
 pub type IO1 = crate::Reg<u32, _IO1>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -42,7 +42,7 @@ impl crate::Readable for IO1 {}
 impl crate::Writable for IO1 {}
 #[doc = "Pin select for serial data MISO/IO1."]
 pub mod io1;
-#[doc = "Pin select for serial data IO2.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [io2](io2) module"]
+#[doc = "Pin select for serial data IO2.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [io2](io2) module"]
 pub type IO2 = crate::Reg<u32, _IO2>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -53,7 +53,7 @@ impl crate::Readable for IO2 {}
 impl crate::Writable for IO2 {}
 #[doc = "Pin select for serial data IO2."]
 pub mod io2;
-#[doc = "Pin select for serial data IO3.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [io3](io3) module"]
+#[doc = "Pin select for serial data IO3.\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [io3](io3) module"]
 pub type IO3 = crate::Reg<u32, _IO3>;
 #[allow(missing_docs)]
 #[doc(hidden)]

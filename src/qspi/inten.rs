@@ -14,17 +14,14 @@ impl crate::ResetValue for super::INTEN {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum READY_A {
     #[doc = "0: Disable"]
-    DISABLED,
+    DISABLED = 0,
     #[doc = "1: Enable"]
-    ENABLED,
+    ENABLED = 1,
 }
 impl From<READY_A> for bool {
     #[inline(always)]
     fn from(variant: READY_A) -> Self {
-        match variant {
-            READY_A::DISABLED => false,
-            READY_A::ENABLED => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `READY`"]

@@ -14,17 +14,14 @@ impl crate::ResetValue for super::LOWPOWER {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum LOWPOWER_A {
     #[doc = "0: Software must write this value to exit low power mode and before performing a remote wake-up"]
-    FORCENORMAL,
+    FORCENORMAL = 0,
     #[doc = "1: Software must write this value to enter low power mode after DMA and software have finished interacting with the USB peripheral"]
-    LOWPOWER,
+    LOWPOWER = 1,
 }
 impl From<LOWPOWER_A> for bool {
     #[inline(always)]
     fn from(variant: LOWPOWER_A) -> Self {
-        match variant {
-            LOWPOWER_A::FORCENORMAL => false,
-            LOWPOWER_A::LOWPOWER => true,
-        }
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `LOWPOWER`"]

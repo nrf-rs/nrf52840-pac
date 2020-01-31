@@ -2,46 +2,35 @@
 pub type R = crate::R<u32, super::BREQUEST>;
 #[doc = "SETUP data, byte 1, bRequest. Values provided for standard requests only, user must implement class and vendor values.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum BREQUEST_A {
     #[doc = "0: Standard request GET_STATUS"]
-    STD_GET_STATUS,
+    STD_GET_STATUS = 0,
     #[doc = "1: Standard request CLEAR_FEATURE"]
-    STD_CLEAR_FEATURE,
+    STD_CLEAR_FEATURE = 1,
     #[doc = "3: Standard request SET_FEATURE"]
-    STD_SET_FEATURE,
+    STD_SET_FEATURE = 3,
     #[doc = "5: Standard request SET_ADDRESS"]
-    STD_SET_ADDRESS,
+    STD_SET_ADDRESS = 5,
     #[doc = "6: Standard request GET_DESCRIPTOR"]
-    STD_GET_DESCRIPTOR,
+    STD_GET_DESCRIPTOR = 6,
     #[doc = "7: Standard request SET_DESCRIPTOR"]
-    STD_SET_DESCRIPTOR,
+    STD_SET_DESCRIPTOR = 7,
     #[doc = "8: Standard request GET_CONFIGURATION"]
-    STD_GET_CONFIGURATION,
+    STD_GET_CONFIGURATION = 8,
     #[doc = "9: Standard request SET_CONFIGURATION"]
-    STD_SET_CONFIGURATION,
+    STD_SET_CONFIGURATION = 9,
     #[doc = "10: Standard request GET_INTERFACE"]
-    STD_GET_INTERFACE,
+    STD_GET_INTERFACE = 10,
     #[doc = "11: Standard request SET_INTERFACE"]
-    STD_SET_INTERFACE,
+    STD_SET_INTERFACE = 11,
     #[doc = "12: Standard request SYNCH_FRAME"]
-    STD_SYNCH_FRAME,
+    STD_SYNCH_FRAME = 12,
 }
 impl From<BREQUEST_A> for u8 {
     #[inline(always)]
     fn from(variant: BREQUEST_A) -> Self {
-        match variant {
-            BREQUEST_A::STD_GET_STATUS => 0,
-            BREQUEST_A::STD_CLEAR_FEATURE => 1,
-            BREQUEST_A::STD_SET_FEATURE => 3,
-            BREQUEST_A::STD_SET_ADDRESS => 5,
-            BREQUEST_A::STD_GET_DESCRIPTOR => 6,
-            BREQUEST_A::STD_SET_DESCRIPTOR => 7,
-            BREQUEST_A::STD_GET_CONFIGURATION => 8,
-            BREQUEST_A::STD_SET_CONFIGURATION => 9,
-            BREQUEST_A::STD_GET_INTERFACE => 10,
-            BREQUEST_A::STD_SET_INTERFACE => 11,
-            BREQUEST_A::STD_SYNCH_FRAME => 12,
-        }
+        variant as _
     }
 }
 #[doc = "Reader of field `BREQUEST`"]
